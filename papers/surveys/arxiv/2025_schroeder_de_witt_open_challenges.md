@@ -2,7 +2,7 @@
 
 ## Citation
 Title: Open Challenges in Multi-Agent Security: Towards Secure Systems of Interacting AI Agents
-Authors: Christian Schroeder de Witt et al.
+Authors: Christian Schroeder de Witt; Klaudia Krawiecka; Igor Krawczuk; Ben Hagag; William L. Anderson; Peter Belcak; Ben Bucknall; Xiaohong Cai; Ayush Chopra; Doron Cohen; Ron F. Del Rosario; Andis Draguns; Annie Gray; Keren Katz; Vasilios Mavroudis; Jaron Mink; Sumeet Ramesh Motwani; Jonathan Petit; Leif-Sebastian Rembeck; Chandler Smith; John Sotiropoulos; Steven Young; Sarah Scheffler; Mary Llewellyn
 Year: 2025
 Venue: arXiv
 DOI: 10.48550/arXiv.2505.02077
@@ -12,6 +12,10 @@ BibTeX key: schroederdewitt2025openchallenges
 
 ## Paper Type
 Survey; Position paper
+
+Primary category: Not applicable; separate `sok_related` set
+
+Scope relation: direct
 
 ## Scope
 ### System Studied
@@ -34,7 +38,7 @@ Coordinate, hide communication, propagate attacks, and exploit open protocols.
 Free-form agent interaction is retained for generality.
 
 ## Main Contribution
-This multidisciplinary position paper maps open security challenges created by direct agent interaction and argues that network and collective phenomena require new security foundations.
+This multidisciplinary position paper defines multi-agent security around threats that emerge or amplify through interaction. It develops a threat taxonomy and research agenda spanning technical security, evaluation, governance, and sociotechnical defenses.
 
 ## Attack or Failure
 ### Attack Surface
@@ -56,7 +60,7 @@ Depends on proposed direction.
 ### Assumptions
 Depends on proposed direction.
 ### Limitations
-The paper is an agenda and does not systematically screen or empirically audit a corpus.
+The paper is an agenda and broad synthesis; it does not provide an empirical prevalence denominator.
 
 ## Evaluation
 ### Evaluated Systems
@@ -95,8 +99,10 @@ Preprint status and agenda format mean it is contextual evidence, not prevalence
 ## Evidence
 | Claim | Claim status | Source type | Section | Page | Figure or table | Evidence |
 | ----- | ------------ | ----------- | ------- | ---: | --------------- | -------- |
-| The paper centers security challenges of interacting AI agents. | Explicit author claim | Paper | Abstract; Introduction | 1-3 | Overview | Scope. |
-| It is an agenda rather than a reproducible corpus review. | Corpus interpretation | Paper | Methods and organization | 1-20 | None | Evidence maturity. |
+| The paper defines multi-agent security around threats that emerge or amplify through interaction. | Explicit author claim | Paper | Abstract; Introduction | PDF 1-3 | Figure 1 | The system boundary and non-compositionality argument are stated explicitly. |
+| The paper organizes threats by attacker position and interaction-dependent mechanism. | Explicit author claim | Paper | Section 3 | PDF 14-32 | Threat taxonomy figures and tables | The taxonomy covers privacy, collusion, exploitation, swarms, cascades, conflicts, embodied, and sociotechnical threats. |
+| The work proposes a technical and research agenda rather than reporting a pooled empirical result. | Corpus interpretation | Paper | Section 4 | PDF 33-46 | Not applicable | Open challenges cover protocols, monitoring, attribution, testing, and sociotechnical defenses. |
+| Governance is treated as a multi-agent system problem rather than only model-level control. | Explicit author claim | Paper | Section 5 | PDF 47-49 | Not applicable | Accountability, liability, and limits of model-level governance are discussed. |
 
 ## Provenance
 ### Discovery Source
@@ -104,7 +110,7 @@ arXiv API; seed-paper citation graph.
 ### Discovery Query
 open challenges multi-agent security interacting AI agents
 ### Accessed Version
-arXiv v2.
+arXiv v2 dated 2026-04-29.
 ### Access Date
 2026-08-06
 ### Prepared By

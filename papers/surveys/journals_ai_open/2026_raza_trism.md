@@ -13,6 +13,10 @@ BibTeX key: raza2026trism
 ## Paper Type
 Survey; Position paper
 
+Primary category: Not applicable; separate `sok_related` set
+
+Scope relation: strongly_related
+
 ## Scope
 ### System Studied
 LLM-based agentic multi-agent systems across enterprise and societal deployments.
@@ -95,8 +99,9 @@ Some proposed measures are conceptual rather than standardized evaluation contra
 ## Evidence
 | Claim | Claim status | Source type | Section | Page | Figure or table | Evidence |
 | ----- | ------------ | ----------- | ------- | ---: | --------------- | -------- |
-| The review adapts five TRiSM pillars to agentic MAS. | Explicit author claim | Paper | Abstract; Framework | 1; 4-12 | Framework figures | Organizing model. |
-| CSS and TUE are introduced as coordination and tool-use measures. | Explicit author claim | Paper | Metrics | 12-14 | Equations | Proposed measures. |
+| The review adapts explainability, ModelOps, security, privacy, and lifecycle governance to agentic MAS. | Explicit author claim | Paper | Abstract; framework sections | PDF 1; 4-22 | Framework figures | Organizing model. |
+| CSS and TUE are introduced as coordination and tool-use measures. | Explicit author claim | Paper | Metrics and practical assessment | PDF 23-24 | Equations | Proposed measures. |
+| The work is a governance review rather than attack-prevalence evidence. | Corpus interpretation | Paper | Security/privacy and conclusion | PDF 24-35 | Not applicable | The paper synthesizes controls and proposes a roadmap without a pooled attack denominator. |
 
 ## Provenance
 ### Discovery Source
@@ -104,7 +109,7 @@ AI Open DOI record; arXiv full text; version reconciliation.
 ### Discovery Query
 TRiSM agentic multi-agent AI Open
 ### Accessed Version
-Published AI Open 2026 record; author preprint used for full text.
+Published AI Open 2026 record; arXiv v5 used as the open full text.
 ### Access Date
 2026-08-06
 ### Prepared By

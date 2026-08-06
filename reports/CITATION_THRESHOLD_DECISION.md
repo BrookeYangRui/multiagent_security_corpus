@@ -1,5 +1,12 @@
 # Non-Peer Citation Threshold Decision Report
 
+Current-status note (2026-08-06): publication verification moved *Cohesive
+Conversations* to the peer-reviewed backbone. The live frame is therefore 94
+peer-reviewed works plus 21 non-peer works with citations `>10`; the historical
+22-work non-peer counts below describe the pre-correction snapshot. All 19
+previously pending full-text decisions are recorded in
+`NON_PEER_GT10_FULL_TEXT_ADJUDICATION.md`.
+
 ## Decision in one page
 
 This report records the threshold decision for non-peer-reviewed work in the
@@ -184,11 +191,11 @@ size is the result of the scope rule, not an optimization objective.
 
 ## Required review before finalizing the denominator
 
-1. Review the 22 non-peer works above from canonical full text.
-2. Resolve the two boundary cases explicitly.
-3. Record claim-level security evidence for each retained work.
-4. Apply the same scope test to all 93 peer-reviewed works.
-5. Regenerate the peer-first ledger only after adjudication.
+1. Obtain named author signoff for the completed non-peer full-text decisions.
+2. Resolve contextual and boundary claims explicitly at claim level.
+3. Create the required note, BibTeX, and `papers.csv` records for retained works.
+4. Apply the same scope test to the remaining 53 peer-reviewed candidates.
+5. Regenerate final taxonomy denominators only after those decisions.
 
 Until those steps are complete, the taxonomy candidate set remains an
 adjudication queue rather than a final core denominator.

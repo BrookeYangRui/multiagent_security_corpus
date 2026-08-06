@@ -18,9 +18,9 @@ remain undecidable.
 
 | Stratum | Works |
 | --- | ---: |
-| Peer-reviewed conference/proceedings | 84 |
+| Peer-reviewed conference/proceedings | 85 |
 | Peer-reviewed journal | 9 |
-| Non-peer-reviewed, citations > 10 | 22 |
+| Non-peer-reviewed, citations > 10 | 21 |
 | Non-peer-reviewed, citations <= 10 | 202 |
 | Unresolved citation/publication status | 8 |
 | **Total scope-included works** | **325** |
@@ -49,6 +49,7 @@ must not enter corpus-level denominators. Unresolved records are not exclusions.
 | IJCNLP-AACL | 2 |
 | Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems | 2 |
 | ICML | 1 |
+| COLM 2024 | 1 |
 | International Conference on Learning Representations | 1 |
 | North American Chapter of the Association for Computational Linguistics | 1 |
 | Trans. Mach. Learn. Res. | 1 |

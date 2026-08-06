@@ -13,6 +13,10 @@ BibTeX key: ko2026sevenchallenges
 ## Paper Type
 Survey; Position paper
 
+Primary category: Not applicable; separate `sok_related` set
+
+Scope relation: direct
+
 ## Scope
 ### System Studied
 Cross-domain LLM agents interacting across organizational and technical boundaries.
@@ -95,8 +99,9 @@ Challenge enumeration should not be coded as prevalence evidence.
 ## Evidence
 | Claim | Claim status | Source type | Section | Page | Figure or table | Evidence |
 | ----- | ------------ | ----------- | ------- | ---: | --------------- | -------- |
-| The paper frames seven cross-domain MAS security challenges. | Explicit author claim | Paper | Main text | 1-8 | Challenge headings | Organizing contribution. |
-| The work is a position/challenge synthesis rather than an empirical audit. | Corpus interpretation | Paper | Methods and main text | 1-8 | None | Evidence maturity coding. |
+| The paper frames seven cross-domain MAS security challenges. | Explicit author claim | Paper | Sections 1-2 | PDF 1-8 | Figure 2; challenge headings | Organizing contribution. |
+| The paper pairs the seven challenges with evaluation metrics and countermeasure directions. | Explicit author claim | Paper | Section 3 | PDF 9-13 | Metric and guideline tables | The proposals are challenge-specific rather than pooled results. |
+| The work is a perspective/challenge synthesis rather than an empirical audit. | Corpus interpretation | Paper | Sections 1-4 | PDF 1-13 | Not applicable | Evidence maturity coding. |
 
 ## Provenance
 ### Discovery Source

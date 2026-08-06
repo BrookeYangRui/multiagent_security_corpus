@@ -38,15 +38,20 @@ PUBLICATION_OVERRIDES_CSV = (
     BROAD_SET / "publication_status_overrides.csv"
 )
 UNIVERSAL_SOURCE_REVIEW_CSV = (
-    ROOT / "reviews" / "universal" / "universal_114_source_review.csv"
+    ROOT / "reviews" / "universal" / "active_source_review.csv"
 )
 UNIVERSAL_SOURCE_CORRECTIONS_CSV = (
-    ROOT / "reviews" / "universal" / "universal_source_review_corrections.csv"
+    ROOT / "reviews" / "universal" / "active_source_review_corrections.csv"
 )
+SOK_DIR = ROOT / "sok_related"
+SOK_PAPERS_CSV = SOK_DIR / "papers.csv"
+SOK_EXCLUSIONS_CSV = SOK_DIR / "exclusions.csv"
+SOK_REFERENCES = SOK_DIR / "references.bib"
 FINAL_DIR = ROOT / "corpus" / "final"
 FINAL_ALL_CSV = FINAL_DIR / "all_relevant_papers.csv"
 FINAL_PEER_CSV = FINAL_DIR / "peer_reviewed.csv"
 FINAL_NONPEER_CSV = FINAL_DIR / "non_peer_citations_gt_10.csv"
+FINAL_INCLUDED_NONPEER_CSV = FINAL_DIR / "non_peer_included_citations_gt_10.csv"
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -160,17 +165,34 @@ FINAL_PAPER_FIELDS = [
     "note_path",
 ]
 FINAL_NONPEER_FIELDS = [
+    "record_id", "title", "publication_date", "venue", "arxiv_id", "doi",
+    "primary_url", "citations", "citation_source", "citation_snapshot_date",
+    "recommended_scope", "gate_decision", "source_review_status",
+    "threshold_rule", "cutoff", "semantic_scholar_id",
+]
+FINAL_INCLUDED_NONPEER_FIELDS = [
     "paper_id", "title", "year", "venue", "arxiv_id", "doi",
     "primary_url", "citations", "citation_source", "citation_snapshot_date",
     "scope_relation", "screening_status", "threshold_rule", "cutoff",
     "semantic_scholar_id",
+]
+SOK_FIELDS = [
+    "sok_id", "title", "authors", "year", "venue", "doi", "primary_url",
+    "open_access_url", "bibtex_key", "work_type", "relation_level",
+    "multiagent_security_centrality", "publication_status",
+    "first_public_date", "cutoff_status", "note_path", "accessed_version",
+    "access_date", "prepared_by", "verification_status",
+]
+SOK_EXCLUSION_FIELDS = [
+    "record_id", "title", "primary_url", "decision", "reason",
+    "screened_date",
 ]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
     "fully_reviewed",
 }
 INCLUSION_STATES = {"included", "excluded", "pending"}
-PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "survey", "general"}
+PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "general"}
 SCOPE_RELATIONS = {"core_security", "security_relevant", "adjacent"}
 ATTACK_EVIDENCE_STATES = {
     "confirmed_attack_bearing", "confirmed_attack_bearing_secondary",
@@ -254,6 +276,11 @@ def main() -> int:
         final_all = read_csv(FINAL_ALL_CSV, FINAL_PAPER_FIELDS)
         final_peer = read_csv(FINAL_PEER_CSV, FINAL_PAPER_FIELDS)
         final_nonpeer = read_csv(FINAL_NONPEER_CSV, FINAL_NONPEER_FIELDS)
+        final_included_nonpeer = read_csv(
+            FINAL_INCLUDED_NONPEER_CSV, FINAL_INCLUDED_NONPEER_FIELDS
+        )
+        sok_papers = read_csv(SOK_PAPERS_CSV, SOK_FIELDS)
+        sok_exclusions = read_csv(SOK_EXCLUSIONS_CSV, SOK_EXCLUSION_FIELDS)
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
@@ -263,6 +290,7 @@ def main() -> int:
     post_cutoff_bib_keys = BIB_KEY.findall(
         POST_CUTOFF_REFERENCES.read_text(encoding="utf-8")
     )
+    sok_bib_keys = BIB_KEY.findall(SOK_REFERENCES.read_text(encoding="utf-8"))
     for key in sorted(duplicates(bib_keys)):
         errors.append(f"duplicate BibTeX key: {key}")
 
@@ -288,6 +316,53 @@ def main() -> int:
         errors.append(f"duplicate post-cutoff paper_id: {value}")
     corpus_ids = {row["paper_id"].strip() for row in papers}
     papers_by_id = {row["paper_id"].strip(): row for row in papers}
+    sok_ids = [row["sok_id"].strip() for row in sok_papers]
+    if duplicates(sok_ids):
+        errors.append("sok_related/papers.csv contains duplicate sok_id values")
+    if corpus_ids.intersection(sok_ids):
+        errors.append("sok-related works must not appear in the research corpus")
+    expected_sok_bib_keys = {
+        row["bibtex_key"].strip() for row in sok_papers
+    }
+    if set(sok_bib_keys) != expected_sok_bib_keys:
+        errors.append("sok-related BibTeX keys must exactly match its records")
+    if duplicates(sok_bib_keys):
+        errors.append("sok_related/references.bib contains duplicate keys")
+    for line, row in enumerate(sok_papers, start=2):
+        note = ROOT / row["note_path"]
+        if (
+            not note.is_file()
+            or not note.is_relative_to(ROOT / "papers" / "surveys")
+        ):
+            errors.append(
+                f"sok_related/papers.csv:{line}: invalid survey note path"
+            )
+        if row["relation_level"] not in {"direct", "strongly_related"}:
+            errors.append(
+                f"sok_related/papers.csv:{line}: invalid relation level"
+            )
+        if row["verification_status"] != "agent_unverified":
+            errors.append(
+                f"sok_related/papers.csv:{line}: invalid verification status"
+            )
+        if row["cutoff_status"] not in {"pre_cutoff", "post_cutoff"}:
+            errors.append(
+                f"sok_related/papers.csv:{line}: invalid cutoff status"
+            )
+        expected_cutoff = (
+            "pre_cutoff"
+            if row["first_public_date"] < "2026-07-01"
+            else "post_cutoff"
+        )
+        if row["cutoff_status"] != expected_cutoff:
+            errors.append(
+                f"sok_related/papers.csv:{line}: cutoff status/date mismatch"
+            )
+    excluded_sok_ids = [row["record_id"].strip() for row in sok_exclusions]
+    if duplicates(excluded_sok_ids):
+        errors.append("sok_related/exclusions.csv contains duplicate record IDs")
+    if set(sok_ids).intersection(excluded_sok_ids):
+        errors.append("a work cannot be both SoK-related included and excluded")
     final_ids = [row["paper_id"].strip() for row in final_all]
     if len(final_ids) != len(corpus_ids) or set(final_ids) != corpus_ids:
         errors.append(
@@ -295,7 +370,7 @@ def main() -> int:
         )
     final_subsets = (
         ("peer_reviewed.csv", final_peer),
-        ("non_peer_citations_gt_10.csv", final_nonpeer),
+        ("non_peer_included_citations_gt_10.csv", final_included_nonpeer),
     )
     for label, rows in final_subsets:
         ids = [row["paper_id"].strip() for row in rows]
@@ -303,6 +378,19 @@ def main() -> int:
             errors.append(f"{label} contains duplicate paper IDs")
         if not set(ids).issubset(corpus_ids):
             errors.append(f"{label} contains papers outside the canonical corpus")
+    influential_ids = {
+        row["record_id"]
+        for row in peer_first
+        if row["peer_first_stratum"] == "influential_non_peer"
+    }
+    exported_candidate_ids = [row["record_id"] for row in final_nonpeer]
+    if set(exported_candidate_ids) != influential_ids:
+        errors.append(
+            "non_peer_citations_gt_10.csv must contain every influential "
+            "non-peer candidate"
+        )
+    if duplicates(exported_candidate_ids):
+        errors.append("non_peer_citations_gt_10.csv contains duplicate record IDs")
     for line, row in enumerate(final_all, start=2):
         paper = papers_by_id.get(row["paper_id"].strip())
         if paper and row["note_path"].strip() != paper["note_path"].strip():
@@ -735,12 +823,12 @@ def main() -> int:
         paper_id = row["paper_id"].strip()
         if row["review_status"].strip() not in allowed_source_statuses:
             errors.append(
-                f"universal_114_source_review.csv:{line}: invalid review "
+                f"active_source_review.csv:{line}: invalid review "
                 f"status for {paper_id}: {row['review_status']}"
             )
         if not row["evidence_locators"].strip():
             errors.append(
-                f"universal_114_source_review.csv:{line}: missing evidence "
+                f"active_source_review.csv:{line}: missing evidence "
                 f"locators for {paper_id}"
             )
         if papers_by_id[paper_id]["verification_status"].strip() != "agent_unverified":
@@ -749,10 +837,6 @@ def main() -> int:
                 f"{paper_id}"
             )
 
-    if len(universal_source_corrections) != 231:
-        errors.append(
-            "universal_source_review_corrections.csv: expected 231 rows"
-        )
     correction_source_ids = set(source_ids)
     for line, row in enumerate(universal_source_corrections, start=2):
         paper_id = row["paper_id"].strip()
@@ -912,6 +996,7 @@ def main() -> int:
         f"{len(cross_category_review)} cross-category reviews; "
         f"{len(universal_review)} papers in the universal checklist; "
         f"{len(final_all)} papers in the canonical final export; "
+        f"{len(sok_papers)} works in the separate SoK-related set; "
         f"{len(universal_source_corrections)} universal source-review "
         "corrections."
     )

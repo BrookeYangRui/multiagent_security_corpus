@@ -41,36 +41,46 @@ final export.
 
 The 2,182-row search catalog remains the retrieval and screening log, and the
 325-work broad ledger remains a candidate set. Neither is an included-paper
-denominator. The sole canonical corpus is the 114-paper record set shared by
+denominator. The sole canonical research corpus is the 107-paper record set shared by
 `corpus/papers.csv`, `corpus/references.bib`, paper notes, and the universal
 review queue. Candidate or gap-search records enter this corpus only after all
 three required paper records are created.
+
+SoKs, reviews, perspectives, and security agendas are screened separately in
+`sok_related/`. Its four works are strongly related supporting literature and
+do not enter the research-paper denominator.
 
 ## Final counts
 
 | Export | Works |
 | --- | ---: |
-| Canonical included papers | 114 |
-| Formal peer-reviewed conference or journal papers | 75 |
-| Non-peer or publication-unverified papers | 35 |
+| Canonical research papers | 107 |
+| Formal peer-reviewed conference or journal papers | 69 |
+| Non-peer or publication-unverified papers | 34 |
 | Non-archival workshop papers | 4 |
+| Non-peer citation-gate candidates (`>10`) | 21 |
 | Canonical non-peer papers directly matched to the `>10` candidate ledger | 3 |
+| Strongly related SoKs, reviews, perspectives, and agendas | 4 |
 | CVE records | 18 |
 | Industry and community reports | 8 |
 
-Within the 114-paper corpus, 79 are coded `core_security`, 32 are
+Within the 107-paper research corpus, 79 are coded `core_security`, 25 are
 `security_relevant`, and 3 are `adjacent`. These scope labels remain visible;
 they do not create a second paper corpus. The final exports contain no paper ID
 that is absent from `corpus/papers.csv`.
 
 ## Evidence status
 
-All 114 canonical records are represented in the universal source-review
-packet and preserve their source-review status and evidence locators. All 114
+All 107 canonical research records are represented in the active universal
+source-review view and preserve their source-review status and evidence locators. All 107
 remain `agent_unverified` in `corpus/papers.csv`; no record is labeled
 human-verified without named human signoff. Proceedings-gap, citation-threshold,
 and unresolved records remain candidates outside the canonical corpus until
 the required full-text note, BibTeX entry, and `papers.csv` row are completed.
+
+The separate four-work SoK-related set is also `agent_unverified`. Two records
+use published journal versions, one uses arXiv v2, and one uses Cooperative AI
+Foundation Technical Report 1.
 
 ## Completeness claim
 

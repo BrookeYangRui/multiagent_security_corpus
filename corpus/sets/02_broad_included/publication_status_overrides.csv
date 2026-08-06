@@ -2,4 +2,5 @@ record_id,publication_status,venue_type,canonical_venue,canonical_doi,evidence_t
 arxiv:2410.15686,peer_reviewed,conference,Findings of ACL 2025,10.18653/v1/2025.findings-acl.150,official_proceedings_record,https://aclanthology.org/2025.findings-acl.150/,2026-08-06,Published title uses singular System rather than Networks
 arxiv:2505.19234,peer_reviewed,conference,NeurIPS 2025,,official_proceedings_record,https://proceedings.neurips.cc/paper_files/paper/2025/hash/0bc795afae289ed465a65a3b4b1f4eb7-Abstract-Conference.html,2026-08-06,Main conference track
 arxiv:2503.12188,peer_reviewed,conference,COLM 2025,,official_acceptance_and_paper,https://openreview.net/forum?id=DAozI4etUp,2026-08-06,Official paper states published at COLM 2025
+arxiv:2407.09897,peer_reviewed,conference,COLM 2024,,official_proceedings_record,https://openreview.net/forum?id=3ypWPhMGhV,2026-08-06,Published as a conference paper at COLM 2024
 doi:10.1145/3786335.3813181,peer_reviewed,conference,ACM CAIS 2026,10.1145/3786335.3813181,official_proceedings_record,https://doi.org/10.1145/3786335.3813181,2026-08-06,ACM Conference on AI and Agentic Systems proceedings

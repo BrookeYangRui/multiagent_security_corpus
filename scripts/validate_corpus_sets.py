@@ -44,7 +44,7 @@ def main() -> int:
     manifest = read(SETS / "SET_MANIFEST.csv")
     papers = read(ROOT / "corpus" / "papers.csv")
     reviews = read(
-        ROOT / "reviews" / "universal" / "universal_114_source_review.csv"
+        ROOT / "reviews" / "universal" / "active_source_review.csv"
     )
 
     if len(search) != 2182:
@@ -75,8 +75,8 @@ def main() -> int:
 
     candidate_basis = Counter(row["candidate_basis"] for row in taxonomy)
     if candidate_basis != {
-        "peer_reviewed_backbone": 93,
-        "non_peer_citations_gt_10": 22,
+        "peer_reviewed_backbone": 94,
+        "non_peer_citations_gt_10": 21,
     }:
         errors.append(f"unexpected taxonomy candidate basis: {candidate_basis}")
     if len(taxonomy) != 115:
@@ -94,10 +94,15 @@ def main() -> int:
 
     reviewed_ids = {row["paper_id"] for row in reviews}
     paper_ids = {row["paper_id"] for row in papers}
-    if reviewed_ids != paper_ids or len(reviews) != 114:
-        errors.append("universal source review must match all 114 structured papers")
-    if len(contextual) != 41:
-        errors.append(f"contextual set must contain 41 reviewed works, found {len(contextual)}")
+    if reviewed_ids != paper_ids or len(reviews) != len(papers):
+        errors.append("active source review must match all structured research papers")
+    expected_contextual_ids = {
+        row["paper_id"]
+        for row in reviews
+        if row["recommended_scope"] != "core_security"
+    }
+    if {row["paper_id"] for row in contextual} != expected_contextual_ids:
+        errors.append("contextual set must match non-core active source reviews")
     for line, row in enumerate(contextual, start=2):
         if row["paper_id"] not in reviewed_ids:
             errors.append(f"adjacent_contextual.csv:{line}: unknown paper")
@@ -130,8 +135,8 @@ def main() -> int:
         (row["analysis_id"], row["paper_id"])
         for row in eligibility
     }
-    if observed_pairs != expected_pairs or len(eligibility) != 798:
-        errors.append("analysis eligibility must contain the complete 114 x 7 grid")
+    if observed_pairs != expected_pairs or len(eligibility) != len(expected_pairs):
+        errors.append("analysis eligibility must contain the complete paper x analysis grid")
     if any(
         row["eligibility_decision"] != "pending_expert_adjudication"
         for row in eligibility
@@ -159,8 +164,8 @@ def main() -> int:
 
     print(
         "Corpus sets valid: 2182 search records, 325 broad works, 115 taxonomy "
-        "candidates, 41 contextual works, 91 claim candidates, and 798 audit "
-        "decisions."
+        f"candidates, {len(contextual)} contextual works, {len(claims)} claim "
+        f"candidates, and {len(eligibility)} audit decisions."
     )
     return 0
 

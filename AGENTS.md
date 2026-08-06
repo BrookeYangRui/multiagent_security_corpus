@@ -34,6 +34,11 @@ For every excluded paper, add a row to
 an included-paper note or BibTeX entry unless the source is also retained for a
 documented supporting purpose.
 
+Strongly related multi-agent security SoKs, surveys, perspectives, risk
+taxonomies, and research agendas are a separate supporting set. For each such
+work, update `sok_related/papers.csv`, `sok_related/references.bib`, and one note
+under `papers/surveys/`. Never count these works in `corpus/papers.csv`.
+
 ## Paper Notes
 
 - Copy `templates/paper_note.md` without deleting required sections.
@@ -109,8 +114,9 @@ documented supporting purpose.
 - Use stable lowercase `paper_id` and `bibtex_key` values.
 - Leave a field empty only when it is not applicable; use `Not reported` or
   `Unclear` for source-level missingness.
-- Set exactly one `primary_category` from `attack`, `defense`, `evaluation`,
-  `survey`, or `general`; secondary roles remain in `paper_type`.
+- Set exactly one research-corpus `primary_category` from `attack`, `defense`,
+  `evaluation`, or `general`; secondary roles remain in `paper_type`. Route
+  survey-primary works to the separate `sok_related` screening process.
 - Set `scope_relation` to `core_security` only for a direct security model,
   violation, defense, or evaluation. Use `security_relevant` when the work is
   directly informative but lacks a complete security framing, and `adjacent`
@@ -145,6 +151,8 @@ documented supporting purpose.
 - Never report a provisional, blocked, or pending row as taxonomy eligible.
 - Keep CVEs, industry reports, and standards in `corpus/evidence/`; never mix
   them into a paper denominator.
+- Keep SoK-related works in `sok_related/`; report that supporting denominator
+  separately from the research corpus.
 
 ## Before Committing
 

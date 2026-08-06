@@ -14,7 +14,10 @@ SETS = ROOT / "corpus" / "sets"
 SEARCH = SETS / "01_search_catalog" / "search_catalog.csv"
 BROAD = SETS / "02_broad_included" / "broad_included.csv"
 PAPERS = ROOT / "corpus" / "papers.csv"
-REVIEWS = ROOT / "reviews" / "universal" / "universal_114_source_review.csv"
+REVIEWS = ROOT / "reviews" / "universal" / "active_source_review.csv"
+CITATION_GATE_REVIEWS = (
+    ROOT / "reviews" / "citation_gate" / "non_peer_gt10_full_text_adjudication.csv"
+)
 TAXONOMY = SETS / "03_taxonomy_eligible" / "taxonomy_candidates.csv"
 CONTEXTUAL = SETS / "04_adjacent_contextual" / "adjacent_contextual.csv"
 CLAIMS = SETS / "05_analysis_specific" / "claim_extraction_queue.csv"
@@ -163,10 +166,14 @@ def main() -> None:
     broad = read_csv(BROAD)
     papers = read_csv(PAPERS)
     reviews = read_csv(REVIEWS)
+    citation_gate_reviews = read_csv(CITATION_GATE_REVIEWS)
 
     papers_by_title = {normalized_title(row["title"]): row for row in papers}
     reviews_by_title = {
         normalized_title(row["canonical_title"]): row for row in reviews
+    }
+    citation_reviews_by_record = {
+        row["record_id"]: row for row in citation_gate_reviews
     }
 
     taxonomy_rows: list[dict[str, str]] = []
@@ -182,10 +189,21 @@ def main() -> None:
         key = normalized_title(row["title"])
         paper = papers_by_title.get(key)
         review = reviews_by_title.get(key)
-        recommended_scope = normalized_scope(review["recommended_scope"]) if review else "pending"
-        review_status = review["review_status"] if review else "not_source_reviewed"
+        citation_review = citation_reviews_by_record.get(row["record_id"])
+        if review:
+            recommended_scope = normalized_scope(review["recommended_scope"])
+            review_status = review["review_status"]
+        elif citation_review:
+            recommended_scope = normalized_scope(citation_review["recommended_scope"])
+            review_status = "full_text_reviewed_pending_author_signoff"
+        else:
+            recommended_scope = "pending"
+            review_status = "not_source_reviewed"
 
-        if not review:
+        if citation_review:
+            gate_decision = citation_review["gate_decision"]
+            reason = citation_review["decision_reason"]
+        elif not review:
             gate_decision = "pending_full_text_adjudication"
             reason = "Candidate rule passed; uniform full-text security gate not yet applied."
         elif review["review_outcome"].startswith(("pending_", "blocked_")):

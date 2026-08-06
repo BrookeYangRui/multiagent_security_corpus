@@ -25,13 +25,16 @@ sets and must not be reported as interchangeable paper counts.
 | Broad full-text inclusion records | 326 | Records passing the frozen primary interaction-security screen |
 | Canonical broad-included works | 325 | Inclusion records after merging preprint and published versions |
 | Unresolved screening records | 343 | 196 unresolved at full text plus 147 unresolved at title/abstract |
-| Canonical structured corpus | 114 | Works currently represented in `papers.csv`, BibTeX, and paper notes |
+| Canonical research corpus | 107 | Primary research works represented in `papers.csv`, BibTeX, and paper notes |
+| Strongly related SoK set | 4 | Separately counted multi-agent security reviews, perspectives, agendas, and risk taxonomies |
 | Peer-reviewed backbone | 93 | Peer-reviewed works among the 325 canonical broad inclusions |
-| Newly source-reviewed | 114 | Canonical structured works covered by the imported review packet |
+| Active source-reviewed research | 107 | Research works in the active view of the imported review packet |
 
-The equality between the 114 structured works and 114 reviewed works means the
-current note corpus has review coverage. It does not mean that all 325 broad
-inclusions have structured notes or source review.
+The equality between the 107 research works and 107 active source-review rows
+means the current research corpus has review coverage. It does not mean that all
+325 broad inclusions have structured notes or source review. The original
+114-work packet is retained as review history; seven survey rows were separated
+from the research denominator.
 
 The work-level count is one lower than the screening-inclusion count because
 NetSafe appeared once under its arXiv identifier and once under its Findings of
@@ -66,7 +69,7 @@ gate, not a substitute for full-text security-scope screening.
 | --- | ---: | ---: |
 | Citations `>50` | 0 | 93 |
 | Citations `>20` | 8 | 101 |
-| Citations `>10` | 22 | 115 |
+| Citations `>10` | 21 | 115 |
 | Citations `>5` | 52 | 145 |
 
 The repository now uses strict `>10` as a non-peer full-text review gate. See
@@ -101,7 +104,7 @@ property, adversary, violation, defense, or security evaluation in the full
 text before taxonomy eligibility. Keep adjacent performance, reliability, and
 social-behavior work visible without counting it in security denominators.
 
-This rule creates 22 non-peer review candidates. It does not make them
+This rule creates 21 current non-peer review candidates. It does not make them
 taxonomy-eligible until they pass the same full-text scope gate as peer-reviewed
 work.
 
@@ -193,17 +196,17 @@ Industry reports should support operational observations, not replace primary
 research for formal claims. The current repository does not yet have a closed
 industry-report search frame and must not claim completeness or a total count.
 
-## New 114-Work Source Review
+## Active 107-Work Source Review
 
-The imported review packet is stored under `reviews/universal/`. It covers 114
-unique works drawn from three disjoint queues:
+The imported 114-work packet remains under `reviews/universal/` as history. Its
+active research view covers 107 works drawn from three disjoint queues:
 
 | Review track | Works |
 | --- | ---: |
 | Load-bearing | 20 |
 | Standard attack-primary | 42 |
-| Cross-category attack screening | 52 |
-| **Total** | **114** |
+| Cross-category attack screening | 45 |
+| **Total** | **107** |
 
 This packet does not represent all 325 included works. It is a deep source
 review of the existing universal review queue and must not be presented as the
@@ -213,8 +216,8 @@ full-corpus review denominator.
 
 | Outcome | Works |
 | --- | ---: |
-| Ready after major patch | 59 |
-| Ready after minor patch | 52 |
+| Ready after major patch | 56 |
+| Ready after minor patch | 48 |
 | Pending final source verification | 1 |
 | Pending exact full-text verification | 1 |
 | Blocked metadata signoff | 1 |
@@ -230,28 +233,28 @@ The three unresolved works are:
 
 ### Correction load
 
-The correction ledger contains 231 field-level changes:
+The active correction ledger contains 210 field-level changes. The original
+231-row ledger remains unchanged as adjudication history.
 
 | Severity | Corrections |
 | --- | ---: |
 | Critical | 20 |
-| High | 105 |
-| Medium | 106 |
+| High | 96 |
+| Medium | 94 |
 
 These corrections have not been bulk-applied to `papers.csv` or paper notes.
 Many require author judgment, claim-level splitting, or a canonical PDF check.
 
 ### Scope results
 
-Current paper-level scope labels in the reviewed set are 83 `core_security`, 28
-`security_relevant`, and 3 `adjacent`. The recommendations imply 24 paper-level
-scope changes. After normalizing NetSafe's mixed recommendation to its
-paper-level label, the proposed distribution is:
+Current paper-level scope labels in the research corpus are 79 `core_security`,
+25 `security_relevant`, and 3 `adjacent`. After normalizing NetSafe's mixed
+recommendation to its paper-level label, the active review recommends:
 
 | Recommended paper-level scope | Works |
 | --- | ---: |
-| Core security | 73 |
-| Security relevant | 36 |
+| Core security | 71 |
+| Security relevant | 31 |
 | Adjacent | 5 |
 
 NetSafe remains core evidence only for its adversarial claims; its paper-level
@@ -260,8 +263,8 @@ reliability phenomena.
 
 ### Attack-bearing evidence
 
-The review requires attack-instance coding for 91 of the 114 works and records
-no qualifying attack instance for 23. This confirms why attack review cannot be
+The review requires attack-instance coding for 91 of the 107 research works and
+records no qualifying attack instance for 16. This confirms why attack review cannot be
 limited to the `papers/attacks/` directory: defense, benchmark, evaluation, and
 general papers can contain original attack evidence.
 
@@ -271,13 +274,17 @@ and secondary roles. It must not be copied directly into the single-valued
 
 ### Coverage against the peer-first frame
 
-Only 40 of the 93 peer-reviewed backbone works appear in this 114-work packet:
-28 currently core, 11 security-relevant, and one mixed-scope NetSafe record.
-Therefore 53 peer-reviewed works still need the same source-review treatment.
+Only 40 of the 94 peer-reviewed backbone works appear in the active research
+packet: 28 currently core, 11 security-relevant, and one mixed-scope NetSafe
+record. The citation-gate review separately covers the newly confirmed COLM
+paper *Cohesive Conversations*. Therefore 53 peer-reviewed works still need the
+same source-review treatment.
 
-Of the 22 non-peer works above the proposed `>10` discovery threshold, only
-three appear in the new packet: AgentSafe, MAGPIE, and MedSentry. The remaining
-19 still require source review before a threshold-policy change can be closed.
+All 21 current non-peer works above the `>10` discovery threshold now have a
+full-text decision: three through the active research packet and 18 through
+`reviews/citation_gate/non_peer_gt10_full_text_adjudication.csv`. The original
+19-work pending batch also contained *Cohesive Conversations*, which was moved
+to the peer-reviewed backbone after its official COLM 2024 record was located.
 
 ## Verification Semantics
 
@@ -297,7 +304,8 @@ preserve adjudication notes, and record named human signoff.
 3. Include CVEs and technical industry reports as separately searched and
    separately counted evidence corpora.
 4. Apply the 231 corrections by severity, starting with the 20 critical items.
-5. Review the remaining 53 peer-reviewed backbone works and 19 non-peer `>10`
-   candidates before reporting a final taxonomy-eligible denominator.
+5. Review the remaining 53 peer-reviewed backbone works before reporting a
+   final taxonomy-eligible denominator. The non-peer `>10` full-text queue is
+   closed, subject to named author signoff.
 6. Do not claim complete CVE or industry-report coverage until their search
    sources, queries, deduplication rules, and screening decisions are released.

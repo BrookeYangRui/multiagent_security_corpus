@@ -9,7 +9,7 @@ The attack-primary corpus contains 55 canonical papers: 47 `core_security` and
 8 `security_relevant`. Forty-two have a formal conference, journal, workshop,
 or proceedings venue; 13 remain arXiv-only. A paper can describe attacks and
 still have another primary category when its main contribution is a benchmark,
-defense, survey, or system study.
+defense, evaluation, or system study.
 
 The deterministic route from retrieval to these 55 papers is recorded in
 `corpus/sets/01_search_catalog/search_catalog.csv` and `corpus/sets/01_search_catalog/canonical_bridges.csv`. The
@@ -51,8 +51,7 @@ attack-primary papers because reclassification leaves 13 attack papers and
 seven defense/evaluation papers in the load-bearing queue.
 
 Attack-bearing evidence is not restricted to attack-primary papers. The master
-checklist in `reviews/queues/universal.csv` also assigns 52 remaining
-defense, evaluation, survey, and general papers to cross-category screening.
-Together, the three mutually exclusive tracks cover all 114 included papers;
-all 114 have source-review proposals, but none is human-verified without named
-signoff.
+checklist in `reviews/queues/universal.csv` also assigns 45 remaining defense,
+evaluation, and general papers to cross-category screening. Together, the three
+mutually exclusive tracks cover all 107 research papers; all 107 have active
+source-review proposals, but none is human-verified without named signoff.

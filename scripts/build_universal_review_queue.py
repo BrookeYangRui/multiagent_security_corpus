@@ -185,6 +185,31 @@ def main() -> None:
         MASTER_FIELDS,
     )
 
+    # Preserve the imported 114-work packet as history while exposing an active
+    # source-review view that follows the research-corpus denominator.
+    review_dir = ROOT / "reviews" / "universal"
+    active_ids = set(papers_by_id)
+    source_rows = read_csv(review_dir / "universal_114_source_review.csv")
+    active_source_rows = [
+        row for row in source_rows if row["paper_id"] in active_ids
+    ]
+    write_csv(
+        review_dir / "active_source_review.csv",
+        active_source_rows,
+        list(source_rows[0]),
+    )
+    correction_rows = read_csv(
+        review_dir / "universal_source_review_corrections.csv"
+    )
+    active_corrections = [
+        row for row in correction_rows if row["paper_id"] in active_ids
+    ]
+    write_csv(
+        review_dir / "active_source_review_corrections.csv",
+        active_corrections,
+        list(correction_rows[0]),
+    )
+
 
 if __name__ == "__main__":
     main()

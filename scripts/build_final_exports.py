@@ -73,7 +73,7 @@ def canonical_rows() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
     papers = read_csv(ROOT / "corpus/papers.csv")
     reviews = {
         row["paper_id"]: row
-        for row in read_csv(ROOT / "reviews/universal/universal_114_source_review.csv")
+        for row in read_csv(ROOT / "reviews/universal/active_source_review.csv")
     }
     rows = []
     for paper in papers:
@@ -147,6 +147,61 @@ def canonical_nonpeer_rows(papers: dict[str, dict[str, str]]) -> list[dict[str, 
     return sorted(rows, key=lambda row: (-int(row["citations"]), row["title"].lower()))
 
 
+def nonpeer_candidate_rows(minimum: int, strict: bool) -> list[dict[str, str]]:
+    broad = read_csv(ROOT / "corpus/sets/02_broad_included/broad_included.csv")
+    taxonomy = {
+        row["record_id"]: row
+        for row in read_csv(
+            ROOT / "corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv"
+        )
+    }
+    rows = []
+    for row in broad:
+        if row["publication_status"] == "peer_reviewed":
+            continue
+        value = row["citations_semantic_scholar"].strip()
+        if not value.isdigit():
+            continue
+        citations = int(value)
+        admitted = citations > minimum if strict else citations >= minimum
+        if not admitted:
+            continue
+        decision = taxonomy.get(row["record_id"], {})
+        rows.append(
+            {
+                "record_id": row["record_id"],
+                "title": row["title"],
+                "publication_date": row["publication_date"],
+                "venue": row["canonical_venue"] or row["screened_venue"],
+                "arxiv_id": row["arxiv_id"],
+                "doi": row["canonical_doi"] or row["doi"],
+                "primary_url": (
+                    f"https://arxiv.org/abs/{row['arxiv_id']}"
+                    if row["arxiv_id"]
+                    else row["publication_evidence_url"]
+                ),
+                "citations": str(citations),
+                "citation_source": "Semantic Scholar Graph API",
+                "citation_snapshot_date": row["citation_snapshot_date"],
+                "recommended_scope": decision.get("recommended_scope", "not_admitted"),
+                "gate_decision": decision.get(
+                    "gate_decision", "not_admitted_strict_threshold"
+                ),
+                "source_review_status": decision.get(
+                    "source_review_status", "not_source_reviewed"
+                ),
+                "threshold_rule": (
+                    f"citationCount > {minimum}"
+                    if strict
+                    else f"citationCount >= {minimum}"
+                ),
+                "cutoff": CUTOFF,
+                "semantic_scholar_id": row["semantic_scholar_id"],
+            }
+        )
+    return sorted(rows, key=lambda item: (-int(item["citations"]), item["title"].lower()))
+
+
 def main() -> None:
     fields = [
         "paper_id", "title", "authors", "year", "venue", "venue_family",
@@ -181,16 +236,34 @@ def main() -> None:
         coverage,
     )
 
-    nonpeer_fields = [
+    included_nonpeer_fields = [
         "paper_id", "title", "year", "venue", "arxiv_id", "doi",
         "primary_url", "citations", "citation_source", "citation_snapshot_date",
         "scope_relation", "screening_status", "threshold_rule", "cutoff",
         "semantic_scholar_id",
     ]
     write_csv(
-        ROOT / "corpus/final/non_peer_citations_gt_10.csv",
-        nonpeer_fields,
+        ROOT / "corpus/final/non_peer_included_citations_gt_10.csv",
+        included_nonpeer_fields,
         canonical_nonpeer_rows(papers),
+    )
+
+    candidate_fields = [
+        "record_id", "title", "publication_date", "venue", "arxiv_id",
+        "doi", "primary_url", "citations", "citation_source",
+        "citation_snapshot_date", "recommended_scope", "gate_decision",
+        "source_review_status", "threshold_rule", "cutoff",
+        "semantic_scholar_id",
+    ]
+    write_csv(
+        ROOT / "corpus/final/non_peer_citations_gt_10.csv",
+        candidate_fields,
+        nonpeer_candidate_rows(10, strict=True),
+    )
+    write_csv(
+        ROOT / "corpus/final/non_peer_candidates_citations_gte_10.csv",
+        candidate_fields,
+        nonpeer_candidate_rows(10, strict=False),
     )
 
 

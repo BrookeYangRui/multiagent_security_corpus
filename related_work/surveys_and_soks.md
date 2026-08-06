@@ -1,39 +1,46 @@
-# Surveys and SoKs
+# Strongly Related Multi-Agent Security SoKs
 
-Cross-paper synthesis of surveys, taxonomies, and systematizations.
+This synthesis uses `sok_related/papers.csv`, not the canonical research corpus.
+The two denominators must be reported separately.
 
-## Entries
+## Direct Multi-Agent Security Agendas
 
-Use BibTeX keys or paper-note paths and label every statement by evidence type.
+- **Established finding:** `schroederdewitt2025openchallenges` defines
+  multi-agent security around threats that emerge or amplify through agent
+  interaction. Its arXiv v2 taxonomy covers collusion, exploitation, swarm and
+  cascade attacks, conflict, embodied security, and sociotechnical threats; see
+  `papers/surveys/arxiv/2025_schroeder_de_witt_open_challenges.md`.
+- **Established finding:** `ko2026sevenchallenges` isolates seven security
+  challenges in cross-domain multi-agent LLM systems without a common trust
+  authority and pairs them with evaluation and mitigation directions; see
+  `papers/surveys/journals_npj_ai/2026_ko_seven_challenges.md`.
 
-### Formal Surveys and SoKs
+## Strong Risk And Governance Comparators
 
-- **Established finding:** `kim2026agenticai` organizes agentic security around
-  a component and design-dimension boundary. It is the closest formal SoK
-  comparator, but multi-agent interaction is not its sole taxonomy axis.
-- **Established finding:** `deng2025agentsunderthreat`,
-  `he2025emergedsecurity`, and `yu2025trustworthyagents` survey broad agent
-  security or trustworthiness. Peer agents appear alongside model, prompt,
-  memory, tool, user, and environment components.
-- **Established finding:** `raza2026trism` extends lifecycle governance to
-  agentic MAS, while `ko2026sevenchallenges` focuses on cross-domain trust and
-  interoperability challenges.
-- **Cross-paper observation:** None of these formal surveys uses violated
-  interaction-level security properties as a single primary taxonomy axis and
-  then audits measurement and defense contracts claim by claim.
+- **Established finding:** `hammond2025multiagentrisks` organizes advanced
+  multi-agent risk into miscoordination, conflict, and collusion plus seven
+  cross-cutting factors. Multi-agent security is one factor inside this broader
+  safety, governance, and ethics framework; see
+  `papers/surveys/technical_reports/2025_hammond_multi_agent_risks.md`.
+- **Established finding:** `raza2026trism` adapts trust, risk, security,
+  privacy, ModelOps, explainability, and lifecycle governance to agentic
+  multi-agent systems; see
+  `papers/surveys/journals_ai_open/2026_raza_trism.md`.
 
-### Interaction-Centered Agenda
+## Cross-Paper Observation
 
-- **Author-claimed gap:** `schroederdewitt2025openchallenges` argues that
-  collusion, propagation, swarm behavior, and distributed evasion fall between
-  AI security, distributed systems, game theory, and complex-systems research.
-- **Our interpretation:** The preprint supports the interaction-centered scope
-  but is agenda evidence, not evidence of phenomenon prevalence or defense
-  effectiveness.
+- **Cross-paper observation:** The four works agree that isolated-agent safety
+  does not establish system security once agents communicate, share state,
+  coordinate, or cross trust domains. They differ in unit of analysis:
+  interaction-dependent threats, cross-domain security challenges, broad
+  multi-agent risks, and lifecycle governance.
+- **Our interpretation:** None supplies an empirical prevalence denominator.
+  Their taxonomies and agendas are comparison frames; primary attack, defense,
+  and evaluation claims must still come from the 107-paper research corpus.
 
-### Scope Rule
+## Exclusion Boundary
 
-- **Our interpretation:** Broad surveys are included as comparative landscape
-  papers. Their cited works enter an analysis-specific eligible set only after
-  primary-paper screening; citation by a survey is not itself an inclusion
-  rule.
+- **Our interpretation:** General LLM-agent security surveys are excluded when
+  multi-agent interaction is only one component or subsection. Decisions are
+  recorded in `sok_related/exclusions.csv`; a mention of multi-agent attacks is
+  not sufficient for this strongly related set.
