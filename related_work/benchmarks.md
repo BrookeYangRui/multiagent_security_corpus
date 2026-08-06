@@ -46,7 +46,7 @@ Artifact rows for attack-primary papers remain in
 | AAAI / AAMAS / COLM | `olson2026liecraft`, `milkowski2026amongus`, `arora2026safeagents`, `nother2026badacts` |
 | ICLR / Findings EACL | `dong2026pear`, `li2026a2asecbench` |
 | IEEE Access / NeurIPS workshop | `elyagoubi2026agentleak`, `juneja2025magpie` |
-| arXiv | `chen2025medsentry`, `jia2026masfire`, `lemercier2026gambit`, `mateotorrejon2026gammaf`, `rahman2026harp`, `zou2026calbench`, `nakamura2026colosseum`, `zhao2026macbench`, `wang2026weclawarena` |
+| arXiv | `chen2025medsentry`, `jia2026masfire`, `lemercier2026gambit`, `mateotorrejon2026gammaf`, `rahman2026harp`, `zou2026calbench`, `nakamura2026colosseum`, `zhao2026macbench` |
 
 Defense-primary evaluation protocols, including `miao2026blindguard`, remain
 under `papers/defenses/` and are linked only through the artifact index.

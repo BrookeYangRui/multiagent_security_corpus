@@ -14,6 +14,8 @@ PAPERS_CSV = ROOT / "corpus" / "papers.csv"
 EXCLUDED_CSV = ROOT / "corpus" / "excluded_papers.csv"
 REFERENCES = ROOT / "corpus" / "references.bib"
 EVALUATION_ARTIFACTS = ROOT / "corpus" / "evaluation_artifacts.csv"
+POST_CUTOFF_CSV = ROOT / "corpus" / "post_cutoff_papers.csv"
+POST_CUTOFF_REFERENCES = ROOT / "corpus" / "post_cutoff_references.bib"
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -34,6 +36,11 @@ EVALUATION_ARTIFACT_FIELDS = [
     "paper_title", "primary_category", "note_path", "evaluation_focus",
     "unit", "denominator", "metrics", "availability_url",
     "publication_status", "notes",
+]
+POST_CUTOFF_FIELDS = [
+    "paper_id", "title", "authors", "source_date", "primary_url",
+    "publication_status", "scope_status", "note_path", "last_checked",
+    "cutoff_reason",
 ]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
@@ -66,12 +73,16 @@ def main() -> int:
         evaluation_artifacts = read_csv(
             EVALUATION_ARTIFACTS, EVALUATION_ARTIFACT_FIELDS
         )
+        post_cutoff = read_csv(POST_CUTOFF_CSV, POST_CUTOFF_FIELDS)
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
 
     bib_keys = BIB_KEY.findall(REFERENCES.read_text(encoding="utf-8"))
     bib_key_set = set(bib_keys)
+    post_cutoff_bib_keys = BIB_KEY.findall(
+        POST_CUTOFF_REFERENCES.read_text(encoding="utf-8")
+    )
     for key in sorted(duplicates(bib_keys)):
         errors.append(f"duplicate BibTeX key: {key}")
 
@@ -82,6 +93,51 @@ def main() -> int:
     excluded_ids = [row["paper_id"].strip() for row in excluded]
     for value in sorted(duplicates(excluded_ids)):
         errors.append(f"duplicate excluded paper_id: {value}")
+
+    post_cutoff_ids = [row["paper_id"].strip() for row in post_cutoff]
+    for value in sorted(duplicates(post_cutoff_ids)):
+        errors.append(f"duplicate post-cutoff paper_id: {value}")
+    corpus_ids = {row["paper_id"].strip() for row in papers}
+    for value in sorted(corpus_ids.intersection(post_cutoff_ids)):
+        errors.append(f"post-cutoff paper appears in papers.csv: {value}")
+    for value in sorted(set(excluded_ids).intersection(post_cutoff_ids)):
+        errors.append(f"post-cutoff paper appears in excluded_papers.csv: {value}")
+    for value in sorted(duplicates(post_cutoff_bib_keys)):
+        errors.append(f"duplicate post-cutoff BibTeX key: {value}")
+    for value in sorted(set(bib_keys).intersection(post_cutoff_bib_keys)):
+        errors.append(f"post-cutoff BibTeX key appears in references.bib: {value}")
+
+    for line, row in enumerate(post_cutoff, start=2):
+        paper_id = row["paper_id"].strip()
+        source_date = row["source_date"].strip()
+        primary_url = row["primary_url"].strip()
+        note = row["note_path"].strip()
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", source_date):
+            errors.append(
+                f"post_cutoff_papers.csv:{line}: invalid source_date for "
+                f"{paper_id}: {source_date}"
+            )
+        if not primary_url.startswith(("https://", "http://")):
+            errors.append(
+                f"post_cutoff_papers.csv:{line}: invalid primary_url for "
+                f"{paper_id}: {primary_url}"
+            )
+        if note:
+            note_path = ROOT / note
+            if not note_path.is_file():
+                errors.append(
+                    f"post_cutoff_papers.csv:{line}: note does not exist: {note}"
+                )
+            elif not note_path.is_relative_to(ROOT / "papers" / "post_cutoff"):
+                errors.append(
+                    f"post_cutoff_papers.csv:{line}: note is outside "
+                    f"papers/post_cutoff/: {note}"
+                )
+            if paper_id not in post_cutoff_bib_keys:
+                errors.append(
+                    f"post_cutoff_papers.csv:{line}: retained note has no "
+                    f"post-cutoff BibTeX entry: {paper_id}"
+                )
 
     for line, row in enumerate(excluded, start=2):
         paper_id = row["paper_id"].strip()
@@ -164,8 +220,9 @@ def main() -> int:
 
     print(
         f"Corpus valid: {len(papers)} paper rows, {len(excluded)} exclusions, "
-        f"{len(bib_keys)} BibTeX entries, and "
-        f"{len(evaluation_artifacts)} evaluation artifacts."
+        f"{len(bib_keys)} BibTeX entries, "
+        f"{len(evaluation_artifacts)} evaluation artifacts, and "
+        f"{len(post_cutoff)} post-cutoff watchlist records."
     )
     return 0
 

@@ -14,6 +14,8 @@ corpus/
     papers.csv
     references.bib
     excluded_papers.csv
+    post_cutoff_papers.csv
+    post_cutoff_references.bib
 
 papers/
     surveys/
@@ -21,6 +23,7 @@ papers/
     defenses/
     evaluations/
     general/
+    post_cutoff/
 
 related_work/
     surveys_and_soks.md
@@ -38,6 +41,21 @@ templates/
 paper also has one BibTeX entry and one structured note. Files under
 `related_work/` synthesize evidence across paper notes; they are not substitutes
 for source-level extraction.
+
+## Search Cutoff
+
+The corpus cutoff is frozen at `2026-07-01`. The search closed at the start of
+that date (00:00 UTC); work first retrievable on or after the boundary is not
+part of the included corpus or any analysis denominator.
+
+Post-cutoff discoveries are retained in `corpus/post_cutoff_papers.csv` so that
+the search history remains auditable. Their optional notes live under
+`papers/post_cutoff/`, and their citations are isolated in
+`corpus/post_cutoff_references.bib`. These records are a watchlist only. A
+pre-cutoff work that later receives a formal publication is instead merged into
+its existing canonical record without changing corpus eligibility. When a
+source-reported date conflicts with a post-cutoff identifier or discovery
+record, the conservative watchlist decision and the conflict are both retained.
 
 ## Scope
 
@@ -144,4 +162,3 @@ Open question
 This repository does not redistribute copyrighted paper PDFs unless
 redistribution is explicitly permitted. It stores bibliographic metadata,
 links, structured notes, and limited evidence excerpts for scholarly analysis.
-

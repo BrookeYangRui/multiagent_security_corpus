@@ -65,6 +65,16 @@ documented supporting purpose.
 - Do not count workshop, preprint, and conference versions of the same work as
   separate included papers.
 
+## Frozen Cutoff
+
+- The search cutoff is `2026-07-01 00:00 UTC`.
+- Do not add a work first retrievable on or after the cutoff to `papers.csv`,
+  `references.bib`, or `evaluation_artifacts.csv`.
+- Record such work in `post_cutoff_papers.csv`; place any retained citation in
+  `post_cutoff_references.bib` and any retained note under `papers/post_cutoff/`.
+- A post-cutoff publication of a work already available before the cutoff is a
+  canonical version update, not a new post-cutoff work.
+
 ## CSV Rules
 
 - Preserve the existing header and column order.
@@ -92,4 +102,3 @@ documented supporting purpose.
 - Confirm automatically prepared or modified records remain
   `agent_unverified` unless human review is documented.
 - Keep commit messages short, imperative, and in English.
-
