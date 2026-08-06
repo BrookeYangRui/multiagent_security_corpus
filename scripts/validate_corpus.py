@@ -27,6 +27,10 @@ CROSS_CATEGORY_REVIEW_CSV = (
     ROOT / "corpus" / "cross_category_review_queue.csv"
 )
 UNIVERSAL_REVIEW_CSV = ROOT / "corpus" / "universal_review_queue.csv"
+PEER_FIRST_CSV = ROOT / "corpus" / "peer_first_eligibility.csv"
+PUBLICATION_OVERRIDES_CSV = (
+    ROOT / "corpus" / "publication_status_overrides.csv"
+)
 LOAD_BEARING_SOURCE_REVIEW_CSV = (
     ROOT / "reviews" / "load_bearing" / "load_bearing_source_review.csv"
 )
@@ -98,6 +102,19 @@ UNIVERSAL_REVIEW_FIELDS = [
     "note_path", "minimum_review_status", "attack_evidence_status",
     "attack_role", "attack_instance_coding_required", "reviewer",
     "review_date", "adjudication_note",
+]
+PEER_FIRST_FIELDS = [
+    "record_id", "title", "publication_date", "screened_venue",
+    "canonical_venue", "doi", "canonical_doi", "arxiv_id",
+    "scope_decision", "publication_status", "venue_type",
+    "publication_evidence_type", "publication_evidence_url",
+    "publication_override", "semantic_scholar_id",
+    "semantic_scholar_title_match", "citations_semantic_scholar",
+    "citation_snapshot_date", "peer_first_stratum",
+]
+PUBLICATION_OVERRIDE_FIELDS = [
+    "record_id", "publication_status", "venue_type", "canonical_venue",
+    "canonical_doi", "evidence_type", "evidence_url", "checked_date", "note",
 ]
 LOAD_BEARING_SOURCE_REVIEW_FIELDS = [
     "priority", "paper_id", "title", "venue_year", "doi", "source_url",
@@ -183,6 +200,10 @@ def main() -> int:
         universal_review = read_csv(
             UNIVERSAL_REVIEW_CSV, UNIVERSAL_REVIEW_FIELDS
         )
+        peer_first = read_csv(PEER_FIRST_CSV, PEER_FIRST_FIELDS)
+        publication_overrides = read_csv(
+            PUBLICATION_OVERRIDES_CSV, PUBLICATION_OVERRIDE_FIELDS
+        )
         load_bearing_source_review = read_csv(
             LOAD_BEARING_SOURCE_REVIEW_CSV,
             LOAD_BEARING_SOURCE_REVIEW_FIELDS,
@@ -266,6 +287,41 @@ def main() -> int:
                 f"attack_screening.csv:{line}: non-candidate has a candidate "
                 f"decision: {decision}"
             )
+
+    included_screen_ids = {
+        row["record_id"] for row in attack_screening
+        if row["final_decision"] == "include-primary-interaction-security"
+    }
+    peer_first_ids = [row["record_id"] for row in peer_first]
+    if set(peer_first_ids) != included_screen_ids or len(peer_first_ids) != len(included_screen_ids):
+        errors.append(
+            "peer_first_eligibility.csv must contain every scope-included "
+            "systematic-screen record exactly once"
+        )
+    allowed_strata = {
+        "peer_reviewed_conference", "peer_reviewed_journal",
+        "influential_non_peer", "emerging_non_peer",
+        "unresolved_citation_or_publication_status",
+    }
+    for line, row in enumerate(peer_first, start=2):
+        stratum = row["peer_first_stratum"]
+        if stratum not in allowed_strata:
+            errors.append(
+                f"peer_first_eligibility.csv:{line}: invalid stratum: {stratum}"
+            )
+        citation = row["citations_semantic_scholar"]
+        if stratum == "influential_non_peer" and (
+            not citation.isdigit() or int(citation) <= 20
+        ):
+            errors.append(
+                f"peer_first_eligibility.csv:{line}: influential non-peer "
+                "does not satisfy citations > 20"
+            )
+    override_ids = [row["record_id"] for row in publication_overrides]
+    for record_id in duplicates(override_ids):
+        errors.append(f"duplicate publication override: {record_id}")
+    for record_id in set(override_ids) - included_screen_ids:
+        errors.append(f"publication override is outside included screen: {record_id}")
 
     bridge_ids = [row["paper_id"].strip() for row in attack_canonical_bridge]
     for value in sorted(duplicates(bridge_ids)):
@@ -752,6 +808,7 @@ def main() -> int:
         f"{len(evaluation_artifacts)} evaluation artifacts, "
         f"{len(post_cutoff)} post-cutoff watchlist records, and "
         f"{len(attack_screening)} attack-screening records; "
+        f"{len(peer_first)} peer-first eligibility decisions, "
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "
         f"{len(load_bearing_review)} load-bearing plus "

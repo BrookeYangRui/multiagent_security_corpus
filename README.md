@@ -15,6 +15,9 @@ corpus/references.bib             BibTeX for included papers
 corpus/excluded_papers.csv        screened exclusions and duplicates
 corpus/evaluation_artifacts.csv   datasets, benchmarks, and protocols
 corpus/attack_screening.csv       retrieval-to-corpus attack decisions
+corpus/peer_first_eligibility.csv publication and citation strata for 326 inclusions
+corpus/PEER_FIRST_CORPUS.md        peer-first rules and current counts
+corpus/publication_status_overrides.csv manually verified formal versions
 corpus/attack_canonical_bridge.csv unmatched canonical attack bindings
 corpus/targeted_attack_gap_search.csv four-family targeted gap check
 corpus/load_bearing_review_queue.csv human-review queue for key claims
@@ -49,6 +52,15 @@ remain in `paper_type`. `scope_relation` distinguishes `core_security`,
 
 Every paper is reviewed for attack-bearing claims, including defense,
 evaluation, survey, and general papers. See `corpus/UNIVERSAL_REVIEW.md`.
+
+## Peer-First Evidence
+
+The primary evidence set includes every identified scope-eligible peer-reviewed
+conference or journal work. A non-peer-reviewed work enters the influential
+preprint stratum only when its Semantic Scholar citation count is strictly above
+20 at the recorded snapshot date. Lower-cited preprints remain visible as
+emerging work but do not enter corpus-level denominators. See
+`corpus/PEER_FIRST_CORPUS.md` for counts and unresolved records.
 
 ## Frozen Cutoff
 

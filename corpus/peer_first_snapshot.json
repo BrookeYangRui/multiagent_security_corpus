@@ -1,0 +1,4765 @@
+{
+  "_meta": {
+    "citation_rule": "citationCount > 20",
+    "citation_snapshot_date": "2026-08-06",
+    "citation_source": "Semantic Scholar Graph API",
+    "publication_cutoff": "2026-07-01",
+    "requested_records": 324,
+    "resolved_records": 10,
+    "schema_version": 1
+  },
+  "records": {
+    "ARXIV:2401.11880": {
+      "citationCount": 96,
+      "externalIds": {
+        "ArXiv": "2401.11880",
+        "CorpusId": 267069372,
+        "DBLP": "conf/acl/ZhangZLSG0WLZ24",
+        "DOI": "10.48550/arXiv.2401.11880"
+      },
+      "paperId": "684ede7013b3d844dae13090350a5c27b196727f",
+      "publicationDate": "2024-01-22",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "PsySafe: A Comprehensive Framework for Psychological-based Attack, Defense, and Evaluation of Multi-agent System Safety",
+      "url": "https://www.semanticscholar.org/paper/684ede7013b3d844dae13090350a5c27b196727f",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "ARXIV:2402.08567": {
+      "citationCount": 153,
+      "externalIds": {
+        "ArXiv": "2402.08567",
+        "CorpusId": 267637249,
+        "DBLP": "conf/icml/GuZPDL00L24",
+        "DOI": "10.48550/arXiv.2402.08567"
+      },
+      "paperId": "b0ada492ba48e85016cbbfd95ec7180fb7e79648",
+      "publicationDate": "2024-02-13",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast",
+      "url": "https://www.semanticscholar.org/paper/b0ada492ba48e85016cbbfd95ec7180fb7e79648",
+      "venue": "International Conference on Machine Learning"
+    },
+    "ARXIV:2404.02532": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2404.02532",
+        "CorpusId": 268875885,
+        "DBLP": "journals/corr/abs-2404-02532",
+        "DOI": "10.48550/arXiv.2404.02532"
+      },
+      "paperId": "611088d69b8d1e829e9f0d9d0f63c460c2b76674",
+      "publicationDate": "2024-04-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Learn to Disguise: Avoid Refusal Responses in LLM's Defense via a Multi-agent Attacker-Disguiser Game",
+      "url": "https://www.semanticscholar.org/paper/611088d69b8d1e829e9f0d9d0f63c460c2b76674",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2405.12604": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2405.12604",
+        "CorpusId": 269929930,
+        "DBLP": "journals/corr/abs-2405-12604",
+        "DOI": "10.48550/arXiv.2405.12604"
+      },
+      "paperId": "4c2afc5e358a328286eb40f4e64572ba84a7f536",
+      "publicationDate": "2024-05-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Tiny Refinements Elicit Resilience: Toward Efficient Prefix-Model Against LLM Red-Teaming",
+      "url": "https://www.semanticscholar.org/paper/4c2afc5e358a328286eb40f4e64572ba84a7f536",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2407.09897": {
+      "citationCount": 13,
+      "externalIds": {
+        "ArXiv": "2407.09897",
+        "CorpusId": 271212942,
+        "DBLP": "journals/corr/abs-2407-09897",
+        "DOI": "10.48550/arXiv.2407.09897"
+      },
+      "paperId": "bf19d876b64922d41152a04955b309fb5ed8e929",
+      "publicationDate": "2024-07-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Cohesive Conversations: Enhancing Authenticity in Multi-Agent Simulated Dialogues",
+      "url": "https://www.semanticscholar.org/paper/bf19d876b64922d41152a04955b309fb5ed8e929",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2407.12532": {
+      "citationCount": 13,
+      "externalIds": {
+        "ArXiv": "2407.12532",
+        "CorpusId": 271245060,
+        "DBLP": "journals/corr/abs-2407-12532",
+        "DOI": "10.48550/arXiv.2407.12532"
+      },
+      "paperId": "e3dc5680f7de9db8a1aff9b9c936563e9f8aba45",
+      "publicationDate": "2024-07-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Towards Collaborative Intelligence: Propagating Intentions and Reasoning for Multi-Agent Coordination with Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/e3dc5680f7de9db8a1aff9b9c936563e9f8aba45",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2408.13406": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2408.13406",
+        "CorpusId": 271956586
+      },
+      "paperId": "f1c9f9f11204015d2822b14d5b5595723c20ee8a",
+      "publicationDate": "2024-08-23",
+      "publicationTypes": [
+        "Review"
+      ],
+      "title": "Collaboration Dynamics and Reliability Challenges of Multi-Agent LLM Systems in Finite Element Analysis",
+      "url": "https://www.semanticscholar.org/paper/f1c9f9f11204015d2822b14d5b5595723c20ee8a",
+      "venue": ""
+    },
+    "ARXIV:2408.14972": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2408.14972",
+        "CorpusId": 271963447,
+        "DBLP": "journals/corr/abs-2408-14972",
+        "DOI": "10.48550/arXiv.2408.14972"
+      },
+      "paperId": "cc47d7d1e08f4a1adfd4c734b387040ad3b3ff0d",
+      "publicationDate": "2024-08-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/cc47d7d1e08f4a1adfd4c734b387040ad3b3ff0d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2410.02506": {
+      "citationCount": 121,
+      "externalIds": {
+        "ArXiv": "2410.02506",
+        "CorpusId": 273098750,
+        "DBLP": "conf/iclr/ZhangYLYWWCY025",
+        "DOI": "10.48550/arXiv.2410.02506"
+      },
+      "paperId": "aebfeb42bbd155c1541a67fddf0a6e2bc5d6ae34",
+      "publicationDate": "2024-10-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/aebfeb42bbd155c1541a67fddf0a6e2bc5d6ae34",
+      "venue": "International Conference on Learning Representations"
+    },
+    "ARXIV:2410.14596": {
+      "citationCount": 19,
+      "externalIds": {
+        "ArXiv": "2410.14596",
+        "CorpusId": 273482568,
+        "DBLP": "conf/naacl/StengelEskinHB25",
+        "DOI": "10.48550/arXiv.2410.14596"
+      },
+      "paperId": "70164cbd6de96c7605a2fdef10624034f06f743e",
+      "publicationDate": "2024-10-18",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Teaching Models to Balance Resisting and Accepting Persuasion",
+      "url": "https://www.semanticscholar.org/paper/70164cbd6de96c7605a2fdef10624034f06f743e",
+      "venue": "North American Chapter of the Association for Computational Linguistics"
+    },
+    "ARXIV:2410.15686": {
+      "citationCount": 36,
+      "externalIds": {
+        "ArXiv": "2410.15686",
+        "CorpusId": 273502898,
+        "DBLP": "journals/corr/abs-2410-15686",
+        "DOI": "10.48550/arXiv.2410.15686"
+      },
+      "paperId": "fdd0c7398ab979233c7f705cc7c3b7f19b97c884",
+      "publicationDate": "2024-10-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "NetSafe: Exploring the Topological Safety of Multi-agent Networks",
+      "url": "https://www.semanticscholar.org/paper/fdd0c7398ab979233c7f705cc7c3b7f19b97c884",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2410.16155": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2410.16155",
+        "CorpusId": 273507642,
+        "DBLP": "journals/corr/abs-2410-16155",
+        "DOI": "10.48550/arXiv.2410.16155"
+      },
+      "paperId": "cde46b95149067331329086a9e8c828562bd639f",
+      "publicationDate": "2024-10-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns",
+      "url": "https://www.semanticscholar.org/paper/cde46b95149067331329086a9e8c828562bd639f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2410.19000": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2410.19000",
+        "CorpusId": 273638104,
+        "DBLP": "journals/corr/abs-2410-19000",
+        "DOI": "10.48550/arXiv.2410.19000"
+      },
+      "paperId": "5e0e7ed3fe38b1f54adf7749678a90e1d2eefbc7",
+      "publicationDate": "2024-10-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Make LLMs better zero-shot reasoners: Structure-orientated autonomous reasoning",
+      "url": "https://www.semanticscholar.org/paper/5e0e7ed3fe38b1f54adf7749678a90e1d2eefbc7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2410.22932": {
+      "citationCount": 31,
+      "externalIds": {
+        "ArXiv": "2410.22932",
+        "CorpusId": 273696023,
+        "DBLP": "journals/corr/abs-2410-22932",
+        "DOI": "10.48550/arXiv.2410.22932"
+      },
+      "paperId": "2f6ef455c7272b726712fdfd64f1ca9166ca0478",
+      "publicationDate": "2024-10-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Multi-Agent Large Language Models for Conversational Task-Solving",
+      "url": "https://www.semanticscholar.org/paper/2f6ef455c7272b726712fdfd64f1ca9166ca0478",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2412.11014": {
+      "citationCount": 11,
+      "externalIds": {
+        "ArXiv": "2412.11014",
+        "CorpusId": 274777113
+      },
+      "paperId": "d3172458e2ac692892ff090ddb216f05787fc4d4",
+      "publicationDate": "2024-12-15",
+      "publicationTypes": null,
+      "title": "CoopetitiveV: Leveraging LLM-powered Coopetitive Multi-Agent Prompting for High-quality Verilog Generation",
+      "url": "https://www.semanticscholar.org/paper/d3172458e2ac692892ff090ddb216f05787fc4d4",
+      "venue": ""
+    },
+    "ARXIV:2501.07811": {
+      "citationCount": 37,
+      "externalIds": {
+        "ArXiv": "2501.07811",
+        "CorpusId": 275515451,
+        "DBLP": "journals/corr/abs-2501-07811",
+        "DOI": "10.48550/arXiv.2501.07811"
+      },
+      "paperId": "59efb90a519cf5df0aaadb3778d2d1028d2d666e",
+      "publicationDate": "2025-01-14",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "CodeCoR: An LLM-Based Self-Reflective Multi-Agent Framework for Code Generation",
+      "url": "https://www.semanticscholar.org/paper/59efb90a519cf5df0aaadb3778d2d1028d2d666e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2501.10385": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2501.10385",
+        "CorpusId": 275757457,
+        "DBLP": "journals/corr/abs-2501-10385",
+        "DOI": "10.48550/arXiv.2501.10385"
+      },
+      "paperId": "04dfe87495b6df0d1ed805deabefc9a8f0c9a06a",
+      "publicationDate": "2024-12-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Autonomous Microscopy Experiments through Large Language Model Agents",
+      "url": "https://www.semanticscholar.org/paper/04dfe87495b6df0d1ed805deabefc9a8f0c9a06a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2502.00757": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2502.00757",
+        "CorpusId": 276094482,
+        "DBLP": "conf/nips/RosserF25"
+      },
+      "paperId": "637bf4a7cf4ed36bdb87e8f29f025ade9bf6a4f1",
+      "publicationDate": "2025-02-02",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgentBreeder: Mitigating the AI Safety Risks of Multi-Agent Scaffolds via Self-Improvement",
+      "url": "https://www.semanticscholar.org/paper/637bf4a7cf4ed36bdb87e8f29f025ade9bf6a4f1",
+      "venue": "Neural Information Processing Systems"
+    },
+    "ARXIV:2502.11127": {
+      "citationCount": 54,
+      "externalIds": {
+        "ArXiv": "2502.11127",
+        "CorpusId": 276409220,
+        "DBLP": "conf/acl/WangZYWMGWW25",
+        "DOI": "10.48550/arXiv.2502.11127"
+      },
+      "paperId": "4e92cc52b11da0785362c3b98a8821005d326b45",
+      "publicationDate": "2025-02-16",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems",
+      "url": "https://www.semanticscholar.org/paper/4e92cc52b11da0785362c3b98a8821005d326b45",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "ARXIV:2502.16242": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2502.16242",
+        "CorpusId": 276575295,
+        "DBLP": "journals/tmlr/GarciaHMP25",
+        "DOI": "10.48550/arXiv.2502.16242"
+      },
+      "paperId": "9cf6d9d629937ba5c1fc88fb1e0035b68870601a",
+      "publicationDate": "2025-02-22",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Reproducibility Study of Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation",
+      "url": "https://www.semanticscholar.org/paper/9cf6d9d629937ba5c1fc88fb1e0035b68870601a",
+      "venue": "Trans. Mach. Learn. Res."
+    },
+    "ARXIV:2503.04392": {
+      "citationCount": 42,
+      "externalIds": {
+        "ArXiv": "2503.04392",
+        "CorpusId": 276813695,
+        "DBLP": "journals/corr/abs-2503-04392",
+        "DOI": "10.48550/arXiv.2503.04392"
+      },
+      "paperId": "a5e0b705c5346e6b3018050c7a3b851b5efc5258",
+      "publicationDate": "2025-03-06",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgentSafe: Safeguarding Large Language Model-based Multi-agent Systems via Hierarchical Data Management",
+      "url": "https://www.semanticscholar.org/paper/a5e0b705c5346e6b3018050c7a3b851b5efc5258",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2503.12188": {
+      "citationCount": 51,
+      "externalIds": {
+        "ArXiv": "2503.12188",
+        "CorpusId": 277066775,
+        "DBLP": "journals/corr/abs-2503-12188",
+        "DOI": "10.48550/arXiv.2503.12188"
+      },
+      "paperId": "6e325d0c8bf92341ef95dc8b5fa8335890c0a6c7",
+      "publicationDate": "2025-03-15",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Multi-Agent Systems Execute Arbitrary Malicious Code",
+      "url": "https://www.semanticscholar.org/paper/6e325d0c8bf92341ef95dc8b5fa8335890c0a6c7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2503.23138": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2503.23138",
+        "CorpusId": 277451687,
+        "DBLP": "journals/corr/abs-2503-23138",
+        "DOI": "10.48550/arXiv.2503.23138"
+      },
+      "paperId": "d9eb816cc2a0af9d01711d1445bc2e6507705ebf",
+      "publicationDate": "2025-03-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "EncGPT: A Multi-Agent Workflow for Dynamic Encryption Algorithms",
+      "url": "https://www.semanticscholar.org/paper/d9eb816cc2a0af9d01711d1445bc2e6507705ebf",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2504.00218": {
+      "citationCount": 38,
+      "externalIds": {
+        "ArXiv": "2504.00218",
+        "CorpusId": 277468592,
+        "DBLP": "journals/corr/abs-2504-00218",
+        "DOI": "10.48550/arXiv.2504.00218"
+      },
+      "paperId": "8be6b0b0c7af16da10938c252db05cd8dd2f74d0",
+      "publicationDate": "2025-03-31",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks",
+      "url": "https://www.semanticscholar.org/paper/8be6b0b0c7af16da10938c252db05cd8dd2f74d0",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "ARXIV:2504.00374": {
+      "citationCount": 11,
+      "externalIds": {
+        "ArXiv": "2504.00374",
+        "CorpusId": 277467941,
+        "DBLP": "journals/corr/abs-2504-00374",
+        "DOI": "10.48550/arXiv.2504.00374"
+      },
+      "paperId": "b4e979f4407cd3dd7fee0b8a87eab6b571f38514",
+      "publicationDate": "2025-04-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR)",
+      "url": "https://www.semanticscholar.org/paper/b4e979f4407cd3dd7fee0b8a87eab6b571f38514",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2504.05047": {
+      "citationCount": 24,
+      "externalIds": {
+        "ArXiv": "2504.05047",
+        "CorpusId": 277620977,
+        "DBLP": "journals/corr/abs-2504-05047",
+        "DOI": "10.48550/arXiv.2504.05047"
+      },
+      "paperId": "3d3628e20a7499664345efcc95c231e5129ea6f9",
+      "publicationDate": "2025-04-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Debate Only When Necessary: Adaptive Multiagent Collaboration for Efficient LLM Reasoning",
+      "url": "https://www.semanticscholar.org/paper/3d3628e20a7499664345efcc95c231e5129ea6f9",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2504.07461": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2504.07461",
+        "CorpusId": 277667138,
+        "DBLP": "journals/corr/abs-2504-07461",
+        "DOI": "10.48550/arXiv.2504.07461"
+      },
+      "paperId": "df948cf591ab14be205c1f43782b36aa35450a32",
+      "publicationDate": "2025-04-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Achilles Heel of Distributed Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/df948cf591ab14be205c1f43782b36aa35450a32",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2504.16489": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2504.16489",
+        "CorpusId": 277999852,
+        "DBLP": "journals/corr/abs-2504-16489",
+        "DOI": "10.48550/arXiv.2504.16489"
+      },
+      "paperId": "523090aa81939c856e0e7f9a0f32eb705672a545",
+      "publicationDate": "2025-04-23",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate",
+      "url": "https://www.semanticscholar.org/paper/523090aa81939c856e0e7f9a0f32eb705672a545",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2505.04799": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2505.04799",
+        "CorpusId": 278394678
+      },
+      "paperId": "b99bf346a634338688ffe89878505bdc07bfe1c6",
+      "publicationDate": "2025-05-07",
+      "publicationTypes": null,
+      "title": "Maris: A Formally Verifiable Privacy Policy Enforcement Paradigm for Multi-Agent Collaboration Systems",
+      "url": "https://www.semanticscholar.org/paper/b99bf346a634338688ffe89878505bdc07bfe1c6",
+      "venue": ""
+    },
+    "ARXIV:2505.12442": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2505.12442",
+        "CorpusId": 278740342,
+        "DBLP": "journals/corr/abs-2505-12442",
+        "DOI": "10.48550/arXiv.2505.12442"
+      },
+      "paperId": "639703a5fb606347b72e9bde2aaf2b52d6cc24d7",
+      "publicationDate": "2025-05-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "IP Leakage Attacks Targeting LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/639703a5fb606347b72e9bde2aaf2b52d6cc24d7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2505.18572": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2505.18572",
+        "CorpusId": 278905095,
+        "DBLP": "conf/emnlp/ZhuZSZYL25",
+        "DOI": "10.48550/arXiv.2505.18572"
+      },
+      "paperId": "926a1e088dc0a2493afb42b20a99a94d1d7a1b81",
+      "publicationDate": "2025-05-24",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "MASTER: Multi-Agent Security Through Exploration of Roles and Topological Structures - A Comprehensive Framework",
+      "url": "https://www.semanticscholar.org/paper/926a1e088dc0a2493afb42b20a99a94d1d7a1b81",
+      "venue": "Conference on Empirical Methods in Natural Language Processing"
+    },
+    "ARXIV:2505.19234": {
+      "citationCount": 28,
+      "externalIds": {
+        "ArXiv": "2505.19234",
+        "CorpusId": 278904619,
+        "DBLP": "journals/corr/abs-2505-19234",
+        "DOI": "10.48550/arXiv.2505.19234"
+      },
+      "paperId": "c79b54e30cca6415d318aab9fab487cc8d895d98",
+      "publicationDate": "2025-05-25",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "GUARDIAN: Safeguarding LLM Multi-Agent Collaborations with Temporal Graph Modeling",
+      "url": "https://www.semanticscholar.org/paper/c79b54e30cca6415d318aab9fab487cc8d895d98",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2505.20824": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2505.20824",
+        "CorpusId": 278911059,
+        "DBLP": "journals/corr/abs-2505-20824",
+        "DOI": "10.48550/arXiv.2505.20824"
+      },
+      "paperId": "4dcd6a81197cb9dd78322d5bcfb83f9aeee3914e",
+      "publicationDate": "2025-05-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/4dcd6a81197cb9dd78322d5bcfb83f9aeee3914e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2505.22960": {
+      "citationCount": 19,
+      "externalIds": {
+        "ArXiv": "2505.22960",
+        "CorpusId": 278996680,
+        "DBLP": "journals/corr/abs-2505-22960",
+        "DOI": "10.48550/arXiv.2505.22960"
+      },
+      "paperId": "22bd199f21a0ca973c5604adec328a484ebddcee",
+      "publicationDate": "2025-05-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Revisiting Multi-Agent Debate as Test-Time Scaling: A Systematic Study of Conditional Effectiveness",
+      "url": "https://www.semanticscholar.org/paper/22bd199f21a0ca973c5604adec328a484ebddcee",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2505.24201": {
+      "citationCount": 19,
+      "externalIds": {
+        "ArXiv": "2505.24201",
+        "CorpusId": 279071022,
+        "DBLP": "journals/corr/abs-2505-24201",
+        "DOI": "10.48550/arXiv.2505.24201"
+      },
+      "paperId": "99296c88c1470c2f20cf34f2e9708eab4f34fa2c",
+      "publicationDate": "2025-05-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SentinelAgent: Graph-based Anomaly Detection in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/99296c88c1470c2f20cf34f2e9708eab4f34fa2c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.00509": {
+      "citationCount": 9,
+      "externalIds": {
+        "ArXiv": "2506.00509",
+        "CorpusId": 279075558,
+        "DBLP": "journals/corr/abs-2506-00509",
+        "DOI": "10.48550/arXiv.2506.00509"
+      },
+      "paperId": "8f0541a41c86f67fc8d3783785ec44d4f08a23b9",
+      "publicationDate": "2025-05-31",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Goal-Aware Identification and Rectification of Misinformation in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/8f0541a41c86f67fc8d3783785ec44d4f08a23b9",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.04572": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2506.04572",
+        "CorpusId": 279244003,
+        "DBLP": "journals/corr/abs-2506-04572",
+        "DOI": "10.48550/arXiv.2506.04572"
+      },
+      "paperId": "9b2fe5ced46c1f6231ba08f47c0befbb9c2f5e83",
+      "publicationDate": "2025-06-05",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Demonstrations of Integrity Attacks in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/9b2fe5ced46c1f6231ba08f47c0befbb9c2f5e83",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.07468": {
+      "citationCount": 31,
+      "externalIds": {
+        "ArXiv": "2506.07468",
+        "CorpusId": 279251572,
+        "DBLP": "journals/corr/abs-2506-07468",
+        "DOI": "10.48550/arXiv.2506.07468"
+      },
+      "paperId": "21251d14f97926bf4c19b8cfaab8a3d101f7fa71",
+      "publicationDate": "2025-06-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Chasing Moving Targets with Online Self-Play Reinforcement Learning for Safer Language Models",
+      "url": "https://www.semanticscholar.org/paper/21251d14f97926bf4c19b8cfaab8a3d101f7fa71",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.07564": {
+      "citationCount": 25,
+      "externalIds": {
+        "ArXiv": "2506.07564",
+        "CorpusId": 279251668,
+        "DBLP": "journals/corr/abs-2506-07564",
+        "DOI": "10.48550/arXiv.2506.07564"
+      },
+      "paperId": "a0678c81b0601eddb4a79fb7534a713726ea9416",
+      "publicationDate": "2025-06-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/a0678c81b0601eddb4a79fb7534a713726ea9416",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.09600": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2506.09600",
+        "CorpusId": 279306202,
+        "DBLP": "conf/emnlp/NakashKLVUA25",
+        "DOI": "10.48550/arXiv.2506.09600"
+      },
+      "paperId": "9a08af9f80c1a0bbcc361da13f048dff4ad922b4",
+      "publicationDate": "2025-06-11",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Effective Red-Teaming of Policy-Adherent Agents",
+      "url": "https://www.semanticscholar.org/paper/9a08af9f80c1a0bbcc361da13f048dff4ad922b4",
+      "venue": "Conference on Empirical Methods in Natural Language Processing"
+    },
+    "ARXIV:2506.11083": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2506.11083",
+        "CorpusId": 279392049,
+        "DBLP": "journals/corr/abs-2506-11083",
+        "DOI": "10.48550/arXiv.2506.11083"
+      },
+      "paperId": "89b908678883095f8a2eda436bb5aac623b4e18e",
+      "publicationDate": "2025-06-04",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "RedDebate: Safer Responses through Multi-Agent Red Teaming Debates",
+      "url": "https://www.semanticscholar.org/paper/89b908678883095f8a2eda436bb5aac623b4e18e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.12482": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2506.12482",
+        "CorpusId": 281676294
+      },
+      "paperId": "a233f3c034f6203a5a2853cf87c8538037e8eb6e",
+      "publicationDate": "2025-06-14",
+      "publicationTypes": null,
+      "title": "Tiered Agentic Oversight: A Hierarchical Multi-Agent System for Healthcare Safety",
+      "url": "https://www.semanticscholar.org/paper/a233f3c034f6203a5a2853cf87c8538037e8eb6e",
+      "venue": ""
+    },
+    "ARXIV:2506.20737": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2506.20737",
+        "CorpusId": 280011717,
+        "DBLP": "journals/corr/abs-2506-20737",
+        "DOI": "10.48550/arXiv.2506.20737"
+      },
+      "paperId": "adaf2fc01268271e8c8aeac1f2b82b59d72d28c9",
+      "publicationDate": "2025-06-25",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MAGPIE: A dataset for Multi-AGent contextual PrIvacy Evaluation",
+      "url": "https://www.semanticscholar.org/paper/adaf2fc01268271e8c8aeac1f2b82b59d72d28c9",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2506.22957": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2506.22957",
+        "CorpusId": 280011970,
+        "DBLP": "conf/emnlp/ChoiLYJ25",
+        "DOI": "10.48550/arXiv.2506.22957"
+      },
+      "paperId": "17629045c1a120678636ac82246a355a041a5152",
+      "publicationDate": "2025-06-28",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/17629045c1a120678636ac82246a355a041a5152",
+      "venue": "Conference on Empirical Methods in Natural Language Processing"
+    },
+    "ARXIV:2507.04724": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2507.04724",
+        "CorpusId": 280136983,
+        "DBLP": "journals/corr/abs-2507-04724",
+        "DOI": "10.48550/arXiv.2507.04724"
+      },
+      "paperId": "71f79d74abd7e87ec9e04e50d0610bdd68ad8a88",
+      "publicationDate": "2025-07-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Who's the Mole? Modeling and Detecting Intention-Hiding Malicious Agents in LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/71f79d74abd7e87ec9e04e50d0610bdd68ad8a88",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2507.06850": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2507.06850",
+        "CorpusId": 288256879
+      },
+      "paperId": "c4ecc7fc2e1342dabec05c750735d70f2a61b30f",
+      "publicationDate": "2025-07-09",
+      "publicationTypes": null,
+      "title": "The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise",
+      "url": "https://www.semanticscholar.org/paper/c4ecc7fc2e1342dabec05c750735d70f2a61b30f",
+      "venue": ""
+    },
+    "ARXIV:2507.13038": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2507.13038",
+        "CorpusId": 280284475,
+        "DBLP": "journals/corr/abs-2507-13038",
+        "DOI": "10.48550/arXiv.2507.13038"
+      },
+      "paperId": "1115a843e8f3d142180f807c97f71cde65d2ad12",
+      "publicationDate": "2025-07-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems",
+      "url": "https://www.semanticscholar.org/paper/1115a843e8f3d142180f807c97f71cde65d2ad12",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2507.14928": {
+      "citationCount": 9,
+      "externalIds": {
+        "ArXiv": "2507.14928",
+        "CorpusId": 280269386,
+        "DBLP": "journals/corr/abs-2507-14928",
+        "DOI": "10.48550/arXiv.2507.14928"
+      },
+      "paperId": "a858e644c58726a1b8e82976df65863611d8e90f",
+      "publicationDate": "2025-07-20",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Byzantine-Robust Decentralized Coordination of LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/a858e644c58726a1b8e82976df65863611d8e90f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2507.21159": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2507.21159",
+        "CorpusId": 280338088
+      },
+      "paperId": "627e57210e5da985ab5a4b747b04b1d1d1b43d64",
+      "publicationDate": "2025-07-25",
+      "publicationTypes": null,
+      "title": "MAC: Masked Agent Collaboration Boosts Large Language Model Medical Decision-Making",
+      "url": "https://www.semanticscholar.org/paper/627e57210e5da985ab5a4b747b04b1d1d1b43d64",
+      "venue": ""
+    },
+    "ARXIV:2508.07667": {
+      "citationCount": 16,
+      "externalIds": {
+        "ArXiv": "2508.07667",
+        "CorpusId": 280567377,
+        "DBLP": "journals/corr/abs-2508-07667",
+        "DOI": "10.48550/arXiv.2508.07667"
+      },
+      "paperId": "e62edf39a3c2a7ebaaa797f73934d39133940d2c",
+      "publicationDate": "2025-08-11",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "1-2-3 Check: Enhancing Contextual Privacy in LLM via Multi-Agent Reasoning",
+      "url": "https://www.semanticscholar.org/paper/e62edf39a3c2a7ebaaa797f73934d39133940d2c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2509.01211": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2509.01211",
+        "CorpusId": 281079036,
+        "DBLP": "journals/corr/abs-2509-01211",
+        "DOI": "10.48550/arXiv.2509.01211"
+      },
+      "paperId": "6cbd63f70a16df29a0cc250fad639062aba55a71",
+      "publicationDate": "2025-09-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Web Fraud Attacks Against LLM-Driven Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/6cbd63f70a16df29a0cc250fad639062aba55a71",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "ARXIV:2509.10018": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2509.10018",
+        "CorpusId": 281310362
+      },
+      "paperId": "332a237995c586c77aaa74c8b1dc25d260fe1096",
+      "publicationDate": "2025-09-12",
+      "publicationTypes": null,
+      "title": "GAMA: A General Anonymizing Multi-Agent System for Privacy Preservation Enhanced by Domain Rules and Disproof Mechanism",
+      "url": "https://www.semanticscholar.org/paper/332a237995c586c77aaa74c8b1dc25d260fe1096",
+      "venue": ""
+    },
+    "ARXIV:2509.13597": {
+      "citationCount": 9,
+      "externalIds": {
+        "ArXiv": "2509.13597",
+        "CorpusId": 281333117,
+        "DBLP": "journals/corr/abs-2509-13597",
+        "DOI": "10.48550/arXiv.2509.13597"
+      },
+      "paperId": "117cd1d71516457304f87903bac925e5d1222325",
+      "publicationDate": "2025-09-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents",
+      "url": "https://www.semanticscholar.org/paper/117cd1d71516457304f87903bac925e5d1222325",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2509.14284": {
+      "citationCount": 15,
+      "externalIds": {
+        "ArXiv": "2509.14284",
+        "CorpusId": 281394666,
+        "DBLP": "journals/corr/abs-2509-14284",
+        "DOI": "10.48550/arXiv.2509.14284"
+      },
+      "paperId": "de3e47373ae1acf84091398ff6a4eafb5b95d757",
+      "publicationDate": "2025-09-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration",
+      "url": "https://www.semanticscholar.org/paper/de3e47373ae1acf84091398ff6a4eafb5b95d757",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2509.21054": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2509.21054",
+        "CorpusId": 281526085,
+        "DBLP": "journals/corr/abs-2509-21054",
+        "DOI": "10.48550/arXiv.2509.21054"
+      },
+      "paperId": "d2ef882efda67e6fd35805a2e80bd39b815fdca0",
+      "publicationDate": "2025-09-25",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Disagreements in Reasoning: How a Model's Thinking Process Dictates Persuasion in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/d2ef882efda67e6fd35805a2e80bd39b815fdca0",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2509.24408": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2509.24408",
+        "CorpusId": 281674821,
+        "DBLP": "journals/corr/abs-2509-24408",
+        "DOI": "10.48550/arXiv.2509.24408"
+      },
+      "paperId": "505680e5b137d944c5859795455a49e1a0c2da4e",
+      "publicationDate": "2025-09-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "FuncPoison: Poisoning Function Library to Hijack Multi-agent Autonomous Driving Systems",
+      "url": "https://www.semanticscholar.org/paper/505680e5b137d944c5859795455a49e1a0c2da4e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.01586": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2510.01586",
+        "CorpusId": 281724833,
+        "DBLP": "journals/corr/abs-2510-01586",
+        "DOI": "10.48550/arXiv.2510.01586"
+      },
+      "paperId": "7a44b3e5b5151aa1c9fd533e2374578a1ddbc4df",
+      "publicationDate": "2025-10-02",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning",
+      "url": "https://www.semanticscholar.org/paper/7a44b3e5b5151aa1c9fd533e2374578a1ddbc4df",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.04303": {
+      "citationCount": 6,
+      "externalIds": {
+        "ArXiv": "2510.04303",
+        "CorpusId": 281843368,
+        "DBLP": "journals/corr/abs-2510-04303",
+        "DOI": "10.48550/arXiv.2510.04303"
+      },
+      "paperId": "4b0d96cfedcb477594dac980ecdd6856345cbb4c",
+      "publicationDate": "2025-10-05",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "Audit the Whisper: Detecting Steganographic Collusion in Multi-Agent LLMs",
+      "url": "https://www.semanticscholar.org/paper/4b0d96cfedcb477594dac980ecdd6856345cbb4c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.04488": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2510.04488",
+        "CorpusId": 281842736,
+        "DBLP": "journals/corr/abs-2510-04488",
+        "DOI": "10.48550/arXiv.2510.04488"
+      },
+      "paperId": "bc367e8a3afd98f958d781bdcdbbcd019ac66d2f",
+      "publicationDate": "2025-10-06",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Multi-Agent Collaborative Intelligence: Dual-Dial Control for Reliable LLM Reasoning",
+      "url": "https://www.semanticscholar.org/paper/bc367e8a3afd98f958d781bdcdbbcd019ac66d2f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.04860": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2510.04860",
+        "CorpusId": 281843881,
+        "DBLP": "journals/corr/abs-2510-04860",
+        "DOI": "10.48550/arXiv.2510.04860"
+      },
+      "paperId": "d9e6df5adc896a524184bdc9344b0733cdb9c5b0",
+      "publicationDate": "2025-10-06",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Alignment Tipping Process: How Self-Evolution Pushes LLM Agents Off the Rails",
+      "url": "https://www.semanticscholar.org/paper/d9e6df5adc896a524184bdc9344b0733cdb9c5b0",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.06240": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2510.06240",
+        "CorpusId": 281891619,
+        "DBLP": "journals/corr/abs-2510-06240",
+        "DOI": "10.48550/arXiv.2510.06240"
+      },
+      "paperId": "b8673fb89868c152b2278a33ccf6339c6892fe17",
+      "publicationDate": "2025-10-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Knowledge Graph-Guided Multi-Agent Distillation for Reliable Industrial Question Answering with Datasets",
+      "url": "https://www.semanticscholar.org/paper/b8673fb89868c152b2278a33ccf6339c6892fe17",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.07505": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2510.07505",
+        "CorpusId": 281950939,
+        "DBLP": "conf/eacl/DongZHMTLX26",
+        "DOI": "10.48550/arXiv.2510.07505"
+      },
+      "paperId": "328bb8c6fd42dd72fb92cb0673a918a84329d69e",
+      "publicationDate": "2025-10-08",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "PEAR: Planner-Executor Agent Robustness Benchmark",
+      "url": "https://www.semanticscholar.org/paper/328bb8c6fd42dd72fb92cb0673a918a84329d69e",
+      "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+    },
+    "ARXIV:2510.08240": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2510.08240",
+        "CorpusId": 281950514,
+        "DBLP": "journals/corr/abs-2510-08240",
+        "DOI": "10.48550/arXiv.2510.08240"
+      },
+      "paperId": "bfd0f632aa36fd47920e65f222b51090f9784e97",
+      "publicationDate": "2025-10-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Alignment Waltz: Jointly Training Agents to Collaborate for Safety",
+      "url": "https://www.semanticscholar.org/paper/bfd0f632aa36fd47920e65f222b51090f9784e97",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.10010": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2510.10010",
+        "CorpusId": 282058610,
+        "DBLP": "journals/corr/abs-2510-10010",
+        "DOI": "10.48550/arXiv.2510.10010"
+      },
+      "paperId": "37977c1fde4b12173330835628ec671831f72d1f",
+      "publicationDate": "2025-10-11",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "SLEAN: Simple Lightweight Ensemble Analysis Network for Multi-Provider LLM Coordination: Design, Implementation, and Vibe Coding Bug Investigation Case Study",
+      "url": "https://www.semanticscholar.org/paper/37977c1fde4b12173330835628ec671831f72d1f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.10185": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2510.10185",
+        "CorpusId": 282056770
+      },
+      "paperId": "b673d590615d8c42a1ea180058a288f99d8a0c7a",
+      "publicationDate": "2025-10-11",
+      "publicationTypes": [
+        "Review"
+      ],
+      "title": "Auditing medical multi-agent AI reveals risks of false consensus",
+      "url": "https://www.semanticscholar.org/paper/b673d590615d8c42a1ea180058a288f99d8a0c7a",
+      "venue": ""
+    },
+    "ARXIV:2510.10943": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2510.10943",
+        "CorpusId": 282057836,
+        "DBLP": "journals/corr/abs-2510-10943",
+        "DOI": "10.48550/arXiv.2510.10943"
+      },
+      "paperId": "0f343e752c1c86d673dbb1d209ae40859e96db87",
+      "publicationDate": "2025-10-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Social Cost of Intelligence: Emergence, Propagation, and Amplification of Stereotypical Bias in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/0f343e752c1c86d673dbb1d209ae40859e96db87",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.11246": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2510.11246",
+        "CorpusId": 282057461,
+        "DBLP": "journals/corr/abs-2510-11246",
+        "DOI": "10.48550/arXiv.2510.11246"
+      },
+      "paperId": "6c032b85deb3fb59acbe204f4446f06c8241cf50",
+      "publicationDate": "2025-10-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Collaborative Shadows: Distributed Backdoor Attacks in LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/6c032b85deb3fb59acbe204f4446f06c8241cf50",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.12826": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2510.12826",
+        "CorpusId": 282102374,
+        "DBLP": "journals/corr/abs-2510-12826",
+        "DOI": "10.48550/arXiv.2510.12826"
+      },
+      "paperId": "46862e548386f5a991cc074066abc4948888eae3",
+      "publicationDate": "2025-10-11",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Scheming Ability in LLM-to-LLM Strategic Interactions",
+      "url": "https://www.semanticscholar.org/paper/46862e548386f5a991cc074066abc4948888eae3",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.14207": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2510.14207",
+        "CorpusId": 282139294,
+        "DBLP": "journals/corr/abs-2510-14207",
+        "DOI": "10.48550/arXiv.2510.14207"
+      },
+      "paperId": "1c9eefd94951ee98547846587f6e68417eed174f",
+      "publicationDate": "2025-10-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Echoes of Human Malice in Agents: Benchmarking LLMs for Multi-Turn Online Harassment Attacks",
+      "url": "https://www.semanticscholar.org/paper/1c9eefd94951ee98547846587f6e68417eed174f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.14312": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2510.14312",
+        "CorpusId": 282139372,
+        "DBLP": "journals/corr/abs-2510-14312",
+        "DOI": "10.48550/arXiv.2510.14312"
+      },
+      "paperId": "450f3603e3a1f679e79f72a9f5b16214a0eb84ba",
+      "publicationDate": "2025-10-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies",
+      "url": "https://www.semanticscholar.org/paper/450f3603e3a1f679e79f72a9f5b16214a0eb84ba",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.15186": {
+      "citationCount": 21,
+      "externalIds": {
+        "ArXiv": "2510.15186",
+        "CorpusId": 282203583,
+        "DBLP": "journals/corr/abs-2510-15186",
+        "DOI": "10.48550/arXiv.2510.15186"
+      },
+      "paperId": "c1d91bbc06d958cb321600b04d4b29ada75ffbc3",
+      "publicationDate": "2025-10-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MAGPIE: A benchmark for Multi-AGent contextual PrIvacy Evaluation",
+      "url": "https://www.semanticscholar.org/paper/c1d91bbc06d958cb321600b04d4b29ada75ffbc3",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.17276": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2510.17276",
+        "CorpusId": 282209283,
+        "DBLP": "journals/corr/abs-2510-17276",
+        "DOI": "10.48550/arXiv.2510.17276"
+      },
+      "paperId": "3ed26a25ba183a318f783b4cac9b3eccc039027a",
+      "publicationDate": "2025-10-20",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Breaking and Fixing Defenses Against Control-Flow Hijacking in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/3ed26a25ba183a318f783b4cac9b3eccc039027a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2510.19420": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2510.19420",
+        "CorpusId": 282272408
+      },
+      "paperId": "19ed9b8d65821da821509212ad4aa878fa73b704",
+      "publicationDate": "2025-10-22",
+      "publicationTypes": null,
+      "title": "Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation",
+      "url": "https://www.semanticscholar.org/paper/19ed9b8d65821da821509212ad4aa878fa73b704",
+      "venue": ""
+    },
+    "ARXIV:2510.27617": {
+      "citationCount": 14,
+      "externalIds": {
+        "ArXiv": "2510.27617",
+        "CorpusId": 282719188,
+        "DBLP": "journals/corr/abs-2510-27617",
+        "DOI": "10.48550/arXiv.2510.27617"
+      },
+      "paperId": "69903d20c7eb8df2a4f46ee22b2137e520f53fd8",
+      "publicationDate": "2025-10-31",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "VeriMoA: A Mixture-of-Agents Framework for Spec-to-HDL Generation",
+      "url": "https://www.semanticscholar.org/paper/69903d20c7eb8df2a4f46ee22b2137e520f53fd8",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.06134": {
+      "citationCount": 15,
+      "externalIds": {
+        "ArXiv": "2511.06134",
+        "CorpusId": 282912011,
+        "DBLP": "journals/corr/abs-2511-06134",
+        "DOI": "10.48550/arXiv.2511.06134"
+      },
+      "paperId": "9786848f1dd93fde19d887a813b24ab1e12ef7ce",
+      "publicationDate": "2025-11-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Maestro: Learning to Collaborate via Conditional Listwise Policy Optimization for Multi-Agent LLMs",
+      "url": "https://www.semanticscholar.org/paper/9786848f1dd93fde19d887a813b24ab1e12ef7ce",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.08710": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2511.08710",
+        "CorpusId": 282940357,
+        "DBLP": "journals/corr/abs-2511-08710",
+        "DOI": "10.48550/arXiv.2511.08710"
+      },
+      "paperId": "0ff7e4b77af7cc7e8703b5fcd167124421b79199",
+      "publicationDate": "2025-11-11",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Convergence dynamics of Agent-to-Agent Interactions with Misaligned objectives",
+      "url": "https://www.semanticscholar.org/paper/0ff7e4b77af7cc7e8703b5fcd167124421b79199",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.10949": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2511.10949",
+        "CorpusId": 283055284,
+        "DBLP": "journals/corr/abs-2511-10949",
+        "DOI": "10.48550/arXiv.2511.10949"
+      },
+      "paperId": "ddeb756b4c6858e68c6fb55baa03034014b1395d",
+      "publicationDate": "2025-11-14",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting",
+      "url": "https://www.semanticscholar.org/paper/ddeb756b4c6858e68c6fb55baa03034014b1395d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.13788": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2511.13788",
+        "CorpusId": 283081096,
+        "DBLP": "journals/corr/abs-2511-13788",
+        "DOI": "10.48550/arXiv.2511.13788"
+      },
+      "paperId": "33968a978ace858db44c91c43c2947dea245f767",
+      "publicationDate": "2025-11-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Scaling Patterns in Adversarial Alignment: Evidence from Multi-LLM Jailbreak Experiments",
+      "url": "https://www.semanticscholar.org/paper/33968a978ace858db44c91c43c2947dea245f767",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.17621": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2511.17621",
+        "CorpusId": 283243861,
+        "DBLP": "journals/corr/abs-2511-17621",
+        "DOI": "10.48550/arXiv.2511.17621"
+      },
+      "paperId": "351a23756b38baf89b10038d4d26ddd86646c343",
+      "publicationDate": "2025-11-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "From Competition to Coordination: Market Making as a Scalable Framework for Safe and Aligned Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/351a23756b38baf89b10038d4d26ddd86646c343",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2511.22924": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2511.22924",
+        "CorpusId": 283438515
+      },
+      "paperId": "9c2f157eb7c4c08b5a3a61673881461729ea5b15",
+      "publicationDate": "2025-11-28",
+      "publicationTypes": null,
+      "title": "MAS-Shield: A Defense Framework for Secure and Efficient LLM MAS",
+      "url": "https://www.semanticscholar.org/paper/9c2f157eb7c4c08b5a3a61673881461729ea5b15",
+      "venue": ""
+    },
+    "ARXIV:2512.03097": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2512.03097",
+        "CorpusId": 283466872,
+        "DBLP": "journals/corr/abs-2512-03097",
+        "DOI": "10.48550/arXiv.2512.03097"
+      },
+      "paperId": "bf43fd628552fac551b2d80f188c2c600926773a",
+      "publicationDate": "2025-12-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare",
+      "url": "https://www.semanticscholar.org/paper/bf43fd628552fac551b2d80f188c2c600926773a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.03694": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2512.03694",
+        "CorpusId": 283467279,
+        "DBLP": "journals/corr/abs-2512-03694",
+        "DOI": "10.48550/arXiv.2512.03694"
+      },
+      "paperId": "f80ccf4d96c1c8e7c1e9235a87ef7946dc27b58e",
+      "publicationDate": "2025-12-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SRPG: Semantically Reconstructed Privacy Guard for Zero-Trust Privacy in Educational Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/f80ccf4d96c1c8e7c1e9235a87ef7946dc27b58e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.04129": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2512.04129",
+        "CorpusId": 283556958
+      },
+      "paperId": "d58a60ff7abf1f97bde3fc4b5f1c23e9acd0fe3f",
+      "publicationDate": "2025-12-03",
+      "publicationTypes": null,
+      "title": "Don't Trust Your Upstream: Exploiting LLM Multi-Agent System via Topology-Guided Adversarial Propagation",
+      "url": "https://www.semanticscholar.org/paper/d58a60ff7abf1f97bde3fc4b5f1c23e9acd0fe3f",
+      "venue": ""
+    },
+    "ARXIV:2512.09187": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2512.09187",
+        "CorpusId": 283721506,
+        "DBLP": "journals/corr/abs-2512-09187",
+        "DOI": "10.48550/arXiv.2512.09187"
+      },
+      "paperId": "8441da8a48c8031d91ae47670436ec9ac58b0040",
+      "publicationDate": "2025-12-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "WOLF: Werewolf-based Observations for LLM Deception and Falsehoods",
+      "url": "https://www.semanticscholar.org/paper/8441da8a48c8031d91ae47670436ec9ac58b0040",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.13481": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2512.13481",
+        "CorpusId": 283896626,
+        "DBLP": "journals/corr/abs-2512-13481",
+        "DOI": "10.48550/arXiv.2512.13481"
+      },
+      "paperId": "aa1a338eef289064e9da682df2cc3cdae1a1ad29",
+      "publicationDate": "2025-12-15",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "neuralFOMO: Can LLMs Handle Being Second Best? Measuring Envy-Like Preferences in Multi-Agent Settings",
+      "url": "https://www.semanticscholar.org/paper/aa1a338eef289064e9da682df2cc3cdae1a1ad29",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.15790": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2512.15790",
+        "CorpusId": 283933859,
+        "DBLP": "journals/corr/abs-2512-15790",
+        "DOI": "10.48550/arXiv.2512.15790"
+      },
+      "paperId": "70cd90cced3961de1da624f6bcc0ac6b5bfc070b",
+      "publicationDate": "2025-12-15",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Bilevel Optimization for Covert Memory Tampering in Heterogeneous Multi-Agent Architectures (XAMT)",
+      "url": "https://www.semanticscholar.org/paper/70cd90cced3961de1da624f6bcc0ac6b5bfc070b",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.16167": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2512.16167",
+        "CorpusId": 283934432
+      },
+      "paperId": "2fc472d64713f1453c905d90788d86998d766f5b",
+      "publicationDate": "2025-12-18",
+      "publicationTypes": null,
+      "title": "Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies",
+      "url": "https://www.semanticscholar.org/paper/2fc472d64713f1453c905d90788d86998d766f5b",
+      "venue": ""
+    },
+    "ARXIV:2512.16279": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2512.16279",
+        "CorpusId": 283933693,
+        "DBLP": "journals/corr/abs-2512-16279",
+        "DOI": "10.48550/arXiv.2512.16279"
+      },
+      "paperId": "6e9b992946fbc6c608fe7b45ddeab9ed83ae6e5d",
+      "publicationDate": "2025-12-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems",
+      "url": "https://www.semanticscholar.org/paper/6e9b992946fbc6c608fe7b45ddeab9ed83ae6e5d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.17913": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2512.17913",
+        "CorpusId": 284077362,
+        "DBLP": "journals/corr/abs-2512-17913",
+        "DOI": "10.48550/arXiv.2512.17913"
+      },
+      "paperId": "2b5da79e48605a84031c6ec1c1e741bfc62d264d",
+      "publicationDate": "2025-11-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Byzantine Fault-Tolerant Multi-Agent System for Healthcare: A Gossip Protocol Approach to Secure Medical Message Propagation",
+      "url": "https://www.semanticscholar.org/paper/2b5da79e48605a84031c6ec1c1e741bfc62d264d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.20184": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2512.20184",
+        "CorpusId": 284132403,
+        "DBLP": "journals/corr/abs-2512-20184",
+        "DOI": "10.48550/arXiv.2512.20184"
+      },
+      "paperId": "291bdc4664fd700522da376d4297ad5677319ffa",
+      "publicationDate": "2025-12-23",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Reaching Agreement Among Reasoning LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/291bdc4664fd700522da376d4297ad5677319ffa",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.20973": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2512.20973",
+        "CorpusId": 284154054,
+        "DBLP": "journals/corr/abs-2512-20973",
+        "DOI": "10.48550/arXiv.2512.20973"
+      },
+      "paperId": "0b4fe767a365cc38015ecd935b3009b76af098dc",
+      "publicationDate": "2025-12-24",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "DAO-Agent: Zero Knowledge-Verified Incentives for Decentralized Multi-Agent Coordination",
+      "url": "https://www.semanticscholar.org/paper/0b4fe767a365cc38015ecd935b3009b76af098dc",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.21352": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2512.21352",
+        "CorpusId": 284275345,
+        "DBLP": "journals/corr/abs-2512-21352",
+        "DOI": "10.48550/arXiv.2512.21352"
+      },
+      "paperId": "55c56eea40bf31e8b87cc12c34daa64a9cf04015",
+      "publicationDate": "2025-12-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Multi-Agent LLM Committees for Autonomous Software Beta Testing",
+      "url": "https://www.semanticscholar.org/paper/55c56eea40bf31e8b87cc12c34daa64a9cf04015",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.22496": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2512.22496",
+        "CorpusId": 284312398,
+        "DBLP": "journals/corr/abs-2512-22496",
+        "DOI": "10.48550/arXiv.2512.22496"
+      },
+      "paperId": "31b9b973a99cc78c10a43d1dcd9c5affccdd962e",
+      "publicationDate": "2025-12-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring",
+      "url": "https://www.semanticscholar.org/paper/31b9b973a99cc78c10a43d1dcd9c5affccdd962e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2512.23557": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2512.23557",
+        "CorpusId": 284312031,
+        "DBLP": "journals/corr/abs-2512-23557",
+        "DOI": "10.48550/arXiv.2512.23557"
+      },
+      "paperId": "d775531bf0c45fa89cb41e521e77d920f33fcf82",
+      "publicationDate": "2025-12-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks",
+      "url": "https://www.semanticscholar.org/paper/d775531bf0c45fa89cb41e521e77d920f33fcf82",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.03846": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2601.03846",
+        "CorpusId": 284532751,
+        "DBLP": "journals/corr/abs-2601-03846",
+        "DOI": "10.48550/arXiv.2601.03846"
+      },
+      "paperId": "6e2f414298032379201ebad6d5a7de92e932fe94",
+      "publicationDate": "2026-01-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "When Numbers Start Talking: Implicit Numerical Coordination Among LLM-Based Agents",
+      "url": "https://www.semanticscholar.org/paper/6e2f414298032379201ebad6d5a7de92e932fe94",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.04034": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2601.04034",
+        "CorpusId": 284532924,
+        "DBLP": "journals/corr/abs-2601-04034",
+        "DOI": "10.48550/arXiv.2601.04034"
+      },
+      "paperId": "3e71bd197f244890680d491e5d5d045b540df22b",
+      "publicationDate": "2026-01-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "HoneyTrap: Deceiving Large Language Model Attackers to Honeypot Traps with Resilient Multi-Agent Defense",
+      "url": "https://www.semanticscholar.org/paper/3e71bd197f244890680d491e5d5d045b540df22b",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.04170": {
+      "citationCount": 18,
+      "externalIds": {
+        "ArXiv": "2601.04170",
+        "CorpusId": 284532037,
+        "DBLP": "journals/corr/abs-2601-04170",
+        "DOI": "10.48550/arXiv.2601.04170"
+      },
+      "paperId": "c102b44673da43a07443e3fc7ba2ac27f96800e4",
+      "publicationDate": "2026-01-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions",
+      "url": "https://www.semanticscholar.org/paper/c102b44673da43a07443e3fc7ba2ac27f96800e4",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.11369": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2601.11369",
+        "CorpusId": 284860590,
+        "DBLP": "journals/corr/abs-2601-11369",
+        "DOI": "10.48550/arXiv.2601.11369"
+      },
+      "paperId": "9438fe46f3f7513c9a7f0884dffda6b7ed7d670d",
+      "publicationDate": "2026-01-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Institutional AI: Governing LLM Collusion in Multi-Agent Cournot Markets via Public Governance Graphs",
+      "url": "https://www.semanticscholar.org/paper/9438fe46f3f7513c9a7f0884dffda6b7ed7d670d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.11893": {
+      "citationCount": 37,
+      "externalIds": {
+        "ArXiv": "2601.11893",
+        "CorpusId": 284911389,
+        "DBLP": "journals/corr/abs-2601-11893",
+        "DOI": "10.48550/arXiv.2601.11893"
+      },
+      "paperId": "f6a22a7b6c63c8002411e29ba9079f0a0bc5931a",
+      "publicationDate": "2026-01-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Taming Various Privilege Escalation in LLM-Based Agent Systems: A Mandatory Access Control Framework",
+      "url": "https://www.semanticscholar.org/paper/f6a22a7b6c63c8002411e29ba9079f0a0bc5931a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.11913": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2601.11913",
+        "CorpusId": 284910271,
+        "DBLP": "journals/corr/abs-2601-11913",
+        "DOI": "10.48550/arXiv.2601.11913"
+      },
+      "paperId": "86b159df06f3b1c0000a92ddc6d07ddb29adf9e4",
+      "publicationDate": "2026-01-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding",
+      "url": "https://www.semanticscholar.org/paper/86b159df06f3b1c0000a92ddc6d07ddb29adf9e4",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.13186": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2601.13186",
+        "CorpusId": 284910199,
+        "DBLP": "journals/corr/abs-2601-13186",
+        "DOI": "10.48550/arXiv.2601.13186"
+      },
+      "paperId": "f759d9e8f124b49d74005ed5d36c2202bddd0dd7",
+      "publicationDate": "2026-01-19",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching",
+      "url": "https://www.semanticscholar.org/paper/f759d9e8f124b49d74005ed5d36c2202bddd0dd7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.14667": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2601.14667",
+        "CorpusId": 284917079,
+        "DBLP": "journals/corr/abs-2601-14667",
+        "DOI": "10.48550/arXiv.2601.14667"
+      },
+      "paperId": "3056e518d044a9d651a0e45311a1a921f3cf26d8",
+      "publicationDate": "2026-01-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/3056e518d044a9d651a0e45311a1a921f3cf26d8",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.16529": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2601.16529",
+        "CorpusId": 284981886,
+        "DBLP": "journals/corr/abs-2601-16529",
+        "DOI": "10.48550/arXiv.2601.16529"
+      },
+      "paperId": "c23794ad71c076535ae1cec53fc284c50021f46f",
+      "publicationDate": "2026-01-23",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care",
+      "url": "https://www.semanticscholar.org/paper/c23794ad71c076535ae1cec53fc284c50021f46f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.20538": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2601.20538",
+        "CorpusId": 285102360,
+        "DBLP": "journals/corr/abs-2601-20538",
+        "DOI": "10.48550/arXiv.2601.20538"
+      },
+      "paperId": "abfe5bb22e605d31ae7a8e77ef3f7cfc360658ee",
+      "publicationDate": "2026-01-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Interpreting Emergent Extreme Events in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/abfe5bb22e605d31ae7a8e77ef3f7cfc360658ee",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.21064": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2601.21064",
+        "CorpusId": 285140774,
+        "DBLP": "journals/corr/abs-2601-21064",
+        "DOI": "10.48550/arXiv.2601.21064"
+      },
+      "paperId": "0d6a464d5cb4cbec81e8ea6941585266c34d8c09",
+      "publicationDate": "2026-01-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Textual Equilibrium Propagation for Deep Compound AI Systems",
+      "url": "https://www.semanticscholar.org/paper/0d6a464d5cb4cbec81e8ea6941585266c34d8c09",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2601.22184": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2601.22184",
+        "CorpusId": 285240797,
+        "DBLP": "journals/corr/abs-2601-22184",
+        "DOI": "10.48550/arXiv.2601.22184"
+      },
+      "paperId": "06da98e7e0362e9a6e94d87d89c9c333901e2ad1",
+      "publicationDate": "2026-01-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Tacit Coordination of Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/06da98e7e0362e9a6e94d87d89c9c333901e2ad1",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.00428": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2602.00428",
+        "CorpusId": 285271359,
+        "DBLP": "journals/corr/abs-2602-00428",
+        "DOI": "10.48550/arXiv.2602.00428"
+      },
+      "paperId": "150d748f8e3591dd28a243f7b4b09d8c118f78ed",
+      "publicationDate": "2026-01-31",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "When Agents \"Misremember\" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/150d748f8e3591dd28a243f7b4b09d8c118f78ed",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.00755": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2602.00755",
+        "CorpusId": 285271372,
+        "DBLP": "journals/corr/abs-2602-00755",
+        "DOI": "10.48550/arXiv.2602.00755"
+      },
+      "paperId": "c3ad1a7b47396a1b103b923011a4e1cdfefbcc3d",
+      "publicationDate": "2026-01-31",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Evolving Interpretable Constitutions for Multi-Agent Coordination",
+      "url": "https://www.semanticscholar.org/paper/c3ad1a7b47396a1b103b923011a4e1cdfefbcc3d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.01011": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2602.01011",
+        "CorpusId": 285270531,
+        "DBLP": "journals/corr/abs-2602-01011",
+        "DOI": "10.48550/arXiv.2602.01011"
+      },
+      "paperId": "e95eb50589f6e6641ca2a3994d80fc840c82d5ef",
+      "publicationDate": "2026-02-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Multi-Agent Teams Hold Experts Back",
+      "url": "https://www.semanticscholar.org/paper/e95eb50589f6e6641ca2a3994d80fc840c82d5ef",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.01539": {
+      "citationCount": 8,
+      "externalIds": {
+        "ArXiv": "2602.01539",
+        "CorpusId": 285271388,
+        "DBLP": "journals/corr/abs-2602-01539",
+        "DOI": "10.48550/arXiv.2602.01539"
+      },
+      "paperId": "46a453191368e8df9cef0e5676fe6cda06447b0a",
+      "publicationDate": "2026-02-02",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MAGIC: A Co-Evolving Attacker-Defender Adversarial Game for Robust LLM Safety",
+      "url": "https://www.semanticscholar.org/paper/46a453191368e8df9cef0e5676fe6cda06447b0a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.03688": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2602.03688",
+        "CorpusId": 285275988,
+        "DBLP": "journals/corr/abs-2602-03688",
+        "DOI": "10.48550/arXiv.2602.03688"
+      },
+      "paperId": "3f8f8009b0d9b34c64e4c704a584ef33d0d747b5",
+      "publicationDate": "2026-02-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "TodyComm: Task-Oriented Dynamic Communication for Multi-Round LLM-based Multi-Agent System",
+      "url": "https://www.semanticscholar.org/paper/3f8f8009b0d9b34c64e4c704a584ef33d0d747b5",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.04431": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2602.04431",
+        "CorpusId": 285286201,
+        "DBLP": "journals/corr/abs-2602-04431",
+        "DOI": "10.48550/arXiv.2602.04431"
+      },
+      "paperId": "7ba45d72f13bec3419d0fe25f753bccf04452d2c",
+      "publicationDate": "2026-02-04",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "MaMa: A Game-Theoretic Approach for Designing Safe Agentic Systems",
+      "url": "https://www.semanticscholar.org/paper/7ba45d72f13bec3419d0fe25f753bccf04452d2c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.05176": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2602.05176",
+        "CorpusId": 285304130,
+        "DBLP": "journals/corr/abs-2602-05176",
+        "DOI": "10.48550/arXiv.2602.05176"
+      },
+      "paperId": "afc899989ac7512ac2b6242cd9ee4f0a08460b7c",
+      "publicationDate": "2026-02-05",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Among Us: Measuring and Mitigating Malicious Contributions in Model Collaboration Systems",
+      "url": "https://www.semanticscholar.org/paper/afc899989ac7512ac2b6242cd9ee4f0a08460b7c",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "ARXIV:2602.08567": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2602.08567",
+        "CorpusId": 285453731,
+        "DBLP": "journals/corr/abs-2602-08567",
+        "DOI": "10.48550/arXiv.2602.08567"
+      },
+      "paperId": "4d3e3eed0ffc38d51696bae78a633224f0eaa807",
+      "publicationDate": "2026-02-09",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "ValueFlow: Measuring the Propagation of Value Perturbations in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/4d3e3eed0ffc38d51696bae78a633224f0eaa807",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.09877": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2602.09877",
+        "CorpusId": 285462834,
+        "DBLP": "journals/corr/abs-2602-09877",
+        "DOI": "10.48550/arXiv.2602.09877"
+      },
+      "paperId": "6a7baf3beb4486c0e35bf698b5725fcd66ef2b1f",
+      "publicationDate": "2026-02-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Devil Behind Moltbook: Anthropic Safety is Always Vanishing in Self-Evolving AI Societies",
+      "url": "https://www.semanticscholar.org/paper/6a7baf3beb4486c0e35bf698b5725fcd66ef2b1f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.13477": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2602.13477",
+        "CorpusId": 285615716,
+        "DBLP": "journals/corr/abs-2602-13477",
+        "DOI": "10.48550/arXiv.2602.13477"
+      },
+      "paperId": "6bad6cb411a86c0be216ee051ba51b07f3b0bafa",
+      "publicationDate": "2026-02-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage",
+      "url": "https://www.semanticscholar.org/paper/6bad6cb411a86c0be216ee051ba51b07f3b0bafa",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.13840": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2602.13840",
+        "CorpusId": 285615290,
+        "DBLP": "journals/corr/abs-2602-13840",
+        "DOI": "10.48550/arXiv.2602.13840"
+      },
+      "paperId": "6189f6efba13d82c5e3e3bbfddb20453fce22a18",
+      "publicationDate": "2026-02-14",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "PrivAct: Internalizing Contextual Privacy Preservation via Multi-Agent Preference Training",
+      "url": "https://www.semanticscholar.org/paper/6189f6efba13d82c5e3e3bbfddb20453fce22a18",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2602.15198": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2602.15198",
+        "CorpusId": 285659985,
+        "DBLP": "journals/corr/abs-2602-15198",
+        "DOI": "10.48550/arXiv.2602.15198"
+      },
+      "paperId": "595eea9b5f5c0e16435dcf4b7d8fa95d8a9c6d80",
+      "publicationDate": "2026-02-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/595eea9b5f5c0e16435dcf4b7d8fa95d8a9c6d80",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.00131": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2603.00131",
+        "CorpusId": 286223651,
+        "DBLP": "journals/corr/abs-2603-00131",
+        "DOI": "10.48550/arXiv.2603.00131"
+      },
+      "paperId": "06da2df7727b7d7d5afead4ecd2b498e70d794b2",
+      "publicationDate": "2026-02-23",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/06da2df7727b7d7d5afead4ecd2b498e70d794b2",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.03233": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2603.03233",
+        "CorpusId": 286228464,
+        "DBLP": "journals/corr/abs-2603-03233",
+        "DOI": "10.48550/arXiv.2603.03233"
+      },
+      "paperId": "c0116ff7641b605e0431f00a1f1d1213b3f390ec",
+      "publicationDate": "2026-03-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AI-for-Science Low-code Platform with Bayesian Adversarial Multi-Agent Framework",
+      "url": "https://www.semanticscholar.org/paper/c0116ff7641b605e0431f00a1f1d1213b3f390ec",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.04142": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2603.04142",
+        "CorpusId": 286239279,
+        "DBLP": "journals/corr/abs-2603-04142",
+        "DOI": "10.48550/arXiv.2603.04142"
+      },
+      "paperId": "66fd2e5e6ce2cf9901dfa4f0e80856fe17f028f5",
+      "publicationDate": "2026-03-04",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series",
+      "url": "https://www.semanticscholar.org/paper/66fd2e5e6ce2cf9901dfa4f0e80856fe17f028f5",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.04469": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.04469",
+        "CorpusId": 286256374
+      },
+      "paperId": "045adff0c7ca3738616bc8bb7f0e59bc2ca4a8b2",
+      "publicationDate": "2026-03-04",
+      "publicationTypes": null,
+      "title": "Cross-Layer Semantic Flow Reconstruction for Attack Detection in Agentic Systems",
+      "url": "https://www.semanticscholar.org/paper/045adff0c7ca3738616bc8bb7f0e59bc2ca4a8b2",
+      "venue": ""
+    },
+    "ARXIV:2603.04474": {
+      "citationCount": 9,
+      "externalIds": {
+        "ArXiv": "2603.04474",
+        "CorpusId": 286256338,
+        "DBLP": "journals/corr/abs-2603-04474",
+        "DOI": "10.48550/arXiv.2603.04474"
+      },
+      "paperId": "a293983bd48babd0f8fcd908e9f0e98932074ad8",
+      "publicationDate": "2026-03-04",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration",
+      "url": "https://www.semanticscholar.org/paper/a293983bd48babd0f8fcd908e9f0e98932074ad8",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.04904": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.04904",
+        "CorpusId": 286256250,
+        "DBLP": "journals/corr/abs-2603-04904",
+        "DOI": "10.48550/arXiv.2603.04904"
+      },
+      "paperId": "8a3c4871fc2120e273f3150c3c013cfed69221c4",
+      "publicationDate": "2026-03-05",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Alignment Backfire: Language-Dependent Reversal of Safety Interventions Across 16 Languages in LLM Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/8a3c4871fc2120e273f3150c3c013cfed69221c4",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.05027": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2603.05027",
+        "CorpusId": 286255517,
+        "DBLP": "journals/corr/abs-2603-05027",
+        "DOI": "10.48550/arXiv.2603.05027"
+      },
+      "paperId": "c79b4ed1f721754d202a39fb000535e5048a2e75",
+      "publicationDate": "2026-03-05",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "S5-SHB Agent: Society 5.0 enabled Multi-model Agentic Blockchain Framework for Smart Home",
+      "url": "https://www.semanticscholar.org/paper/c79b4ed1f721754d202a39fb000535e5048a2e75",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.05520": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2603.05520",
+        "CorpusId": 286365647,
+        "DBLP": "journals/corr/abs-2603-05520",
+        "DOI": "10.48550/arXiv.2603.05520"
+      },
+      "paperId": "497631e2d5516267d17af922daec0981679feba4",
+      "publicationDate": "2026-02-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Information-Theoretic Privacy Control for Sequential Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/497631e2d5516267d17af922daec0981679feba4",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.06856": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2603.06856",
+        "CorpusId": 286371838,
+        "DBLP": "journals/corr/abs-2603-06856",
+        "DOI": "10.48550/arXiv.2603.06856"
+      },
+      "paperId": "bf6cf8e5d26f90d1a1b54031043719a94aaf3449",
+      "publicationDate": "2026-03-06",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Evaluating Multi-Agent LLM Architectures for Rare Disease Diagnosis",
+      "url": "https://www.semanticscholar.org/paper/bf6cf8e5d26f90d1a1b54031043719a94aaf3449",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.07848": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.07848",
+        "CorpusId": 286377568,
+        "DBLP": "journals/corr/abs-2603-07848",
+        "DOI": "10.48550/arXiv.2603.07848"
+      },
+      "paperId": "bc2cb08d8b8437992ac601eb65a6a25d9ae60497",
+      "publicationDate": "2026-03-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Intentional Deception as Controllable Capability in LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/bc2cb08d8b8437992ac601eb65a6a25d9ae60497",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.08723": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.08723",
+        "CorpusId": 286423990,
+        "DBLP": "journals/corr/abs-2603-08723",
+        "DOI": "10.48550/arXiv.2603.08723"
+      },
+      "paperId": "8aed3dfe4fc705736efc57d6b13cef00b8cb2d58",
+      "publicationDate": "2026-02-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Alignment as Iatrogenesis: Pastoral Power, Collective Pathology, and the Structural Limits of Monolingual Safety Evaluation",
+      "url": "https://www.semanticscholar.org/paper/8aed3dfe4fc705736efc57d6b13cef00b8cb2d58",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.09134": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.09134",
+        "CorpusId": 286424166,
+        "DBLP": "journals/corr/abs-2603-09134",
+        "DOI": "10.48550/arXiv.2603.09134"
+      },
+      "paperId": "7ab1fc7d527c62330ba9bb1d818b6843b2a9d53c",
+      "publicationDate": "2026-03-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgenticCyOps: Securing Multi-Agentic AI Integration in Enterprise Cyber Operations",
+      "url": "https://www.semanticscholar.org/paper/7ab1fc7d527c62330ba9bb1d818b6843b2a9d53c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.11132": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.11132",
+        "CorpusId": 286489366,
+        "DBLP": "journals/corr/abs-2603-11132",
+        "DOI": "10.48550/arXiv.2603.11132"
+      },
+      "paperId": "e6b066c0c60cf443cf714a44291995a7f0bcf7e1",
+      "publicationDate": "2026-03-11",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference",
+      "url": "https://www.semanticscholar.org/paper/e6b066c0c60cf443cf714a44291995a7f0bcf7e1",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.13940": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2603.13940",
+        "CorpusId": 286572929,
+        "DBLP": "journals/corr/abs-2603-13940",
+        "DOI": "10.48550/arXiv.2603.13940"
+      },
+      "paperId": "664799c6e2d5345ea1a259b71b04a7c8899f9b60",
+      "publicationDate": "2026-03-14",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "GroupGuard: A Framework for Modeling and Defending Collusive Attacks in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/664799c6e2d5345ea1a259b71b04a7c8899f9b60",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.15183": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2603.15183",
+        "CorpusId": 286573115,
+        "DBLP": "journals/corr/abs-2603-15183",
+        "DOI": "10.48550/arXiv.2603.15183"
+      },
+      "paperId": "80458b49e294c7b046ca1d60274e58177d86655b",
+      "publicationDate": "2026-03-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Token Coherence: Adapting MESI Cache Protocols to Minimize Synchronization Overhead in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/80458b49e294c7b046ca1d60274e58177d86655b",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.15408": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.15408",
+        "CorpusId": 286572055,
+        "DBLP": "journals/corr/abs-2603-15408",
+        "DOI": "10.48550/arXiv.2603.15408"
+      },
+      "paperId": "3c0851208d7c5b0cf6815806d3197aa7744fba30",
+      "publicationDate": "2026-03-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "TrinityGuard: A Unified Framework for Safeguarding Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/3c0851208d7c5b0cf6815806d3197aa7744fba30",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.15661": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.15661",
+        "CorpusId": 286579649,
+        "DBLP": "journals/corr/abs-2603-15661",
+        "DOI": "10.48550/arXiv.2603.15661"
+      },
+      "paperId": "c813e8a39e15dd44101007a7537a9d97bdebcf35",
+      "publicationDate": "2026-03-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "DynaTrust: Defending Multi-Agent Systems Against Sleeper Agents via Dynamic Trust Graphs",
+      "url": "https://www.semanticscholar.org/paper/c813e8a39e15dd44101007a7537a9d97bdebcf35",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.15727": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2603.15727",
+        "CorpusId": 286579635
+      },
+      "paperId": "c37f61125f25b797723fde8f340a4262f7b99c49",
+      "publicationDate": "2026-03-16",
+      "publicationTypes": null,
+      "title": "AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems",
+      "url": "https://www.semanticscholar.org/paper/c37f61125f25b797723fde8f340a4262f7b99c49",
+      "venue": ""
+    },
+    "ARXIV:2603.15809": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.15809",
+        "CorpusId": 286579833,
+        "DBLP": "journals/corr/abs-2603-15809",
+        "DOI": "10.48550/arXiv.2603.15809"
+      },
+      "paperId": "ad1aa41fe8a8a23fc016cfbe6d3b6004d14fffec",
+      "publicationDate": "2026-03-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks",
+      "url": "https://www.semanticscholar.org/paper/ad1aa41fe8a8a23fc016cfbe6d3b6004d14fffec",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.16215": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.16215",
+        "CorpusId": 286579942,
+        "DBLP": "journals/corr/abs-2603-16215",
+        "DOI": "10.48550/arXiv.2603.16215"
+      },
+      "paperId": "a03e5a5ea5a229acef4583d595ba477614f182ad",
+      "publicationDate": "2026-03-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "CoMAI: A Collaborative Multi-Agent Framework for Robust and Equitable Interview Evaluation",
+      "url": "https://www.semanticscholar.org/paper/a03e5a5ea5a229acef4583d595ba477614f182ad",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.19677": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.19677",
+        "CorpusId": 286751507,
+        "DBLP": "journals/corr/abs-2603-19677",
+        "DOI": "10.48550/arXiv.2603.19677"
+      },
+      "paperId": "77572f5965738a8319d21c58635034b7ab1ad5bd",
+      "publicationDate": "2026-03-20",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "GoAgent: Group-of-Agents Communication Topology Generation for LLM-based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/77572f5965738a8319d21c58635034b7ab1ad5bd",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.20640": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2603.20640",
+        "CorpusId": 286762641,
+        "DBLP": "journals/corr/abs-2603-20640",
+        "DOI": "10.48550/arXiv.2603.20640"
+      },
+      "paperId": "9caf9803add88558f39175fbcfd12798ada80fd2",
+      "publicationDate": "2026-03-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Hear Both Sides: Efficient Multi-Agent Debate via Diversity-Aware Message Retention",
+      "url": "https://www.semanticscholar.org/paper/9caf9803add88558f39175fbcfd12798ada80fd2",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.28013": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.28013",
+        "CorpusId": 286974934,
+        "DBLP": "journals/corr/abs-2603-28013",
+        "DOI": "10.48550/arXiv.2603.28013"
+      },
+      "paperId": "502cb13c300a8f1075e921b391528b5507e58259",
+      "publicationDate": "2026-03-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers",
+      "url": "https://www.semanticscholar.org/paper/502cb13c300a8f1075e921b391528b5507e58259",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.28807": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2603.28807",
+        "CorpusId": 286977354,
+        "DBLP": "journals/corr/abs-2603-28807",
+        "DOI": "10.48550/arXiv.2603.28807"
+      },
+      "paperId": "c1cf294d2e6f01055819d5d9bcb086e1a4c9d34b",
+      "publicationDate": "2026-03-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SafeClaw-R: Towards Safe and Secure Multi-Agent Personal Assistants",
+      "url": "https://www.semanticscholar.org/paper/c1cf294d2e6f01055819d5d9bcb086e1a4c9d34b",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2603.29846": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2603.29846",
+        "CorpusId": 286979074,
+        "DBLP": "journals/corr/abs-2603-29846",
+        "DOI": "10.48550/arXiv.2603.29846"
+      },
+      "paperId": "795d225d056a74886b3b40c1b8596ee7dea8c3e4",
+      "publicationDate": "2026-03-31",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/795d225d056a74886b3b40c1b8596ee7dea8c3e4",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.01151": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2604.01151",
+        "CorpusId": 287023377,
+        "DBLP": "journals/corr/abs-2604-01151",
+        "DOI": "10.48550/arXiv.2604.01151"
+      },
+      "paperId": "ecb415dc6dd0b9220463ec79125db492f93cda81",
+      "publicationDate": "2026-04-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Detecting Multi-Agent Collusion Through Multi-Agent Interpretability",
+      "url": "https://www.semanticscholar.org/paper/ecb415dc6dd0b9220463ec79125db492f93cda81",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.02668": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2604.02668",
+        "CorpusId": 287121495,
+        "DBLP": "journals/corr/abs-2604-02668",
+        "DOI": "10.48550/arXiv.2604.02668"
+      },
+      "paperId": "552d022f529b6375b52b04d01103b4eaea91acd1",
+      "publicationDate": "2026-04-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Too Polite to Disagree: Understanding Sycophancy Propagation in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/552d022f529b6375b52b04d01103b4eaea91acd1",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.07667": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2604.07667",
+        "CorpusId": 287255744,
+        "DBLP": "journals/corr/abs-2604-07667",
+        "DOI": "10.48550/arXiv.2604.07667"
+      },
+      "paperId": "26972d52713dd2bd50f7d74905c4341495af988f",
+      "publicationDate": "2026-04-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation",
+      "url": "https://www.semanticscholar.org/paper/26972d52713dd2bd50f7d74905c4341495af988f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.07911": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.07911",
+        "CorpusId": 287256162,
+        "DBLP": "journals/corr/abs-2604-07911",
+        "DOI": "10.48550/arXiv.2604.07911"
+      },
+      "paperId": "edb684a9d47a023d2343c96c7278aaad3cc25c4a",
+      "publicationDate": "2026-04-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Dynamic Attentional Context Scoping: Agent-Triggered Focus Sessions for Isolated Per-Agent Steering in Multi-Agent LLM Orchestration",
+      "url": "https://www.semanticscholar.org/paper/edb684a9d47a023d2343c96c7278aaad3cc25c4a",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.09682": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.09682",
+        "CorpusId": 287425622,
+        "DBLP": "journals/corr/abs-2604-09682",
+        "DOI": "10.48550/arXiv.2604.09682"
+      },
+      "paperId": "7b186e5f88aa2c60d92f375282380465fb2b5fb1",
+      "publicationDate": "2026-04-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Decision-Theoretic Safety Assessment of Persona-Driven Multi-Agent Systems in O-RAN",
+      "url": "https://www.semanticscholar.org/paper/7b186e5f88aa2c60d92f375282380465fb2b5fb1",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.09746": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2604.09746",
+        "CorpusId": 287424998,
+        "DBLP": "journals/corr/abs-2604-09746",
+        "DOI": "10.48550/arXiv.2604.09746"
+      },
+      "paperId": "a096f80a24d48f7051366c87cc1c090d664bc662",
+      "publicationDate": "2026-04-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "CONSCIENTIA: Can LLM Agents Learn to Strategize? Emergent Deception and Trust in a Multi-Agent NYC Simulation",
+      "url": "https://www.semanticscholar.org/paper/a096f80a24d48f7051366c87cc1c090d664bc662",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.09917": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.09917",
+        "CorpusId": 287425585,
+        "DBLP": "journals/corr/abs-2604-09917",
+        "DOI": "10.48550/arXiv.2604.09917"
+      },
+      "paperId": "c0dd6ccd2d6694730d914ffd3b30ad6befb672e0",
+      "publicationDate": "2026-04-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Toward Explanatory Equilibrium: Verifiable Reasoning as a Coordination Mechanism under Asymmetric Information",
+      "url": "https://www.semanticscholar.org/paper/c0dd6ccd2d6694730d914ffd3b30ad6befb672e0",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.13120": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2604.13120",
+        "CorpusId": 287479415,
+        "DBLP": "journals/corr/abs-2604-13120",
+        "DOI": "10.48550/arXiv.2604.13120"
+      },
+      "paperId": "f019c8a7e42aecaa96ef3c4cbd2ecd3aaaa1ac0c",
+      "publicationDate": "2026-04-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgentForge: Execution-Grounded Multi-Agent LLM Framework for Autonomous Software Engineering",
+      "url": "https://www.semanticscholar.org/paper/f019c8a7e42aecaa96ef3c4cbd2ecd3aaaa1ac0c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.13705": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.13705",
+        "CorpusId": 287479641,
+        "DBLP": "journals/corr/abs-2604-13705",
+        "DOI": "10.48550/arXiv.2604.13705"
+      },
+      "paperId": "8e07b7ad478d6ee3ba4a1defdcb20f6c397f0cee",
+      "publicationDate": "2026-04-15",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Beyond Arrow's Impossibility: Fairness as an Emergent Property of Multi-Agent Collaboration",
+      "url": "https://www.semanticscholar.org/paper/8e07b7ad478d6ee3ba4a1defdcb20f6c397f0cee",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.16022": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.16022",
+        "CorpusId": 287607968,
+        "DBLP": "journals/corr/abs-2604-16022",
+        "DOI": "10.48550/arXiv.2604.16022"
+      },
+      "paperId": "b5ee3f3916bdb9efbae2d19e94a16fa467ccb68d",
+      "publicationDate": "2026-04-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "SocialGrid: A Benchmark for Planning and Social Reasoning in Embodied Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/b5ee3f3916bdb9efbae2d19e94a16fa467ccb68d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.16543": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.16543",
+        "CorpusId": 287617889,
+        "DBLP": "journals/corr/abs-2604-16543",
+        "DOI": "10.48550/arXiv.2604.16543"
+      },
+      "paperId": "755676959e2750a548c4a219fdc201572617a1a8",
+      "publicationDate": "2026-04-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Conjunctive Prompt Attacks in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/755676959e2750a548c4a219fdc201572617a1a8",
+      "venue": "Volume 1"
+    },
+    "ARXIV:2604.17139": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2604.17139",
+        "CorpusId": 287634552,
+        "DBLP": "journals/corr/abs-2604-17139",
+        "DOI": "10.48550/arXiv.2604.17139"
+      },
+      "paperId": "2322a9616b069e2d0f27e736ff688840194332dd",
+      "publicationDate": "2026-04-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration",
+      "url": "https://www.semanticscholar.org/paper/2322a9616b069e2d0f27e736ff688840194332dd",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.17774": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.17774",
+        "CorpusId": 287634388,
+        "DBLP": "journals/corr/abs-2604-17774",
+        "DOI": "10.48550/arXiv.2604.17774"
+      },
+      "paperId": "48e61a54c7087017b172d413ddd865a6e52bcd6f",
+      "publicationDate": "2026-04-20",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/48e61a54c7087017b172d413ddd865a6e52bcd6f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.19752": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.19752",
+        "CorpusId": 287668817,
+        "DBLP": "journals/corr/abs-2604-19752",
+        "DOI": "10.48550/arXiv.2604.19752"
+      },
+      "paperId": "d02dceae2e5a554ee192d9ce1434fc57c8327656",
+      "publicationDate": "2026-03-19",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Soft-Label Governance for Distributional Safety in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/d02dceae2e5a554ee192d9ce1434fc57c8327656",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.22154": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.22154",
+        "CorpusId": 287773858,
+        "DBLP": "journals/corr/abs-2604-22154",
+        "DOI": "10.48550/arXiv.2604.22154"
+      },
+      "paperId": "dbe6c7952d4f7023eb3b5b207f46ebea6a704c4d",
+      "publicationDate": "2026-04-24",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Reliable Self-Harm Risk Screening via Adaptive Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/dbe6c7952d4f7023eb3b5b207f46ebea6a704c4d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.22879": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.22879",
+        "CorpusId": 287776856,
+        "DBLP": "journals/corr/abs-2604-22879",
+        "DOI": "10.48550/arXiv.2604.22879"
+      },
+      "paperId": "5d8182b26a2508ca1cc6d29f1ff0540c120f9400",
+      "publicationDate": "2026-04-24",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/5d8182b26a2508ca1cc6d29f1ff0540c120f9400",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.24477": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.24477",
+        "CorpusId": 287783039,
+        "DBLP": "journals/corr/abs-2604-24477",
+        "DOI": "10.48550/arXiv.2604.24477"
+      },
+      "paperId": "3a5611ab8e25b26e36edfd0e3bb9538372da139e",
+      "publicationDate": "2026-04-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "GAMMAF: A Common Framework for Graph-Based Anomaly Monitoring Benchmarking in LLM Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/3a5611ab8e25b26e36edfd0e3bb9538372da139e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.27132": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.27132",
+        "CorpusId": 287915722,
+        "DBLP": "journals/corr/abs-2604-27132",
+        "DOI": "10.48550/arXiv.2604.27132"
+      },
+      "paperId": "8471f7c218f3d1231ca7e6725f0423ae5c46cf2f",
+      "publicationDate": "2026-04-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "TRUST: A Framework for Decentralized AI Service v.0.1",
+      "url": "https://www.semanticscholar.org/paper/8471f7c218f3d1231ca7e6725f0423ae5c46cf2f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2604.27358": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.27358",
+        "CorpusId": 287915590,
+        "DBLP": "journals/corr/abs-2604-27358",
+        "DOI": "10.48550/arXiv.2604.27358"
+      },
+      "paperId": "81ab7e0372087bbd6c0bdd2b80ab7bfc2ca0e0ec",
+      "publicationDate": "2026-04-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Safe Bilevel Delegation (SBD): A Formal Framework for Runtime Delegation Safety in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/81ab7e0372087bbd6c0bdd2b80ab7bfc2ca0e0ec",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.01133": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.01133",
+        "CorpusId": 287947668,
+        "DBLP": "journals/corr/abs-2605-01133",
+        "DOI": "10.48550/arXiv.2605.01133"
+      },
+      "paperId": "7c6ff1aeb5af25ad94762883342fb1284a9bc47e",
+      "publicationDate": "2026-05-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "When Embedding-Based Defenses Fail: Rethinking Safety in LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/7c6ff1aeb5af25ad94762883342fb1284a9bc47e",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.01704": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.01704",
+        "CorpusId": 287950619,
+        "DBLP": "journals/corr/abs-2605-01704",
+        "DOI": "10.48550/arXiv.2605.01704"
+      },
+      "paperId": "c967c0e0a1466afd86868725633ffb070e3cc57d",
+      "publicationDate": "2026-05-03",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Reasoning Trap: An Information-Theoretic Bound on Closed-System Multi-Step LLM Reasoning",
+      "url": "https://www.semanticscholar.org/paper/c967c0e0a1466afd86868725633ffb070e3cc57d",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.02812": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.02812",
+        "CorpusId": 287949920,
+        "DBLP": "journals/corr/abs-2605-02812",
+        "DOI": "10.48550/arXiv.2605.02812"
+      },
+      "paperId": "643d8d8cce043ad494db9b92aecf09ab5186e9de",
+      "publicationDate": "2026-05-04",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense",
+      "url": "https://www.semanticscholar.org/paper/643d8d8cce043ad494db9b92aecf09ab5186e9de",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.05632": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.05632",
+        "CorpusId": 288013463,
+        "DBLP": "journals/corr/abs-2605-05632",
+        "DOI": "10.48550/arXiv.2605.05632"
+      },
+      "paperId": "fcc53771b3427efb4aaac2d042ec855cf4fa1630",
+      "publicationDate": "2026-05-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning",
+      "url": "https://www.semanticscholar.org/paper/fcc53771b3427efb4aaac2d042ec855cf4fa1630",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.05703": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.05703",
+        "CorpusId": 288013170,
+        "DBLP": "journals/corr/abs-2605-05703",
+        "DOI": "10.48550/arXiv.2605.05703"
+      },
+      "paperId": "02aa4bb0cc02456f64fb7e9c64fcc5e0486227e5",
+      "publicationDate": "2026-05-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Active Learning for Communication Structure Optimization in LLM-Based Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/02aa4bb0cc02456f64fb7e9c64fcc5e0486227e5",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.06812": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.06812",
+        "CorpusId": 288111150,
+        "DBLP": "journals/corr/abs-2605-06812",
+        "DOI": "10.48550/arXiv.2605.06812"
+      },
+      "paperId": "7919631a973f467b2b05757a61e7b3b9bc6bac54",
+      "publicationDate": "2026-05-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Towards Security-Auditable LLM Agents: A Unified Graph Representation",
+      "url": "https://www.semanticscholar.org/paper/7919631a973f467b2b05757a61e7b3b9bc6bac54",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.08258": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.08258",
+        "CorpusId": 288258876,
+        "DBLP": "journals/corr/abs-2605-08258",
+        "DOI": "10.48550/arXiv.2605.08258"
+      },
+      "paperId": "f50cf84426873f538e3a7f2fad4af6934ef5df57",
+      "publicationDate": "2026-05-07",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Designing Intelligent Enterprise Agents: A Capability-Aligned Multi-Agent Architecture",
+      "url": "https://www.semanticscholar.org/paper/f50cf84426873f538e3a7f2fad4af6934ef5df57",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.08268": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.08268",
+        "CorpusId": 288255198,
+        "DBLP": "journals/corr/abs-2605-08268",
+        "DOI": "10.48550/arXiv.2605.08268"
+      },
+      "paperId": "c7d9e3b2e6f3ed031c0349e426268fa79b078f73",
+      "publicationDate": "2026-05-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Insider Attacks in Multi-Agent LLM Consensus Systems",
+      "url": "https://www.semanticscholar.org/paper/c7d9e3b2e6f3ed031c0349e426268fa79b078f73",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.08321": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.08321",
+        "CorpusId": 288260031,
+        "DBLP": "journals/corr/abs-2605-08321",
+        "DOI": "10.48550/arXiv.2605.08321"
+      },
+      "paperId": "8b4718a64403bf612f7c2410401a2a11a4050de3",
+      "publicationDate": "2026-05-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "LLM Wardens: Mitigating Adversarial Persuasion with Third-Party Conversational Oversight",
+      "url": "https://www.semanticscholar.org/paper/8b4718a64403bf612f7c2410401a2a11a4050de3",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.08426": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.08426",
+        "CorpusId": 288255527,
+        "DBLP": "journals/corr/abs-2605-08426",
+        "DOI": "10.48550/arXiv.2605.08426"
+      },
+      "paperId": "fc79538796ed0fccf0de9cee1f850fdfcf29ab92",
+      "publicationDate": "2026-05-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Mechanism Design Is Not Enough: Prosocial Agents for Cooperative AI",
+      "url": "https://www.semanticscholar.org/paper/fc79538796ed0fccf0de9cee1f850fdfcf29ab92",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.08460": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.08460",
+        "CorpusId": 288258278,
+        "DBLP": "journals/corr/abs-2605-08460",
+        "DOI": "10.48550/arXiv.2605.08460"
+      },
+      "paperId": "b46e67e21542fdd9e0ce0cfa1be6fd5030df2c5b",
+      "publicationDate": "2026-05-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks",
+      "url": "https://www.semanticscholar.org/paper/b46e67e21542fdd9e0ce0cfa1be6fd5030df2c5b",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.09027": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.09027",
+        "CorpusId": 288255285,
+        "DBLP": "journals/corr/abs-2605-09027",
+        "DOI": "10.48550/arXiv.2605.09027"
+      },
+      "paperId": "ee482ae9ecd8cef502f605a6957d56bc5b403ff9",
+      "publicationDate": "2026-05-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives",
+      "url": "https://www.semanticscholar.org/paper/ee482ae9ecd8cef502f605a6957d56bc5b403ff9",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.09076": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.09076",
+        "CorpusId": 288255145,
+        "DBLP": "journals/corr/abs-2605-09076",
+        "DOI": "10.48550/arXiv.2605.09076"
+      },
+      "paperId": "a946db88de13b1a6e394973c3ecb191f1dca11d2",
+      "publicationDate": "2026-05-09",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Robust Multi-Agent LLMs under Byzantine Faults",
+      "url": "https://www.semanticscholar.org/paper/a946db88de13b1a6e394973c3ecb191f1dca11d2",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.09278": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.09278",
+        "CorpusId": 288255802,
+        "DBLP": "journals/corr/abs-2605-09278",
+        "DOI": "10.48550/arXiv.2605.09278"
+      },
+      "paperId": "1ad06ca131f6e83a0dc16cb42495dd29a98522ad",
+      "publicationDate": "2026-05-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "EquiMem: Calibrating Shared Memory in Multi-Agent Debate via Game-Theoretic Equilibrium",
+      "url": "https://www.semanticscholar.org/paper/1ad06ca131f6e83a0dc16cb42495dd29a98522ad",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.09823": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.09823",
+        "CorpusId": 288257069,
+        "DBLP": "journals/corr/abs-2605-09823",
+        "DOI": "10.48550/arXiv.2605.09823"
+      },
+      "paperId": "a2d6a88ef3dce5f496ea0fe6805e6ca274ab4b15",
+      "publicationDate": "2026-05-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs",
+      "url": "https://www.semanticscholar.org/paper/a2d6a88ef3dce5f496ea0fe6805e6ca274ab4b15",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.10614": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.10614",
+        "CorpusId": 288258573,
+        "DBLP": "journals/corr/abs-2605-10614",
+        "DOI": "10.48550/arXiv.2605.10614"
+      },
+      "paperId": "fae8ae937c449cb0a368c7131b12b3e88ac16127",
+      "publicationDate": "2026-05-11",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "PRISM: Generation-Time Detection and Mitigation of Secret Leakage in Multi-Agent LLM Pipelines",
+      "url": "https://www.semanticscholar.org/paper/fae8ae937c449cb0a368c7131b12b3e88ac16127",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.11514": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2605.11514",
+        "CorpusId": 288256063,
+        "DBLP": "journals/corr/abs-2605-11514",
+        "DOI": "10.48550/arXiv.2605.11514"
+      },
+      "paperId": "c6099b49fe6cfff58a4688eedf107f3ed0490699",
+      "publicationDate": "2026-05-12",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "FlowSteer: Prompt-Only Workflow Steering Exposes Planning-Time Vulnerabilities in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/c6099b49fe6cfff58a4688eedf107f3ed0490699",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.12240": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.12240",
+        "CorpusId": 288259102,
+        "DBLP": "journals/corr/abs-2605-12240",
+        "DOI": "10.48550/arXiv.2605.12240"
+      },
+      "paperId": "36084cb024fea0e9848e6b8ecf499bc00e534493",
+      "publicationDate": "2026-05-12",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents",
+      "url": "https://www.semanticscholar.org/paper/36084cb024fea0e9848e6b8ecf499bc00e534493",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.12532": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.12532",
+        "CorpusId": 288258617,
+        "DBLP": "journals/corr/abs-2605-12532",
+        "DOI": "10.48550/arXiv.2605.12532"
+      },
+      "paperId": "1666d315f07996528c02e1eef649f112c70ee5b7",
+      "publicationDate": "2026-05-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgenticAITA: A Proof-Of-Concept About Deliberative Multi-Agent Reasoning for Autonomous Trading Systems",
+      "url": "https://www.semanticscholar.org/paper/1666d315f07996528c02e1eef649f112c70ee5b7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.12943": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.12943",
+        "CorpusId": 288260289,
+        "DBLP": "journals/corr/abs-2605-12943",
+        "DOI": "10.48550/arXiv.2605.12943"
+      },
+      "paperId": "60885a772866ed90038a0432c91a4f6d511e9230",
+      "publicationDate": "2026-05-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Reinforced Collaboration in Multi-Agent Flow Networks",
+      "url": "https://www.semanticscholar.org/paper/60885a772866ed90038a0432c91a4f6d511e9230",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.12991": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.12991",
+        "CorpusId": 288253699,
+        "DBLP": "journals/corr/abs-2605-12991",
+        "DOI": "10.48550/arXiv.2605.12991"
+      },
+      "paperId": "16bbb3289088d61f8e2c7e72e526dc33aeb5044c",
+      "publicationDate": "2026-05-13",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Not Just RLHF: Why Alignment Alone Won't Fix Multi-Agent Sycophancy",
+      "url": "https://www.semanticscholar.org/paper/16bbb3289088d61f8e2c7e72e526dc33aeb5044c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.13851": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.13851",
+        "CorpusId": 288255760,
+        "DBLP": "journals/corr/abs-2605-13851",
+        "DOI": "10.48550/arXiv.2605.13851"
+      },
+      "paperId": "58e4bbf636d37fd5c5a1afd2e80294e6f91dab90",
+      "publicationDate": "2026-03-17",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "Invisible Orchestrators Suppress Protective Behavior and Dissociate Power-Holders: Safety Risks in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/58e4bbf636d37fd5c5a1afd2e80294e6f91dab90",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.14271": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.14271",
+        "CorpusId": 288255061,
+        "DBLP": "journals/corr/abs-2605-14271",
+        "DOI": "10.48550/arXiv.2605.14271"
+      },
+      "paperId": "7d89c6d4c6b401f4d8e6e9759f25b3578e206e0f",
+      "publicationDate": "2026-05-14",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Auditing Agent Harness Safety",
+      "url": "https://www.semanticscholar.org/paper/7d89c6d4c6b401f4d8e6e9759f25b3578e206e0f",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.16346": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.16346",
+        "CorpusId": 288653968,
+        "DBLP": "journals/corr/abs-2605-16346",
+        "DOI": "10.48550/arXiv.2605.16346"
+      },
+      "paperId": "ffd5b662160cd415cd045b664872fe5b7812f0ce",
+      "publicationDate": "2026-05-08",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation",
+      "url": "https://www.semanticscholar.org/paper/ffd5b662160cd415cd045b664872fe5b7812f0ce",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.16746": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.16746",
+        "CorpusId": 288655189,
+        "DBLP": "journals/corr/abs-2605-16746",
+        "DOI": "10.48550/arXiv.2605.16746"
+      },
+      "paperId": "2d065df525f7619bc44fe5fdf385e1ea9714b822",
+      "publicationDate": "2026-05-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "State Contamination in Memory-Augmented LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/2d065df525f7619bc44fe5fdf385e1ea9714b822",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.16821": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.16821",
+        "CorpusId": 288654726,
+        "DBLP": "journals/corr/abs-2605-16821",
+        "DOI": "10.48550/arXiv.2605.16821"
+      },
+      "paperId": "5ef88ac24c977005b406dfd632fe674d8a5e6e74",
+      "publicationDate": "2026-05-16",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "Multi-Paradigm Agent Interaction in Practice:A Systematic Analysis of Generator-Evaluator, ReAct Loop,and Adversarial Evaluation in the buddyMe Framework",
+      "url": "https://www.semanticscholar.org/paper/5ef88ac24c977005b406dfd632fe674d8a5e6e74",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.17076": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2605.17076",
+        "CorpusId": 288649865,
+        "DBLP": "journals/corr/abs-2605-17076",
+        "DOI": "10.48550/arXiv.2605.17076"
+      },
+      "paperId": "7639b3f10770cc293e6af1a3c691b4c662c00daf",
+      "publicationDate": "2026-05-16",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "S-Bus: Automatic Read-Set Reconstruction for Multi-Agent LLM State Coordination",
+      "url": "https://www.semanticscholar.org/paper/7639b3f10770cc293e6af1a3c691b4c662c00daf",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.17480": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.17480",
+        "CorpusId": 288654944,
+        "DBLP": "journals/corr/abs-2605-17480",
+        "DOI": "10.48550/arXiv.2605.17480"
+      },
+      "paperId": "2e5a9e42518553589f1574f5c6c6e5d34f28627c",
+      "publicationDate": "2026-05-17",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure",
+      "url": "https://www.semanticscholar.org/paper/2e5a9e42518553589f1574f5c6c6e5d34f28627c",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.19240": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.19240",
+        "CorpusId": 288655820,
+        "DBLP": "journals/corr/abs-2605-19240",
+        "DOI": "10.48550/arXiv.2605.19240"
+      },
+      "paperId": "dd7c0938f68765869f0e61ee363e7ed36a873eba",
+      "publicationDate": "2026-05-19",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring",
+      "url": "https://www.semanticscholar.org/paper/dd7c0938f68765869f0e61ee363e7ed36a873eba",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.20548": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.20548",
+        "CorpusId": 288654422,
+        "DBLP": "journals/corr/abs-2605-20548",
+        "DOI": "10.48550/arXiv.2605.20548"
+      },
+      "paperId": "97ae2ef1f6ce3fc225bee091264564735ef07cac",
+      "publicationDate": "2026-05-19",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "What Do Agents Communicate? Characterizing Information Exchange in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/97ae2ef1f6ce3fc225bee091264564735ef07cac",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.22001": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.22001",
+        "CorpusId": 288650215,
+        "DBLP": "journals/corr/abs-2605-22001",
+        "DOI": "10.48550/arXiv.2605.22001"
+      },
+      "paperId": "d623578c650d7d6442398dd7e2683caeaa91ac22",
+      "publicationDate": "2026-05-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/d623578c650d7d6442398dd7e2683caeaa91ac22",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.22786": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2605.22786",
+        "CorpusId": 288649370,
+        "DBLP": "journals/corr/abs-2605-22786",
+        "DOI": "10.48550/arXiv.2605.22786"
+      },
+      "paperId": "8a01248caa80174984a6e123597143030286fef7",
+      "publicationDate": "2026-05-21",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/8a01248caa80174984a6e123597143030286fef7",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.25188": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.25188",
+        "CorpusId": 288671262,
+        "DBLP": "journals/corr/abs-2605-25188",
+        "DOI": "10.48550/arXiv.2605.25188"
+      },
+      "paperId": "3a83512c76d548d164e52f57941b1a85fd919098",
+      "publicationDate": "2026-05-24",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "DarkForest: Less Talk, Higher Accuracy for Multi-Agent LLMs",
+      "url": "https://www.semanticscholar.org/paper/3a83512c76d548d164e52f57941b1a85fd919098",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.27489": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.27489",
+        "CorpusId": 288701004,
+        "DBLP": "journals/corr/abs-2605-27489",
+        "DOI": "10.48550/arXiv.2605.27489"
+      },
+      "paperId": "9579646214346f2b8023dda4b1bb6f39dc9c62fb",
+      "publicationDate": "2026-05-26",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "HARP: Measuring Harm Amplification in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/9579646214346f2b8023dda4b1bb6f39dc9c62fb",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.27593": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.27593",
+        "CorpusId": 288701142,
+        "DBLP": "journals/corr/abs-2605-27593",
+        "DOI": "10.48550/arXiv.2605.27593"
+      },
+      "paperId": "8f19eda16a5d504b34e6d6fb60559dcaad820454",
+      "publicationDate": "2026-05-26",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Voluntary Collusion with Secret Tools in Competing LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/8f19eda16a5d504b34e6d6fb60559dcaad820454",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.27766": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.27766",
+        "CorpusId": 288701296,
+        "DBLP": "journals/corr/abs-2605-27766",
+        "DOI": "10.48550/arXiv.2605.27766"
+      },
+      "paperId": "7873dd8f8812705d34465e5b4ab190346434f1bc",
+      "publicationDate": "2026-05-26",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Got a Secret? LLM Agents Can't Keep It: Evaluating Privacy in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/7873dd8f8812705d34465e5b4ab190346434f1bc",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.28104": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.28104",
+        "CorpusId": 288702207,
+        "DBLP": "journals/corr/abs-2605-28104",
+        "DOI": "10.48550/arXiv.2605.28104"
+      },
+      "paperId": "e5f815f53add2d3ac3b2305b68628f91b8f327a9",
+      "publicationDate": "2026-05-27",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Defending LLM-based Multi-Agent Systems Against Cooperative Attacks with Sentence-Level Rectification",
+      "url": "https://www.semanticscholar.org/paper/e5f815f53add2d3ac3b2305b68628f91b8f327a9",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.30042": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.30042",
+        "CorpusId": 288743610,
+        "DBLP": "journals/corr/abs-2605-30042",
+        "DOI": "10.48550/arXiv.2605.30042"
+      },
+      "paperId": "f58631c5c6dee9578f7061faf12ca3d241d2fbdb",
+      "publicationDate": "2026-05-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Learning to Choose: An Empowerment-Guided Multi-Agent System with semantic communication for Adaptive Method Selection",
+      "url": "https://www.semanticscholar.org/paper/f58631c5c6dee9578f7061faf12ca3d241d2fbdb",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.30391": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.30391",
+        "CorpusId": 288813746,
+        "DBLP": "journals/corr/abs-2605-30391",
+        "DOI": "10.48550/arXiv.2605.30391"
+      },
+      "paperId": "58bfed6a86fc28c2c370712e803a47f1648a40c6",
+      "publicationDate": "2026-05-28",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Social Reasoning in Machines: Investigating Collective Truth-Seeking Dynamics in Large Language Model Debate",
+      "url": "https://www.semanticscholar.org/paper/58bfed6a86fc28c2c370712e803a47f1648a40c6",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2605.30802": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2605.30802",
+        "CorpusId": 288814147,
+        "DBLP": "journals/corr/abs-2605-30802",
+        "DOI": "10.48550/arXiv.2605.30802"
+      },
+      "paperId": "c99d3552fb496e610222a79a691d7ba7ba1d61e6",
+      "publicationDate": "2026-05-29",
+      "publicationTypes": [
+        "JournalArticle",
+        "Review"
+      ],
+      "title": "Design and Evaluation of Multi-Agent AI Oracle Systems for Prediction Market Resolution",
+      "url": "https://www.semanticscholar.org/paper/c99d3552fb496e610222a79a691d7ba7ba1d61e6",
+      "venue": "arXiv.org"
+    },
+    "ARXIV:2606.00405": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.00405",
+        "CorpusId": 288855461
+      },
+      "paperId": "261f740a0cedc0a7712ac9439e2cc64b1292306b",
+      "publicationDate": "2026-05-29",
+      "publicationTypes": null,
+      "title": "From Talking Words to Sharing Thoughts: Scalable Multi-LLM Aggregation via Structured Message Passing",
+      "url": "https://www.semanticscholar.org/paper/261f740a0cedc0a7712ac9439e2cc64b1292306b",
+      "venue": ""
+    },
+    "ARXIV:2606.01490": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.01490",
+        "CorpusId": 288861058
+      },
+      "paperId": "ecbafcfd2d4dba70d72d7deb5e27b7241b8a647b",
+      "publicationDate": "2026-05-31",
+      "publicationTypes": [
+        "Review"
+      ],
+      "title": "LLM Consortium for Software Design Refinement: A Controlled Experiment on Multi-Agent Collaboration Topologies",
+      "url": "https://www.semanticscholar.org/paper/ecbafcfd2d4dba70d72d7deb5e27b7241b8a647b",
+      "venue": ""
+    },
+    "ARXIV:2606.02282": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.02282",
+        "CorpusId": 288861127
+      },
+      "paperId": "011b2c8accc0a2720eb735cd83f511438038d1f7",
+      "publicationDate": "2026-06-01",
+      "publicationTypes": null,
+      "title": "POIROT: Interrogating Agents for Failure Detection in Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/011b2c8accc0a2720eb735cd83f511438038d1f7",
+      "venue": ""
+    },
+    "ARXIV:2606.07790": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.07790",
+        "CorpusId": 289031745
+      },
+      "paperId": "1993dd73996dafdb4d66396646936c9da6a47f99",
+      "publicationDate": "2026-06-05",
+      "publicationTypes": null,
+      "title": "Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games",
+      "url": "https://www.semanticscholar.org/paper/1993dd73996dafdb4d66396646936c9da6a47f99",
+      "venue": ""
+    },
+    "ARXIV:2606.07937": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2606.07937",
+        "CorpusId": 289031760
+      },
+      "paperId": "16f8d622f264222e00d08f34a72b9832b617a05f",
+      "publicationDate": "2026-06-06",
+      "publicationTypes": null,
+      "title": "Hallucination Cascade: Analyzing Error Propagation in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/16f8d622f264222e00d08f34a72b9832b617a05f",
+      "venue": ""
+    },
+    "ARXIV:2606.07940": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.07940",
+        "CorpusId": 289031676
+      },
+      "paperId": "b3d377158d19906b9f88b33e037f00609b674840",
+      "publicationDate": "2026-06-06",
+      "publicationTypes": null,
+      "title": "SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/b3d377158d19906b9f88b33e037f00609b674840",
+      "venue": ""
+    },
+    "ARXIV:2606.07941": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2606.07941",
+        "CorpusId": 289032128
+      },
+      "paperId": "fbbcdb26636386d148008ceaedb2ec224ca476f8",
+      "publicationDate": "2026-06-06",
+      "publicationTypes": null,
+      "title": "Collective Hallucination in Multi-Agent LLMs:Modeling and Defense",
+      "url": "https://www.semanticscholar.org/paper/fbbcdb26636386d148008ceaedb2ec224ca476f8",
+      "venue": ""
+    },
+    "ARXIV:2606.08457": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.08457",
+        "CorpusId": 289097724
+      },
+      "paperId": "6239a1990fa573468e299ee1682fc3b6ad903265",
+      "publicationDate": "2026-06-07",
+      "publicationTypes": null,
+      "title": "The Consistency Illusion: How Multi-Agent Debate Hides Reasoning Misalignment",
+      "url": "https://www.semanticscholar.org/paper/6239a1990fa573468e299ee1682fc3b6ad903265",
+      "venue": ""
+    },
+    "ARXIV:2606.09084": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2606.09084",
+        "CorpusId": 289098882
+      },
+      "paperId": "b7a9e923eec432c8a9cdb8b7ad684e7fa33885c8",
+      "publicationDate": "2026-06-08",
+      "publicationTypes": null,
+      "title": "Context-Fractured Decomposition Attacks on Tool-Using LLM Agents: Exploiting Artifact Provenance Gaps",
+      "url": "https://www.semanticscholar.org/paper/b7a9e923eec432c8a9cdb8b7ad684e7fa33885c8",
+      "venue": ""
+    },
+    "ARXIV:2606.09800": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.09800",
+        "CorpusId": 289097313
+      },
+      "paperId": "6fec476666ced03237e75b626ce222a126c4f814",
+      "publicationDate": "2026-06-08",
+      "publicationTypes": null,
+      "title": "FASE: Fast Adaptive Semantic Entropy for Code Quality",
+      "url": "https://www.semanticscholar.org/paper/6fec476666ced03237e75b626ce222a126c4f814",
+      "venue": ""
+    },
+    "ARXIV:2606.10322": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.10322",
+        "CorpusId": 289132779
+      },
+      "paperId": "03ebfea35124ed27f7f954332794209a96fff7c5",
+      "publicationDate": "2026-06-09",
+      "publicationTypes": null,
+      "title": "Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs",
+      "url": "https://www.semanticscholar.org/paper/03ebfea35124ed27f7f954332794209a96fff7c5",
+      "venue": ""
+    },
+    "ARXIV:2606.12474": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.12474",
+        "CorpusId": 289187238
+      },
+      "paperId": "a96d1118b026d24af509a0e6ecd47b710bf0f138",
+      "publicationDate": "2026-06-10",
+      "publicationTypes": null,
+      "title": "SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/a96d1118b026d24af509a0e6ecd47b710bf0f138",
+      "venue": ""
+    },
+    "ARXIV:2606.12709": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.12709",
+        "CorpusId": 289186522
+      },
+      "paperId": "9efbf2acb974342145797cb766c63de8b7746591",
+      "publicationDate": "2026-06-10",
+      "publicationTypes": null,
+      "title": "Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows",
+      "url": "https://www.semanticscholar.org/paper/9efbf2acb974342145797cb766c63de8b7746591",
+      "venue": ""
+    },
+    "ARXIV:2606.14517": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.14517",
+        "CorpusId": 289263874
+      },
+      "paperId": "396517eb4ba3cb0eb6afe8aa02cde9b121699c02",
+      "publicationDate": "2026-06-12",
+      "publicationTypes": null,
+      "title": "From Shield to Target: Denial-of-Service Attacks on LLM-Based Agent Guardrails",
+      "url": "https://www.semanticscholar.org/paper/396517eb4ba3cb0eb6afe8aa02cde9b121699c02",
+      "venue": ""
+    },
+    "ARXIV:2606.15008": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2606.15008",
+        "CorpusId": 289300811
+      },
+      "paperId": "2aa4edab94935dd6a1bc2c0cb96923d1762fca88",
+      "publicationDate": "2026-06-12",
+      "publicationTypes": null,
+      "title": "Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations",
+      "url": "https://www.semanticscholar.org/paper/2aa4edab94935dd6a1bc2c0cb96923d1762fca88",
+      "venue": ""
+    },
+    "ARXIV:2606.15024": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.15024",
+        "CorpusId": 289300685
+      },
+      "paperId": "3bdee2cf02cd967e37f6523f8cbc31518e198c69",
+      "publicationDate": "2026-06-12",
+      "publicationTypes": null,
+      "title": "Resilient Consensus in Agentic AI",
+      "url": "https://www.semanticscholar.org/paper/3bdee2cf02cd967e37f6523f8cbc31518e198c69",
+      "venue": ""
+    },
+    "ARXIV:2606.16047": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.16047",
+        "CorpusId": 289301515
+      },
+      "paperId": "0a94c4b6368a5571be651409b8a72057f70cc081",
+      "publicationDate": "2026-06-14",
+      "publicationTypes": null,
+      "title": "From Argument Components to Graphs: A Multi-Agent Debate with Confidence Gating for Argument Relations",
+      "url": "https://www.semanticscholar.org/paper/0a94c4b6368a5571be651409b8a72057f70cc081",
+      "venue": ""
+    },
+    "ARXIV:2606.16307": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2606.16307",
+        "CorpusId": 289300263
+      },
+      "paperId": "977268835cc7280e7a57374770b9e1202ad026bb",
+      "publicationDate": "2026-06-15",
+      "publicationTypes": null,
+      "title": "State-Grounded Multi-Agent Synthetic Data Generation for Tool-Augmented LLMs",
+      "url": "https://www.semanticscholar.org/paper/977268835cc7280e7a57374770b9e1202ad026bb",
+      "venue": ""
+    },
+    "ARXIV:2606.16710": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.16710",
+        "CorpusId": 289300779
+      },
+      "paperId": "018d056316422c0ffe9f61aa4f40392d3bba3dea",
+      "publicationDate": "2026-06-15",
+      "publicationTypes": null,
+      "title": "Misinformation Propagation in Benign Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/018d056316422c0ffe9f61aa4f40392d3bba3dea",
+      "venue": ""
+    },
+    "ARXIV:2606.17092": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.17092",
+        "CorpusId": 289627685
+      },
+      "paperId": "e9c2b49bab41e45185dcb79b63cbfbe29c4a540d",
+      "publicationDate": "2026-06-13",
+      "publicationTypes": null,
+      "title": "Securing Multi-Agent GIS Systems: Risk Evaluation and Prompt Hardening Optimization",
+      "url": "https://www.semanticscholar.org/paper/e9c2b49bab41e45185dcb79b63cbfbe29c4a540d",
+      "venue": ""
+    },
+    "ARXIV:2606.17368": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.17368",
+        "CorpusId": 289624340
+      },
+      "paperId": "0d8fc4c0580db3a5e9c07dbaf35f6bec714073e7",
+      "publicationDate": "2026-06-15",
+      "publicationTypes": null,
+      "title": "Distributed General-Purpose Agent Networks: Architecture, Key Mechanisms, and Prototypes",
+      "url": "https://www.semanticscholar.org/paper/0d8fc4c0580db3a5e9c07dbaf35f6bec714073e7",
+      "venue": ""
+    },
+    "ARXIV:2606.18068": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.18068",
+        "CorpusId": 289630363
+      },
+      "paperId": "c98b17e1447e8d06be3445d96ec10eafee312b66",
+      "publicationDate": "2026-06-16",
+      "publicationTypes": null,
+      "title": "Agentic AI-based Framework for Mitigating Premature Diagnostic Handoff and Silent Hallucination in Healthcare Applications",
+      "url": "https://www.semanticscholar.org/paper/c98b17e1447e8d06be3445d96ec10eafee312b66",
+      "venue": ""
+    },
+    "ARXIV:2606.19356": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.19356",
+        "CorpusId": 289626092
+      },
+      "paperId": "6d3f53e031f98354b0c05da6eda29a6bd88a27c8",
+      "publicationDate": "2026-05-14",
+      "publicationTypes": null,
+      "title": "Trustworthy Multi-Agent Systems: Mitigating Semantic Drift with the Argent Signaling Protocol",
+      "url": "https://www.semanticscholar.org/paper/6d3f53e031f98354b0c05da6eda29a6bd88a27c8",
+      "venue": ""
+    },
+    "ARXIV:2606.19382": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.19382",
+        "CorpusId": 289629416
+      },
+      "paperId": "31b7a7ad545b2304c9eb5f4b1fae3303c5b1aacd",
+      "publicationDate": "2026-06-14",
+      "publicationTypes": null,
+      "title": "DynAMO:Dynamic Asset Management Orchestration via Topological Multi-Agent Scheduling",
+      "url": "https://www.semanticscholar.org/paper/31b7a7ad545b2304c9eb5f4b1fae3303c5b1aacd",
+      "venue": ""
+    },
+    "ARXIV:2606.20493": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2606.20493",
+        "CorpusId": 289669096
+      },
+      "paperId": "dc1967a00433bdbbfba18edc38573a790b8aebc6",
+      "publicationDate": "2026-06-18",
+      "publicationTypes": null,
+      "title": "Contagion Networks: Evaluator Preference Propagation in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/dc1967a00433bdbbfba18edc38573a790b8aebc6",
+      "venue": ""
+    },
+    "ARXIV:2606.21445": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.21445",
+        "CorpusId": 289624799
+      },
+      "paperId": "64dc8ca935753a7b91a89debd9cb929be2b1829e",
+      "publicationDate": "2026-06-19",
+      "publicationTypes": null,
+      "title": "AutoRAS: Learning Robust Agentic Systems with Primitive Representations",
+      "url": "https://www.semanticscholar.org/paper/64dc8ca935753a7b91a89debd9cb929be2b1829e",
+      "venue": ""
+    },
+    "ARXIV:2606.22337": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2606.22337",
+        "CorpusId": 289625840
+      },
+      "paperId": "6cb700ca3c9cc98da2d289246f8657a0141e6256",
+      "publicationDate": "2026-06-21",
+      "publicationTypes": [
+        "Review"
+      ],
+      "title": "Theorist Toolbox: Tools for Agent Based LLM-assisted economic theory Research",
+      "url": "https://www.semanticscholar.org/paper/6cb700ca3c9cc98da2d289246f8657a0141e6256",
+      "venue": ""
+    },
+    "ARXIV:2606.27443": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.27443",
+        "CorpusId": 289669513
+      },
+      "paperId": "2fc8b21262f740d1b92fd48d59742e05f391ad1e",
+      "publicationDate": "2026-06-25",
+      "publicationTypes": null,
+      "title": "When Does Personality Composition Matter for Multi-Agent LLM Teams?",
+      "url": "https://www.semanticscholar.org/paper/2fc8b21262f740d1b92fd48d59742e05f391ad1e",
+      "venue": ""
+    },
+    "ARXIV:2606.28425": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.28425",
+        "CorpusId": 289683890
+      },
+      "paperId": "2161b346c43c37adbcd2940b2f6bfe5d873477db",
+      "publicationDate": "2026-06-25",
+      "publicationTypes": null,
+      "title": "Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/2161b346c43c37adbcd2940b2f6bfe5d873477db",
+      "venue": ""
+    },
+    "ARXIV:2606.28456": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.28456",
+        "CorpusId": 289683825
+      },
+      "paperId": "cdf7e2d40e043c335b51044a72c8ef0089f195c8",
+      "publicationDate": "2026-06-26",
+      "publicationTypes": null,
+      "title": "Is Lying an Emergent Behaviour in LLMs? Evidence from Gaslighting AI agents in a Sustainability Game",
+      "url": "https://www.semanticscholar.org/paper/cdf7e2d40e043c335b51044a72c8ef0089f195c8",
+      "venue": ""
+    },
+    "ARXIV:2606.28958": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2606.28958",
+        "CorpusId": 289683534
+      },
+      "paperId": "65f0ad12bf4e29ac881d2de523470caae77e6678",
+      "publicationDate": "2026-06-27",
+      "publicationTypes": null,
+      "title": "When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration",
+      "url": "https://www.semanticscholar.org/paper/65f0ad12bf4e29ac881d2de523470caae77e6678",
+      "venue": ""
+    },
+    "ARXIV:2606.29270": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.29270",
+        "CorpusId": 289683740
+      },
+      "paperId": "ca3b49e332c007ba41cac064f5daa080f66b3cb8",
+      "publicationDate": "2026-06-28",
+      "publicationTypes": null,
+      "title": "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates",
+      "url": "https://www.semanticscholar.org/paper/ca3b49e332c007ba41cac064f5daa080f66b3cb8",
+      "venue": ""
+    },
+    "ARXIV:2606.29654": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.29654",
+        "CorpusId": 289685647
+      },
+      "paperId": "bd53651ff40459a12caa9de9049e6dbe19c8a586",
+      "publicationDate": "2026-06-28",
+      "publicationTypes": [
+        "Review"
+      ],
+      "title": "Budgeted Act-or-Defer Multi-Agent LLM Deliberation with Local Reliability Bounds",
+      "url": "https://www.semanticscholar.org/paper/bd53651ff40459a12caa9de9049e6dbe19c8a586",
+      "venue": ""
+    },
+    "ARXIV:2606.30555": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.30555",
+        "CorpusId": 289683513
+      },
+      "paperId": "a4bcae17ba83b1559d62720cf450fd65c1bc9597",
+      "publicationDate": "2026-06-29",
+      "publicationTypes": null,
+      "title": "Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing",
+      "url": "https://www.semanticscholar.org/paper/a4bcae17ba83b1559d62720cf450fd65c1bc9597",
+      "venue": ""
+    },
+    "ARXIV:2606.30602": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2606.30602",
+        "CorpusId": 289684771
+      },
+      "paperId": "c4d062571426768628580ab820b3de4772be413e",
+      "publicationDate": "2026-06-29",
+      "publicationTypes": null,
+      "title": "MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems",
+      "url": "https://www.semanticscholar.org/paper/c4d062571426768628580ab820b3de4772be413e",
+      "venue": ""
+    },
+    "ARXIV:2606.30877": {
+      "citationCount": 3,
+      "externalIds": {
+        "ArXiv": "2606.30877",
+        "CorpusId": 289690508
+      },
+      "paperId": "2df5c2fb5801820ae29a8e0f4c909920e54fe876",
+      "publicationDate": "2026-06-29",
+      "publicationTypes": null,
+      "title": "A Systematic Approach to Multi-Agent AI from Advanced Regulatory Control Theory: Safe and Auditable LLM Operator Agents for Process Control",
+      "url": "https://www.semanticscholar.org/paper/2df5c2fb5801820ae29a8e0f4c909920e54fe876",
+      "venue": ""
+    },
+    "DOI:10.1007/978-3-032-16092-8_28": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 289312999,
+        "DBLP": "conf/esorics/LeeTM25",
+        "DOI": "10.1007/978-3-032-16092-8_28"
+      },
+      "paperId": "ce263ff9b14c813dd2004bd2d437c176f9d01a1f",
+      "publicationDate": null,
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Prompt Infection: LLM-to-LLM Prompt Injection within Multi-agent Systems",
+      "url": "https://www.semanticscholar.org/paper/ce263ff9b14c813dd2004bd2d437c176f9d01a1f",
+      "venue": "European Symposium on Research in Computer Security"
+    },
+    "DOI:10.1007/978-981-92-0071-9_9": null,
+    "DOI:10.1007/s11432-024-4663-2": {
+      "citationCount": 82,
+      "externalIds": {
+        "ArXiv": "2407.07791",
+        "CorpusId": 271088771,
+        "DBLP": "journals/corr/abs-2407-07791",
+        "DOI": "10.1007/s11432-024-4663-2"
+      },
+      "paperId": "3d814347e382fc3fcc071876744f139d2c101be7",
+      "publicationDate": "2024-07-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Flooding spread of manipulated knowledge in LLM-based multi-agent communities",
+      "url": "https://www.semanticscholar.org/paper/3d814347e382fc3fcc071876744f139d2c101be7",
+      "venue": "Science China Information Sciences"
+    },
+    "DOI:10.1007/s40747-025-02096-0": {
+      "citationCount": 6,
+      "externalIds": {
+        "CorpusId": 282763187,
+        "DBLP": "journals/comintsys/FuDQYX26",
+        "DOI": "10.1007/s40747-025-02096-0"
+      },
+      "paperId": "9c76c01ae775f5ba756bafc998f97a2c08adc95b",
+      "publicationDate": "2025-11-06",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Leveraging multi-agent framework for root cause analysis",
+      "url": "https://www.semanticscholar.org/paper/9c76c01ae775f5ba756bafc998f97a2c08adc95b",
+      "venue": "Complex & Intelligent Systems"
+    },
+    "DOI:10.1007/s43681-026-01048-9": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 286574349,
+        "DBLP": "journals/aiethics/HungWMSJ26",
+        "DOI": "10.1007/s43681-026-01048-9"
+      },
+      "paperId": "e2a2a52844cb3042cdc83ba2aaf53ef15fad1c8e",
+      "publicationDate": "2026-03-15",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Deliberation and drift: Evaluating alignment fragility in multi-agent medical artificial intelligence",
+      "url": "https://www.semanticscholar.org/paper/e2a2a52844cb3042cdc83ba2aaf53ef15fad1c8e",
+      "venue": "AI and Ethics"
+    },
+    "DOI:10.1016/j.cja.2025.103779": null,
+    "DOI:10.1109/access.2026.3704541": {
+      "citationCount": 6,
+      "externalIds": {
+        "ArXiv": "2602.11510",
+        "CorpusId": 289300000,
+        "DBLP": "journals/access/YagoubiBM26",
+        "DOI": "10.1109/ACCESS.2026.3704541"
+      },
+      "paperId": "09617e17d40caf3b90c45c2f20ebcb54e3155999",
+      "publicationDate": "2026-02-12",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems",
+      "url": "https://www.semanticscholar.org/paper/09617e17d40caf3b90c45c2f20ebcb54e3155999",
+      "venue": "IEEE Access"
+    },
+    "DOI:10.1109/eucnc/6gsummit68295.2026.11577467": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2604.13353",
+        "CorpusId": 287480001,
+        "DBLP": "journals/corr/abs-2604-13353",
+        "DOI": "10.1109/EuCNC/6GSummit68295.2026.11577467"
+      },
+      "paperId": "5d1437ef5eadad056d44bbe0973b163fa7edd089",
+      "publicationDate": "2026-04-14",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Cross-Domain Query Translation for Network Troubleshooting: A Multi-Agent LLM Framework with Privacy Preservation and Self-Reflection",
+      "url": "https://www.semanticscholar.org/paper/5d1437ef5eadad056d44bbe0973b163fa7edd089",
+      "venue": "2026 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)"
+    },
+    "DOI:10.1109/fllm67465.2025.11391246": {
+      "citationCount": 0,
+      "externalIds": {
+        "ArXiv": "2506.23576",
+        "CorpusId": 280011411,
+        "DBLP": "journals/corr/abs-2506-23576",
+        "DOI": "10.1109/FLLM67465.2025.11391246"
+      },
+      "paperId": "2b3457dbc31d0252afa42eb660a28dbbbadf4340",
+      "publicationDate": "2025-06-30",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Evaluating Multi-Agent Defences Against Jailbreaking Attacks on Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/2b3457dbc31d0252afa42eb660a28dbbbadf4340",
+      "venue": "2025 3rd International Conference on Foundation and Large Language Models (FLLM)"
+    },
+    "DOI:10.1109/ica67499.2025.00033": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2601.13709",
+        "CorpusId": 284912286,
+        "DBLP": "journals/corr/abs-2601-13709",
+        "DOI": "10.1109/ICA67499.2025.00033"
+      },
+      "paperId": "ae125bc6cea80e9997dd02af76717f076d108b49",
+      "publicationDate": "2025-12-05",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Hidden in Plain Text: Measuring LLM Deception Quality Against Human Baselines Using Social Deduction Games",
+      "url": "https://www.semanticscholar.org/paper/ae125bc6cea80e9997dd02af76717f076d108b49",
+      "venue": "International Conference on Agents"
+    },
+    "DOI:10.1109/icmla66185.2025.00174": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2512.21818",
+        "CorpusId": 284275503,
+        "DBLP": "journals/corr/abs-2512-21818",
+        "DOI": "10.1109/ICMLA66185.2025.00174"
+      },
+      "paperId": "e87a68df776ac827028d22bea53239f863e6aa14",
+      "publicationDate": "2025-12-03",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference",
+        "Review"
+      ],
+      "title": "Analyzing Code Injection Attacks on LLM-based Multi-Agent Systems in Software Development",
+      "url": "https://www.semanticscholar.org/paper/e87a68df776ac827028d22bea53239f863e6aa14",
+      "venue": "International Conference on Machine Learning and Applications"
+    },
+    "DOI:10.1109/iri66576.2025.00051": {
+      "citationCount": 10,
+      "externalIds": {
+        "ArXiv": "2505.11642",
+        "CorpusId": 278740189,
+        "DBLP": "conf/iri/FanL25",
+        "DOI": "10.1109/IRI66576.2025.00051"
+      },
+      "paperId": "75a9b9f441729818d4e31070eeb1ccaf9aba27a5",
+      "publicationDate": "2025-05-16",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "PeerGuard: Defending Multi-Agent Systems Against Backdoor Attacks Through Mutual Reasoning",
+      "url": "https://www.semanticscholar.org/paper/75a9b9f441729818d4e31070eeb1ccaf9aba27a5",
+      "venue": "IEEE International Conference on Information Reuse and Integration"
+    },
+    "DOI:10.1109/iros60139.2025.11247695": {
+      "citationCount": 9,
+      "externalIds": {
+        "ArXiv": "2503.06791",
+        "CorpusId": 276903809,
+        "DBLP": "journals/corr/abs-2503-06791",
+        "DOI": "10.1109/IROS60139.2025.11247695"
+      },
+      "paperId": "5406ab3a490ade1a141eccedf7f1f69582ab2f5d",
+      "publicationDate": "2025-03-09",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference",
+        "Review"
+      ],
+      "title": "AutoMisty: A Multi-Agent LLM Framework for Automated Code Generation in the Misty Social Robot",
+      "url": "https://www.semanticscholar.org/paper/5406ab3a490ade1a141eccedf7f1f69582ab2f5d",
+      "venue": "IEEE/RJS International Conference on Intelligent RObots and Systems"
+    },
+    "DOI:10.1109/ispa67752.2025.00198": {
+      "citationCount": 6,
+      "externalIds": {
+        "ArXiv": "2512.02410",
+        "CorpusId": 283356713,
+        "DBLP": "journals/corr/abs-2512-02410",
+        "DOI": "10.1109/ISPA67752.2025.00198"
+      },
+      "paperId": "53afadd7e901dcf23a9de548a8da538bbff9dda4",
+      "publicationDate": "2025-10-10",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Decentralized Multi-Agent System with Trust-Aware Communication",
+      "url": "https://www.semanticscholar.org/paper/53afadd7e901dcf23a9de548a8da538bbff9dda4",
+      "venue": "International Symposium on Image and Signal Processing and Analysis"
+    },
+    "DOI:10.1109/iv55156.2024.10588403": {
+      "citationCount": 21,
+      "externalIds": {
+        "ArXiv": "2406.05651",
+        "CorpusId": 270371283,
+        "DBLP": "conf/ivs/KongBFW24",
+        "DOI": "10.1109/IV55156.2024.10588403"
+      },
+      "paperId": "893fc269a46c2552cec5e076db99eb724362e9c0",
+      "publicationDate": "2024-06-02",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "A Superalignment Framework in Autonomous Driving with Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/893fc269a46c2552cec5e076db99eb724362e9c0",
+      "venue": "2024 IEEE Intelligent Vehicles Symposium (IV)"
+    },
+    "DOI:10.1109/mipro65660.2025.11131790": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2502.12630",
+        "CorpusId": 276422487,
+        "DBLP": "journals/corr/abs-2502-12630",
+        "DOI": "10.1109/MIPRO65660.2025.11131790"
+      },
+      "paperId": "196aadc224c86b51d5c2efc7e6d2ce9de284806b",
+      "publicationDate": "2025-02-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Automating Prompt Leakage Attacks on Large Language Models Using Agentic Approach",
+      "url": "https://www.semanticscholar.org/paper/196aadc224c86b51d5c2efc7e6d2ce9de284806b",
+      "venue": "2025 MIPRO 48th ICT and Electronics Convention"
+    },
+    "DOI:10.1109/tcss.2026.3695070": null,
+    "DOI:10.1109/tpami.2026.3694367": {
+      "citationCount": 18,
+      "externalIds": {
+        "ArXiv": "2310.00322",
+        "CorpusId": 263334034,
+        "DOI": "10.1109/tpami.2026.3694367",
+        "PubMed": "42149752"
+      },
+      "paperId": "b88ae92f5691b02eeefb967e570d0e1eac4aa01f",
+      "publicationDate": "2023-09-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Evolving Diverse Red-team Language Models in Multi-round Multi-agent Games.",
+      "url": "https://www.semanticscholar.org/paper/b88ae92f5691b02eeefb967e570d0e1eac4aa01f",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+    },
+    "DOI:10.1109/wiecon-ece69386.2025.11526251": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2509.14285",
+        "CorpusId": 281394187,
+        "DBLP": "journals/corr/abs-2509-14285",
+        "DOI": "10.1109/WIECON-ECE69386.2025.11526251"
+      },
+      "paperId": "f851714285c7a6bfb963da98d67f04df0eafbac9",
+      "publicationDate": "2025-09-16",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks",
+      "url": "https://www.semanticscholar.org/paper/f851714285c7a6bfb963da98d67f04df0eafbac9",
+      "venue": "IEEE International WIE Conference on Electrical and Computer Engineering"
+    },
+    "DOI:10.1145/3774904.3792462": {
+      "citationCount": 6,
+      "externalIds": {
+        "ArXiv": "2510.16219",
+        "CorpusId": 282209035,
+        "DBLP": "journals/corr/abs-2510-16219",
+        "DOI": "10.1145/3774904.3792462"
+      },
+      "paperId": "5d343f6f4d872a4e03708ef35e0ed09ff90b751c",
+      "publicationDate": "2025-10-17",
+      "publicationTypes": [
+        "JournalArticle",
+        "Book",
+        "Conference"
+      ],
+      "title": "SentinelNet: Safeguarding Multi-Agent Collaboration Through Credit-Based Dynamic Threat Detection",
+      "url": "https://www.semanticscholar.org/paper/5d343f6f4d872a4e03708ef35e0ed09ff90b751c",
+      "venue": "The Web Conference"
+    },
+    "DOI:10.1145/3774904.3792976": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2603.24973",
+        "CorpusId": 286789889,
+        "DBLP": "journals/corr/abs-2603-24973",
+        "DOI": "10.1145/3774904.3792976"
+      },
+      "paperId": "c0633507a8d05dc6267625808e8999ef884513bb",
+      "publicationDate": "2026-03-26",
+      "publicationTypes": [
+        "JournalArticle",
+        "Book",
+        "Conference"
+      ],
+      "title": "Belief-Driven Multi-Agent Collaboration via Approximate Perfect Bayesian Equilibrium for Social Simulation",
+      "url": "https://www.semanticscholar.org/paper/c0633507a8d05dc6267625808e8999ef884513bb",
+      "venue": "The Web Conference"
+    },
+    "DOI:10.1145/3779208.3785380": {
+      "citationCount": 6,
+      "externalIds": {
+        "ArXiv": "2506.02859",
+        "CorpusId": 279118988,
+        "DBLP": "journals/corr/abs-2506-02859",
+        "DOI": "10.1145/3779208.3785380"
+      },
+      "paperId": "79aef353a57ad8ec97c6b0aecbba23d5b31a7c5e",
+      "publicationDate": "2025-06-03",
+      "publicationTypes": [
+        "JournalArticle",
+        "Book",
+        "Conference"
+      ],
+      "title": "ATAG: AI-Agent Application Threat Assessment with Attack Graphs",
+      "url": "https://www.semanticscholar.org/paper/79aef353a57ad8ec97c6b0aecbba23d5b31a7c5e",
+      "venue": "ACM Asia Conference on Computer and Communications Security"
+    },
+    "DOI:10.1145/3786335.3813181": {
+      "citationCount": 29,
+      "externalIds": {
+        "ArXiv": "2503.01829",
+        "CorpusId": 276768248,
+        "DBLP": "journals/corr/abs-2503-01829",
+        "DOI": "10.1145/3786335.3813181"
+      },
+      "paperId": "fb6947578a0912118b1c6301b1b03160d18f9aef",
+      "publicationDate": "2025-03-03",
+      "publicationTypes": [
+        "JournalArticle",
+        "Book"
+      ],
+      "title": "Persuade Me if You Can: A Framework for Evaluating Persuasion Effectiveness and Susceptibility Among Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/fb6947578a0912118b1c6301b1b03160d18f9aef",
+      "venue": "CAIS"
+    },
+    "DOI:10.1145/3795154.3795296": {
+      "citationCount": 13,
+      "externalIds": {
+        "CorpusId": 286980325,
+        "DOI": "10.1145/3795154.3795296"
+      },
+      "paperId": "e2e5529df48fe6cf893da483360958b32d829724",
+      "publicationDate": "2025-12-26",
+      "publicationTypes": [
+        "Book",
+        "Conference"
+      ],
+      "title": "SecureGov-Agent: A Governance-Centric Multi-Agent Framework for Privacy-Preserving and Attack-Resilient LLM Agents",
+      "url": "https://www.semanticscholar.org/paper/e2e5529df48fe6cf893da483360958b32d829724",
+      "venue": "Proceedings of the 2025 6th International Conference on Computer Science and Management Technology"
+    },
+    "DOI:10.1145/3805760.3814914": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.24138",
+        "CorpusId": 288669957,
+        "DBLP": "journals/corr/abs-2605-24138",
+        "DOI": "10.1145/3805760.3814914"
+      },
+      "paperId": "0ec6413fbf1c09c9a44c7f8a225154dfc88a703e",
+      "publicationDate": "2026-05-22",
+      "publicationTypes": [
+        "JournalArticle",
+        "Book",
+        "Conference"
+      ],
+      "title": "Understanding Conversational Patterns in Multi-agent Programming: A Case Study on Fibonacci Game Development",
+      "url": "https://www.semanticscholar.org/paper/0ec6413fbf1c09c9a44c7f8a225154dfc88a703e",
+      "venue": "Proceedings of the 3rd ACM International Conference on AI-Powered Software"
+    },
+    "DOI:10.1145/3813808.3813811": {
+      "citationCount": 8,
+      "externalIds": {
+        "CorpusId": 289125012,
+        "DOI": "10.1145/3813808.3813811"
+      },
+      "paperId": "021b31bb59bc9b2477929cdcb11a513747d15a17",
+      "publicationDate": "2026-02-06",
+      "publicationTypes": [
+        "Book",
+        "Conference"
+      ],
+      "title": "MIN-Trust: A Minimum Necessary Information Trust Orchestration Framework for Multi-Agent Collaboration",
+      "url": "https://www.semanticscholar.org/paper/021b31bb59bc9b2477929cdcb11a513747d15a17",
+      "venue": "Proceedings of the 2026 International Conference on Generative Artificial Intelligence and Education"
+    },
+    "DOI:10.14569/ijacsa.2026.0170403": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 288065090,
+        "DOI": "10.14569/ijacsa.2026.0170403"
+      },
+      "paperId": "b77624b5b1f321f850606b22d83cd6b87b7752af",
+      "publicationDate": null,
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Interruptible Multi-Agent Debate: Sentence-Level Disclosure and Urgency-Based Turn-Taking for Early Error Correction",
+      "url": "https://www.semanticscholar.org/paper/b77624b5b1f321f850606b22d83cd6b87b7752af",
+      "venue": "International Journal of Advanced Computer Science and Applications"
+    },
+    "DOI:10.15480/882.17223": null,
+    "DOI:10.1609/aaai.v40i31.39812": {
+      "citationCount": 2,
+      "externalIds": {
+        "CorpusId": 286692398,
+        "DBLP": "conf/aaai/WanZWSJZBMZLH26",
+        "DOI": "10.1609/aaai.v40i31.39812"
+      },
+      "paperId": "58ea85cca2f5d293ba84c339c57a5549d552c0f5",
+      "publicationDate": "2026-03-14",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "DAWN: Distributed LLM Multi-Agent Workflow Synthesis",
+      "url": "https://www.semanticscholar.org/paper/58ea85cca2f5d293ba84c339c57a5549d552c0f5",
+      "venue": "AAAI Conference on Artificial Intelligence"
+    },
+    "DOI:10.1609/aaai.v40i35.40224": {
+      "citationCount": 1,
+      "externalIds": {
+        "CorpusId": 286698893,
+        "DBLP": "conf/aaai/YanZZLZQWZ26",
+        "DOI": "10.1609/aaai.v40i35.40224"
+      },
+      "paperId": "ba0144b7001e99bb1711f9b122657fb6018bf1bb",
+      "publicationDate": "2026-03-14",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS",
+      "url": "https://www.semanticscholar.org/paper/ba0144b7001e99bb1711f9b122657fb6018bf1bb",
+      "venue": "AAAI Conference on Artificial Intelligence"
+    },
+    "DOI:10.1609/aaai.v40i35.40236": null,
+    "DOI:10.1609/aaai.v40i41.40824": null,
+    "DOI:10.1609/aaai.v40i44.41065": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 286674840,
+        "DBLP": "conf/aaai/DarabiNTJT26",
+        "DOI": "10.1609/aaai.v40i44.41065"
+      },
+      "paperId": "daf010265bea7c7e9ee600ca86af30866ba491ef",
+      "publicationDate": "2026-03-14",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Resilience in Ambient Multi-Agent LLMs via Decentralized Bio-Autonomic Control and Immune-Inspired Anomaly Detection",
+      "url": "https://www.semanticscholar.org/paper/daf010265bea7c7e9ee600ca86af30866ba491ef",
+      "venue": "AAAI Conference on Artificial Intelligence"
+    },
+    "DOI:10.1609/aaai.v40i44.41116": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2603.06874",
+        "CorpusId": 286372229,
+        "DBLP": "conf/aaai/OlsonRHNLCST26",
+        "DOI": "10.1609/aaai.v40i44.41116"
+      },
+      "paperId": "6f5fd6383fa14121a72d3adf0fa9e6af853047c5",
+      "publicationDate": "2026-03-06",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "LieCraft: A Multi-Agent Framework for Evaluating Deceptive Capabilities in Language Models",
+      "url": "https://www.semanticscholar.org/paper/6f5fd6383fa14121a72d3adf0fa9e6af853047c5",
+      "venue": "AAAI Conference on Artificial Intelligence"
+    },
+    "DOI:10.1609/aaai.v40i44.41134": null,
+    "DOI:10.1609/aaaiss.v8i1.42590": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 288522114,
+        "DOI": "10.1609/aaaiss.v8i1.42590"
+      },
+      "paperId": "8d5291b48b19868435d9be036b670880eeecfec2",
+      "publicationDate": "2026-05-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Post-Hoc Knowledge Grounding for Verifiable Multi-Agent Search and Rescue Decision Support",
+      "url": "https://www.semanticscholar.org/paper/8d5291b48b19868435d9be036b670880eeecfec2",
+      "venue": "Proceedings of the AAAI Symposium Series"
+    },
+    "DOI:10.1609/aaaiss.v9i1.42936": null,
+    "DOI:10.1609/aaaiss.v9i1.42951": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 289775985,
+        "DOI": "10.1609/aaaiss.v9i1.42951"
+      },
+      "paperId": "d02c2fa05abb8e3591dda1f0589ce73cc6cf4e9a",
+      "publicationDate": "2026-06-23",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "From Playbooks to Decisions: An Auditable Coordination Protocol for Hunter\u2013Policy\u2013Responder Cyber Agents (Extended Abstract)",
+      "url": "https://www.semanticscholar.org/paper/d02c2fa05abb8e3591dda1f0589ce73cc6cf4e9a",
+      "venue": "Proceedings of the AAAI Symposium Series"
+    },
+    "DOI:10.18653/v1/2024.emnlp-main.610": null,
+    "DOI:10.18653/v1/2025.acl-long.389": null,
+    "DOI:10.18653/v1/2025.emnlp-main.611": null,
+    "DOI:10.18653/v1/2025.emnlp-main.623": null,
+    "DOI:10.18653/v1/2025.emnlp-main.958": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2510.25612",
+        "CorpusId": 282575031,
+        "DBLP": "conf/emnlp/GiloniPBBSV25",
+        "DOI": "10.18653/v1/2025.emnlp-main.958"
+      },
+      "paperId": "3d8e3567e7c26a4927efbc1e47c5e053eabaa977",
+      "publicationDate": "2025-10-29",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Counterfactual-based Agent Influence Ranker for Agentic AI Workflows",
+      "url": "https://www.semanticscholar.org/paper/3d8e3567e7c26a4927efbc1e47c5e053eabaa977",
+      "venue": "Conference on Empirical Methods in Natural Language Processing"
+    },
+    "DOI:10.18653/v1/2025.findings-acl.150": {
+      "citationCount": 16,
+      "externalIds": {
+        "CorpusId": 280034905,
+        "DBLP": "conf/acl/YuWZMYLWWW25",
+        "DOI": "10.18653/v1/2025.findings-acl.150"
+      },
+      "paperId": "6a3e290561cd1a342e2031d31e85814292aadd17",
+      "publicationDate": null,
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "NetSafe: Exploring the Topological Safety of Multi-agent System",
+      "url": "https://www.semanticscholar.org/paper/6a3e290561cd1a342e2031d31e85814292aadd17",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2025.findings-acl.265": null,
+    "DOI:10.18653/v1/2025.findings-acl.349": null,
+    "DOI:10.18653/v1/2025.findings-emnlp.333": {
+      "citationCount": 1,
+      "externalIds": {
+        "CorpusId": 282900975,
+        "DBLP": "conf/emnlp/ZhangKGWH25",
+        "DOI": "10.18653/v1/2025.findings-emnlp.333"
+      },
+      "paperId": "07eff17f4882fc66ae095090dc36b1df5ffe348e",
+      "publicationDate": null,
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "When Allies Turn Foes: Exploring Group Characteristics of LLM-Based Multi-Agent Collaborative Systems Under Adversarial Attacks",
+      "url": "https://www.semanticscholar.org/paper/07eff17f4882fc66ae095090dc36b1df5ffe348e",
+      "venue": "Conference on Empirical Methods in Natural Language Processing"
+    },
+    "DOI:10.18653/v1/2025.realm-1.13": {
+      "citationCount": 19,
+      "externalIds": {
+        "CorpusId": 280620951,
+        "DOI": "10.18653/v1/2025.realm-1.13"
+      },
+      "paperId": "570c83e3d52e2b90a55af9f08c82691ab196225f",
+      "publicationDate": null,
+      "publicationTypes": null,
+      "title": "Safe in Isolation, Dangerous Together: Agent-Driven Multi-Turn Decomposition Jailbreaks on LLMs",
+      "url": "https://www.semanticscholar.org/paper/570c83e3d52e2b90a55af9f08c82691ab196225f",
+      "venue": "Proceedings of the 1st Workshop for Research on Agent Language Models (REALM 2025)"
+    },
+    "DOI:10.18653/v1/2026.acl-long.1412": null,
+    "DOI:10.18653/v1/2026.acl-long.1442": null,
+    "DOI:10.18653/v1/2026.acl-long.270": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2601.01685",
+        "CorpusId": 284488036,
+        "DBLP": "journals/corr/abs-2601-01685",
+        "DOI": "10.18653/v1/2026.acl-long.270"
+      },
+      "paperId": "ec9a5b87b37adb53b9635d8e05a6d3fcf3e33789",
+      "publicationDate": "2026-01-04",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Lying with Truths: Open-Channel Multi-Agent Collusion for Belief Manipulation via Generative Montage",
+      "url": "https://www.semanticscholar.org/paper/ec9a5b87b37adb53b9635d8e05a6d3fcf3e33789",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.acl-long.330": {
+      "citationCount": 1,
+      "externalIds": {
+        "ArXiv": "2605.25389",
+        "CorpusId": 288670012,
+        "DBLP": "conf/acl/YanZHLZHZ26",
+        "DOI": "10.18653/v1/2026.acl-long.330"
+      },
+      "paperId": "07884bb671a04ca057df0367a394529471a2d8b6",
+      "publicationDate": "2026-05-25",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS",
+      "url": "https://www.semanticscholar.org/paper/07884bb671a04ca057df0367a394529471a2d8b6",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.eacl-demo.10": null,
+    "DOI:10.18653/v1/2026.eacl-long.392": {
+      "citationCount": 15,
+      "externalIds": {
+        "ArXiv": "2410.04663",
+        "CorpusId": 273185437,
+        "DBLP": "conf/eacl/HarrasseBB26",
+        "DOI": "10.18653/v1/2026.eacl-long.392"
+      },
+      "paperId": "ec1b0718bbd4561522f181758d77e205648f5f0f",
+      "publicationDate": "2024-10-07",
+      "publicationTypes": [
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Debate, Deliberate, Decide (D3): A Cost-Aware Adversarial Framework for Reliable and Interpretable LLM Evaluation",
+      "url": "https://www.semanticscholar.org/paper/ec1b0718bbd4561522f181758d77e205648f5f0f",
+      "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.findings-acl.1348": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 289785224,
+        "DOI": "10.18653/v1/2026.findings-acl.1348"
+      },
+      "paperId": "29a3a3224dbbae8a012753f1784b43bdf75bee98",
+      "publicationDate": null,
+      "publicationTypes": null,
+      "title": "The Adaptive Interrogator: Detecting Trojan LLMs in Multi-Agent Systems via Evolved Conversational Strategies",
+      "url": "https://www.semanticscholar.org/paper/29a3a3224dbbae8a012753f1784b43bdf75bee98",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.findings-acl.1600": null,
+    "DOI:10.18653/v1/2026.findings-acl.1934": {
+      "citationCount": 4,
+      "externalIds": {
+        "CorpusId": 282248303,
+        "DOI": "10.18653/v1/2026.findings-acl.1934"
+      },
+      "paperId": "ff312b6027d012403760c288fd6531145006cb9f",
+      "publicationDate": null,
+      "publicationTypes": null,
+      "title": "From Tasks to Teams: A Risk-First Evaluation Framework for Multi-Agent LLM Systems in Finance",
+      "url": "https://www.semanticscholar.org/paper/ff312b6027d012403760c288fd6531145006cb9f",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.findings-acl.1980": null,
+    "DOI:10.18653/v1/2026.findings-acl.342": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 289797994,
+        "DOI": "10.18653/v1/2026.findings-acl.342"
+      },
+      "paperId": "9317c1880e560a75461289ec03736faf0e00eb34",
+      "publicationDate": null,
+      "publicationTypes": null,
+      "title": "CORBA: Contagious Recursive Blocking Attacks on Multi-Agent Systems Based on Large Language Models",
+      "url": "https://www.semanticscholar.org/paper/9317c1880e560a75461289ec03736faf0e00eb34",
+      "venue": "Annual Meeting of the Association for Computational Linguistics"
+    },
+    "DOI:10.18653/v1/2026.findings-eacl.233": null,
+    "DOI:10.20944/preprints202601.1479.v1": null,
+    "DOI:10.21203/rs.3.rs-9121599/v1": null,
+    "DOI:10.24251/hicss.2026.887": null,
+    "DOI:10.48448/0x5z-8y77": null,
+    "DOI:10.48448/3wwf-5e15": null,
+    "DOI:10.48448/71d8-2j58": null,
+    "DOI:10.48448/812p-ac41": null,
+    "DOI:10.48448/99k0-6828": null,
+    "DOI:10.48448/bp60-8m40": null,
+    "DOI:10.48448/egpv-zm74": null,
+    "DOI:10.48448/eqah-h093": null,
+    "DOI:10.48448/ge0h-x321": null,
+    "DOI:10.48448/m2r6-kd98": null,
+    "DOI:10.48448/z843-da47": null,
+    "DOI:10.5220/0014234400004052": {
+      "citationCount": 12,
+      "externalIds": {
+        "ArXiv": "2511.02841",
+        "CorpusId": 282758165,
+        "DBLP": "journals/corr/abs-2511-02841",
+        "DOI": "10.5220/0014234400004052"
+      },
+      "paperId": "a90ce8648a4fa7e6d460085846c1cf36120caabd",
+      "publicationDate": "2025-10-01",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "AI Agents with Decentralized Identifiers and Verifiable Credentials",
+      "url": "https://www.semanticscholar.org/paper/a90ce8648a4fa7e6d460085846c1cf36120caabd",
+      "venue": "International Conference on Agents and Artificial Intelligence"
+    },
+    "DOI:10.5220/0014840300004015": {
+      "citationCount": 5,
+      "externalIds": {
+        "ArXiv": "2603.18096",
+        "CorpusId": 286669624,
+        "DBLP": "conf/enase/PaduraruBS26",
+        "DOI": "10.5220/0014840300004015"
+      },
+      "paperId": "e7eee295a7aba7ce0aef3b83a1b964e6bd10169d",
+      "publicationDate": "2026-03-18",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance",
+      "url": "https://www.semanticscholar.org/paper/e7eee295a7aba7ce0aef3b83a1b964e6bd10169d",
+      "venue": "International Conference on Evaluation of Novel Approaches to Software Engineering"
+    },
+    "DOI:10.52202/079017-2336": {
+      "citationCount": 107,
+      "externalIds": {
+        "ArXiv": "2402.07510",
+        "CorpusId": 276259891,
+        "DBLP": "conf/nips/MotwaniBSB0HW24",
+        "DOI": "10.52202/079017-2336"
+      },
+      "paperId": "5483b66f0e941be3e3382a97961773551d5ae563",
+      "publicationDate": "2024-02-12",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Secret Collusion among AI Agents: Multi-Agent Deception via Steganography",
+      "url": "https://www.semanticscholar.org/paper/5483b66f0e941be3e3382a97961773551d5ae563",
+      "venue": "Neural Information Processing Systems"
+    },
+    "DOI:10.52202/079017-2658": {
+      "citationCount": 114,
+      "externalIds": {
+        "ArXiv": "2309.17234",
+        "CorpusId": 263310628,
+        "DBLP": "conf/nips/AbdelnabiGSSF24",
+        "DOI": "10.52202/079017-2658"
+      },
+      "paperId": "e5ca92aa893b4eb2ddb1310ddb8e30a187ee4f97",
+      "publicationDate": "2023-09-29",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation",
+      "url": "https://www.semanticscholar.org/paper/e5ca92aa893b4eb2ddb1310ddb8e30a187ee4f97",
+      "venue": "Neural Information Processing Systems"
+    },
+    "DOI:10.5281/zenodo.20071516": null,
+    "DOI:10.5281/zenodo.20457547": null,
+    "DOI:10.63278/jicrcr.vi.3549": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 284420805,
+        "DOI": "10.63278/jicrcr.vi.3549"
+      },
+      "paperId": "c7a7834b990d20e3dc8c29b12f89cf926d344ff1",
+      "publicationDate": "2025-12-30",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "A Governance Framework For Agentic AI: Mitigating Systemic Risks In LLM-Powered Multi-Agent Architectures",
+      "url": "https://www.semanticscholar.org/paper/c7a7834b990d20e3dc8c29b12f89cf926d344ff1",
+      "venue": "Journal of International Crisis and Risk Communication Research"
+    },
+    "DOI:10.63278/jicrcr.vi.3596": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 284835581,
+        "DOI": "10.63278/jicrcr.vi.3596"
+      },
+      "paperId": "a474c87418109af091dd73f3e46c231fac107790",
+      "publicationDate": "2026-01-05",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Privacy-Preserving LLM Infrastructure With Multi-Agent Orchestration And RAG-Driven Retrieval",
+      "url": "https://www.semanticscholar.org/paper/a474c87418109af091dd73f3e46c231fac107790",
+      "venue": "Journal of International Crisis and Risk Communication Research"
+    },
+    "DOI:10.63412/8vgf0b98": {
+      "citationCount": 0,
+      "externalIds": {
+        "CorpusId": 287822128,
+        "DOI": "10.63412/8vgf0b98"
+      },
+      "paperId": "ac0706db085a89ea13df7586e0248b0d76e147e6",
+      "publicationDate": "2026-04-26",
+      "publicationTypes": [
+        "JournalArticle"
+      ],
+      "title": "Consensus-Driven Metacognition in Multi-Agent Systems: A Logic-Based Byzantine Fault-Tolerant Protocol",
+      "url": "https://www.semanticscholar.org/paper/ac0706db085a89ea13df7586e0248b0d76e147e6",
+      "venue": "International Journal of Global Innovations and Solutions"
+    },
+    "DOI:10.65109/frxl8789": {
+      "citationCount": 4,
+      "externalIds": {
+        "ArXiv": "2603.26635",
+        "CorpusId": 286944329,
+        "DBLP": "journals/corr/abs-2603-26635",
+        "DOI": "10.65109/FRXL8789"
+      },
+      "paperId": "0bab0335b25046ba7c452100941044fc4ea9dc23",
+      "publicationDate": "2026-03-27",
+      "publicationTypes": [
+        "Book",
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us",
+      "url": "https://www.semanticscholar.org/paper/0bab0335b25046ba7c452100941044fc4ea9dc23",
+      "venue": "Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems"
+    },
+    "DOI:10.65109/jhfw8307": {
+      "citationCount": 2,
+      "externalIds": {
+        "ArXiv": "2602.13370",
+        "CorpusId": 285615493,
+        "DBLP": "journals/corr/abs-2602-13370",
+        "DOI": "10.65109/JHFW8307"
+      },
+      "paperId": "0419f6bbb9747859d1ece3a73587edd0d701515e",
+      "publicationDate": "2026-02-13",
+      "publicationTypes": [
+        "Book",
+        "JournalArticle",
+        "Conference"
+      ],
+      "title": "G2CP: A Graph-Grounded Communication Protocol for Verifiable and Efficient Multi-Agent Reasoning",
+      "url": "https://www.semanticscholar.org/paper/0419f6bbb9747859d1ece3a73587edd0d701515e",
+      "venue": "Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems"
+    },
+    "DOI:10.65109/ocsi2038": {
+      "citationCount": 7,
+      "externalIds": {
+        "ArXiv": "2503.21080",
+        "CorpusId": 277349727,
+        "DOI": "10.65109/OCSI2038"
+      },
+      "paperId": "a7273ca8f24a557d5479dc2a828e5ddfbcebde9a",
+      "publicationDate": "2025-03-27",
+      "publicationTypes": [
+        "Book",
+        "Conference"
+      ],
+      "title": "EmoDebt: Bayesian-Optimized Emotional Intelligence for Strategic Agent-to-Agent Debt Recovery",
+      "url": "https://www.semanticscholar.org/paper/a7273ca8f24a557d5479dc2a828e5ddfbcebde9a",
+      "venue": "Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems"
+    }
+  }
+}
