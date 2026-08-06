@@ -1,10 +1,9 @@
 # Non-Paper Evidence
 
 These datasets are searched, screened, and counted separately from research
-papers. Empty files define the approved schemas; they do not imply a complete
-search or zero eligible evidence.
+papers.
 
-- `incidents.csv`: CVEs, NVD/CNA records, vendor advisories, and postmortems.
+- `cves.csv`: official CVE records and first-party advisories.
 - `industry_reports.csv`: first-party technical and reproducible practice evidence.
 - `standards.csv`: standards, threat catalogs, and protocol specifications.
 
