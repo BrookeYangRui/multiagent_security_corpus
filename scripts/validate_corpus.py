@@ -37,6 +37,12 @@ LOAD_BEARING_SOURCE_REVIEW_CSV = (
 LOAD_BEARING_CORRECTIONS_CSV = (
     ROOT / "reviews" / "load_bearing" / "load_bearing_corrections.csv"
 )
+UNIVERSAL_SOURCE_REVIEW_CSV = (
+    ROOT / "reviews" / "universal" / "universal_114_source_review.csv"
+)
+UNIVERSAL_SOURCE_CORRECTIONS_CSV = (
+    ROOT / "reviews" / "universal" / "universal_source_review_corrections.csv"
+)
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -129,6 +135,28 @@ LOAD_BEARING_CORRECTION_FIELDS = [
     "priority", "paper_id", "paper_title", "severity", "field",
     "required_correction", "review_outcome", "source_url",
 ]
+UNIVERSAL_SOURCE_REVIEW_FIELDS = [
+    "global_priority", "review_track", "paper_id", "canonical_title",
+    "canonical_authors", "canonical_year", "canonical_venue", "doi",
+    "source_url", "version_status", "identity_verdict", "current_scope",
+    "recommended_scope", "scope_rationale", "current_category",
+    "recommended_category", "secondary_roles", "multiagent_verdict",
+    "attack_evidence_status", "attack_role",
+    "attack_instance_coding_required", "adversary_position",
+    "adversary_capabilities", "preconditions", "mechanism",
+    "attack_surfaces", "primary_system_failure", "reported_impact",
+    "agent_count_or_configuration", "topology", "communication",
+    "baselines", "metric_definition", "unit_denominator",
+    "system_level_impact_verified", "evidence_locators",
+    "author_claim_vs_corpus_interpretation", "limitations_maturity",
+    "key_corrections", "review_outcome", "promote_to_load_bearing",
+    "review_status",
+]
+UNIVERSAL_SOURCE_CORRECTION_FIELDS = [
+    "severity", "global_priority", "paper_id", "title", "review_track",
+    "field_or_category", "current_coding", "recommended_correction",
+    "rationale", "evidence_source", "author_signoff_required",
+]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
     "fully_reviewed",
@@ -211,6 +239,14 @@ def main() -> int:
         load_bearing_corrections = read_csv(
             LOAD_BEARING_CORRECTIONS_CSV,
             LOAD_BEARING_CORRECTION_FIELDS,
+        )
+        universal_source_review = read_csv(
+            UNIVERSAL_SOURCE_REVIEW_CSV,
+            UNIVERSAL_SOURCE_REVIEW_FIELDS,
+        )
+        universal_source_corrections = read_csv(
+            UNIVERSAL_SOURCE_CORRECTIONS_CSV,
+            UNIVERSAL_SOURCE_CORRECTION_FIELDS,
         )
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
@@ -681,6 +717,83 @@ def main() -> int:
                 f"decision: {row['attack_instance_coding_required']}"
             )
 
+    source_ids = [row["paper_id"].strip() for row in universal_source_review]
+    for value in sorted(duplicates(source_ids)):
+        errors.append(f"duplicate universal source-review paper_id: {value}")
+    if set(source_ids) != corpus_ids:
+        for paper_id in sorted(corpus_ids - set(source_ids)):
+            errors.append(
+                f"paper is absent from universal source review: {paper_id}"
+            )
+        for paper_id in sorted(set(source_ids) - corpus_ids):
+            errors.append(
+                f"unknown paper in universal source review: {paper_id}"
+            )
+
+    source_track_counts = {
+        track: sum(
+            row["review_track"].strip() == track
+            for row in universal_source_review
+        )
+        for track in ("load_bearing", "standard_attack", "cross_category")
+    }
+    expected_source_track_counts = {
+        "load_bearing": len(load_bearing_review),
+        "standard_attack": len(attack_review),
+        "cross_category": len(cross_category_review),
+    }
+    if source_track_counts != expected_source_track_counts:
+        errors.append(
+            "universal source-review track counts do not match review queues"
+        )
+
+    allowed_source_statuses = {
+        "assistant_source_reviewed_pending_author_signoff",
+        "source_reviewed_pending_author_signoff",
+        "blocked_pending_exact_source",
+        "blocked_metadata_signoff",
+    }
+    for line, row in enumerate(universal_source_review, start=2):
+        paper_id = row["paper_id"].strip()
+        if row["review_status"].strip() not in allowed_source_statuses:
+            errors.append(
+                f"universal_114_source_review.csv:{line}: invalid review "
+                f"status for {paper_id}: {row['review_status']}"
+            )
+        if not row["evidence_locators"].strip():
+            errors.append(
+                f"universal_114_source_review.csv:{line}: missing evidence "
+                f"locators for {paper_id}"
+            )
+
+    if len(universal_source_corrections) != 231:
+        errors.append(
+            "universal_source_review_corrections.csv: expected 231 rows"
+        )
+    correction_source_ids = set(source_ids)
+    for line, row in enumerate(universal_source_corrections, start=2):
+        paper_id = row["paper_id"].strip()
+        if paper_id not in correction_source_ids:
+            errors.append(
+                f"universal_source_review_corrections.csv:{line}: unknown "
+                f"reviewed paper: {paper_id}"
+            )
+        if row["severity"].strip() not in {"critical", "high", "medium"}:
+            errors.append(
+                f"universal_source_review_corrections.csv:{line}: invalid "
+                "severity"
+            )
+        if row["author_signoff_required"].strip() != "yes":
+            errors.append(
+                f"universal_source_review_corrections.csv:{line}: correction "
+                "must require author signoff"
+            )
+        if not row["recommended_correction"].strip():
+            errors.append(
+                f"universal_source_review_corrections.csv:{line}: empty "
+                "recommended correction"
+            )
+
     for line, row in enumerate(post_cutoff, start=2):
         paper_id = row["paper_id"].strip()
         source_date = row["source_date"].strip()
@@ -815,7 +928,9 @@ def main() -> int:
         f"{len(attack_review)} standard attack and "
         f"{len(cross_category_review)} cross-category reviews; "
         f"{len(universal_review)} papers in the universal checklist; "
-        f"{len(load_bearing_corrections)} source-review corrections."
+        f"{len(load_bearing_corrections)} load-bearing and "
+        f"{len(universal_source_corrections)} universal source-review "
+        "corrections."
     )
     return 0
 

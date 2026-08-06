@@ -17,6 +17,8 @@ corpus/evaluation_artifacts.csv   datasets, benchmarks, and protocols
 corpus/attack_screening.csv       retrieval-to-corpus attack decisions
 corpus/peer_first_eligibility.csv publication and citation strata for 326 inclusions
 corpus/PEER_FIRST_CORPUS.md        peer-first rules and current counts
+corpus/CITATION_THRESHOLD_DECISION.md non-peer threshold comparison
+corpus/EVIDENCE_POLICY_AND_REVIEW_REPORT.md evidence-layer decision report
 corpus/publication_status_overrides.csv manually verified formal versions
 corpus/attack_canonical_bridge.csv unmatched canonical attack bindings
 corpus/targeted_attack_gap_search.csv four-family targeted gap check
@@ -30,6 +32,7 @@ corpus/post_cutoff_references.bib isolated watchlist citations
 papers/                           one note per included paper
 papers/post_cutoff/               optional watchlist notes
 reviews/load_bearing/             source review and correction artifacts
+reviews/universal/                114-work source review and correction packet
 related_work/                     cross-paper syntheses
 templates/paper_note.md           required note template
 AGENTS.md                         full maintenance protocol
