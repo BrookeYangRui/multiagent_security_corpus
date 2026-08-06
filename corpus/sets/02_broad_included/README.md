@@ -1,7 +1,7 @@
 # Peer-First Corpus
 
-This ledger applies a publication-status layer to the 326 primary studies
-included by the frozen interaction-security screen. It does not alter the
+This ledger canonicalizes the 326 inclusion records produced by the frozen
+interaction-security screen into 325 unique works. It does not alter the
 2,182-record retrieval denominator or resolve the 343 screening records that
 remain undecidable.
 
@@ -10,7 +10,7 @@ remain undecidable.
 - Publication cutoff: `2026-07-01`
 - Citation snapshot: `2026-08-06`
 - Citation source: Semantic Scholar Graph API
-- Influential non-peer threshold: strictly more than `20` citations
+- Influential non-peer threshold: strictly more than `10` citations
 - Peer evidence: non-CoRR DBLP record, or indexed archival venue evidence
 - Preprint and published versions are one canonical work
 
@@ -18,12 +18,12 @@ remain undecidable.
 
 | Stratum | Works |
 | --- | ---: |
-| Peer-reviewed conference/proceedings | 85 |
+| Peer-reviewed conference/proceedings | 84 |
 | Peer-reviewed journal | 9 |
-| Non-peer-reviewed, citations > 20 | 8 |
-| Non-peer-reviewed, citations <= 20 | 216 |
+| Non-peer-reviewed, citations > 10 | 22 |
+| Non-peer-reviewed, citations <= 10 | 202 |
 | Unresolved citation/publication status | 8 |
-| **Total scope-included works** | **326** |
+| **Total scope-included works** | **325** |
 
 Only the two peer-reviewed strata and `influential_non_peer` form the
 peer-first core. Emerging preprints remain visible for trend analysis but
@@ -34,10 +34,10 @@ must not enter corpus-level denominators. Unresolved records are not exclusions.
 | Indexed venue | Works |
 | --- | ---: |
 | ACL | 11 |
-| FINDINGS ACL | 5 |
 | Findings of ACL | 5 |
 | AAAI | 5 |
 | AAAI proceedings | 4 |
+| FINDINGS ACL | 4 |
 | NeurIPS | 3 |
 | EMNLP MAIN | 3 |
 | Formal proceedings (10.48448 DOI) | 3 |

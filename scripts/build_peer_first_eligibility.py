@@ -18,14 +18,16 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCREENING = ROOT / "corpus" / "attack_screening.csv"
+SCREENING = ROOT / "corpus" / "sets" / "01_search_catalog" / "search_catalog.csv"
 PAPERS = ROOT / "corpus" / "papers.csv"
-SNAPSHOT = ROOT / "corpus" / "peer_first_snapshot.json"
-OUTPUT = ROOT / "corpus" / "peer_first_eligibility.csv"
-SUMMARY = ROOT / "corpus" / "PEER_FIRST_CORPUS.md"
-OVERRIDES = ROOT / "corpus" / "publication_status_overrides.csv"
+INCLUDED_DIR = ROOT / "corpus" / "sets" / "02_broad_included"
+SNAPSHOT = INCLUDED_DIR / "citation_snapshot.json"
+OUTPUT = INCLUDED_DIR / "broad_included.csv"
+DEDUPLICATION_MAP = INCLUDED_DIR / "deduplication_map.csv"
+SUMMARY = INCLUDED_DIR / "README.md"
+OVERRIDES = INCLUDED_DIR / "publication_status_overrides.csv"
 CUTOFF = "2026-07-01"
-THRESHOLD = 20
+THRESHOLD = 10
 S2_FIELDS = (
     "title,citationCount,publicationDate,venue,publicationTypes,externalIds,url"
 )
@@ -245,6 +247,59 @@ def build(rows: list[dict[str, str]], snapshot: dict) -> list[dict[str, str]]:
     return output
 
 
+def canonical_doi_key(row: dict[str, str]) -> str:
+    value = row["canonical_doi"].casefold().strip()
+    value = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", value)
+    return value if value and not value.startswith("arxiv:") else ""
+
+
+def deduplicate(rows: list[dict[str, str]]) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    groups: dict[str, list[dict[str, str]]] = {}
+    ungrouped: list[dict[str, str]] = []
+    for row in rows:
+        key = canonical_doi_key(row)
+        if key:
+            groups.setdefault(key, []).append(row)
+        else:
+            ungrouped.append(row)
+
+    canonical_rows = list(ungrouped)
+    aliases: list[dict[str, str]] = []
+    for key, group in groups.items():
+        group.sort(
+            key=lambda row: (
+                not row["record_id"].startswith("doi:"),
+                row["record_id"],
+            )
+        )
+        canonical = dict(group[0])
+        numeric_citations = [
+            int(row["citations_semantic_scholar"])
+            for row in group
+            if row["citations_semantic_scholar"].isdigit()
+        ]
+        if numeric_citations:
+            canonical["citations_semantic_scholar"] = str(max(numeric_citations))
+        if not canonical["arxiv_id"]:
+            canonical["arxiv_id"] = next(
+                (row["arxiv_id"] for row in group if row["arxiv_id"]), ""
+            )
+        canonical_rows.append(canonical)
+        for duplicate in group[1:]:
+            aliases.append(
+                {
+                    "duplicate_record_id": duplicate["record_id"],
+                    "canonical_record_id": canonical["record_id"],
+                    "canonical_doi": key,
+                    "reason": "Preprint and published records merged; published DOI record retained.",
+                }
+            )
+
+    canonical_rows.sort(key=lambda row: row["record_id"])
+    aliases.sort(key=lambda row: row["duplicate_record_id"])
+    return canonical_rows, aliases
+
+
 def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
     counts = Counter(row["peer_first_stratum"] for row in rows)
     venue_counts = Counter(
@@ -254,8 +309,8 @@ def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
     lines = [
         "# Peer-First Corpus",
         "",
-        "This ledger applies a publication-status layer to the 326 primary studies",
-        "included by the frozen interaction-security screen. It does not alter the",
+        "This ledger canonicalizes the 326 inclusion records produced by the frozen",
+        "interaction-security screen into 325 unique works. It does not alter the",
         "2,182-record retrieval denominator or resolve the 343 screening records that",
         "remain undecidable.",
         "",
@@ -276,8 +331,8 @@ def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
     labels = (
         ("peer_reviewed_conference", "Peer-reviewed conference/proceedings"),
         ("peer_reviewed_journal", "Peer-reviewed journal"),
-        ("influential_non_peer", "Non-peer-reviewed, citations > 20"),
-        ("emerging_non_peer", "Non-peer-reviewed, citations <= 20"),
+        ("influential_non_peer", f"Non-peer-reviewed, citations > {THRESHOLD}"),
+        ("emerging_non_peer", f"Non-peer-reviewed, citations <= {THRESHOLD}"),
         ("unresolved_citation_or_publication_status", "Unresolved citation/publication status"),
     )
     lines.extend(f"| {label} | {counts[key]} |" for key, label in labels)
@@ -318,33 +373,45 @@ def write(snapshot_date: str, refresh: bool) -> None:
         SNAPSHOT.write_text(json.dumps(snapshot, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     else:
         snapshot = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
-    output = build(rows, snapshot)
+    output, aliases = deduplicate(build(rows, snapshot))
     with OUTPUT.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(output[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(output)
+    with DEDUPLICATION_MAP.open("w", newline="", encoding="utf-8") as handle:
+        fields = ["duplicate_record_id", "canonical_record_id", "canonical_doi", "reason"]
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(aliases)
     SUMMARY.write_text(summary_text(output, snapshot), encoding="utf-8")
     print(Counter(row["peer_first_stratum"] for row in output))
 
 
 def check() -> int:
-    if not all(path.exists() for path in (SNAPSHOT, OUTPUT, SUMMARY)):
+    if not all(
+        path.exists() for path in (SNAPSHOT, OUTPUT, DEDUPLICATION_MAP, SUMMARY)
+    ):
         print("FAIL: peer-first outputs are missing")
         return 1
     snapshot = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
-    expected = build(included_rows(), snapshot)
+    expected, expected_aliases = deduplicate(build(included_rows(), snapshot))
     with OUTPUT.open(encoding="utf-8") as handle:
         observed = list(csv.DictReader(handle))
     if observed != expected:
         print("FAIL: peer-first eligibility ledger is stale")
         return 1
+    with DEDUPLICATION_MAP.open(encoding="utf-8") as handle:
+        observed_aliases = list(csv.DictReader(handle))
+    if observed_aliases != expected_aliases:
+        print("FAIL: broad-corpus deduplication map is stale")
+        return 1
     if SUMMARY.read_text(encoding="utf-8") != summary_text(expected, snapshot):
         print("FAIL: peer-first summary is stale")
         return 1
-    if len(observed) != 326:
-        print(f"FAIL: expected 326 included works, found {len(observed)}")
+    if len(observed) != 325:
+        print(f"FAIL: expected 325 canonical included works, found {len(observed)}")
         return 1
-    print("Peer-first corpus OK: 326 complete dispositions")
+    print("Peer-first corpus OK: 326 inclusion records, 325 canonical works")
     return 0
 
 

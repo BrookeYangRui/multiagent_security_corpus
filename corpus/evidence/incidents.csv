@@ -1,0 +1,1 @@
+incident_id,cve_id,title,affected_product,affected_versions,publication_date,interaction_dependency,attack_preconditions,vulnerability_or_mechanism,security_property_violated,impact,cvss,official_advisory,vendor_advisory,patch_or_mitigation,evidence_locations,verification_status

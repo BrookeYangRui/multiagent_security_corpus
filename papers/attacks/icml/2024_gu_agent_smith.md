@@ -127,7 +127,7 @@ and analyzes conditions under which a defense can restrain spread.
 
 **Outcome:** Ready after minor patch
 
-**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+**Review source:** `reviews/universal/universal_114_source_review.csv`
 
 This section supersedes inconsistent automated coding elsewhere in this note.
 It is a source-level review, not human verification. Manuscript-facing claims

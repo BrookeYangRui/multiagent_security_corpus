@@ -23,7 +23,8 @@ robustness, misuse, or trust consequence are routed to another corpus category.
 - Merge workshops and preprints into a later formal version when the contribution
   is substantially the same.
 - Record superseded and screened-out versions in
-  `corpus/excluded_papers.csv` instead of counting them twice.
+  `corpus/sets/01_search_catalog/structured_exclusions.csv` instead of counting
+  them twice.
 - Place the note under the canonical publication venue. Journal directories use
   a `journals_` prefix; arXiv-only work is under `arxiv/`.
 

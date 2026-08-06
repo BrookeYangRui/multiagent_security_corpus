@@ -16,7 +16,7 @@ use attack/task cases; AgentLeak uses channels and sensitive items; Colosseum
 separates conversation evidence from action regret; HARP uses paired traces;
 CalBench combines agent-level privacy with group-level utility. These measures
 must not share a denominator without an explicit conversion contract. See
-`corpus/evaluation_artifacts.csv` and the notes keyed by
+`corpus/sets/05_analysis_specific/evaluation_artifacts.csv` and the notes keyed by
 `kavathekar2026tamas`, `elyagoubi2026agentleak`, `nakamura2026colosseum`,
 `rahman2026harp`, and `zou2026calbench`.
 
@@ -35,7 +35,7 @@ are claims made by the respective papers, not a new prevalence estimate.
 **Our interpretation.** The corpus is best read as three linked layers:
 benchmark construction, attack/defense evaluation, and measurement contract.
 Artifact rows for attack-primary papers remain in
-`corpus/evaluation_artifacts.csv`; their canonical notes are not duplicated in
+`corpus/sets/05_analysis_specific/evaluation_artifacts.csv`; their canonical notes are not duplicated in
 `papers/evaluations/`.
 
 ## Canonical Evaluation Notes
@@ -53,7 +53,7 @@ under `papers/defenses/` and are linked only through the artifact index.
 
 ## Artifact Index Rule
 
-`corpus/evaluation_artifacts.csv` is the single index for reusable datasets,
+`corpus/sets/05_analysis_specific/evaluation_artifacts.csv` is the single index for reusable datasets,
 harnesses, and metrics. Each row has one `canonical_paper_id`, one note path,
 the measurement unit, denominator, metrics, availability URL, and publication
 status. An attack- or defense-primary paper is never copied into the evaluation

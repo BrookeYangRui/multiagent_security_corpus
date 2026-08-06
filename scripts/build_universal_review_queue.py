@@ -73,8 +73,9 @@ def pending_evidence_status(paper: dict[str, str]) -> str:
 def main() -> None:
     papers = read_csv(ROOT / "corpus" / "papers.csv")
     papers_by_id = {row["paper_id"]: row for row in papers}
-    load_bearing = read_csv(ROOT / "corpus" / "load_bearing_review_queue.csv")
-    standard_attack = read_csv(ROOT / "corpus" / "attack_review_queue.csv")
+    queue_dir = ROOT / "reviews" / "queues"
+    load_bearing = read_csv(queue_dir / "load_bearing.csv")
+    standard_attack = read_csv(queue_dir / "standard_attack.csv")
     load_by_id = {row["paper_id"]: row for row in load_bearing}
     attack_by_id = {row["paper_id"]: row for row in standard_attack}
 
@@ -115,7 +116,7 @@ def main() -> None:
             "adjudication_note": "",
         })
     write_csv(
-        ROOT / "corpus" / "cross_category_review_queue.csv",
+        queue_dir / "cross_category.csv",
         cross_rows,
         CROSS_CATEGORY_FIELDS,
     )
@@ -179,7 +180,7 @@ def main() -> None:
 
     master_rows.sort(key=lambda row: int(row["track_priority"]))
     write_csv(
-        ROOT / "corpus" / "universal_review_queue.csv",
+        queue_dir / "universal.csv",
         master_rows,
         MASTER_FIELDS,
     )

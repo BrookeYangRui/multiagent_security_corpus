@@ -6,16 +6,17 @@ counting; it does not determine whether the paper contains attack evidence.
 
 ## Files
 
-- `universal_review_queue.csv`: master checklist for all 114 included papers.
-- `load_bearing_review_queue.csv`: 20 source-reviewed papers, including two
-  source blockers.
-- `attack_review_queue.csv`: 42 remaining attack-primary papers.
-- `cross_category_review_queue.csv`: 52 remaining defense, evaluation, survey,
+- `reviews/queues/universal.csv`: master checklist for all 114 included papers.
+- `reviews/queues/load_bearing.csv`: 20 load-bearing papers, including source
+  blockers.
+- `reviews/queues/standard_attack.csv`: 42 attack-primary papers.
+- `reviews/queues/cross_category.csv`: 52 defense, evaluation, survey,
   and general papers requiring attack-bearing screening.
 
 The three review tracks are mutually exclusive and jointly cover all 114
-included papers. At present, 20 have a source-level review and 94 await minimum
-review.
+structured papers. All 114 now have a source-review proposal in
+`reviews/universal/universal_114_source_review.csv`; every row still requires
+named human signoff or resolution of its explicit blocker.
 
 ## Minimum Review
 

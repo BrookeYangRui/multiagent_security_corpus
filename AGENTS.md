@@ -29,7 +29,8 @@ For every included paper, update all three records in the same commit:
 2. `corpus/references.bib`
 3. One note under the appropriate `papers/` category
 
-For every excluded paper, add a row to `corpus/excluded_papers.csv`. Do not add
+For every excluded paper, add a row to
+`corpus/sets/01_search_catalog/structured_exclusions.csv`. Do not add
 an included-paper note or BibTeX entry unless the source is also retained for a
 documented supporting purpose.
 
@@ -54,15 +55,15 @@ documented supporting purpose.
   `agent_unverified` until a human checks it.
 - Do not upgrade a verification state without the corresponding human review.
 - Preserve adjudication history when a classification or claim changes.
-- Use `load_bearing_review_queue.csv` for full evidence review of headline
-  papers and `attack_review_queue.csv` for the remaining standard attack review.
-- Use `cross_category_review_queue.csv` to screen every remaining defense,
+- Use `reviews/queues/load_bearing.csv` for full evidence review of headline
+  papers and `reviews/queues/standard_attack.csv` for standard attack review.
+- Use `reviews/queues/cross_category.csv` to screen every remaining defense,
   evaluation, survey, and general paper for attack-bearing claims. The three
   queues must remain disjoint and must jointly equal `papers.csv` through
-  `universal_review_queue.csv`.
+  `reviews/queues/universal.csv`.
 - Treat `primary_category` as canonical placement, not as evidence that a paper
   does or does not contain attacks. Record attack evidence at claim level using
-  the roles and rules in `corpus/UNIVERSAL_REVIEW.md`.
+  the roles and rules in `reviews/methodology/UNIVERSAL_REVIEW.md`.
 - Do not count a survey mention, related-work summary, or inherited attack as
   primary attack evidence. Preserve the cited primary source instead.
 - A completed review row requires a named reviewer and adjudication note. Update
@@ -79,8 +80,10 @@ documented supporting purpose.
 - Use one canonical record for a preprint and its published version.
 - Prefer the published metadata and retain the preprint URL as an open-access
   URL when useful.
-- Record superseded or duplicate versions in `corpus/excluded_papers.csv` and
-  point to the canonical `paper_id`.
+- Record superseded or duplicate structured records in
+  `corpus/sets/01_search_catalog/structured_exclusions.csv` and point to the
+  canonical `paper_id`. Record broad-screen version merges in
+  `corpus/sets/02_broad_included/deduplication_map.csv`.
 - Do not count workshop, preprint, and conference versions of the same work as
   separate included papers.
 
@@ -88,9 +91,12 @@ documented supporting purpose.
 
 - The search cutoff is `2026-07-01 00:00 UTC`.
 - Do not add a work first retrievable on or after the cutoff to `papers.csv`,
-  `references.bib`, or `evaluation_artifacts.csv`.
-- Record such work in `post_cutoff_papers.csv`; place any retained citation in
-  `post_cutoff_references.bib` and any retained note under `papers/post_cutoff/`.
+  `references.bib`, or
+  `corpus/sets/05_analysis_specific/evaluation_artifacts.csv`.
+- Record such work in
+  `corpus/sets/01_search_catalog/post_cutoff_papers.csv`; place any retained
+  citation in `corpus/sets/01_search_catalog/post_cutoff_references.bib` and any
+  retained note under `papers/post_cutoff/`.
 - A post-cutoff publication of a work already available before the cutoff is a
   canonical version update, not a new post-cutoff work.
 
@@ -117,9 +123,28 @@ documented supporting purpose.
   `Cross-paper observation`, `Our interpretation`, or `Open question`.
 - Do not present a cross-paper inference as an individual paper's claim.
 - Keep uncertainty and publication status visible.
-- Preserve all rows and decision states in `corpus/attack_screening.csv`; never
+- Preserve all rows and decision states in `corpus/sets/01_search_catalog/search_catalog.csv`; never
   convert `unresolved` or `eligible_not_in_corpus` into an exclusion merely to
   improve completion counts.
+
+## Corpus Sets
+
+- Treat the search catalog, broad included corpus, taxonomy candidates,
+  adjacent/contextual corpus, and analysis-specific sets as distinct
+  denominators.
+- Admit all peer-reviewed broad inclusions to full-text taxonomy review.
+- Admit non-peer work to full-text taxonomy review only when its citation count
+  is strictly greater than 10 at the recorded snapshot.
+- A citation threshold creates a review candidate, never automatic security
+  evidence.
+- A strict-core decision requires all five gates: multi-agent boundary,
+  explicit interaction, direct security relevance, interaction dependence, and
+  canonical full-text evidence.
+- Count papers by canonical work. Encode attacks, defenses, metrics, and audit
+  evidence at claim or instance level.
+- Never report a provisional, blocked, or pending row as taxonomy eligible.
+- Keep CVEs, industry reports, and standards in `corpus/evidence/`; never mix
+  them into a paper denominator.
 
 ## Before Committing
 

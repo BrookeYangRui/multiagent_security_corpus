@@ -2,8 +2,9 @@
 
 ## Decision in one page
 
-This report compares citation thresholds for non-peer-reviewed work in the
-peer-first corpus. It does not change the active `>20` rule.
+This report records the threshold decision for non-peer-reviewed work in the
+peer-first corpus. Option C, strict `>10` retrieval followed by full-text scope
+adjudication, is now the active rule.
 
 Fixed inputs:
 
@@ -11,20 +12,25 @@ Fixed inputs:
 - Citation source: Semantic Scholar Graph API
 - Citation snapshot: `2026-08-06`
 - Comparison operator: strict greater-than (`>`), not greater-than-or-equal
-- Scope frame: 326 works included by the frozen interaction-security screen
-- Peer-reviewed backbone: 94 works (85 conference/proceedings and 9 journal)
+- Scope frame: 326 screening inclusions canonicalized to 325 unique works
+- Peer-reviewed backbone: 93 works (84 conference/proceedings and 9 journal)
 
 | Non-peer rule | Eligible non-peer works | Raw peer-first core | Added vs. `>20` |
 | --- | ---: | ---: | ---: |
-| Citations `>20` | 8 | 102 | -- |
-| Citations `>10` | 22 | 116 | 14 |
-| Citations `>5` | 52 | 146 | 44 |
-| Citations `>0` | 146 | 240 | 138 |
+| Citations `>20` | 8 | 101 | -- |
+| Citations `>10` | 22 | 115 | 14 |
+| Citations `>5` | 52 | 145 | 44 |
+| Citations `>0` | 146 | 239 | 138 |
 
 The raw number is not the recommended number. Citation count measures uptake,
 not interaction-security relevance. A title can enter the broad screen because
 it measures error propagation, robustness, or a named coordination fault while
 still being unsuitable for the security taxonomy or headline audits.
+
+The original screening ledger contained 326 inclusion records. Canonical
+version merging reduces this to 325 works because NetSafe appeared under both
+an arXiv record and its published DOI. All totals in this report use the
+work-level denominator.
 
 ## Citation distribution of non-peer work
 
@@ -62,7 +68,7 @@ Preliminary reading of the current eight therefore yields:
 - 1 boundary work requiring adjudication;
 - 3 contextual or adjacent works.
 
-This means the current raw total of 102 must not be interpreted as 102 already
+This means the current raw total of 101 must not be interpreted as 101 already
 human-verified security papers.
 
 ## Fourteen works added by lowering the threshold to `>10`
@@ -98,7 +104,7 @@ human source review.
 
 ### Option A: Keep `>20`
 
-Raw peer-first core: 102.
+Raw peer-first core: 101.
 
 Advantages:
 
@@ -116,7 +122,7 @@ Risks:
 
 ### Option B: Lower to `>10` without another scope gate
 
-Raw peer-first core: 116.
+Raw peer-first core: 115.
 
 Advantages:
 
@@ -148,20 +154,20 @@ Under the preliminary dispositions in this report, Option C would produce:
 
 | Component | Preliminary count |
 | --- | ---: |
-| Peer-reviewed backbone | 94 |
+| Peer-reviewed backbone | 93 |
 | Clear non-peer core candidates (`>10`) | 12 |
 | Boundary non-peer candidates | 2 |
 | Adjacent high-citation non-peer works | 8 |
-| Preliminary strict core | 106 |
-| Preliminary core plus boundary | 108 |
+| Preliminary strict core | 105 |
+| Preliminary core plus boundary | 107 |
 
-These are planning numbers, not final corpus counts. The 94 peer-reviewed works
+These are planning numbers, not final corpus counts. The 93 peer-reviewed works
 also require the same scope-quality review; peer review establishes publication
 maturity, not relevance to this SoK.
 
-## Recommendation
+## Adopted Decision
 
-Adopt Option C. Set `>10` as the non-peer discovery threshold, not as automatic
+Option C is adopted. Set `>10` as the non-peer discovery threshold, not as automatic
 evidence eligibility. This captures newer influential work without allowing
 general multi-agent performance papers to inflate the security corpus.
 
@@ -176,13 +182,13 @@ Analysis-specific eligible set: works satisfying each audit's frozen contract
 Do not choose a threshold to reach a target paper count. The defensible corpus
 size is the result of the scope rule, not an optimization objective.
 
-## Required review before changing the active rule
+## Required review before finalizing the denominator
 
 1. Review the 22 non-peer works above from canonical full text.
 2. Resolve the two boundary cases explicitly.
 3. Record claim-level security evidence for each retained work.
-4. Apply the same scope test to all 94 peer-reviewed works.
+4. Apply the same scope test to all 93 peer-reviewed works.
 5. Regenerate the peer-first ledger only after adjudication.
 
-Until those steps are complete, `corpus/peer_first_eligibility.csv` correctly
-retains the active strict `>20` rule.
+Until those steps are complete, the taxonomy candidate set remains an
+adjudication queue rather than a final core denominator.

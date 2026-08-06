@@ -11,31 +11,31 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS_CSV = ROOT / "corpus" / "papers.csv"
-EXCLUDED_CSV = ROOT / "corpus" / "excluded_papers.csv"
+SETS = ROOT / "corpus" / "sets"
+SEARCH_SET = SETS / "01_search_catalog"
+BROAD_SET = SETS / "02_broad_included"
+ANALYSIS_SET = SETS / "05_analysis_specific"
+EXCLUDED_CSV = SEARCH_SET / "structured_exclusions.csv"
 REFERENCES = ROOT / "corpus" / "references.bib"
-EVALUATION_ARTIFACTS = ROOT / "corpus" / "evaluation_artifacts.csv"
-POST_CUTOFF_CSV = ROOT / "corpus" / "post_cutoff_papers.csv"
-POST_CUTOFF_REFERENCES = ROOT / "corpus" / "post_cutoff_references.bib"
-ATTACK_SCREENING_CSV = ROOT / "corpus" / "attack_screening.csv"
-ATTACK_CANONICAL_BRIDGE_CSV = ROOT / "corpus" / "attack_canonical_bridge.csv"
+EVALUATION_ARTIFACTS = ANALYSIS_SET / "evaluation_artifacts.csv"
+POST_CUTOFF_CSV = SEARCH_SET / "post_cutoff_papers.csv"
+POST_CUTOFF_REFERENCES = SEARCH_SET / "post_cutoff_references.bib"
+ATTACK_SCREENING_CSV = SEARCH_SET / "search_catalog.csv"
+ATTACK_CANONICAL_BRIDGE_CSV = SEARCH_SET / "canonical_bridges.csv"
 TARGETED_ATTACK_GAP_SEARCH_CSV = (
-    ROOT / "corpus" / "targeted_attack_gap_search.csv"
+    SEARCH_SET / "targeted_gap_search.csv"
 )
-LOAD_BEARING_REVIEW_CSV = ROOT / "corpus" / "load_bearing_review_queue.csv"
-ATTACK_REVIEW_CSV = ROOT / "corpus" / "attack_review_queue.csv"
+REVIEW_QUEUES = ROOT / "reviews" / "queues"
+LOAD_BEARING_REVIEW_CSV = REVIEW_QUEUES / "load_bearing.csv"
+ATTACK_REVIEW_CSV = REVIEW_QUEUES / "standard_attack.csv"
 CROSS_CATEGORY_REVIEW_CSV = (
-    ROOT / "corpus" / "cross_category_review_queue.csv"
+    REVIEW_QUEUES / "cross_category.csv"
 )
-UNIVERSAL_REVIEW_CSV = ROOT / "corpus" / "universal_review_queue.csv"
-PEER_FIRST_CSV = ROOT / "corpus" / "peer_first_eligibility.csv"
+UNIVERSAL_REVIEW_CSV = REVIEW_QUEUES / "universal.csv"
+PEER_FIRST_CSV = BROAD_SET / "broad_included.csv"
+DEDUPLICATION_MAP_CSV = BROAD_SET / "deduplication_map.csv"
 PUBLICATION_OVERRIDES_CSV = (
-    ROOT / "corpus" / "publication_status_overrides.csv"
-)
-LOAD_BEARING_SOURCE_REVIEW_CSV = (
-    ROOT / "reviews" / "load_bearing" / "load_bearing_source_review.csv"
-)
-LOAD_BEARING_CORRECTIONS_CSV = (
-    ROOT / "reviews" / "load_bearing" / "load_bearing_corrections.csv"
+    BROAD_SET / "publication_status_overrides.csv"
 )
 UNIVERSAL_SOURCE_REVIEW_CSV = (
     ROOT / "reviews" / "universal" / "universal_114_source_review.csv"
@@ -122,18 +122,8 @@ PUBLICATION_OVERRIDE_FIELDS = [
     "record_id", "publication_status", "venue_type", "canonical_venue",
     "canonical_doi", "evidence_type", "evidence_url", "checked_date", "note",
 ]
-LOAD_BEARING_SOURCE_REVIEW_FIELDS = [
-    "priority", "paper_id", "title", "venue_year", "doi", "source_url",
-    "identity", "current_scope", "recommended_scope", "scope_reason",
-    "current_category", "recommended_category", "attacker", "capabilities",
-    "preconditions", "surfaces", "mechanism", "primary_failure", "impact",
-    "configuration", "topology", "baseline", "metric", "unit",
-    "denominator", "result", "evidence", "claim_boundary", "limitations",
-    "maturity", "outcome",
-]
-LOAD_BEARING_CORRECTION_FIELDS = [
-    "priority", "paper_id", "paper_title", "severity", "field",
-    "required_correction", "review_outcome", "source_url",
+DEDUPLICATION_MAP_FIELDS = [
+    "duplicate_record_id", "canonical_record_id", "canonical_doi", "reason",
 ]
 UNIVERSAL_SOURCE_REVIEW_FIELDS = [
     "global_priority", "review_track", "paper_id", "canonical_title",
@@ -232,13 +222,8 @@ def main() -> int:
         publication_overrides = read_csv(
             PUBLICATION_OVERRIDES_CSV, PUBLICATION_OVERRIDE_FIELDS
         )
-        load_bearing_source_review = read_csv(
-            LOAD_BEARING_SOURCE_REVIEW_CSV,
-            LOAD_BEARING_SOURCE_REVIEW_FIELDS,
-        )
-        load_bearing_corrections = read_csv(
-            LOAD_BEARING_CORRECTIONS_CSV,
-            LOAD_BEARING_CORRECTION_FIELDS,
+        deduplication_map = read_csv(
+            DEDUPLICATION_MAP_CSV, DEDUPLICATION_MAP_FIELDS
         )
         universal_source_review = read_csv(
             UNIVERSAL_SOURCE_REVIEW_CSV,
@@ -328,12 +313,35 @@ def main() -> int:
         row["record_id"] for row in attack_screening
         if row["final_decision"] == "include-primary-interaction-security"
     }
+    duplicate_inclusion_ids = {
+        row["duplicate_record_id"].strip() for row in deduplication_map
+    }
+    canonical_inclusion_ids = {
+        row["canonical_record_id"].strip() for row in deduplication_map
+    }
+    for line, row in enumerate(deduplication_map, start=2):
+        if row["duplicate_record_id"].strip() not in included_screen_ids:
+            errors.append(
+                f"deduplication_map.csv:{line}: duplicate is outside included "
+                "screen"
+            )
+        if row["canonical_record_id"].strip() not in included_screen_ids:
+            errors.append(
+                f"deduplication_map.csv:{line}: canonical record is outside "
+                "included screen"
+            )
+    expected_peer_first_ids = included_screen_ids - duplicate_inclusion_ids
     peer_first_ids = [row["record_id"] for row in peer_first]
-    if set(peer_first_ids) != included_screen_ids or len(peer_first_ids) != len(included_screen_ids):
+    if (
+        set(peer_first_ids) != expected_peer_first_ids
+        or len(peer_first_ids) != len(expected_peer_first_ids)
+    ):
         errors.append(
-            "peer_first_eligibility.csv must contain every scope-included "
-            "systematic-screen record exactly once"
+            "broad_included.csv must contain every canonical scope-included "
+            "work exactly once"
         )
+    if not canonical_inclusion_ids.issubset(set(peer_first_ids)):
+        errors.append("deduplication map canonical records are absent from broad corpus")
     allowed_strata = {
         "peer_reviewed_conference", "peer_reviewed_journal",
         "influential_non_peer", "emerging_non_peer",
@@ -347,11 +355,11 @@ def main() -> int:
             )
         citation = row["citations_semantic_scholar"]
         if stratum == "influential_non_peer" and (
-            not citation.isdigit() or int(citation) <= 20
+            not citation.isdigit() or int(citation) <= 10
         ):
             errors.append(
                 f"peer_first_eligibility.csv:{line}: influential non-peer "
-                "does not satisfy citations > 20"
+                "does not satisfy citations > 10"
             )
     override_ids = [row["record_id"] for row in publication_overrides]
     for record_id in duplicates(override_ids):
@@ -480,78 +488,6 @@ def main() -> int:
                 f"load_bearing_review_queue.csv:{line}: completed review has "
                 "no reviewer"
             )
-
-    source_review_ids = [
-        row["paper_id"].strip() for row in load_bearing_source_review
-    ]
-    for value in sorted(duplicates(source_review_ids)):
-        errors.append(f"duplicate source review paper_id: {value}")
-    if set(source_review_ids) != set(review_ids):
-        for paper_id in sorted(set(review_ids) - set(source_review_ids)):
-            errors.append(f"load-bearing paper has no source review: {paper_id}")
-        for paper_id in sorted(set(source_review_ids) - set(review_ids)):
-            errors.append(f"source review is outside load-bearing queue: {paper_id}")
-    source_review_by_id = {
-        row["paper_id"].strip(): row for row in load_bearing_source_review
-    }
-    load_bearing_by_id = {
-        row["paper_id"].strip(): row for row in load_bearing_review
-    }
-    outcome_status = {
-        "Ready after minor patch": "source_reviewed_pending_author_signoff",
-        "Ready after major patch": "source_reviewed_pending_author_signoff",
-        "Pending final source verification": "blocked_pending_final_source",
-        "Pending exact full-text verification": (
-            "blocked_pending_exact_full_text"
-        ),
-    }
-    for paper_id, review in source_review_by_id.items():
-        outcome = review["outcome"].strip()
-        if outcome not in outcome_status:
-            errors.append(f"invalid source review outcome: {outcome}")
-        elif paper_id in load_bearing_by_id and load_bearing_by_id[paper_id][
-            "human_review_status"
-        ].strip() != outcome_status[outcome]:
-            errors.append(
-                f"source review status mismatch for {paper_id}: {outcome}"
-            )
-    correction_ids = [
-        row["paper_id"].strip() for row in load_bearing_corrections
-    ]
-    if len(load_bearing_corrections) != 55:
-        errors.append(
-            "load-bearing correction set must retain all 55 reviewed items"
-        )
-    for line, row in enumerate(load_bearing_corrections, start=2):
-        paper_id = row["paper_id"].strip()
-        if paper_id not in source_review_by_id:
-            errors.append(
-                f"load_bearing_corrections.csv:{line}: unknown reviewed paper: "
-                f"{paper_id}"
-            )
-        if row["severity"].strip() not in {"critical", "high", "medium"}:
-            errors.append(
-                f"load_bearing_corrections.csv:{line}: invalid severity"
-            )
-        if not row["required_correction"].strip():
-            errors.append(
-                f"load_bearing_corrections.csv:{line}: empty correction"
-            )
-    for paper_id in source_review_ids:
-        if paper_id not in correction_ids:
-            errors.append(f"source-reviewed paper has no correction: {paper_id}")
-        paper = papers_by_id[paper_id]
-        if paper["verification_status"].strip() != "agent_unverified":
-            errors.append(
-                f"source review improperly upgraded verification: {paper_id}"
-            )
-        note_text = (ROOT / paper["note_path"].strip()).read_text(
-            encoding="utf-8"
-        )
-        if "<!-- SOURCE_REVIEW_START -->" not in note_text or (
-            "<!-- SOURCE_REVIEW_END -->" not in note_text
-        ):
-            errors.append(f"source review is absent from note: {paper_id}")
 
     attack_review_ids = [row["paper_id"].strip() for row in attack_review]
     for value in sorted(duplicates(attack_review_ids)):
@@ -765,6 +701,11 @@ def main() -> int:
                 f"universal_114_source_review.csv:{line}: missing evidence "
                 f"locators for {paper_id}"
             )
+        if papers_by_id[paper_id]["verification_status"].strip() != "agent_unverified":
+            errors.append(
+                f"universal source review improperly upgraded verification: "
+                f"{paper_id}"
+            )
 
     if len(universal_source_corrections) != 231:
         errors.append(
@@ -921,14 +862,13 @@ def main() -> int:
         f"{len(evaluation_artifacts)} evaluation artifacts, "
         f"{len(post_cutoff)} post-cutoff watchlist records, and "
         f"{len(attack_screening)} attack-screening records; "
-        f"{len(peer_first)} peer-first eligibility decisions, "
+        f"{len(peer_first)} canonical broad-inclusion decisions, "
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "
         f"{len(load_bearing_review)} load-bearing plus "
         f"{len(attack_review)} standard attack and "
         f"{len(cross_category_review)} cross-category reviews; "
         f"{len(universal_review)} papers in the universal checklist; "
-        f"{len(load_bearing_corrections)} load-bearing and "
         f"{len(universal_source_corrections)} universal source-review "
         "corrections."
     )

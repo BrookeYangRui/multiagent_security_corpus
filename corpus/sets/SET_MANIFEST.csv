@@ -1,0 +1,10 @@
+set_id,count,status,unit,source
+search_catalog,2182,frozen,retrieved record,corpus/sets/01_search_catalog/search_catalog.csv
+broad_included,325,frozen,work,corpus/sets/02_broad_included/broad_included.csv
+structured_corpus,114,source_reviewed_pending_author_signoff,work,corpus/papers.csv
+taxonomy_candidates,115,adjudication_in_progress,work,corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv
+taxonomy_provisional_pass,30,not_final,work,corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv
+taxonomy_pending_full_text,72,pending,work,corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv
+adjacent_contextual_reviewed,41,provisional,work,corpus/sets/04_adjacent_contextual/adjacent_contextual.csv
+attack_claim_extraction_queue,91,pending_claim_split,paper-level candidate,corpus/sets/05_analysis_specific/claim_extraction_queue.csv
+analysis_eligibility_decisions,798,pending_expert_adjudication,paper-analysis pair,corpus/sets/05_analysis_specific/analysis_eligibility.csv

@@ -1,98 +1,52 @@
 # Multi-Agent Security Corpus
 
-Auditable literature corpus for security, privacy, robustness, misuse, and
-trust in systems with interacting autonomous or semi-autonomous agents.
+Auditable literature corpus for security of interacting LLM agents. The frozen
+search cutoff is `2026-07-01`; citation counts use the `2026-08-06` Semantic
+Scholar snapshot.
 
-This repository stores metadata, structured notes, BibTeX, related-work
-syntheses, and provenance. It does not store paper PDFs, manuscript drafts,
-experiments, or benchmark implementations.
+## Corpus Sets
+
+| Set | Current count | Purpose |
+| --- | ---: | --- |
+| Search catalog | 2,182 records | Retrieval, screening, exclusions, and PRISMA flow |
+| Broad included | 325 works | Broad interaction-security landscape after version deduplication |
+| Taxonomy candidates | 115 works | 93 peer-reviewed works plus 22 non-peer works with citations `>10` |
+| Adjacent/contextual | 41 reviewed works | Boundary, reliability, safety, governance, and background evidence |
+| Analysis eligibility | 798 pending decisions | Seven audit contracts applied to 114 structured works |
+
+`taxonomy_candidates` is not a final denominator. Current source review yields
+30 provisional core passes awaiting author signoff, 12 contextual decisions,
+one source blocker, and 72 pending full-text adjudications.
 
 ## Start Here
 
 ```text
-corpus/papers.csv                 included-paper index
-corpus/references.bib             BibTeX for included papers
-corpus/excluded_papers.csv        screened exclusions and duplicates
-corpus/evaluation_artifacts.csv   datasets, benchmarks, and protocols
-corpus/attack_screening.csv       retrieval-to-corpus attack decisions
-corpus/peer_first_eligibility.csv publication and citation strata for 326 inclusions
-corpus/PEER_FIRST_CORPUS.md        peer-first rules and current counts
-corpus/CITATION_THRESHOLD_DECISION.md non-peer threshold comparison
-corpus/EVIDENCE_POLICY_AND_REVIEW_REPORT.md evidence-layer decision report
-corpus/publication_status_overrides.csv manually verified formal versions
-corpus/attack_canonical_bridge.csv unmatched canonical attack bindings
-corpus/targeted_attack_gap_search.csv four-family targeted gap check
-corpus/load_bearing_review_queue.csv human-review queue for key claims
-corpus/attack_review_queue.csv       remaining attack-primary review queue
-corpus/cross_category_review_queue.csv non-attack-primary attack screening
-corpus/universal_review_queue.csv    master checklist for every paper
-corpus/UNIVERSAL_REVIEW.md           review fields and decision rules
-corpus/post_cutoff_papers.csv     post-cutoff watchlist
-corpus/post_cutoff_references.bib isolated watchlist citations
-papers/                           one note per included paper
-papers/post_cutoff/               optional watchlist notes
-reviews/load_bearing/             source review and correction artifacts
-reviews/universal/                114-work source review and correction packet
-related_work/                     cross-paper syntheses
-templates/paper_note.md           required note template
-AGENTS.md                         full maintenance protocol
+corpus/sets/SET_MANIFEST.csv                    authoritative counts
+corpus/sets/01_search_catalog/                  retrieval and screening
+corpus/sets/02_broad_included/                  325 canonical broad inclusions
+corpus/sets/03_taxonomy_eligible/               strict-core adjudication queue
+corpus/sets/04_adjacent_contextual/             reviewed contextual works
+corpus/sets/05_analysis_specific/               claims, contracts, and audit sets
+corpus/papers.csv                               114 structured paper records
+corpus/references.bib                           canonical references
+papers/                                         structured paper notes
+reviews/universal/                              114-work source review and corrections
+reviews/queues/                                 expert signoff queues
+reports/                                        evidence and threshold decisions
 ```
 
-## Scope
-
-Include a work only when multi-agent interaction changes the threat model,
-attack, security consequence, defense, or evaluation. Communication, shared
-memory, delegation, topology, coordination, coalition formation, and collective
-decisions are in scope. Multiple model calls or roles alone are insufficient.
-
-Exclude single-agent failures, implementation-only multi-agent scaffolding,
-non-security performance studies, duplicates, and superseded versions. Keep
-every exclusion with a reason in `corpus/excluded_papers.csv`.
-
-`primary_category` supplies one counting category per paper; additional roles
-remain in `paper_type`. `scope_relation` distinguishes `core_security`,
-`security_relevant`, and `adjacent` evidence.
-
-Every paper is reviewed for attack-bearing claims, including defense,
-evaluation, survey, and general papers. See `corpus/UNIVERSAL_REVIEW.md`.
-
-## Peer-First Evidence
-
-The primary evidence set includes every identified scope-eligible peer-reviewed
-conference or journal work. A non-peer-reviewed work enters the influential
-preprint stratum only when its Semantic Scholar citation count is strictly above
-20 at the recorded snapshot date. Lower-cited preprints remain visible as
-emerging work but do not enter corpus-level denominators. See
-`corpus/PEER_FIRST_CORPUS.md` for counts and unresolved records.
-
-## Frozen Cutoff
-
-The search cutoff is `2026-07-01 00:00 UTC`. Work first retrievable on or after
-the cutoff is excluded from the main corpus and all analysis denominators. Keep
-it in `corpus/post_cutoff_papers.csv`; optional notes and citations belong only
-under `papers/post_cutoff/` and `corpus/post_cutoff_references.bib`.
-
-If a pre-cutoff work later receives a formal publication, update its canonical
-record instead of adding a second paper.
-
-## Adding A Paper
-
-For each included paper, update all three records in one change:
-
-1. `corpus/papers.csv`
-2. `corpus/references.bib`
-3. A note copied from `templates/paper_note.md`
-
-Prefer the published venue, then an official manuscript, then arXiv. Record the
-exact URL, version, discovery source, access date, and evidence section/page for
-important claims. Use `Not reported` or `Unclear`; never guess metadata or
-evidence. Automated notes remain `agent_unverified` until human review.
+Corpus counts are by work. Taxonomy and synthesis are claim-level. Every audit
+must report its own eligibility rule, final `n`, peer-reviewed `n`, and
+non-peer `n`.
 
 ## Validate
 
 ```bash
+python3 scripts/build_peer_first_eligibility.py --check
+python3 scripts/build_corpus_sets.py
 python3 scripts/validate_corpus.py
 ```
 
-Before pushing, fetch `origin/main`, check for collaborator changes, run the
-validator, and use a short English commit message.
+Paper notes and imported source reviews remain unverified until named human
+signoff. CVEs, industry reports, and standards use separate evidence datasets
+and never enter the paper denominator.

@@ -7,5 +7,5 @@ work without a verified archival version.
 
 Papers whose primary contribution is an attack or defense remain in their
 canonical category. Reusable datasets, harnesses, and metrics from those papers
-are listed once in `corpus/evaluation_artifacts.csv` and link to the canonical
+are listed once in `corpus/sets/05_analysis_specific/evaluation_artifacts.csv` and link to the canonical
 note.

@@ -11,25 +11,32 @@ Fixed reference points:
 - Citation source: Semantic Scholar Graph API
 - Citation snapshot: `2026-08-06`
 - Retrieved records: 2,182
-- Scope-included works after deduplication and screening: 326
+- Scope-included records before canonical version merging: 326
+- Canonical broad-included works: 325
 - Screening records still unresolved: 343
-- Peer-reviewed backbone within the 326: 94
+- Peer-reviewed backbone within the 325: 93
 
 The retrieval, included, peer-first, and reviewed denominators are different
 sets and must not be reported as interchangeable paper counts.
 
 | Denominator | Count | Meaning |
 | --- | ---: | --- |
-| Retrieved records | 2,182 | Deduplicated search-screening records from OpenAlex and Semantic Scholar |
-| Broad full-text inclusions | 326 | Works passing the frozen primary interaction-security screen |
+| Retrieved records | 2,182 | Search-screening records from OpenAlex and Semantic Scholar |
+| Broad full-text inclusion records | 326 | Records passing the frozen primary interaction-security screen |
+| Canonical broad-included works | 325 | Inclusion records after merging preprint and published versions |
 | Unresolved screening records | 343 | 196 unresolved at full text plus 147 unresolved at title/abstract |
 | Canonical structured corpus | 114 | Works currently represented in `papers.csv`, BibTeX, and paper notes |
-| Peer-reviewed backbone | 94 | Peer-reviewed works among the 326 broad inclusions |
+| Peer-reviewed backbone | 93 | Peer-reviewed works among the 325 canonical broad inclusions |
 | Newly source-reviewed | 114 | Canonical structured works covered by the imported review packet |
 
 The equality between the 114 structured works and 114 reviewed works means the
-current note corpus has review coverage. It does not mean that all 326 broad
+current note corpus has review coverage. It does not mean that all 325 broad
 inclusions have structured notes or source review.
+
+The work-level count is one lower than the screening-inclusion count because
+NetSafe appeared once under its arXiv identifier and once under its Findings of
+ACL DOI. `corpus/sets/02_broad_included/deduplication_map.csv` records the merge
+and retains the published DOI record as canonical.
 
 ## Recommended Evidence Architecture
 
@@ -47,8 +54,8 @@ counts and inclusion rules must be reported separately.
 
 ## Research Corpus Thresholds
 
-The 326 scope-included works contain 94 conservatively identified
-peer-reviewed works: 85 conference or proceedings papers and 9 journal papers.
+The 325 canonical scope-included works contain 93 conservatively identified
+peer-reviewed works: 84 conference or proceedings papers and 9 journal papers.
 All scope-eligible peer-reviewed works enter the peer backbone regardless of
 citation count.
 
@@ -57,21 +64,21 @@ gate, not a substitute for full-text security-scope screening.
 
 | Non-peer rule | Eligible non-peer works | Raw peer-first total |
 | --- | ---: | ---: |
-| Citations `>50` | 0 | 94 |
-| Citations `>20` | 8 | 102 |
-| Citations `>10` | 22 | 116 |
-| Citations `>5` | 52 | 146 |
+| Citations `>50` | 0 | 93 |
+| Citations `>20` | 8 | 101 |
+| Citations `>10` | 22 | 115 |
+| Citations `>5` | 52 | 145 |
 
-The active repository rule remains strict `>20`. See
-`corpus/CITATION_THRESHOLD_DECISION.md` for the title-level comparison and the
+The repository now uses strict `>10` as a non-peer full-text review gate. See
+`reports/CITATION_THRESHOLD_DECISION.md` for the title-level comparison and the
 recommended alternative of using `>10` for retrieval followed by a full-text
 security-scope gate.
 
 ### What a `>50` rule removes
 
-No non-peer work in the frozen 326-work frame has more than 50 citations at the
+No non-peer work in the frozen 325-work frame has more than 50 citations at the
 snapshot date. A `>50` non-peer rule therefore reduces the evidence set to the
-94-work peer-reviewed backbone and excludes all 232 non-peer or unresolved
+93-work peer-reviewed backbone and excludes all 232 non-peer or unresolved
 records.
 
 Among the excluded non-peer records are directly relevant, recent works such
@@ -94,8 +101,9 @@ property, adversary, violation, defense, or security evaluation in the full
 text before taxonomy eligibility. Keep adjacent performance, reliability, and
 social-behavior work visible without counting it in security denominators.
 
-This recommendation should not become active until the 22 non-peer candidates
-and the 94 peer-reviewed works have received the same scope-quality review.
+This rule creates 22 non-peer review candidates. It does not make them
+taxonomy-eligible until they pass the same full-text scope gate as peer-reviewed
+work.
 
 ## CVE Inclusion Policy
 
@@ -197,7 +205,7 @@ unique works drawn from three disjoint queues:
 | Cross-category attack screening | 52 |
 | **Total** | **114** |
 
-This packet does not represent all 326 included works. It is a deep source
+This packet does not represent all 325 included works. It is a deep source
 review of the existing universal review queue and must not be presented as the
 full-corpus review denominator.
 
@@ -263,9 +271,9 @@ and secondary roles. It must not be copied directly into the single-valued
 
 ### Coverage against the peer-first frame
 
-Only 40 of the 94 peer-reviewed backbone works appear in this 114-work packet:
+Only 40 of the 93 peer-reviewed backbone works appear in this 114-work packet:
 28 currently core, 11 security-relevant, and one mixed-scope NetSafe record.
-Therefore 54 peer-reviewed works still need the same source-review treatment.
+Therefore 53 peer-reviewed works still need the same source-review treatment.
 
 Of the 22 non-peer works above the proposed `>10` discovery threshold, only
 three appear in the new packet: AgentSafe, MAGPIE, and MedSentry. The remaining
@@ -283,13 +291,13 @@ preserve adjudication notes, and record named human signoff.
 
 ## Decision
 
-1. Keep the active `>20` rule until uniform review is complete.
-2. Plan to use `>10` as the non-peer discovery threshold plus a full-text
+1. Use `>10` as the non-peer discovery threshold plus a full-text
    security-scope gate.
+2. Keep every pending candidate outside the final taxonomy denominator.
 3. Include CVEs and technical industry reports as separately searched and
    separately counted evidence corpora.
 4. Apply the 231 corrections by severity, starting with the 20 critical items.
-5. Review the remaining 54 peer-reviewed backbone works and 19 non-peer `>10`
+5. Review the remaining 53 peer-reviewed backbone works and 19 non-peer `>10`
    candidates before reporting a final taxonomy-eligible denominator.
 6. Do not claim complete CVE or industry-report coverage until their search
    sources, queries, deduplication rules, and screening decisions are released.
