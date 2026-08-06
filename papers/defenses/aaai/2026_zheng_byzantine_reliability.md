@@ -1,8 +1,10 @@
-# Rethinking the Reliability of Multi-agent Systems: A Perspective from Byzantine Fault Tolerance
+# Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance
+
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
 
 ## Citation
 
-Title: Rethinking the Reliability of Multi-agent Systems: A Perspective from Byzantine Fault Tolerance
+Title: Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance
 
 Authors: Lifan Zheng; Jiawei Chen; Qinghong Yin; Jingyuan Zhang; Xinyi Zeng; Yu Tian
 
@@ -20,10 +22,10 @@ BibTeX key: zheng2026byzantinereliability
 
 ## Paper Type
 
-- Attack
-- Defense
-- Evaluation
-- Empirical study
+Defense; Evaluation; Fault study
+
+- Primary category: `defense`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -209,3 +211,56 @@ agent_unverified
 
 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical AAAI title uses singular 'System'. The current record should match the OJS and PDF title exactly.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Faulty members inject wrong answers through graph edges and a collective procedure aggregates them; the effect depends on fault count, placement, topology, and aggregation.
+- Recommended roles: defense; evaluation; fault study
+- Maturity: Archival peer-reviewed evaluation and defense evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Byzantine or faulty member agents repeatedly supplying a prescribed incorrect candidate answer.
+- Capabilities: Send protocol-valid wrong answers through normal graph edges.
+- Preconditions: Seven-node fixed graphs, trusted experiment controller and aggregation, and confidence probes used by CP-WBFT.
+- Surfaces: Member messages; topology; collective aggregation.
+- Mechanism: Faulty-answer propagation and confidence-weighted voting.
+- Primary system-level failure: F4 collective task-decision integrity failure.
+- Impact: Wrong mathematical answer or unsafe classification.
+
+### Evaluation Contract
+
+- Configuration: Seven nodes, six topologies, Byzantine count varied from one to six, GSM8K and XSTest.
+- Topology: Six representative fixed network structures.
+- Baseline or ablation: Traditional deterministic nodes, unweighted aggregation, and prompt-level or hidden-state confidence variants.
+- Metric: Task accuracy and reported reliability accuracy.
+- Unit: Task instance under a fault configuration.
+- Denominator: GSM8K or XSTest examples in each experiment.
+- Result boundary: The reported 85.7% fault rate corresponds to six of seven faulty nodes in an oracle-scored task-accuracy experiment. It is not a theorem exceeding the classical asynchronous Byzantine agreement bound.
+
+### Evidence and Boundaries
+
+- Evidence locations: Pilot experiment, PDF pp. 2 to 3, Table 1 and Fig. 2; datasets and metrics, PDF pp. 2 and 5; method, PDF pp. 3 to 5 and Fig. 3; experimental setting, PDF p. 5 and Fig. 2/Table 2; result tables, PDF pp. 5 to 7.
+- Author claim versus corpus interpretation: Seven-node experiments, CP-WBFT, and task accuracy are author claims. The explicit distinction from classical agreement, validity, and termination is a corpus interpretation.
+- Limitations: Two datasets; fixed seven-node graphs; trusted coordinator and confidence probe; task accuracy rather than formal consensus; no open membership or protocol theorem.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to defense/evaluation/fault study.
+- **CRITICAL - BFT claim:** Do not describe 6 of 7 task accuracy as robustness beyond the classical BFT ceiling.
+- **MEDIUM - Canonical title:** Use singular 'System' as in the official paper.
+<!-- SOURCE_REVIEW_END -->

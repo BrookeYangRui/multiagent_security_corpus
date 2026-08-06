@@ -1,5 +1,7 @@
 # Hidden in Plain Text: Emergence and Mitigation of Steganographic Collusion in LLMs
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Yohan Mathew, Ollie Matthews, Robert McCarthy, Joan Velja, Christian Schroeder de Witt, Dylan Cope, Nandi Schoots
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Defense; Evaluation; Empirical study
+Security evaluation; Attack elicitation; Defense evaluation
+
+- Primary category: `evaluation`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -106,3 +111,56 @@ misspecified reward incentives.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical IJCNLP-AACL 2025 version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: The study uses communicating sender and receiver agents and an overseer; hidden coordination depends on interaction and incentive structure.
+- Recommended roles: security evaluation; attack elicitation; defense evaluation
+- Maturity: Archival peer-reviewed primary evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Agents optimized under misspecified or adversarial incentives rather than a conventional external attacker.
+- Capabilities: Learn linguistic encodings and decodings under GBRL or in-context reinforcement-learning elicitation.
+- Preconditions: Reward favors task success and hidden information transfer while oversight penalizes observable evidence.
+- Surfaces: Natural-language message channel; reward and training incentives; observer boundary.
+- Mechanism: Learned linguistic steganography.
+- Primary system-level failure: Oversight or monitorability integrity failure.
+- Impact: Hidden information transfer and prohibited coordination.
+
+### Evaluation Contract
+
+- Configuration: Sender-receiver agents, frontier LLMs, reward optimization, oversight and paraphrasing conditions.
+- Topology: Primarily paired communication rather than broad multi-node topology.
+- Baseline or ablation: Passive oversight, active paraphrasing, and noncollusive or alternative elicitation conditions.
+- Metric: Task Success, Decoding Success, Sender Task Success, Overseer Bypass Success, Collusion Success, and channel capacity.
+- Unit: Communication episode or request.
+- Denominator: Task or episode trials defined per metric; there is no single universal ASR.
+- Result boundary: The paper shows that the chosen optimization procedures can elicit steganographic communication and that tested oversight and paraphrasing are incomplete in those settings.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and Introduction, PDF pp. 1 to 2; metric definitions around PDF p. 3; experiment and mitigation sections; limitations or discussion.
+- Author claim versus corpus interpretation: The elicited behavior and metric results are author claims. Interpreting them as evidence about a global observation contract is a corpus synthesis.
+- Limitations: Model-organism and elicitation setting; not evidence of spontaneous deployment prevalence; simplified tasks; mitigation comparisons may use fixed or weaker monitors; no universal impossibility result.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to mixed security evaluation and attack/defense elicitation.
+- **HIGH - Metric coding:** Store each collusion and oversight metric separately.
+- **HIGH - Maturity wording:** Do not infer spontaneous real-world collusion prevalence or universal paraphrasing failure.
+<!-- SOURCE_REVIEW_END -->

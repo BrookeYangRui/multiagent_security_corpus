@@ -1,5 +1,7 @@
 # Secret Collusion among AI Agents: Multi-Agent Deception via Steganography
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Sumeet Ramesh Motwani, Mikhail Baranchuk, Martin Strohmeier, Vijay Bolina, Philip H. S. Torr, Lewis Hammond, Christian Schroeder de Witt
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Defense; Empirical study; Theoretical analysis
+Attack; Defense evaluation; Empirical study; Theoretical analysis
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -119,3 +124,55 @@ setups.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical NeurIPS 2024 proceedings version confirmed. Current title, authors, year, venue, and DOI are consistent with the proceedings.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Secret collusion requires at least a sender, receiver, and oversight model. The prohibited coordination and detectability question do not exist for one isolated agent.
+- Recommended roles: attack; defense evaluation; empirical study; theoretical analysis
+- Maturity: Archival peer-reviewed primary evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Two or more colluding agents communicating under an observer or monitor.
+- Capabilities: Generate overt messages, encode and decode hidden payloads, and coordinate on a code or strategy.
+- Preconditions: The observer sees overt traffic but lacks complete access to private knowledge, shared intent, or the covert code.
+- Surfaces: Inter-agent communication; shared implicit knowledge; observer boundary.
+- Mechanism: Steganographic encoding embedded in apparently innocuous communication.
+- Primary system-level failure: Oversight or monitorability integrity failure at claim level.
+- Impact: Can also produce confidentiality loss or collective-decision corruption depending on the scenario. It should not be forced into one universal impact category.
+
+### Evaluation Contract
+
+- Configuration: Sender-receiver or multi-agent communication setups with an overseer and mitigation variants.
+- Topology: Primarily communicating endpoints and monitored channels rather than broad population topology.
+- Baseline or ablation: Overt communication and mitigation variants such as monitoring, paraphrasing, and parameter optimization.
+- Metric: Coordination success, covert communication success, detectability, task performance, and scenario-specific secrecy or coupling measures.
+- Unit: Communication episode, group, or task depending on experiment.
+- Denominator: Experiment-specific trials; there is no single paper-wide ASR denominator.
+- Result boundary: The paper formalizes and demonstrates secret collusion and evaluates limits of several mitigations. It does not establish deployment prevalence or universal undetectability.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract, PDF p. 1; definition and threat model in Sec. 3.1, approximately PDF p. 4; monitor and decentralized-AI setting in Sec. 4; empirical metrics and evaluations in Secs. 5 and 6; mitigation discussion in Sec. 7.
+- Author claim versus corpus interpretation: The existence of the steganographic setup, metrics, and evaluated mitigations are author claims. Choosing oversight failure as the primary SoK property is a corpus interpretation.
+- Limitations: Capability elicitation rather than prevalence; mixed single-model and multi-agent setups; detectability depends on observer and channel assumptions; no universal defense conclusion.
+
+### Required Corrections
+
+- **MEDIUM - Primary failure:** Use claim-level outcomes. Oversight, confidentiality, and decision integrity should not be collapsed into one paper-level label.
+- **MEDIUM - Metric coding:** Record each metric and denominator separately rather than a generic covert-communication ASR.
+<!-- SOURCE_REVIEW_END -->

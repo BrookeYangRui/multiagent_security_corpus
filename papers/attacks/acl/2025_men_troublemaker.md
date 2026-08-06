@@ -1,5 +1,7 @@
 # A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Tianyi Men, Pengfei Cao, Zhuoran Jin, Yubo Chen, Kang Liu, Jun Zhao
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Benchmark; Evaluation; Empirical study
+Attack; Benchmark; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -113,3 +118,55 @@ suffixes to sustain attacks across sparse and large agent networks.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical ACL 2025 version confirmed. Current title, author list, DOI, venue, and year are correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: One malicious member spreads jailbreak content through communication and independent memories; retrieval, replication, topology, and population size determine system-level propagation.
+- Recommended roles: attack; benchmark; evaluation
+- Maturity: Archival peer-reviewed primary evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: One malicious member or troublemaker agent.
+- Capabilities: Injects optimized retrieval and replication suffixes into messages or memory content that honest agents later retrieve and retransmit.
+- Preconditions: Agents maintain independent memories and store and retrieve interaction content.
+- Surfaces: Inter-agent messages; independent agent memories; communication topology.
+- Mechanism: Adversarial retrieval and replication optimization creates a contagious jailbreak.
+- Primary system-level failure: F1 compromise propagation and containment failure.
+- Impact: Population-wide jailbreak among previously honest agents.
+
+### Evaluation Contract
+
+- Configuration: One attacker plus honest agents; line, star, and larger population settings, including a 100-agent experiment.
+- Topology: Line, star, and other benchmarked structures; static experiment graphs.
+- Baseline or ablation: Prior jailbreak or nonoptimized variants described in the paper.
+- Metric: ASR by round, maximum ASR over rounds, and rounds to reach a target ASR.
+- Unit: Agent-question pair and interaction round.
+- Denominator: The paper defines the round metric over agent by question cases, then reports the maximum over rounds for its summary ASR.
+- Result boundary: Reported improvements of 23.51%, 18.95%, and 52.93% are setting-specific values. Do not silently relabel them as percentage-point improvements.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract, PDF p. 1; metric definition in Sec. 2.2, approximately PDF p. 3; experiment tables for topology and large-scale settings; abstract and result tables for the reported improvements.
+- Author claim versus corpus interpretation: Attack construction and results are author claims. Cross-paper denominator incompatibility is a corpus interpretation.
+- Limitations: Maximum reported population is 100 in the empirical benchmark; fixed topologies; multiple-choice style memory tasks; limited model and deployment diversity.
+
+### Required Corrections
+
+- **HIGH - Metric denominator:** Replace generic attack success with the paper's agent-question and round-specific definition.
+- **MEDIUM - Result wording:** Report the three improvements exactly as authors report them; do not call them percentage points without table support.
+<!-- SOURCE_REVIEW_END -->

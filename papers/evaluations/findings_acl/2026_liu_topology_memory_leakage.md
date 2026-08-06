@@ -1,5 +1,7 @@
 # Topology Matters: Measuring Memory Leakage in Multi-Agent LLMs
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 Title: Topology Matters: Measuring Memory Leakage in Multi-Agent LLMs
@@ -20,10 +22,10 @@ BibTeX key: liu2026topologymemory
 
 ## Paper Type
 
-- Attack
-- Benchmark
-- Evaluation
-- Empirical study
+Benchmark; Evaluation; Attack study
+
+- Primary category: `evaluation`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -208,3 +210,57 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
+
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical Findings of ACL 2026 version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Private memory originates at one agent and reaches an unauthorized member only through topology-conditioned communication and memory updates.
+- Recommended roles: benchmark; evaluation; attack study
+- Maturity: Archival peer-reviewed benchmark and evaluation evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: One malicious member agent targeting one private-memory holder.
+- Capabilities: Participates in normal communication, solicits private data, observes topology-permitted messages, and accumulates information across rounds.
+- Preconditions: Static known graph, one attacker and one target, synchronous text communication, synthetic PII.
+- Surfaces: Private memory; inter-agent messages; topology; role placement.
+- Mechanism: Repeated cooperative-looking solicitation and topology-mediated relay of private cues.
+- Primary system-level failure: F2 cross-principal confidentiality violation.
+- Impact: Recovery and diffusion of private PII by an unauthorized participant.
+
+### Evaluation Contract
+
+- Configuration: GPT-4o-mini and Llama-3.1-70B networks; 4, 5, or 6 agents; one target and one attacker; ten communication rounds.
+- Topology: Complete, circle, chain, tree, star, and star-ring; varied attacker-target placement.
+- Baseline or ablation: Cross-topology, placement, agent-count, round-count, PII-category, and model comparisons.
+- Metric: Exact-match-plus-LLM-inference leakage rate, ever-leaked entities, and temporal diffusion.
+- Unit: PII entity and trace or configuration.
+- Denominator: Seeded protected PII entities or evaluated traces, as defined by each result.
+- Result boundary: Dense graphs and central placements often leak more, while much leakage appears early. Absolute levels and some topology rankings vary by model and should not be universalized.
+
+### Evidence and Boundaries
+
+- Evidence locations: Secs. 3.1 to 3.3, PDF pp. 3 to 6 and Fig. 1/Table 1 for state, roles, and six topologies; Sec. 4, PDF pp. 7 to 9, Tables 2 to 3 and Figs. 2 to 3 for leakage and temporal results; limitations, PDF p. 9.
+- Author claim versus corpus interpretation: Topology setup, metrics, and reported trends are author claims. Assigning F2 as the primary property and indexing it as benchmark/evaluation are corpus decisions.
+- Limitations: Synthetic PII; fixed ten rounds; one attacker; text-only synchronous communication; six static topologies; LLM judge in metric pipeline.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to benchmark/evaluation with an attack study role.
+- **HIGH - Metric denominator:** Store exact-match and LLM-inference leakage definitions and seeded-entity denominator.
+- **MEDIUM - Generalization:** Do not state a universal topology ranking across models.
+<!-- SOURCE_REVIEW_END -->

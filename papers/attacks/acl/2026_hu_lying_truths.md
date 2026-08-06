@@ -1,5 +1,7 @@
 # Lying with Truths: Open-Channel Multi-Agent Collusion for Belief Manipulation via Generative Montage
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 Title: Lying with Truths: Open-Channel Multi-Agent Collusion for Belief Manipulation via Generative Montage
@@ -20,10 +22,10 @@ BibTeX key: hu2026lyingtruths
 
 ## Paper Type
 
-- Attack
-- Benchmark
-- Evaluation
-- Empirical study
+Attack; Benchmark; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -208,3 +210,56 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
+
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical ACL 2026 version confirmed. Metadata and title are correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: A writer-editor-director coalition coordinates public, individually truthful fragments whose composition manipulates victim agents and downstream judges.
+- Recommended roles: attack; benchmark; evaluation
+- Maturity: Archival peer-reviewed primary attack evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Coalition of writer, editor, and director agents.
+- Capabilities: Select, rewrite, order, and publicly post factual fragments and coordinate their narrative construction.
+- Preconditions: Victims aggregate public posts, while message-level truth checks cannot reject individually factual fragments.
+- Surfaces: Public multi-agent information channel; aggregation; provenance and cross-message context.
+- Mechanism: Open-channel cognitive collusion through generative montage.
+- Primary system-level failure: F4 collective decision or belief integrity failure.
+- Impact: Downstream propagation of a fabricated conclusion.
+
+### Evaluation Contract
+
+- Configuration: Coalition attackers, victim belief agents, downstream judge agents, and 14 proprietary and open-weight model families.
+- Topology: Fixed writer-editor-director attack pipeline plus victim and judge stages.
+- Baseline or ablation: Base prompts, reasoning variants, alternate constructions, and model families.
+- Metric: Victim attack success and downstream deception rate.
+- Unit: Rumor-event case or victim/judge decision.
+- Denominator: CoPHEME cases used in each evaluated split.
+- Result boundary: The authors report peak victim ASR of 74.4% for proprietary and 70.6% for open-weight models, with downstream deception above 60% in evaluated settings.
+
+### Evidence and Boundaries
+
+- Evidence locations: Secs. 1 and 3, PDF pp. 1 to 6 for threat and method; Sec. 4, PDF pp. 6 to 8 for CoPHEME; Sec. 5, PDF pp. 8 to 12 for main result and propagation tables.
+- Author claim versus corpus interpretation: Open-channel truthful-fragment attack, role pipeline, dataset, and results are author claims. Labeling it F4 and using it as an observer-scope example are corpus interpretations.
+- Limitations: Fixed attack pipeline; curated rumor events; simulated open channel; no live open-agent network; model susceptibility results are setting-specific.
+
+### Required Corrections
+
+- **MEDIUM - Mechanism label:** Do not label the channel covert or the fragments false; the novelty is public composition of individually true fragments.
+- **MEDIUM - Evidence locator:** Tie ASR and downstream rates to the exact Sec. 5 tables and CoPHEME denominator.
+<!-- SOURCE_REVIEW_END -->

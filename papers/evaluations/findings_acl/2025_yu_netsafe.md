@@ -1,5 +1,7 @@
 # NetSafe: Exploring the Topological Safety of Multi-agent System
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Miao Yu, Shilong Wang, Guibin Zhang, Junyuan Mao, Chenlong Yin, Qijiong Liu, Kun Wang, Qingsong Wen, Yang Wang
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Benchmark; Evaluation; Empirical study
+Benchmark; Evaluation; Topology analysis
+
+- Primary category: `evaluation`
+- Scope relation: `security_relevant`
 
 ## Scope
 
@@ -111,3 +116,56 @@ phenomena under attack.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical Findings of ACL 2025 version confirmed. Metadata is correct.
+- Recommended scope: `security_relevant at paper level; core_security for adversarial claims`
+- Multi-agent dependency: The paper mixes adversarial misinformation or harmful content with broader hallucination, bias, fairness, and reliability phenomena. Only the adversarial security claims should enter core-security statistics.
+- Recommended roles: benchmark; evaluation; topology analysis
+- Maturity: Archival peer-reviewed mixed safety and security evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Malicious-query source or compromised interaction input in adversarial subsets.
+- Capabilities: Introduces misinformation, bias, or harmful content that propagates and is aggregated.
+- Preconditions: Agents iteratively exchange information according to a configured RelCom graph.
+- Surfaces: Communication topology; iterative messages; aggregation.
+- Mechanism: Topology-conditioned propagation and aggregation. Topology itself is an evaluation variable, not an attack mechanism.
+- Primary system-level failure: Claim-level F1 or F4 for adversarial subsets; adjacent reliability and fairness for other phenomena.
+- Impact: Task-performance and safety degradation in evaluated settings.
+
+### Evaluation Contract
+
+- Configuration: Multiple workflows, graph connectivity levels, system sizes, and per-round interactions.
+- Topology: RelCom abstraction with multiple graph structures and scales.
+- Baseline or ablation: Alternative topologies and benign versus attacked conditions.
+- Metric: Per-agent and aggregate joint accuracy or safety outcomes by round and topology.
+- Unit: Agent, round, and task.
+- Denominator: Per-agent or aggregate task cases as defined in each experiment.
+- Result boundary: The reported 29.7% star-topology decrease is a relative task-performance decrease in a specific setting. It is not a universal severity figure or necessarily a percentage-point change.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and framework, PDF pp. 1 to 3; result sections naming Agent Hallucination, Aggregation Safety, and Security Bottleneck; exact result table for the 29.7% setting; limitations section.
+- Author claim versus corpus interpretation: RelCom, phenomena, and setting-specific numbers are author claims. Treating the artifact as benchmark/evaluation and splitting security from adjacent claims are corpus decisions.
+- Limitations: Authors note that RelCom may not capture system-specific designs and that privacy and security are not comprehensively covered; topology effects can interact with prompt, model, and compute changes.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to benchmark/evaluation.
+- **CRITICAL - Scope relation:** Use claim-level screening; paper-level core_security overstates broad safety and reliability content.
+- **HIGH - Result wording:** Label 29.7% as a setting-specific relative performance decrease.
+<!-- SOURCE_REVIEW_END -->

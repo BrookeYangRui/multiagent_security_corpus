@@ -2,8 +2,9 @@
 
 `attack_review_queue.csv` contains the 42 attack-primary papers not selected for
 the initial load-bearing review. Together with
-`load_bearing_review_queue.csv`, it covers all 61 attack-primary papers. The
-load-bearing queue includes 19 attack papers plus one evaluation paper;
+`load_bearing_review_queue.csv`, it covers all 55 attack-primary papers. After
+source-review reclassification, the load-bearing queue includes 13 attack papers
+plus seven defense/evaluation papers;
 `attack_review_queue.csv` contains the remaining attack papers as priorities
 21-62.
 

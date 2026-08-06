@@ -1,5 +1,7 @@
 # MASLeak: Investigating and Exposing Intellectual Property Leakage Vulnerabilities in Multi-Agent Systems
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Liwen Wang, Wenxuan Wang, Shuai Wang, Zongjie Li, Zhenlan Ji, Zongyi Lyu, Daoyuan Wu, Shing-Chi Cheung
@@ -7,12 +9,17 @@
 - Venue: USENIX Security 2026
 - DOI: Not reported
 - Primary URL: https://www.usenix.org/conference/usenixsecurity26/presentation/wang-liwen
-- Open access URL: Not yet posted separately from the USENIX prepublication link
+- Open access URL: https://arxiv.org/pdf/2505.12442
 - BibTeX key: `wang2026masleak`
+- Version note: the arXiv version uses an earlier title and is merged into this
+  canonical USENIX record.
 
 ## Paper Type
 
-Attack; Benchmark; Evaluation; Empirical study
+Attack; Benchmark; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -110,3 +117,56 @@ real-world applications.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: The USENIX title is canonical. The arXiv version has a different title and should be linked as the same work. The current note incorrectly states that no open-access copy exists; an arXiv full text is available.
+- Recommended scope: `core_security`
+- Multi-agent dependency: A black-box user extracts agent count, topology, prompts, task instructions, and tools from an internal multi-agent architecture through its public API.
+- Recommended roles: attack; benchmark; evaluation
+- Maturity: Archival peer-reviewed primary attack and benchmark evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Remote black-box API user.
+- Capabilities: Submits crafted queries and observes final outputs only.
+- Preconditions: Internal agents may reveal, propagate, or retain proprietary information through orchestration.
+- Surfaces: Public API; internal cross-agent communication; final output; architecture metadata.
+- Mechanism: Worm-inspired black-box elicitation and cross-agent disclosure propagation.
+- Primary system-level failure: F2 cross-principal or system-IP confidentiality violation.
+- Impact: Extraction of prompts, instructions, tools, agent count, and topology.
+
+### Evaluation Contract
+
+- Configuration: 810 synthetic MAS applications plus selected Coze and CrewAI systems; 3 to 6 agents and five topologies in the synthetic corpus.
+- Topology: Multiple generated architecture patterns and real platform cases.
+- Baseline or ablation: Extraction variants and component-specific baselines described in the paper.
+- Metric: F1 for agent count, semantic or substring match for prompts and instructions, binary tool hit, graph-edit similarity for topology, and an extraction-rate aggregate over seven components.
+- Unit: Application and protected component.
+- Denominator: Components or applications relevant to each metric. The aggregate ER is an average of seven component measures, not one universal ASR.
+- Result boundary: The official abstract reports average success of 87% for prompts or instructions and 92% for architecture in most evaluated cases. Keep component-specific measures separate.
+
+### Evidence and Boundaries
+
+- Evidence locations: Official USENIX record and arXiv full paper; abstract for black-box model and corpus size; method and metric sections for the seven measures; main tables for 87% and 92% results.
+- Author claim versus corpus interpretation: Threat model, dataset, and component extraction results are author claims. Calling it cross-principal confidentiality is a corpus interpretation.
+- Limitations: Many applications are synthetic; selected platforms; potential defenses are discussed rather than comprehensively evaluated; architectural leakage and prompt leakage use different metrics.
+
+### Required Corrections
+
+- **HIGH - Version linkage:** Use USENIX title as canonical and link the arXiv title as a prior or expanded version.
+- **HIGH - Open access:** Add the arXiv PDF as the open-access URL.
+- **HIGH - Metric denominator:** Do not treat ER or all component results as one ASR.
+<!-- SOURCE_REVIEW_END -->

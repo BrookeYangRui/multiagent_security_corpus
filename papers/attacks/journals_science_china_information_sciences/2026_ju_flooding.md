@@ -1,5 +1,7 @@
 # Flooding Spread of Manipulated Knowledge in LLM-Based Multi-Agent Communities
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Tianjie Ju, Yiting Wang, Xinbei Ma, Pengzhou Cheng, Haodong Zhao, Yulong Wang, Lifeng Liu, Jian Xie, Zhuosheng Zhang, Gongshen Liu
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Evaluation; Empirical study
+Attack; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -103,3 +108,56 @@ knowledge and persistence through RAG.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `blocked_pending_final_source`
+
+**Outcome:** Pending final source verification
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: The journal DOI and title are confirmed, but the final journal author metadata appears to disagree with the current ten-author record, potentially adding Yi Hua. The final journal PDF must be treated as authoritative before signoff.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Manipulated knowledge spreads through communication and stored chat histories among LLM agents and persists through RAG retrieval.
+- Recommended roles: attack; evaluation
+- Maturity: Peer-reviewed journal work, but canonical metadata and full-text locators are not yet frozen.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Adversary manipulates an initial model or agent before deployment and introduces manipulated knowledge through persuasion and knowledge injection.
+- Capabilities: Uses DPO or LoRA-style persuasion adaptation and ROME-style knowledge editing, then relies on interaction and stored histories for spread.
+- Preconditions: Agents trust peer messages and may persist chat histories for later RAG retrieval.
+- Surfaces: Agent model state; communication; chat history; RAG memory.
+- Mechanism: Persuasiveness injection plus manipulated-knowledge injection followed by interaction-driven spread and persistence.
+- Primary system-level failure: F3 communication and shared-knowledge integrity failure.
+- Impact: F1 containment and persistence failure is secondary.
+
+### Evaluation Contract
+
+- Configuration: Simulated LLM-agent communities with communication and optional RAG persistence.
+- Topology: Community interaction settings; exact final-paper topology details must be recoded from the journal PDF.
+- Baseline or ablation: Attack variants and benign settings described in the final paper.
+- Metric: Spread accuracy for counterfactual or toxic knowledge, interaction turns, agent-order or population effects, and RAG persistence.
+- Unit: Agent response, knowledge item, or interaction turn depending on analysis.
+- Denominator: Must be copied from the final journal metric definitions and tables; the current record is too generic.
+- Result boundary: The paper reports that manipulated knowledge can spread while preserving general capabilities and persist in retrieved histories. Exact numeric claims should wait for final-journal table verification.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and Introduction, PDF pp. 1 to 2 of the accessible version; method in Sec. III; experiments in Sec. IV, especially the spread and RAG-persistence subsections. Recheck page and table numbers against the final journal PDF.
+- Author claim versus corpus interpretation: The two-stage manipulation and persistence are author claims. The F3 primary label and F1 secondary label are corpus interpretations.
+- Limitations: Simulated community; predeployment model manipulation confounds a purely runtime attacker; static roles; final metadata and exact metric table locations remain unresolved.
+
+### Required Corrections
+
+- **CRITICAL - Author list:** Resolve the final journal author list from the publisher PDF before updating papers.csv.
+- **CRITICAL - Evidence locators:** Replace accessible-version locators with final journal page and table locations.
+- **HIGH - Attacker model:** Do not describe this as only an external runtime message attacker; the attack includes predeployment model manipulation.
+<!-- SOURCE_REVIEW_END -->

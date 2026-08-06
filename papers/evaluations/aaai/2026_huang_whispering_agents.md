@@ -1,10 +1,12 @@
 # Whispering Agents: An Event-Driven Covert Communication Protocol for the Internet of Agents
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 Title: Whispering Agents: An Event-Driven Covert Communication Protocol for the Internet of Agents
 
-Authors: Kaibo Huang; Yukun Wei; WanshengWu; Tianhua Zhang; Zhongliang Yang; Linna Zhou
+Authors: Kaibo Huang; Yukun Wei; Wansheng Wu; Tianhua Zhang; Zhongliang Yang; Linna Zhou
 
 Year: 2026
 
@@ -20,10 +22,10 @@ BibTeX key: huang2026whisperingagents
 
 ## Paper Type
 
-- Attack
-- Evaluation
-- Empirical study
-- Theoretical analysis
+Protocol; Evaluation; Dual-use security
+
+- Primary category: `evaluation`
+- Scope relation: `security_relevant`
 
 ## Scope
 
@@ -209,3 +211,56 @@ agent_unverified
 
 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical AAAI version confirmed. The OJS display contains the grammatical title variant 'A Event-Driven'; use the PDF title 'An Event-Driven' as canonical and record the metadata discrepancy.
+- Recommended scope: `security_relevant`
+- Multi-agent dependency: It is a dual-use covert communication protocol for paired agents. It directly informs covert coordination and observer scope but is not inherently a malicious attack or evidence of spontaneous collusion.
+- Recommended roles: protocol; evaluation; dual-use security
+- Maturity: Archival peer-reviewed protocol and evaluation evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Cooperating sender and receiver endpoints facing a passive traffic observer or warden.
+- Capabilities: Choose storage, timing, and behavioral events and share protocol state or keys.
+- Preconditions: Shared keys or protocol state, available channel, and a passive observer without endpoint compromise.
+- Surfaces: Message content; event timing; behavioral metadata; global communication trace.
+- Mechanism: Pi-CCAP encodes encrypted payload bits across storage, timing, and behavioral event dimensions.
+- Primary system-level failure: From a defender view, oversight or monitorability integrity. From a legitimate-user view, communication privacy is the protected property.
+- Impact: Potential covert coordination. The construction itself is dual-use.
+
+### Evaluation Contract
+
+- Configuration: Paired LLM endpoints under multiple channel combinations and passive wardens.
+- Topology: Two communicating endpoints rather than a population topology.
+- Baseline or ablation: Single-dimension covert channels and benign conversations.
+- Metric: Effective bits per round, total capacity, bit error or robustness, statistical AUC, and LLM-warden detection outcomes.
+- Unit: Communication round, bit, or dialogue.
+- Denominator: Rounds or dialogue instances, depending on metric.
+- Result boundary: Combined event channels improve usable capacity in tested settings and selected wardens remain weak. This does not establish general undetectability.
+
+### Evidence and Boundaries
+
+- Evidence locations: Covert Event Channel Sec., PDF pp. 3 to 4 and Fig. 2; protocol design, PDF pp. 4 to 5 and Algorithm 1; capacity and robustness, PDF pp. 6 to 7 and Tables 1 to 2; invisibility evaluation, PDF pp. 7 to 8 and Fig. 3/Table 3; limitations, PDF p. 8.
+- Author claim versus corpus interpretation: Channel construction, capacity, and evaluated wardens are author claims. Coding it as security_relevant and dual-use rather than a core attack is a corpus decision.
+- Limitations: Shared keys, passive adversary, selected models and topics, paired agents, no adaptive warden, no prevalence or universal-undetectability claim.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to dual-use protocol/evaluation.
+- **HIGH - Scope relation:** Downgrade to security_relevant unless a claim explicitly uses the protocol for malicious coordination.
+- **MEDIUM - Canonical title:** Use the PDF's grammatical title and record the OJS display discrepancy.
+<!-- SOURCE_REVIEW_END -->

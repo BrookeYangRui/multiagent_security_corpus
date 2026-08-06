@@ -1,18 +1,24 @@
 # Parasites in the Toolchain: A Large-Scale Analysis of Attacks on the MCP Ecosystem
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Shuli Zhao, Qinsheng Hou, Zihan Zhan, Yanhao Wang, Yuchong Xie, Yu Guo, Libo Chen, Shenghong Li, Zhi Xue
 - Year: 2026
 - Venue: IEEE Symposium on Security and Privacy
-- DOI: Not reported
-- Primary URL: https://arxiv.org/abs/2509.06572
+- DOI: 10.1109/SP63933.2026.00154
+- Primary URL: https://doi.org/10.1109/SP63933.2026.00154
 - Open access URL: https://arxiv.org/pdf/2509.06572
 - BibTeX key: `zhao2026parasites`
+- Pages: 138-155
 
 ## Paper Type
 
-Attack; Defense; Evaluation; Empirical study
+Attack; Measurement; Ecosystem evaluation
+
+- Primary category: `attack`
+- Scope relation: `security_relevant`
 
 ## Scope
 
@@ -128,3 +134,56 @@ large-scale census of public MCP servers and tools.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Accepted and published at IEEE S&P 2026. Replace the arXiv-only venue record with final IEEE proceedings metadata while keeping the accepted arXiv version linked.
+- Recommended scope: `security_relevant`
+- Multi-agent dependency: The system is one LLM host composing multiple MCP servers and tools. It is directly relevant to distributed capability composition but does not necessarily contain multiple independently stateful LLM agent cores.
+- Recommended roles: attack; measurement; ecosystem evaluation
+- Maturity: Archival peer-reviewed systems-security evidence, adjacent to strict LLM-MAS scope.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: External adversary who plants content in a source later retrieved by a victim workflow.
+- Capabilities: Publishes indirect prompts and relies on installed benign tools to ingest content, collect private data, and disclose it.
+- Preconditions: The host lets untrusted retrieved instructions influence later privileged calls and does not enforce least privilege across the tool chain.
+- Surfaces: External content; MCP servers and tools; cross-tool execution flow; host authorization.
+- Mechanism: Parasitic ingestion, private-data collection, and disclosure through composition of legitimate tools.
+- Primary system-level failure: F6 least-privilege and authority integrity failure.
+- Impact: F2 confidentiality loss through exfiltration.
+
+### Evaluation Contract
+
+- Configuration: 1,360 public MCP servers containing 12,230 tools, plus end-to-end demonstrations across selected LLM hosts.
+- Topology: Host-tool and server composition graph rather than a multi-agent population graph.
+- Baseline or ablation: Component-level security analysis, traditional prompt-injection framing, and end-to-end attack variants.
+- Metric: Capability-gadget prevalence and separately measured end-to-end attack success.
+- Unit: Tool, server, or end-to-end exploit chain.
+- Denominator: 12,230 tools and 1,360 servers for the census; separate trial denominators for demonstrations.
+- Result boundary: The census identifies 1,062 tools and 370 servers with capabilities relevant to the modeled attack. This is not the same as successful exploitation of all those tools or servers.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and attack workflow, PDF p. 1 onward; attack stages in Secs. 2 to 3; census methods and tables; result tables for 1,062 tools and 370 servers; final IEEE metadata record.
+- Author claim versus corpus interpretation: Tool and server census and demonstrated attack chains are author claims. Scope downgrade and F6/F2 mapping are corpus interpretations.
+- Limitations: Host-tool rather than strict multi-agent boundary; public registry sampling; inaccessible servers and token barriers; LLM-assisted classification plus manual checks; capability presence is not exploit prevalence.
+
+### Required Corrections
+
+- **CRITICAL - Publication metadata:** Record final IEEE S&P venue, DOI, and page range; retain arXiv as linked version.
+- **CRITICAL - Scope relation:** Downgrade from core_security to security_relevant under the independent-agent-core definition.
+- **HIGH - Result interpretation:** Separate capability-gadget prevalence from successful exploitation.
+<!-- SOURCE_REVIEW_END -->

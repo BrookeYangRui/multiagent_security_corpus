@@ -1,5 +1,7 @@
 # A2ASecBench: A Protocol-Aware Security Benchmark for Agent-to-Agent Multi-Agent Systems
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 Title: A2ASecBench: A Protocol-Aware Security Benchmark for Agent-to-Agent Multi-Agent Systems
@@ -20,7 +22,10 @@ BibTeX key: li2026a2asecbench
 
 ## Paper Type
 
-Benchmark; Evaluation; Attack; Empirical study
+Benchmark; Evaluation; Attack suite
+
+- Primary category: `evaluation`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -164,3 +169,57 @@ agent_unverified
 
 ### Last Updated
 2026-08-06
+
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `blocked_pending_exact_full_text`
+
+**Outcome:** Pending exact full-text verification
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Official ICLR program and project repository confirm title, authors, and ICLR 2026 status. No DOI is reported. The full OpenReview PDF was not reliably retrievable during this audit, so exact page and table locators remain pending.
+- Recommended scope: `core_security`
+- Multi-agent dependency: The benchmark targets heterogeneous client and remote agents communicating through the A2A protocol across discovery, task state, requests, and artifacts.
+- Recommended roles: benchmark; evaluation; attack suite
+- Maturity: Archival peer-reviewed benchmark, but exact full-text evidence locators still require manual author access.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Malicious registered remote agent, spoofed AgentCard publisher, or adversarial A2A protocol peer.
+- Capabilities: AgentCard spoofing, capability cloaking, cyclic delegation, half-open task flooding, agent-side request forgery, and artifact-triggered script injection.
+- Preconditions: Protocol-valid discovery, task, request, and artifact interfaces and an adapter that preserves semantics across implementations.
+- Surfaces: Registry and AgentCard; discovery; asynchronous task state; remote requests; returned artifacts.
+- Mechanism: Protocol-logic abuse or supply-chain manipulation introduces and activates a malicious peer.
+- Primary system-level failure: Claim-level identity, confidentiality, integrity, or availability failures.
+- Impact: Unsafe request handling, resource exhaustion, or artifact execution.
+
+### Evaluation Contract
+
+- Configuration: Official A2A demos in travel, healthcare, and finance through a dynamic adapter; deterministic offline and optional LLM-backed SUTs in the released repository.
+- Topology: Client-to-remote-agent A2A interactions and task lifecycle rather than a generic graph benchmark.
+- Baseline or ablation: Matched benign controls and default safeguard behavior; release includes deterministic offline baselines.
+- Metric: Attack or safety outcome plus benign utility or helpfulness; Capability Cloaking also reports label accuracy and evidence quality.
+- Unit: Benchmark case and SUT trial.
+- Denominator: Repository release includes 100 AgentCard Spoofing cases and 100 cases for each Capability Cloaking split; other executable families have attack cases and matched controls.
+- Result boundary: Official materials state that the six attack families bypass default safeguards in evaluated demos. Exact paper table values and full denominators must be copied from the final PDF before any quantitative manuscript claim.
+
+### Evidence and Boundaries
+
+- Evidence locations: Official ICLR 2026 poster record; project README for the seven listed benchmark rows, release-case counts, matched controls, deterministic baselines, and output schema. Exact paper page and table references remain unresolved.
+- Author claim versus corpus interpretation: Benchmark attacks, release structure, and official program status are author or official-project claims. Taxonomic mapping is a corpus interpretation.
+- Limitations: Official demo set and three domains; adapter semantics; full paper locators unavailable in this audit; no DOI; not all A2A stacks or deployment policies are covered.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to benchmark/evaluation with an attack-suite role.
+- **CRITICAL - Evidence locators:** Obtain the final PDF and record exact page, figure, and table locations before manuscript use.
+- **HIGH - Metric denominator:** Use release-case counts and matched-control denominators, then reconcile them with the paper tables.
+<!-- SOURCE_REVIEW_END -->

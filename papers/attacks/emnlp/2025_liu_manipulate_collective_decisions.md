@@ -1,5 +1,7 @@
 # Can an Individual Manipulate the Collective Decisions of Multi-Agents?
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 Title: Can an Individual Manipulate the Collective Decisions of Multi-Agents?
@@ -20,10 +22,10 @@ BibTeX key: liu2025manipulatecollective
 
 ## Paper Type
 
-- Attack
-- Defense
-- Evaluation
-- Empirical study
+Attack; Defense evaluation; Empirical study
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -208,3 +210,57 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
+
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical EMNLP 2025 version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: The attacker manipulates one known member and optimizes for a change in the collective decision under incomplete information about the rest of the group.
+- Recommended roles: attack; defense evaluation; empirical study
+- Maturity: Archival peer-reviewed primary attack evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: External attacker with information about one target participant rather than the full collective.
+- Capabilities: Constructs adversarial inputs for the target and simulates group interactions through a stubborn proxy.
+- Preconditions: The targeted member participates in communication and can influence majority or consensus-like aggregation.
+- Surfaces: Target-agent input; outgoing messages; collective aggregation.
+- Mechanism: M-Spoiler optimizes a persistent adversarial influence using simulated group interactions.
+- Primary system-level failure: F4 collective task-decision integrity failure.
+- Impact: Incorrect or attacker-chosen group answer.
+
+### Evaluation Contract
+
+- Configuration: Multiple LLM backbones and collaboration sizes, including experiments scaling to 101 agents.
+- Topology: Communication and majority aggregation settings specified by the paper.
+- Baseline or ablation: Individual-target adversarial attacks without group-interaction simulation and evaluated mitigation variants.
+- Metric: Targeted and untargeted collective attack success, transferability, and clean-task performance.
+- Unit: Task and final group decision.
+- Denominator: Evaluated tasks across three seeds; targeted success uses all-agree for two agents or majority target output for larger groups.
+- Result boundary: M-Spoiler outperforms attacks optimized only for the individual target in evaluated tasks and transfers under incomplete system knowledge.
+
+### Evidence and Boundaries
+
+- Evidence locations: Threat model and incomplete-information game in Sec. 3, PDF pp. 3 to 5; stubborn proxy in Sec. 4, PDF pp. 5 to 7; main result tables in Sec. 5, PDF pp. 7 to 10; metric definition and three-seed reporting in evaluation.
+- Author claim versus corpus interpretation: Threat model, method, and task decision results are author claims. The statement that this is not formal Byzantine agreement is a corpus interpretation based on the correctness predicate.
+- Limitations: Simplified collaboration and measurable-answer tasks; majority voting; open-ended systems less clear; no classical agreement, validity, or termination guarantee.
+
+### Required Corrections
+
+- **HIGH - Metric definition:** Store targeted and untargeted collective predicates exactly.
+- **HIGH - BFT boundary:** Do not describe this as Byzantine agreement or a fault-threshold result.
+- **MEDIUM - Scale:** Record the up-to-101-agent result with its specific task and aggregation assumptions.
+<!-- SOURCE_REVIEW_END -->

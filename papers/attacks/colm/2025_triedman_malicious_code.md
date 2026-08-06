@@ -1,5 +1,7 @@
 # Multi-Agent Systems Execute Arbitrary Malicious Code
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Harold Triedman, Rishi Dev Jha, Vitaly Shmatikov
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Evaluation; Empirical study
+Attack; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -113,3 +118,55 @@ functions, including arbitrary malicious code execution.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Published COLM 2025 record and arXiv version lineage confirmed. Use the conference record as canonical.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Untrusted content hijacks multi-agent control flow and routing to invoke otherwise unreachable unsafe agents or functions.
+- Recommended roles: attack; evaluation
+- Maturity: Archival peer-reviewed primary attack evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: External adversary controlling web, file, email, audio, or other untrusted content.
+- Capabilities: Places indirect prompt injection that changes LLM-mediated routing or invocation decisions.
+- Preconditions: Framework orchestrators use generated text or metadata to route among specialist agents and code-capable functions.
+- Surfaces: Untrusted content; inter-agent messages; orchestration metadata; routing; tool invocation.
+- Mechanism: Indirect prompt injection plus confused-deputy or control-flow laundering.
+- Primary system-level failure: F6 delegation, authority, and control-flow integrity failure.
+- Impact: Unauthorized invocation, data exfiltration, or arbitrary code execution.
+
+### Evaluation Contract
+
+- Configuration: AutoGen, CrewAI, MetaGPT, and selected models and orchestrators in lab or container settings.
+- Topology: Framework-specific orchestrated specialist-agent workflows.
+- Baseline or ablation: Direct and indirect prompt-injection baselines and framework-level mitigations.
+- Metric: Trial-level attack success and successful unsafe or code invocation.
+- Unit: Attack trial and framework/model configuration.
+- Denominator: Trials for each framework, model, and attack scenario.
+- Result boundary: Setting-specific successes include high rates across several orchestrators and models. Every numeric claim must be copied from its exact table rather than summarized as universal arbitrary-code reliability.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and Introduction, PDF pp. 1 to 2; attack design and system diagrams, PDF p. 2 onward; framework/model result tables; mitigation analysis.
+- Author claim versus corpus interpretation: Control-flow hijacking and measured unsafe invocations are author claims. Classifying the system consequence as F6 authority integrity is a corpus interpretation.
+- Limitations: Three principal frameworks; selected models and orchestrators; enabled unsafe functions; laboratory or container deployment; exploitability depends strongly on routing architecture.
+
+### Required Corrections
+
+- **HIGH - Result evidence:** Attach each success rate to the exact framework/model table; avoid a single generalized rate.
+- **MEDIUM - Failure versus impact:** Use authority/control-flow integrity as the failure and RCE or exfiltration as impact.
+<!-- SOURCE_REVIEW_END -->

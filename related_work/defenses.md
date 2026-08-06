@@ -10,7 +10,7 @@ Use BibTeX keys or paper-note paths and label every statement by evidence type.
 ### Topology and Trace Defenses
 
 - **Established finding:** `pan2026xgguard`, `huang2026toposhield`,
-  `zhou2025guardian`, and the attack-primary `wang2025gsafeguard` all use the
+  `zhou2025guardian`, and the defense-primary `wang2025gsafeguard` all use the
   communication graph as an observed or controlled object. Their interventions
   span anomaly detection, edge pruning, community isolation, and topology
   repair.

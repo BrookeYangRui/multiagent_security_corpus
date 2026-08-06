@@ -1,5 +1,7 @@
 # G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Shilong Wang, Guibin Zhang, Miao Yu, Guancheng Wan, Fanci Meng, Chongye Guo, Kun Wang, Yang Wang
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Defense; Evaluation; Empirical study
+Defense; Evaluation; Attack analysis
+
+- Primary category: `defense`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -111,3 +116,56 @@ anomaly detection and topological intervention for attack remediation.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after major patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical ACL 2025 proceedings version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: The method explicitly represents multi-agent utterances and their graph relations and intervenes on communication topology.
+- Recommended roles: defense; evaluation; attack analysis
+- Maturity: Archival peer-reviewed primary defense evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Adversary introduces prompt injection, misinformation, or malicious utterances that propagate over the agent graph.
+- Capabilities: Influences utterances that enter the monitored graph.
+- Preconditions: The defender can reconstruct the utterance graph and observe enough messages to score nodes and edges.
+- Surfaces: Communication graph; utterances; topology; monitor and control plane.
+- Mechanism: Attack propagation is evaluated, but the primary paper contribution is graph-based anomaly detection plus topology intervention.
+- Primary system-level failure: Claim-level F1, F3, or F4 depending on the evaluated attack. The paper itself should not receive one forced attack outcome.
+- Impact: Collective task or safety degradation under evaluated attacks.
+
+### Evaluation Contract
+
+- Configuration: Multiple LLM backbones, multi-agent workflows, scales, and graph-based attack settings.
+- Topology: Dynamic utterance graph used as the analysis and intervention object.
+- Baseline or ablation: Mainstream safeguards and attack conditions evaluated by the paper.
+- Metric: Detection or security outcome plus recovered task performance.
+- Unit: Agent, graph, and task.
+- Denominator: Experiment-specific agents or tasks; record exact table definitions for each claim.
+- Result boundary: The abstract reports more than 40% recovery under prompt injection in evaluated settings. This is an empirical result, not a universal or formal security guarantee.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract, PDF p. 1; method sections defining the utterance graph and graph-neural detector; experiment result tables for the recovery claim; intervention section for edge or topology changes.
+- Author claim versus corpus interpretation: Graph construction, defense, and recovery are author claims. The observation that applicability depends on global graph access is a corpus interpretation derived from method inputs.
+- Limitations: Requires central or near-global graph visibility, stable identities or message mapping, and authority to change edges; learned detector distribution may not transfer; category should not be coded primarily as attack.
+
+### Required Corrections
+
+- **CRITICAL - Primary category:** Change from attack to defense/evaluation with attack analysis as a secondary role.
+- **HIGH - Guarantee language:** Describe empirical recovery under evaluated assumptions, not a general security guarantee.
+- **HIGH - Observer assumptions:** Record complete or reconstructable utterance graph and topology-control authority.
+<!-- SOURCE_REVIEW_END -->

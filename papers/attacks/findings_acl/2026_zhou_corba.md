@@ -1,5 +1,7 @@
 # CORBA: Contagious Recursive Blocking Attacks on Multi-Agent Systems Based on Large Language Models
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Zhenhong Zhou, Zherui Li, Jie Zhang, Yuanhe Zhang, Kun Wang, Yang Liu, Qing Guo
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Evaluation; Empirical study
+Attack; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -103,3 +108,56 @@ system paralysis.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical Findings of ACL 2026 version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: Recursive communication among agents is the mechanism that turns semantically benign instructions into system-level blocking and paralysis.
+- Recommended roles: attack; evaluation
+- Maturity: Archival peer-reviewed primary attack evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Source of a semantically benign recursive instruction.
+- Capabilities: Introduces content that agents accept and recursively pass or act upon.
+- Preconditions: Agents can initiate further messages or tasks for peers and lack a global collaboration budget.
+- Surfaces: Inter-agent communication; delegation or invocation; topology; resource plane.
+- Mechanism: Recursive contagious instructions create cycles of meaningless collaboration.
+- Primary system-level failure: F7 availability and resource boundedness failure.
+- Impact: System paralysis and loss of useful collaboration. Contagion is a mechanism, not the primary failure label.
+
+### Evaluation Contract
+
+- Configuration: Multiple LLMs and communication topologies with interacting agents.
+- Topology: Multiple static topologies, including random entry and repeated runs.
+- Baseline or ablation: Existing attacks and conventional content-level safety alignment.
+- Metric: P-ASR and peak-blocking-turn style measures.
+- Unit: Agent and interaction turn.
+- Denominator: P-ASR equals blocked agents divided by total agents in the network.
+- Result boundary: CORBA produces denial of collaboration in evaluated settings and bypasses content guardrails because the recursive text can be semantically benign.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and threat model, PDF p. 1 onward; metric definition and experiment tables, including topology results and repeated-run description; defense comparison section.
+- Author claim versus corpus interpretation: DoC, CORBA, and P-ASR are author claims. Coding recursion as a mechanism and F7 as the primary property is a corpus interpretation.
+- Limitations: Small or static topologies; blocked-agent fraction and turns are proxies rather than monetary or token cost; no full recovery or post-incident cleanup evaluation.
+
+### Required Corrections
+
+- **HIGH - Primary failure:** Use availability/resource boundedness, not behavioral infection, as the primary failure.
+- **HIGH - Metric denominator:** Record P-ASR explicitly as blocked agents over network population.
+- **MEDIUM - Cross-paper comparison:** Do not compare P-ASR directly with harmful-output ASR.
+<!-- SOURCE_REVIEW_END -->

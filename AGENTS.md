@@ -58,6 +58,12 @@ documented supporting purpose.
   papers and `attack_review_queue.csv` for the remaining standard attack review.
 - A completed review row requires a named reviewer and adjudication note. Update
   `papers.csv` verification status only to the level actually checked.
+- `source_reviewed_pending_author_signoff` records a non-human source review; it
+  must not be translated into `metadata_verified`, `evidence_verified`, or
+  `fully_reviewed` without named human signoff.
+- Preserve `blocked_pending_final_source` and
+  `blocked_pending_exact_full_text` until the missing canonical source evidence
+  is actually available. Never fill a blocker by inference.
 
 ## Version and Duplicate Handling
 

@@ -1,5 +1,7 @@
 # Red-Teaming LLM Multi-Agent Systems via Communication Attacks
 
+> **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
+
 ## Citation
 
 - Authors: Pengfei He, Yuping Lin, Shen Dong, Han Xu, Yue Xing, Hui Liu
@@ -12,7 +14,10 @@
 
 ## Paper Type
 
-Attack; Evaluation; Empirical study
+Attack; Evaluation
+
+- Primary category: `attack`
+- Scope relation: `core_security`
 
 ## Scope
 
@@ -111,3 +116,56 @@ multi-agent systems.
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
 
+<!-- SOURCE_REVIEW_START -->
+## Source Review
+
+**Status:** `source_reviewed_pending_author_signoff`
+
+**Outcome:** Ready after minor patch
+
+**Review source:** `reviews/load_bearing/load_bearing_source_review.csv`
+
+This section supersedes inconsistent automated coding elsewhere in this note.
+It is a source-level review, not human verification. Manuscript-facing claims
+still require author or designated-reviewer signoff.
+
+### Identity and Scope
+
+- Identity: Canonical Findings of ACL 2025 version confirmed. Metadata is correct.
+- Recommended scope: `core_security`
+- Multi-agent dependency: The attack changes only messages between agents while leaving endpoint models uncompromised.
+- Recommended roles: attack; evaluation
+- Maturity: Archival peer-reviewed primary attack evidence.
+
+### Threat and Failure Coding
+
+- Attacker or fault actor: Agent-in-the-middle adversary on selected communication links.
+- Capabilities: Intercepts and adaptively rewrites protocol-valid messages under role and format constraints.
+- Preconditions: Access to selected message paths; endpoints trust messages without authenticated integrity protection.
+- Surfaces: Inter-agent communication links; protocol-valid message content.
+- Mechanism: Context-aware message interception and adaptive rewriting using reflection.
+- Primary system-level failure: F3 communication integrity failure.
+- Impact: F4 collective task or decision integrity failure as a downstream consequence.
+
+### Evaluation Contract
+
+- Configuration: Multiple MAS frameworks, communication structures, roles, and application tasks.
+- Topology: Chain, tree, complete, random, and framework-specific structures in evaluation.
+- Baseline or ablation: Communication-attack variants and direct or prior adversarial strategies.
+- Metric: Whole-dataset ASR for targeted behavior or denial-of-service outcomes.
+- Unit: Task instance.
+- Denominator: All evaluated dataset instances for a setting.
+- Result boundary: The paper demonstrates cross-framework and cross-structure vulnerability in its evaluated tasks. Feasibility does not automatically transfer to authenticated or integrity-protected channels.
+
+### Evidence and Boundaries
+
+- Evidence locations: Abstract and threat model, PDF pp. 1 to 3 and Fig. 1; metric definition in Sec. 4.1, approximately PDF p. 5; evaluation tables for framework, structure, and application results; limitations section.
+- Author claim versus corpus interpretation: AiTM construction, ASR, and evaluated results are author claims. The authenticated-channel caveat and F3/F4 mapping are corpus interpretations.
+- Limitations: Black-box model access; selected frameworks and tasks; public subset of SoftwareDev; assumed message-path access; no universal claim for integrity-protected protocols.
+
+### Required Corrections
+
+- **HIGH - Metric denominator:** Record ASR as whole-dataset task-level success with separate targeted and denial-of-service predicates.
+- **MEDIUM - Failure versus impact:** Use message integrity as primary and collective task corruption as downstream impact.
+- **MEDIUM - Assumption:** Explicitly record lack of authenticated or integrity-protected channels.
+<!-- SOURCE_REVIEW_END -->

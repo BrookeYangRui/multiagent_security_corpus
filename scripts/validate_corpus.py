@@ -23,6 +23,12 @@ TARGETED_ATTACK_GAP_SEARCH_CSV = (
 )
 LOAD_BEARING_REVIEW_CSV = ROOT / "corpus" / "load_bearing_review_queue.csv"
 ATTACK_REVIEW_CSV = ROOT / "corpus" / "attack_review_queue.csv"
+LOAD_BEARING_SOURCE_REVIEW_CSV = (
+    ROOT / "reviews" / "load_bearing" / "load_bearing_source_review.csv"
+)
+LOAD_BEARING_CORRECTIONS_CSV = (
+    ROOT / "reviews" / "load_bearing" / "load_bearing_corrections.csv"
+)
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -75,6 +81,19 @@ ATTACK_REVIEW_FIELDS = [
     "priority", "paper_id", "review_focus", "review_level",
     "human_review_status", "reviewer", "adjudication_note",
 ]
+LOAD_BEARING_SOURCE_REVIEW_FIELDS = [
+    "priority", "paper_id", "title", "venue_year", "doi", "source_url",
+    "identity", "current_scope", "recommended_scope", "scope_reason",
+    "current_category", "recommended_category", "attacker", "capabilities",
+    "preconditions", "surfaces", "mechanism", "primary_failure", "impact",
+    "configuration", "topology", "baseline", "metric", "unit",
+    "denominator", "result", "evidence", "claim_boundary", "limitations",
+    "maturity", "outcome",
+]
+LOAD_BEARING_CORRECTION_FIELDS = [
+    "priority", "paper_id", "paper_title", "severity", "field",
+    "required_correction", "review_outcome", "source_url",
+]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
     "fully_reviewed",
@@ -86,7 +105,7 @@ BIB_KEY = re.compile(r"@\w+\s*\{\s*([^,\s]+)", re.IGNORECASE)
 
 
 def read_csv(path: Path, expected_fields: list[str]) -> list[dict[str, str]]:
-    with path.open(encoding="utf-8", newline="") as handle:
+    with path.open(encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         if reader.fieldnames != expected_fields:
             raise ValueError(
@@ -133,6 +152,14 @@ def main() -> int:
             LOAD_BEARING_REVIEW_CSV, LOAD_BEARING_REVIEW_FIELDS
         )
         attack_review = read_csv(ATTACK_REVIEW_CSV, ATTACK_REVIEW_FIELDS)
+        load_bearing_source_review = read_csv(
+            LOAD_BEARING_SOURCE_REVIEW_CSV,
+            LOAD_BEARING_SOURCE_REVIEW_FIELDS,
+        )
+        load_bearing_corrections = read_csv(
+            LOAD_BEARING_CORRECTIONS_CSV,
+            LOAD_BEARING_CORRECTION_FIELDS,
+        )
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
@@ -314,7 +341,10 @@ def main() -> int:
                 f"match canonical paper: {note}"
             )
         if row["human_review_status"].strip() not in {
-            "pending_human_review", "in_review", "completed"
+            "pending_human_review", "in_review", "completed",
+            "source_reviewed_pending_author_signoff",
+            "blocked_pending_final_source",
+            "blocked_pending_exact_full_text",
         }:
             errors.append(
                 f"load_bearing_review_queue.csv:{line}: invalid human review "
@@ -327,6 +357,78 @@ def main() -> int:
                 f"load_bearing_review_queue.csv:{line}: completed review has "
                 "no reviewer"
             )
+
+    source_review_ids = [
+        row["paper_id"].strip() for row in load_bearing_source_review
+    ]
+    for value in sorted(duplicates(source_review_ids)):
+        errors.append(f"duplicate source review paper_id: {value}")
+    if set(source_review_ids) != set(review_ids):
+        for paper_id in sorted(set(review_ids) - set(source_review_ids)):
+            errors.append(f"load-bearing paper has no source review: {paper_id}")
+        for paper_id in sorted(set(source_review_ids) - set(review_ids)):
+            errors.append(f"source review is outside load-bearing queue: {paper_id}")
+    source_review_by_id = {
+        row["paper_id"].strip(): row for row in load_bearing_source_review
+    }
+    load_bearing_by_id = {
+        row["paper_id"].strip(): row for row in load_bearing_review
+    }
+    outcome_status = {
+        "Ready after minor patch": "source_reviewed_pending_author_signoff",
+        "Ready after major patch": "source_reviewed_pending_author_signoff",
+        "Pending final source verification": "blocked_pending_final_source",
+        "Pending exact full-text verification": (
+            "blocked_pending_exact_full_text"
+        ),
+    }
+    for paper_id, review in source_review_by_id.items():
+        outcome = review["outcome"].strip()
+        if outcome not in outcome_status:
+            errors.append(f"invalid source review outcome: {outcome}")
+        elif paper_id in load_bearing_by_id and load_bearing_by_id[paper_id][
+            "human_review_status"
+        ].strip() != outcome_status[outcome]:
+            errors.append(
+                f"source review status mismatch for {paper_id}: {outcome}"
+            )
+    correction_ids = [
+        row["paper_id"].strip() for row in load_bearing_corrections
+    ]
+    if len(load_bearing_corrections) != 55:
+        errors.append(
+            "load-bearing correction set must retain all 55 reviewed items"
+        )
+    for line, row in enumerate(load_bearing_corrections, start=2):
+        paper_id = row["paper_id"].strip()
+        if paper_id not in source_review_by_id:
+            errors.append(
+                f"load_bearing_corrections.csv:{line}: unknown reviewed paper: "
+                f"{paper_id}"
+            )
+        if row["severity"].strip() not in {"critical", "high", "medium"}:
+            errors.append(
+                f"load_bearing_corrections.csv:{line}: invalid severity"
+            )
+        if not row["required_correction"].strip():
+            errors.append(
+                f"load_bearing_corrections.csv:{line}: empty correction"
+            )
+    for paper_id in source_review_ids:
+        if paper_id not in correction_ids:
+            errors.append(f"source-reviewed paper has no correction: {paper_id}")
+        paper = papers_by_id[paper_id]
+        if paper["verification_status"].strip() != "agent_unverified":
+            errors.append(
+                f"source review improperly upgraded verification: {paper_id}"
+            )
+        note_text = (ROOT / paper["note_path"].strip()).read_text(
+            encoding="utf-8"
+        )
+        if "<!-- SOURCE_REVIEW_START -->" not in note_text or (
+            "<!-- SOURCE_REVIEW_END -->" not in note_text
+        ):
+            errors.append(f"source review is absent from note: {paper_id}")
 
     attack_review_ids = [row["paper_id"].strip() for row in attack_review]
     for value in sorted(duplicates(attack_review_ids)):
@@ -504,7 +606,8 @@ def main() -> int:
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "
         f"{len(load_bearing_review)} load-bearing plus "
-        f"{len(attack_review)} standard attack reviews."
+        f"{len(attack_review)} standard attack reviews; "
+        f"{len(load_bearing_corrections)} source-review corrections."
     )
     return 0
 

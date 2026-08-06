@@ -23,6 +23,7 @@ corpus/post_cutoff_papers.csv     post-cutoff watchlist
 corpus/post_cutoff_references.bib isolated watchlist citations
 papers/                           one note per included paper
 papers/post_cutoff/               optional watchlist notes
+reviews/load_bearing/             source review and correction artifacts
 related_work/                     cross-paper syntheses
 templates/paper_note.md           required note template
 AGENTS.md                         full maintenance protocol
