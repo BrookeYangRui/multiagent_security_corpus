@@ -1,18 +1,21 @@
-# Final exports
+# Canonical Corpus Exports
 
 These files freeze the literature boundary at `2026-07-01 00:00 UTC`.
 
-- `all_relevant_papers.csv` is the broad paper-level export. It includes direct
-  security papers and explicitly marked security-relevant boundary work.
+- `all_relevant_papers.csv` is a generated view of all 114 records in
+  `../papers.csv`. It must have exactly the same `paper_id` set.
 - `peer_reviewed.csv` contains formal conference and journal publications.
   Non-archival workshop papers remain visible in the broad export and are not
   silently promoted to this subset.
 - `venue_coverage.csv` reports the normalized conference and journal coverage
   of that subset.
-- `non_peer_citations_gt_10.csv` contains non-peer work with a Semantic Scholar
-  citation count strictly greater than 10 at the recorded snapshot.
-- `strongly_related_soks.csv` separates direct MAS reviews from broader agentic
-  comparators.
+- `non_peer_citations_gt_10.csv` is the intersection of the canonical corpus
+  and non-peer candidates directly matched to a Semantic Scholar citation count
+  strictly greater than 10 at the recorded snapshot.
+
+No paper may be introduced directly in this directory. A paper first needs the
+required `papers.csv`, BibTeX, and paper-note records; these exports are then
+rebuilt from that canonical record set.
 
 The citation threshold is a retrieval gate, not a claim of scientific quality.
 Paper counts use canonical works; preprint and published versions are merged.

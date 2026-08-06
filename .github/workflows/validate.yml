@@ -23,5 +23,7 @@ jobs:
         run: |
           python scripts/build_peer_first_eligibility.py --check
           python scripts/build_corpus_sets.py
+          python scripts/build_final_exports.py
           python scripts/validate_corpus.py
           python scripts/validate_corpus_sets.py
+          git diff --exit-code

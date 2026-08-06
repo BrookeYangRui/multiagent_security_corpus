@@ -39,38 +39,38 @@ main endpoint is safety, trust, or reliability. Pure performance, efficiency,
 social simulation, and multi-call implementation papers are excluded from the
 final export.
 
-The 2,182-row search catalog remains the retrieval and screening log. It is not
-a paper denominator. The final export repairs the old broad ledger by merging
-the 114 source-reviewed records with a proceedings-level gap pass, removing
-false positives and adding verified omissions.
+The 2,182-row search catalog remains the retrieval and screening log, and the
+325-work broad ledger remains a candidate set. Neither is an included-paper
+denominator. The sole canonical corpus is the 114-paper record set shared by
+`corpus/papers.csv`, `corpus/references.bib`, paper notes, and the universal
+review queue. Candidate or gap-search records enter this corpus only after all
+three required paper records are created.
 
 ## Final counts
 
 | Export | Works |
 | --- | ---: |
-| Relevant and security-relevant papers | 139 |
-| Formal peer-reviewed conference or journal papers | 90 |
-| Non-peer, non-archival workshop, or publication-unverified papers | 49 |
-| Non-peer papers with citations strictly greater than 10 | 19 |
+| Canonical included papers | 114 |
+| Formal peer-reviewed conference or journal papers | 75 |
+| Non-peer or publication-unverified papers | 35 |
+| Non-archival workshop papers | 4 |
+| Canonical non-peer papers directly matched to the `>10` candidate ledger | 3 |
 | CVE records | 18 |
 | Industry and community reports | 8 |
-| Strongly related SoKs, surveys, and direct comparators | 8 |
 
-Within the 139-paper export, 89 are coded `core_security`, 49 are
-`security_relevant`, and one mixed NetSafe record is security-relevant at paper
-level with core adversarial claims. The formal peer-reviewed subset contains 78
-conference records and 12 journal records. Four non-archival workshop records
-remain in the broad export rather than being counted as formal publications.
+Within the 114-paper corpus, 79 are coded `core_security`, 32 are
+`security_relevant`, and 3 are `adjacent`. These scope labels remain visible;
+they do not create a second paper corpus. The final exports contain no paper ID
+that is absent from `corpus/papers.csv`.
 
 ## Evidence status
 
-The 109 records already represented in the universal source review preserve
-their source-review status and evidence locators. Nineteen proceedings-gap
-records are labeled `official_metadata_and_abstract_screened`; they are real,
-publication-verified works but still require the same claim-level full-text
-coding before use in quantitative analysis. Eleven additional high-citation
-preprints come from the recorded full-text citation-threshold screen. No record
-is labeled human-verified without named human signoff.
+All 114 canonical records are represented in the universal source-review
+packet and preserve their source-review status and evidence locators. All 114
+remain `agent_unverified` in `corpus/papers.csv`; no record is labeled
+human-verified without named human signoff. Proceedings-gap, citation-threshold,
+and unresolved records remain candidates outside the canonical corpus until
+the required full-text note, BibTeX entry, and `papers.csv` row are completed.
 
 ## Completeness claim
 

@@ -43,6 +43,10 @@ UNIVERSAL_SOURCE_REVIEW_CSV = (
 UNIVERSAL_SOURCE_CORRECTIONS_CSV = (
     ROOT / "reviews" / "universal" / "universal_source_review_corrections.csv"
 )
+FINAL_DIR = ROOT / "corpus" / "final"
+FINAL_ALL_CSV = FINAL_DIR / "all_relevant_papers.csv"
+FINAL_PEER_CSV = FINAL_DIR / "peer_reviewed.csv"
+FINAL_NONPEER_CSV = FINAL_DIR / "non_peer_citations_gt_10.csv"
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -147,6 +151,20 @@ UNIVERSAL_SOURCE_CORRECTION_FIELDS = [
     "field_or_category", "current_coding", "recommended_correction",
     "rationale", "evidence_source", "author_signoff_required",
 ]
+FINAL_PAPER_FIELDS = [
+    "paper_id", "title", "authors", "year", "venue", "venue_family",
+    "venue_type", "doi", "primary_url", "open_access_url",
+    "publication_status", "scope_relation", "primary_role",
+    "interaction_dependency", "security_relevance", "evidence_level",
+    "evidence_locator", "discovery_source", "cutoff", "cutoff_basis",
+    "note_path",
+]
+FINAL_NONPEER_FIELDS = [
+    "paper_id", "title", "year", "venue", "arxiv_id", "doi",
+    "primary_url", "citations", "citation_source", "citation_snapshot_date",
+    "scope_relation", "screening_status", "threshold_rule", "cutoff",
+    "semantic_scholar_id",
+]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
     "fully_reviewed",
@@ -233,6 +251,9 @@ def main() -> int:
             UNIVERSAL_SOURCE_CORRECTIONS_CSV,
             UNIVERSAL_SOURCE_CORRECTION_FIELDS,
         )
+        final_all = read_csv(FINAL_ALL_CSV, FINAL_PAPER_FIELDS)
+        final_peer = read_csv(FINAL_PEER_CSV, FINAL_PAPER_FIELDS)
+        final_nonpeer = read_csv(FINAL_NONPEER_CSV, FINAL_NONPEER_FIELDS)
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
@@ -267,6 +288,27 @@ def main() -> int:
         errors.append(f"duplicate post-cutoff paper_id: {value}")
     corpus_ids = {row["paper_id"].strip() for row in papers}
     papers_by_id = {row["paper_id"].strip(): row for row in papers}
+    final_ids = [row["paper_id"].strip() for row in final_all]
+    if len(final_ids) != len(corpus_ids) or set(final_ids) != corpus_ids:
+        errors.append(
+            "all_relevant_papers.csv must exactly equal the canonical papers.csv ID set"
+        )
+    final_subsets = (
+        ("peer_reviewed.csv", final_peer),
+        ("non_peer_citations_gt_10.csv", final_nonpeer),
+    )
+    for label, rows in final_subsets:
+        ids = [row["paper_id"].strip() for row in rows]
+        if duplicates(ids):
+            errors.append(f"{label} contains duplicate paper IDs")
+        if not set(ids).issubset(corpus_ids):
+            errors.append(f"{label} contains papers outside the canonical corpus")
+    for line, row in enumerate(final_all, start=2):
+        paper = papers_by_id.get(row["paper_id"].strip())
+        if paper and row["note_path"].strip() != paper["note_path"].strip():
+            errors.append(
+                f"all_relevant_papers.csv:{line}: note_path does not match papers.csv"
+            )
     for value in sorted(corpus_ids.intersection(post_cutoff_ids)):
         errors.append(f"post-cutoff paper appears in papers.csv: {value}")
     for value in sorted(set(excluded_ids).intersection(post_cutoff_ids)):
@@ -869,6 +911,7 @@ def main() -> int:
         f"{len(attack_review)} standard attack and "
         f"{len(cross_category_review)} cross-category reviews; "
         f"{len(universal_review)} papers in the universal checklist; "
+        f"{len(final_all)} papers in the canonical final export; "
         f"{len(universal_source_corrections)} universal source-review "
         "corrections."
     )
