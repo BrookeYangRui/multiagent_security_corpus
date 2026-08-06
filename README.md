@@ -1,164 +1,67 @@
 # Multi-Agent Security Corpus
 
-This repository maintains a structured and auditable literature corpus for
-research on the security of multi-agent systems.
+Auditable literature corpus for security, privacy, robustness, misuse, and
+trust in systems with interacting autonomous or semi-autonomous agents.
 
-It contains paper metadata, structured paper notes, related-work syntheses, and
-source provenance. It does not contain experimental code, benchmark
-implementations, manuscript drafts, or copyrighted paper PDFs.
+This repository stores metadata, structured notes, BibTeX, related-work
+syntheses, and provenance. It does not store paper PDFs, manuscript drafts,
+experiments, or benchmark implementations.
 
-## Repository Structure
+## Start Here
 
 ```text
-corpus/
-    papers.csv
-    references.bib
-    excluded_papers.csv
-    post_cutoff_papers.csv
-    post_cutoff_references.bib
-
-papers/
-    surveys/
-    attacks/
-    defenses/
-    evaluations/
-    general/
-    post_cutoff/
-
-related_work/
-    surveys_and_soks.md
-    system_models.md
-    attacks.md
-    system_failures.md
-    defenses.md
-    benchmarks.md
-
-templates/
-    paper_note.md
+corpus/papers.csv                 included-paper index
+corpus/references.bib             BibTeX for included papers
+corpus/excluded_papers.csv        screened exclusions and duplicates
+corpus/evaluation_artifacts.csv   datasets, benchmarks, and protocols
+corpus/post_cutoff_papers.csv     post-cutoff watchlist
+corpus/post_cutoff_references.bib isolated watchlist citations
+papers/                           one note per included paper
+papers/post_cutoff/               optional watchlist notes
+related_work/                     cross-paper syntheses
+templates/paper_note.md           required note template
+AGENTS.md                         full maintenance protocol
 ```
-
-`corpus/papers.csv` is the canonical index of included papers. Each included
-paper also has one BibTeX entry and one structured note. Files under
-`related_work/` synthesize evidence across paper notes; they are not substitutes
-for source-level extraction.
-
-## Search Cutoff
-
-The corpus cutoff is frozen at `2026-07-01`. The search closed at the start of
-that date (00:00 UTC); work first retrievable on or after the boundary is not
-part of the included corpus or any analysis denominator.
-
-Post-cutoff discoveries are retained in `corpus/post_cutoff_papers.csv` so that
-the search history remains auditable. Their optional notes live under
-`papers/post_cutoff/`, and their citations are isolated in
-`corpus/post_cutoff_references.bib`. These records are a watchlist only. A
-pre-cutoff work that later receives a formal publication is instead merged into
-its existing canonical record without changing corpus eligibility. When a
-source-reported date conflicts with a post-cutoff identifier or discovery
-record, the conservative watchlist decision and the conflict are both retained.
 
 ## Scope
 
-A paper is relevant when its security problem, attack, defense, failure, or
-evaluation meaningfully depends on interactions among multiple autonomous or
-semi-autonomous agents.
+Include a work only when multi-agent interaction changes the threat model,
+attack, security consequence, defense, or evaluation. Communication, shared
+memory, delegation, topology, coordination, coalition formation, and collective
+decisions are in scope. Multiple model calls or roles alone are insufficient.
 
-A paper is not included solely because it uses multiple model calls, multiple
-roles, or an agent workflow. The multi-agent structure must affect the threat
-model, attack mechanism, security consequence, defense, or evaluation.
+Exclude single-agent failures, implementation-only multi-agent scaffolding,
+non-security performance studies, duplicates, and superseded versions. Keep
+every exclusion with a reason in `corpus/excluded_papers.csv`.
 
-## Inclusion Criteria
+## Frozen Cutoff
 
-A paper may be included when it satisfies at least one of these conditions:
+The search cutoff is `2026-07-01 00:00 UTC`. Work first retrievable on or after
+the cutoff is excluded from the main corpus and all analysis denominators. Keep
+it in `corpus/post_cutoff_papers.csv`; optional notes and citations belong only
+under `papers/post_cutoff/` and `corpus/post_cutoff_references.bib`.
 
-1. It studies attacks that propagate through agent interactions.
-2. It studies malicious, compromised, colluding, or strategically interacting
-   agents.
-3. It studies security failures involving communication, shared memory,
-   delegation, topology, coordination, coalition formation, or collective
-   decision-making.
-4. It proposes defenses that operate across agents or at the system level.
-5. It introduces an evaluation, benchmark, taxonomy, survey, or SoK directly
-   relevant to multi-agent security.
+If a pre-cutoff work later receives a formal publication, update its canonical
+record instead of adding a second paper.
 
-## Exclusion Criteria
+## Adding A Paper
 
-A paper should normally be excluded when:
+For each included paper, update all three records in one change:
 
-1. Its security problem can be completely represented as a single-agent
-   component failure.
-2. Multiple agents are only an implementation detail.
-3. It discusses general multi-agent performance without a security, privacy,
-   robustness, misuse, or trust dimension.
-4. It is a duplicate, superseded version, non-archival summary, or inaccessible
-   secondary description of another paper.
+1. `corpus/papers.csv`
+2. `corpus/references.bib`
+3. A note copied from `templates/paper_note.md`
 
-Excluded papers remain recorded in `corpus/excluded_papers.csv` with an explicit
-reason. A preprint superseded by a published version should be merged into one
-canonical record rather than counted as a separate paper.
+Prefer the published venue, then an official manuscript, then arXiv. Record the
+exact URL, version, discovery source, access date, and evidence section/page for
+important claims. Use `Not reported` or `Unclear`; never guess metadata or
+evidence. Automated notes remain `agent_unverified` until human review.
 
-## Paper Organization Protocol
+## Validate
 
-Every included paper must have:
-
-1. One entry in `corpus/papers.csv`.
-2. One BibTeX entry in `corpus/references.bib`.
-3. One structured note based on `templates/paper_note.md`.
-4. A recorded discovery source, discovery query when applicable, and accessed
-   paper version.
-5. Page-level or section-level evidence for important claims.
-
-Paper-note filenames use `YEAR_author_short_title.md`, for example
-`2025_kim_agentic_ai_security.md`. Notes must distinguish explicit author claims
-from corpus-level interpretation.
-
-## Source Priority
-
-When multiple sources exist, use this order:
-
-1. Published conference or journal paper
-2. Official author manuscript
-3. Latest arXiv version
-4. Official project repository
-5. Trusted bibliographic database
-6. Secondary source
-
-Secondary sources may support discovery but should not be the primary basis for
-technical claims.
-
-## Verification Levels
-
-Records use one of four verification states:
-
-```text
-agent_unverified
-metadata_verified
-evidence_verified
-fully_reviewed
+```bash
+python3 scripts/validate_corpus.py
 ```
 
-- `agent_unverified`: generated or substantially modified automatically and not
-  checked by a human.
-- `metadata_verified`: bibliographic metadata and links checked by a human.
-- `evidence_verified`: cited source locations and extracted claims checked by a
-  human.
-- `fully_reviewed`: the complete note and classification checked by a human.
-
-## Related-Work Protocol
-
-Files under `related_work/` must reference corresponding paper notes or BibTeX
-keys. Each synthesis statement should be labeled as one of:
-
-```text
-Established finding
-Author-claimed gap
-Cross-paper observation
-Our interpretation
-Open question
-```
-
-## Copyright
-
-This repository does not redistribute copyrighted paper PDFs unless
-redistribution is explicitly permitted. It stores bibliographic metadata,
-links, structured notes, and limited evidence excerpts for scholarly analysis.
+Before pushing, fetch `origin/main`, check for collaborator changes, run the
+validator, and use a short English commit message.
