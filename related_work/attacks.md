@@ -45,4 +45,7 @@ The four-family check is recorded row by row in
 The 20 load-bearing papers selected for manual checking are listed in
 `corpus/load_bearing_review_queue.csv`. Their metadata and evidence locators have
 automated prechecks, but every row remains `pending_human_review`; none should be
-described as human-verified yet.
+described as human-verified yet. The remaining 42 attack-primary papers are in
+`corpus/attack_review_queue.csv`. The two queues jointly cover all 61
+attack-primary papers because the load-bearing queue contains 19 attack papers
+and one evaluation-primary protocol benchmark.

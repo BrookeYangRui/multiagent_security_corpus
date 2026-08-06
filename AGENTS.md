@@ -54,6 +54,10 @@ documented supporting purpose.
   `agent_unverified` until a human checks it.
 - Do not upgrade a verification state without the corresponding human review.
 - Preserve adjudication history when a classification or claim changes.
+- Use `load_bearing_review_queue.csv` for full evidence review of headline
+  papers and `attack_review_queue.csv` for the remaining standard attack review.
+- A completed review row requires a named reviewer and adjudication note. Update
+  `papers.csv` verification status only to the level actually checked.
 
 ## Version and Duplicate Handling
 

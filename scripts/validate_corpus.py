@@ -22,6 +22,7 @@ TARGETED_ATTACK_GAP_SEARCH_CSV = (
     ROOT / "corpus" / "targeted_attack_gap_search.csv"
 )
 LOAD_BEARING_REVIEW_CSV = ROOT / "corpus" / "load_bearing_review_queue.csv"
+ATTACK_REVIEW_CSV = ROOT / "corpus" / "attack_review_queue.csv"
 
 PAPER_FIELDS = [
     "paper_id", "title", "authors", "year", "venue", "doi", "primary_url",
@@ -69,6 +70,10 @@ LOAD_BEARING_REVIEW_FIELDS = [
     "note_path", "metadata_precheck", "evidence_locator_precheck",
     "scope_precheck", "human_review_status", "reviewer",
     "adjudication_note",
+]
+ATTACK_REVIEW_FIELDS = [
+    "priority", "paper_id", "review_focus", "review_level",
+    "human_review_status", "reviewer", "adjudication_note",
 ]
 VERIFICATION_STATES = {
     "agent_unverified", "metadata_verified", "evidence_verified",
@@ -127,6 +132,7 @@ def main() -> int:
         load_bearing_review = read_csv(
             LOAD_BEARING_REVIEW_CSV, LOAD_BEARING_REVIEW_FIELDS
         )
+        attack_review = read_csv(ATTACK_REVIEW_CSV, ATTACK_REVIEW_FIELDS)
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
@@ -322,6 +328,52 @@ def main() -> int:
                 "no reviewer"
             )
 
+    attack_review_ids = [row["paper_id"].strip() for row in attack_review]
+    for value in sorted(duplicates(attack_review_ids)):
+        errors.append(f"duplicate attack review paper_id: {value}")
+    for value in sorted(set(review_ids).intersection(attack_review_ids)):
+        errors.append(f"paper appears in both review queues: {value}")
+    for line, row in enumerate(attack_review, start=2):
+        paper_id = row["paper_id"].strip()
+        if paper_id not in papers_by_id:
+            errors.append(
+                f"attack_review_queue.csv:{line}: unknown paper_id: {paper_id}"
+            )
+            continue
+        if papers_by_id[paper_id]["primary_category"].strip() != "attack":
+            errors.append(
+                f"attack_review_queue.csv:{line}: non-attack paper: {paper_id}"
+            )
+        if row["review_level"].strip() != "standard_attack_review":
+            errors.append(
+                f"attack_review_queue.csv:{line}: invalid review level"
+            )
+        status = row["human_review_status"].strip()
+        if status not in {"pending_human_review", "in_review", "completed"}:
+            errors.append(
+                f"attack_review_queue.csv:{line}: invalid review status: "
+                f"{status}"
+            )
+        if status == "completed" and (
+            not row["reviewer"].strip() or not row["adjudication_note"].strip()
+        ):
+            errors.append(
+                f"attack_review_queue.csv:{line}: completed review requires "
+                "reviewer and adjudication note"
+            )
+
+    load_bearing_attack_ids = {
+        paper_id for paper_id in review_ids
+        if paper_id in papers_by_id
+        and papers_by_id[paper_id]["primary_category"].strip() == "attack"
+    }
+    reviewed_attack_frame = load_bearing_attack_ids | set(attack_review_ids)
+    if reviewed_attack_frame != attack_paper_ids:
+        for paper_id in sorted(attack_paper_ids - reviewed_attack_frame):
+            errors.append(f"attack paper is absent from review queues: {paper_id}")
+        for paper_id in sorted(reviewed_attack_frame - attack_paper_ids):
+            errors.append(f"review queue contains non-attack paper: {paper_id}")
+
     for line, row in enumerate(post_cutoff, start=2):
         paper_id = row["paper_id"].strip()
         source_date = row["source_date"].strip()
@@ -451,7 +503,8 @@ def main() -> int:
         f"{len(attack_screening)} attack-screening records; "
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "
-        f"{len(load_bearing_review)} load-bearing reviews."
+        f"{len(load_bearing_review)} load-bearing plus "
+        f"{len(attack_review)} standard attack reviews."
     )
     return 0
 

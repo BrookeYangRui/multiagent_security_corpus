@@ -18,6 +18,7 @@ corpus/attack_screening.csv       retrieval-to-corpus attack decisions
 corpus/attack_canonical_bridge.csv unmatched canonical attack bindings
 corpus/targeted_attack_gap_search.csv four-family targeted gap check
 corpus/load_bearing_review_queue.csv human-review queue for key claims
+corpus/attack_review_queue.csv       remaining attack-primary review queue
 corpus/post_cutoff_papers.csv     post-cutoff watchlist
 corpus/post_cutoff_references.bib isolated watchlist citations
 papers/                           one note per included paper
