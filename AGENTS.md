@@ -84,6 +84,12 @@ documented supporting purpose.
 - Use stable lowercase `paper_id` and `bibtex_key` values.
 - Leave a field empty only when it is not applicable; use `Not reported` or
   `Unclear` for source-level missingness.
+- Set exactly one `primary_category` from `attack`, `defense`, `evaluation`,
+  `survey`, or `general`; secondary roles remain in `paper_type`.
+- Set `scope_relation` to `core_security` only for a direct security model,
+  violation, defense, or evaluation. Use `security_relevant` when the work is
+  directly informative but lacks a complete security framing, and `adjacent`
+  for background safety, reliability, or social-behavior evidence.
 
 ## Related-Work Synthesis
 
@@ -92,6 +98,9 @@ documented supporting purpose.
   `Cross-paper observation`, `Our interpretation`, or `Open question`.
 - Do not present a cross-paper inference as an individual paper's claim.
 - Keep uncertainty and publication status visible.
+- Preserve all rows and decision states in `corpus/attack_screening.csv`; never
+  convert `unresolved` or `eligible_not_in_corpus` into an exclusion merely to
+  improve completion counts.
 
 ## Before Committing
 

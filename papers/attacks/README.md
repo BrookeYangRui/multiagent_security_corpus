@@ -39,4 +39,4 @@ Some attack papers also introduce benchmarks, datasets, or evaluation harnesses.
 Their canonical notes remain here; the evaluation corpus links to those records
 rather than duplicating them.
 
-Last publication-status audit: 2026-08-05.
+Last publication-status and targeted-gap audit: 2026-08-06.

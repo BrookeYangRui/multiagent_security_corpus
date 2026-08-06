@@ -32,6 +32,10 @@ Select one or more:
 - Empirical study
 - Theoretical analysis
 
+Primary category: attack, defense, evaluation, survey, or general
+
+Scope relation: core_security, security_relevant, or adjacent
+
 ## Scope
 
 ### System Studied
@@ -167,4 +171,3 @@ Select one:
 ### Last Updated
 
 YYYY-MM-DD
-

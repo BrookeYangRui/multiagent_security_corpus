@@ -14,6 +14,10 @@ corpus/papers.csv                 included-paper index
 corpus/references.bib             BibTeX for included papers
 corpus/excluded_papers.csv        screened exclusions and duplicates
 corpus/evaluation_artifacts.csv   datasets, benchmarks, and protocols
+corpus/attack_screening.csv       retrieval-to-corpus attack decisions
+corpus/attack_canonical_bridge.csv unmatched canonical attack bindings
+corpus/targeted_attack_gap_search.csv four-family targeted gap check
+corpus/load_bearing_review_queue.csv human-review queue for key claims
 corpus/post_cutoff_papers.csv     post-cutoff watchlist
 corpus/post_cutoff_references.bib isolated watchlist citations
 papers/                           one note per included paper
@@ -33,6 +37,10 @@ decisions are in scope. Multiple model calls or roles alone are insufficient.
 Exclude single-agent failures, implementation-only multi-agent scaffolding,
 non-security performance studies, duplicates, and superseded versions. Keep
 every exclusion with a reason in `corpus/excluded_papers.csv`.
+
+`primary_category` supplies one counting category per paper; additional roles
+remain in `paper_type`. `scope_relation` distinguishes `core_security`,
+`security_relevant`, and `adjacent` evidence.
 
 ## Frozen Cutoff
 
