@@ -56,6 +56,15 @@ documented supporting purpose.
 - Preserve adjudication history when a classification or claim changes.
 - Use `load_bearing_review_queue.csv` for full evidence review of headline
   papers and `attack_review_queue.csv` for the remaining standard attack review.
+- Use `cross_category_review_queue.csv` to screen every remaining defense,
+  evaluation, survey, and general paper for attack-bearing claims. The three
+  queues must remain disjoint and must jointly equal `papers.csv` through
+  `universal_review_queue.csv`.
+- Treat `primary_category` as canonical placement, not as evidence that a paper
+  does or does not contain attacks. Record attack evidence at claim level using
+  the roles and rules in `corpus/UNIVERSAL_REVIEW.md`.
+- Do not count a survey mention, related-work summary, or inherited attack as
+  primary attack evidence. Preserve the cited primary source instead.
 - A completed review row requires a named reviewer and adjudication note. Update
   `papers.csv` verification status only to the level actually checked.
 - `source_reviewed_pending_author_signoff` records a non-human source review; it

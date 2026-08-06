@@ -49,3 +49,9 @@ blockers. The remaining 42 attack-primary papers are in
 `corpus/attack_review_queue.csv`. The two queues jointly cover all 55
 attack-primary papers because reclassification leaves 13 attack papers and
 seven defense/evaluation papers in the load-bearing queue.
+
+Attack-bearing evidence is not restricted to attack-primary papers. The master
+checklist in `corpus/universal_review_queue.csv` also assigns 52 remaining
+defense, evaluation, survey, and general papers to cross-category screening.
+Together, the three mutually exclusive tracks cover all 114 included papers;
+94 still await minimum review.

@@ -23,6 +23,10 @@ TARGETED_ATTACK_GAP_SEARCH_CSV = (
 )
 LOAD_BEARING_REVIEW_CSV = ROOT / "corpus" / "load_bearing_review_queue.csv"
 ATTACK_REVIEW_CSV = ROOT / "corpus" / "attack_review_queue.csv"
+CROSS_CATEGORY_REVIEW_CSV = (
+    ROOT / "corpus" / "cross_category_review_queue.csv"
+)
+UNIVERSAL_REVIEW_CSV = ROOT / "corpus" / "universal_review_queue.csv"
 LOAD_BEARING_SOURCE_REVIEW_CSV = (
     ROOT / "reviews" / "load_bearing" / "load_bearing_source_review.csv"
 )
@@ -81,6 +85,20 @@ ATTACK_REVIEW_FIELDS = [
     "priority", "paper_id", "review_focus", "review_level",
     "human_review_status", "reviewer", "adjudication_note",
 ]
+CROSS_CATEGORY_REVIEW_FIELDS = [
+    "priority", "paper_id", "title", "year", "venue", "primary_category",
+    "paper_type", "scope_relation", "primary_url", "note_path",
+    "review_focus", "minimum_review_status", "attack_evidence_status",
+    "attack_role", "attack_instance_coding_required", "reviewer",
+    "review_date", "adjudication_note",
+]
+UNIVERSAL_REVIEW_FIELDS = [
+    "review_track", "track_priority", "paper_id", "title", "year", "venue",
+    "primary_category", "paper_type", "scope_relation", "primary_url",
+    "note_path", "minimum_review_status", "attack_evidence_status",
+    "attack_role", "attack_instance_coding_required", "reviewer",
+    "review_date", "adjudication_note",
+]
 LOAD_BEARING_SOURCE_REVIEW_FIELDS = [
     "priority", "paper_id", "title", "venue_year", "doi", "source_url",
     "identity", "current_scope", "recommended_scope", "scope_reason",
@@ -101,6 +119,13 @@ VERIFICATION_STATES = {
 INCLUSION_STATES = {"included", "excluded", "pending"}
 PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "survey", "general"}
 SCOPE_RELATIONS = {"core_security", "security_relevant", "adjacent"}
+ATTACK_EVIDENCE_STATES = {
+    "confirmed_attack_bearing", "confirmed_attack_bearing_secondary",
+    "confirmed_attack_mention_only", "confirmed_not_attack_bearing",
+    "dual_use_no_malicious_claim_confirmed", "candidate_from_primary_category",
+    "candidate_from_secondary_role", "not_screened",
+}
+ATTACK_CODING_DECISIONS = {"yes", "no", "pending", "conditional"}
 BIB_KEY = re.compile(r"@\w+\s*\{\s*([^,\s]+)", re.IGNORECASE)
 
 
@@ -152,6 +177,12 @@ def main() -> int:
             LOAD_BEARING_REVIEW_CSV, LOAD_BEARING_REVIEW_FIELDS
         )
         attack_review = read_csv(ATTACK_REVIEW_CSV, ATTACK_REVIEW_FIELDS)
+        cross_category_review = read_csv(
+            CROSS_CATEGORY_REVIEW_CSV, CROSS_CATEGORY_REVIEW_FIELDS
+        )
+        universal_review = read_csv(
+            UNIVERSAL_REVIEW_CSV, UNIVERSAL_REVIEW_FIELDS
+        )
         load_bearing_source_review = read_csv(
             LOAD_BEARING_SOURCE_REVIEW_CSV,
             LOAD_BEARING_SOURCE_REVIEW_FIELDS,
@@ -476,6 +507,124 @@ def main() -> int:
         for paper_id in sorted(reviewed_attack_frame - attack_paper_ids):
             errors.append(f"review queue contains non-attack paper: {paper_id}")
 
+    cross_review_ids = [
+        row["paper_id"].strip() for row in cross_category_review
+    ]
+    for value in sorted(duplicates(cross_review_ids)):
+        errors.append(f"duplicate cross-category review paper_id: {value}")
+    expected_cross_ids = corpus_ids - set(review_ids) - set(attack_review_ids)
+    if set(cross_review_ids) != expected_cross_ids:
+        for paper_id in sorted(expected_cross_ids - set(cross_review_ids)):
+            errors.append(f"paper is absent from cross-category review: {paper_id}")
+        for paper_id in sorted(set(cross_review_ids) - expected_cross_ids):
+            errors.append(f"unexpected cross-category review paper: {paper_id}")
+    for line, row in enumerate(cross_category_review, start=2):
+        paper_id = row["paper_id"].strip()
+        if paper_id not in papers_by_id:
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: unknown paper_id: "
+                f"{paper_id}"
+            )
+            continue
+        paper = papers_by_id[paper_id]
+        for field in (
+            "title", "year", "venue", "primary_category", "paper_type",
+            "scope_relation", "primary_url", "note_path",
+        ):
+            if row[field].strip() != paper[field].strip():
+                errors.append(
+                    f"cross_category_review_queue.csv:{line}: {field} does "
+                    f"not match papers.csv: {paper_id}"
+                )
+        if paper["primary_category"].strip() == "attack":
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: attack-primary "
+                f"paper: {paper_id}"
+            )
+        status = row["minimum_review_status"].strip()
+        if status not in {
+            "pending_minimum_review", "in_review", "completed",
+            "blocked_pending_source",
+        }:
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: invalid review "
+                f"status: {status}"
+            )
+        evidence_status = row["attack_evidence_status"].strip()
+        if evidence_status not in ATTACK_EVIDENCE_STATES:
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: invalid attack "
+                f"evidence status: {evidence_status}"
+            )
+        coding = row["attack_instance_coding_required"].strip()
+        if coding not in ATTACK_CODING_DECISIONS:
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: invalid coding "
+                f"decision: {coding}"
+            )
+        if status == "completed" and (
+            not row["reviewer"].strip()
+            or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", row["review_date"].strip())
+            or not row["adjudication_note"].strip()
+        ):
+            errors.append(
+                f"cross_category_review_queue.csv:{line}: completed review "
+                "requires reviewer, date, and adjudication note"
+            )
+
+    universal_ids = [row["paper_id"].strip() for row in universal_review]
+    universal_priorities = [
+        row["track_priority"].strip() for row in universal_review
+    ]
+    for value in sorted(duplicates(universal_ids)):
+        errors.append(f"duplicate universal review paper_id: {value}")
+    for value in sorted(duplicates(universal_priorities)):
+        errors.append(f"duplicate universal review priority: {value}")
+    if set(universal_ids) != corpus_ids:
+        for paper_id in sorted(corpus_ids - set(universal_ids)):
+            errors.append(f"paper is absent from universal review: {paper_id}")
+        for paper_id in sorted(set(universal_ids) - corpus_ids):
+            errors.append(f"unknown paper in universal review: {paper_id}")
+    expected_priorities = {str(value) for value in range(1, len(papers) + 1)}
+    if set(universal_priorities) != expected_priorities:
+        errors.append("universal review priorities are not contiguous")
+    expected_tracks = {
+        **{paper_id: "load_bearing" for paper_id in review_ids},
+        **{paper_id: "standard_attack" for paper_id in attack_review_ids},
+        **{paper_id: "cross_category" for paper_id in cross_review_ids},
+    }
+    for line, row in enumerate(universal_review, start=2):
+        paper_id = row["paper_id"].strip()
+        if paper_id not in papers_by_id:
+            continue
+        paper = papers_by_id[paper_id]
+        if row["review_track"].strip() != expected_tracks.get(paper_id):
+            errors.append(
+                f"universal_review_queue.csv:{line}: wrong review track: "
+                f"{paper_id}"
+            )
+        for field in (
+            "title", "year", "venue", "primary_category", "paper_type",
+            "scope_relation", "primary_url", "note_path",
+        ):
+            if row[field].strip() != paper[field].strip():
+                errors.append(
+                    f"universal_review_queue.csv:{line}: {field} does not "
+                    f"match papers.csv: {paper_id}"
+                )
+        if row["attack_evidence_status"].strip() not in ATTACK_EVIDENCE_STATES:
+            errors.append(
+                f"universal_review_queue.csv:{line}: invalid attack evidence "
+                f"status: {row['attack_evidence_status']}"
+            )
+        if row["attack_instance_coding_required"].strip() not in (
+            ATTACK_CODING_DECISIONS
+        ):
+            errors.append(
+                f"universal_review_queue.csv:{line}: invalid attack coding "
+                f"decision: {row['attack_instance_coding_required']}"
+            )
+
     for line, row in enumerate(post_cutoff, start=2):
         paper_id = row["paper_id"].strip()
         source_date = row["source_date"].strip()
@@ -606,7 +755,9 @@ def main() -> int:
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "
         f"{len(load_bearing_review)} load-bearing plus "
-        f"{len(attack_review)} standard attack reviews; "
+        f"{len(attack_review)} standard attack and "
+        f"{len(cross_category_review)} cross-category reviews; "
+        f"{len(universal_review)} papers in the universal checklist; "
         f"{len(load_bearing_corrections)} source-review corrections."
     )
     return 0
