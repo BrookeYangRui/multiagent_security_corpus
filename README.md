@@ -32,6 +32,10 @@ metadata and must not be added to 142 because seven records overlap.
 Paper notes and source reviews remain unverified until named human signoff.
 CVEs and industry material never enter an academic-paper denominator.
 
+The cross-paper conclusions and manuscript-ready candidate statements are in
+`reports/INSIGHTS.md`. They remain synthesis proposals pending the named human
+signoff described by the evidence policy.
+
 ## Validate
 
 ```bash
