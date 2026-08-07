@@ -220,6 +220,55 @@ def main() -> None:
         coverage,
     )
 
+    yearly = []
+    cumulative = 0
+    for year in sorted({row["year"] for row in all_rows}, key=int):
+        selected = [row for row in all_rows if row["year"] == year]
+        cumulative += len(selected)
+        yearly.append(
+            {
+                "year": year,
+                "total": str(len(selected)),
+                "attack": str(sum(
+                    papers[row["paper_id"]]["primary_category"] == "attack"
+                    for row in selected
+                )),
+                "defense": str(sum(
+                    papers[row["paper_id"]]["primary_category"] == "defense"
+                    for row in selected
+                )),
+                "evaluation": str(sum(
+                    papers[row["paper_id"]]["primary_category"] == "evaluation"
+                    for row in selected
+                )),
+                "survey": str(sum(
+                    papers[row["paper_id"]]["primary_category"] == "survey"
+                    for row in selected
+                )),
+                "general": str(sum(
+                    papers[row["paper_id"]]["primary_category"] == "general"
+                    for row in selected
+                )),
+                "core_security": str(sum(row["scope_relation"] == "core_security" for row in selected)),
+                "security_relevant": str(sum(row["scope_relation"] == "security_relevant" for row in selected)),
+                "peer_reviewed": str(sum(row["publication_status"] == "peer_reviewed" for row in selected)),
+                "non_peer_or_unverified": str(sum(row["publication_status"] == "non_peer_or_unverified" for row in selected)),
+                "workshop_or_nonarchival": str(sum(row["publication_status"] == "workshop_or_nonarchival" for row in selected)),
+                "cumulative_total": str(cumulative),
+                "cutoff": CUTOFF,
+            }
+        )
+    write_csv(
+        ROOT / "corpus/final/yearly_distribution.csv",
+        [
+            "year", "total", "attack", "defense", "evaluation", "survey",
+            "general", "core_security", "security_relevant", "peer_reviewed",
+            "non_peer_or_unverified", "workshop_or_nonarchival",
+            "cumulative_total", "cutoff",
+        ],
+        yearly,
+    )
+
     included_nonpeer_fields = [
         "paper_id", "title", "year", "venue", "arxiv_id", "doi",
         "primary_url", "citations", "citation_source", "citation_snapshot_date",

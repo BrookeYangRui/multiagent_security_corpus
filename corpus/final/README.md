@@ -9,6 +9,10 @@ These files freeze the literature boundary at `2026-07-01 00:00 UTC`.
   silently promoted to this subset.
 - `venue_coverage.csv` reports the normalized conference and journal coverage
   of that subset.
+- `yearly_distribution.csv` is the chart-ready annual trend table. It contains
+  raw counts by primary category, scope, publication status, and cumulative
+  corpus size; category and publication columns are mutually exclusive within
+  each year.
 - `non_peer_citations_gt_10.csv` and
   `non_peer_included_citations_gt_10.csv` contain the same 19 retained
   non-peer works with a Semantic Scholar citation count strictly greater than
