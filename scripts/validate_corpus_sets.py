@@ -35,6 +35,7 @@ def main() -> int:
     errors: list[str] = []
     search = read(SETS / "01_search_catalog" / "search_catalog.csv")
     broad = read(SETS / "02_broad_included" / "broad_included.csv")
+    broad_yearly = read(SETS / "02_broad_included" / "yearly_distribution.csv")
     dedup = read(SETS / "02_broad_included" / "deduplication_map.csv")
     taxonomy = read(SETS / "03_taxonomy_eligible" / "taxonomy_candidates.csv")
     contextual = read(SETS / "04_adjacent_contextual" / "adjacent_contextual.csv")
@@ -72,6 +73,38 @@ def main() -> int:
     ]
     for value in sorted(duplicate_values(dois)):
         errors.append(f"duplicate canonical DOI in broad corpus: {value}")
+
+    expected_by_year: dict[str, Counter[str]] = {}
+    for row in broad:
+        year = row["publication_date"][:4]
+        counts = expected_by_year.setdefault(year, Counter())
+        counts["total"] += 1
+        counts[row["publication_status"]] += 1
+        if row["publication_status"] == "peer_reviewed":
+            counts[f"peer_reviewed_{row['venue_type']}"] += 1
+    cumulative_total = 0
+    if [row["year"] for row in broad_yearly] != sorted(expected_by_year):
+        errors.append("broad yearly export does not cover each publication year once")
+    for row in broad_yearly:
+        year = row["year"]
+        counts = expected_by_year.get(year, Counter())
+        cumulative_total += counts["total"]
+        expected_values = {
+            "total": counts["total"],
+            "peer_reviewed": counts["peer_reviewed"],
+            "non_peer_or_unverified": counts["non_peer_or_unverified"],
+            "peer_reviewed_conference": counts["peer_reviewed_conference"],
+            "peer_reviewed_journal": counts["peer_reviewed_journal"],
+            "cumulative_total": cumulative_total,
+        }
+        for field, expected in expected_values.items():
+            if row[field] != str(expected):
+                errors.append(
+                    f"yearly_distribution.csv:{year}: {field} must be {expected}"
+                )
+        expected_cutoff = "2026-07-01" if year == "2026" else ""
+        if row["cutoff"] != expected_cutoff:
+            errors.append(f"yearly_distribution.csv:{year}: incorrect cutoff marker")
 
     candidate_basis = Counter(row["candidate_basis"] for row in taxonomy)
     if candidate_basis != {

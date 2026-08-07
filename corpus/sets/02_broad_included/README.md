@@ -29,6 +29,22 @@ Only the two peer-reviewed strata and `influential_non_peer` form the
 peer-first core. Emerging preprints remain visible for trend analysis but
 must not enter corpus-level denominators. Unresolved records are not exclusions.
 
+## Yearly Trend Export
+
+`yearly_distribution.csv` reports all 325 deduplicated, scope-included works
+before strict taxonomy screening. It keeps peer-reviewed and
+non-peer-or-unverified records separate and includes a cumulative total.
+
+| Publication year | All broad works | Peer-reviewed | Non-peer or unverified | Cumulative |
+| --- | ---: | ---: | ---: | ---: |
+| 2023 | 2 | 2 | 0 | 2 |
+| 2024 | 21 | 11 | 10 | 23 |
+| 2025 | 114 | 45 | 69 | 137 |
+| 2026 through July 1 | 188 | 36 | 152 | 325 |
+
+These are broad-screen trend counts, not the canonical 142-work denominator.
+The 2026 value is a partial-year count through the frozen cutoff.
+
 ## Peer-Reviewed Venues
 
 | Indexed venue | Works |

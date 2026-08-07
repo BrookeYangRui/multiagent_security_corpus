@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SETS = ROOT / "corpus" / "sets"
 SEARCH = SETS / "01_search_catalog" / "search_catalog.csv"
 BROAD = SETS / "02_broad_included" / "broad_included.csv"
+BROAD_YEARLY = SETS / "02_broad_included" / "yearly_distribution.csv"
 PAPERS = ROOT / "corpus" / "papers.csv"
 REVIEWS = ROOT / "reviews" / "universal" / "active_source_review.csv"
 CITATION_GATE_REVIEWS = (
@@ -175,6 +176,34 @@ def main() -> None:
     citation_reviews_by_record = {
         row["record_id"]: row for row in citation_gate_reviews
     }
+
+    broad_year_counts: dict[str, Counter[str]] = {}
+    for row in broad:
+        year = row["publication_date"][:4]
+        counts = broad_year_counts.setdefault(year, Counter())
+        counts["total"] += 1
+        counts[row["publication_status"]] += 1
+        if row["publication_status"] == "peer_reviewed":
+            counts[f"peer_reviewed_{row['venue_type']}"] += 1
+
+    broad_yearly_rows: list[dict[str, str]] = []
+    cumulative_total = 0
+    for year in sorted(broad_year_counts):
+        counts = broad_year_counts[year]
+        cumulative_total += counts["total"]
+        broad_yearly_rows.append(
+            {
+                "year": year,
+                "total": str(counts["total"]),
+                "peer_reviewed": str(counts["peer_reviewed"]),
+                "non_peer_or_unverified": str(counts["non_peer_or_unverified"]),
+                "peer_reviewed_conference": str(counts["peer_reviewed_conference"]),
+                "peer_reviewed_journal": str(counts["peer_reviewed_journal"]),
+                "cumulative_total": str(cumulative_total),
+                "cutoff": "2026-07-01" if year == "2026" else "",
+            }
+        )
+    write_csv(BROAD_YEARLY, list(broad_yearly_rows[0]), broad_yearly_rows)
 
     taxonomy_rows: list[dict[str, str]] = []
     for row in broad:

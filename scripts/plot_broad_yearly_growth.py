@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the canonical corpus growth figure from the yearly export."""
+"""Render growth of the broad pre-taxonomy multi-agent security corpus."""
 
 from __future__ import annotations
 
@@ -10,41 +10,33 @@ import matplotlib.pyplot as plt
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "corpus/final/yearly_distribution.csv"
+SOURCE = ROOT / "corpus/sets/02_broad_included/yearly_distribution.csv"
 OUTPUT = ROOT / "reports/figures"
-CATEGORIES = ["attack", "defense", "evaluation", "survey", "general"]
+SERIES = ["peer_reviewed", "non_peer_or_unverified"]
 LABELS = {
-    "attack": "Attack",
-    "defense": "Defense",
-    "evaluation": "Evaluation",
-    "survey": "Survey / SoK",
-    "general": "General",
+    "peer_reviewed": "Peer-reviewed",
+    "non_peer_or_unverified": "Non-peer or unverified",
 }
 COLORS = {
-    "attack": "#C84C43",
-    "defense": "#2F7D6D",
-    "evaluation": "#4C78A8",
-    "survey": "#E2A93B",
-    "general": "#777777",
+    "peer_reviewed": "#2F7D6D",
+    "non_peer_or_unverified": "#D98B3A",
 }
 
 
 def read_years() -> list[dict[str, int]]:
     with SOURCE.open(encoding="utf-8", newline="") as handle:
         source = list(csv.DictReader(handle))
-    by_year = {int(row["year"]): row for row in source}
-    first, last = min(by_year), max(by_year)
     rows = []
-    cumulative = 0
-    for year in range(first, last + 1):
-        source_row = by_year.get(year)
-        values = {
-            category: int(source_row[category]) if source_row else 0
-            for category in CATEGORIES
-        }
-        total = sum(values.values())
-        cumulative += total
-        rows.append({"year": year, "total": total, "cumulative": cumulative, **values})
+    for row in source:
+        rows.append(
+            {
+                "year": int(row["year"]),
+                "total": int(row["total"]),
+                "peer_reviewed": int(row["peer_reviewed"]),
+                "non_peer_or_unverified": int(row["non_peer_or_unverified"]),
+                "cumulative": int(row["cumulative_total"]),
+            }
+        )
     return rows
 
 
@@ -72,7 +64,7 @@ def main() -> None:
     )
     figure.patch.set_facecolor("white")
     figure.suptitle(
-        "Growth of the Canonical Multi-Agent Security Corpus",
+        "Growth of the Broad Multi-Agent Security Literature Frame",
         fontsize=18,
         fontweight="bold",
         x=0.08,
@@ -82,42 +74,42 @@ def main() -> None:
     figure.text(
         0.08,
         0.947,
-        "142 screened canonical works, categorized by primary contribution",
+        "325 deduplicated works before strict taxonomy screening",
         fontsize=10.5,
         color="#555555",
     )
 
     bottoms = [0] * len(rows)
-    for category in CATEGORIES:
-        values = [row[category] for row in rows]
+    for series in SERIES:
+        values = [row[series] for row in rows]
         annual.bar(
             years,
             values,
             bottom=bottoms,
             width=0.68,
-            color=COLORS[category],
-            label=LABELS[category],
+            color=COLORS[series],
+            label=LABELS[series],
             edgecolor="white",
             linewidth=0.7,
         )
         bottoms = [bottom + value for bottom, value in zip(bottoms, values)]
     for year, total in zip(years, bottoms):
-        annual.text(year, total + 1.6, str(total), ha="center", va="bottom", fontweight="bold")
-    annual.set_title("New works by year", loc="left", fontsize=12)
+        annual.text(
+            year,
+            total + 4,
+            str(total),
+            ha="center",
+            va="bottom",
+            fontweight="bold",
+        )
+    annual.set_title("New broad-screen works by year", loc="left", fontsize=12)
     annual.set_ylabel("Works")
     annual.set_xticks(years, year_labels)
     annual.set_ylim(0, max(bottoms) * 1.18)
     annual.grid(axis="y", color="#E5E5E5", linewidth=0.8)
     annual.set_axisbelow(True)
     annual.spines[["top", "right"]].set_visible(False)
-    annual.legend(
-        ncols=5,
-        frameon=False,
-        loc="upper left",
-        bbox_to_anchor=(0, 1.02),
-        borderaxespad=0,
-        fontsize=9,
-    )
+    annual.legend(frameon=False, loc="upper left", ncols=2)
 
     cumulative_values = [row["cumulative"] for row in rows]
     cumulative.plot(
@@ -130,8 +122,15 @@ def main() -> None:
     )
     cumulative.fill_between(years, cumulative_values, color="#4C78A8", alpha=0.12)
     for year, value in zip(years, cumulative_values):
-        cumulative.text(year, value + 4, str(value), ha="center", va="bottom", fontweight="bold")
-    cumulative.set_title("Cumulative corpus size", loc="left", fontsize=12)
+        cumulative.text(
+            year,
+            value + 9,
+            str(value),
+            ha="center",
+            va="bottom",
+            fontweight="bold",
+        )
+    cumulative.set_title("Cumulative broad-screen size", loc="left", fontsize=12)
     cumulative.set_ylabel("Works")
     cumulative.set_xticks(years, year_labels)
     cumulative.set_ylim(0, max(cumulative_values) * 1.2)
@@ -142,13 +141,15 @@ def main() -> None:
     figure.text(
         0.08,
         0.018,
-        "* 2026 is a partial year through the frozen literature cutoff, 2026-07-01.",
+        "* 2026 is a partial year through the frozen literature cutoff, 2026-07-01. Broad-screen counts are not strict-core decisions.",
         fontsize=9,
         color="#555555",
     )
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    figure.savefig(OUTPUT / "corpus_growth_by_year.png", dpi=200, bbox_inches="tight")
-    figure.savefig(OUTPUT / "corpus_growth_by_year.svg", bbox_inches="tight")
+    figure.savefig(
+        OUTPUT / "broad_corpus_growth_by_year.png", dpi=200, bbox_inches="tight"
+    )
+    figure.savefig(OUTPUT / "broad_corpus_growth_by_year.svg", bbox_inches="tight")
     plt.close(figure)
 
 
