@@ -302,6 +302,12 @@ def deduplicate(rows: list[dict[str, str]]) -> tuple[list[dict[str, str]], list[
 
 def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
     counts = Counter(row["peer_first_stratum"] for row in rows)
+    yearly_counts: dict[str, Counter[str]] = {}
+    for row in rows:
+        year = row["publication_date"][:4]
+        year_count = yearly_counts.setdefault(year, Counter())
+        year_count["total"] += 1
+        year_count[row["publication_status"]] += 1
     venue_counts = Counter(
         row["canonical_venue"] or "Not reported"
         for row in rows if row["publication_status"] == "peer_reviewed"
@@ -342,6 +348,30 @@ def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
         "Only the two peer-reviewed strata and `influential_non_peer` form the",
         "peer-first core. Emerging preprints remain visible for trend analysis but",
         "must not enter corpus-level denominators. Unresolved records are not exclusions.",
+        "",
+        "## Yearly Trend Export",
+        "",
+        "`yearly_distribution.csv` reports all 325 deduplicated, scope-included works",
+        "before strict taxonomy screening. It keeps peer-reviewed and",
+        "non-peer-or-unverified records separate and includes a cumulative total.",
+        "",
+        "| Publication year | All broad works | Peer-reviewed | Non-peer or unverified | Cumulative |",
+        "| --- | ---: | ---: | ---: | ---: |",
+    ])
+    cumulative = 0
+    for year in sorted(yearly_counts):
+        year_count = yearly_counts[year]
+        cumulative += year_count["total"]
+        year_label = "2026 through July 1" if year == "2026" else year
+        lines.append(
+            f"| {year_label} | {year_count['total']} | "
+            f"{year_count['peer_reviewed']} | "
+            f"{year_count['non_peer_or_unverified']} | {cumulative} |"
+        )
+    lines.extend([
+        "",
+        "These are broad-screen trend counts, not the canonical 142-work denominator.",
+        "The 2026 value is a partial-year count through the frozen cutoff.",
         "",
         "## Peer-Reviewed Venues",
         "",
