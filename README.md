@@ -12,6 +12,7 @@ cutoff: `2026-07-01 00:00 UTC`.
 | `corpus/final/peer_reviewed.csv` | 90 archival conference or journal works |
 | `corpus/final/non_peer_citations_gt_10.csv` | 19 retained non-peer works with citations > 10 |
 | `corpus/final/yearly_distribution.csv` | 4 annual rows for trend plotting |
+| `reports/figures/corpus_growth_by_year.svg` | Annual and cumulative growth figure |
 | `sok_related/papers.csv` | 14-work supporting synthesis view; overlaps the corpus |
 | `corpus/evidence/cves.csv` | 52 CVEs and advisories |
 | `corpus/evidence/industry_reports.csv` | 16 reports |
