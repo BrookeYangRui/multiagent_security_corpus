@@ -8,6 +8,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+AUTHORITATIVE = (
+    ROOT / "corpus/source_packages/2026-07-01"
+    / "multiagent_security_all_relevant_to_2026-07-01.csv"
+)
 
 MASTER_FIELDS = [
     "review_track", "track_priority", "paper_id", "title", "year", "venue",
@@ -74,9 +78,45 @@ def main() -> None:
     papers = read_csv(ROOT / "corpus" / "papers.csv")
     papers_by_id = {row["paper_id"]: row for row in papers}
     queue_dir = ROOT / "reviews" / "queues"
-    load_bearing = read_csv(queue_dir / "load_bearing.csv")
-    standard_attack = read_csv(queue_dir / "standard_attack.csv")
+    load_bearing = [
+        row for row in read_csv(queue_dir / "load_bearing.csv")
+        if row["paper_id"] in papers_by_id
+    ]
+    existing_attack = {
+        row["paper_id"]: row
+        for row in read_csv(queue_dir / "standard_attack.csv")
+    }
     load_by_id = {row["paper_id"]: row for row in load_bearing}
+    standard_attack = []
+    attack_papers = [
+        paper for paper in papers
+        if paper["primary_category"] == "attack"
+        and paper["paper_id"] not in load_by_id
+    ]
+    attack_papers.sort(key=lambda row: (int(row["year"]), row["title"].casefold()))
+    for priority, paper in enumerate(attack_papers, start=len(load_bearing) + 1):
+        old = existing_attack.get(paper["paper_id"], {})
+        standard_attack.append({
+            "priority": str(priority),
+            "paper_id": paper["paper_id"],
+            "review_focus": old.get(
+                "review_focus", "metadata; scope; category; evidence locators"
+            ),
+            "review_level": old.get("review_level", "standard_attack_review"),
+            "human_review_status": old.get(
+                "human_review_status", "pending_human_review"
+            ),
+            "reviewer": old.get("reviewer", ""),
+            "adjudication_note": old.get("adjudication_note", ""),
+        })
+    write_csv(
+        queue_dir / "standard_attack.csv",
+        standard_attack,
+        [
+            "priority", "paper_id", "review_focus", "review_level",
+            "human_review_status", "reviewer", "adjudication_note",
+        ],
+    )
     attack_by_id = {row["paper_id"]: row for row in standard_attack}
 
     remaining_nonattack = [
@@ -91,7 +131,9 @@ def main() -> None:
     )
 
     cross_rows: list[dict[str, str]] = []
-    for priority, paper in enumerate(remaining_nonattack, start=63):
+    for priority, paper in enumerate(
+        remaining_nonattack, start=len(load_bearing) + len(standard_attack) + 1
+    ):
         cross_rows.append({
             "priority": str(priority),
             "paper_id": paper["paper_id"],
@@ -130,7 +172,7 @@ def main() -> None:
             track = "load_bearing"
             priority = queue["priority"]
             status = queue["human_review_status"]
-            role = LOAD_BEARING_ROLES[paper_id]
+            role = LOAD_BEARING_ROLES.get(paper_id, "attack_bearing_review")
             evidence_status = (
                 "dual_use_no_malicious_claim_confirmed"
                 if role == "dual_use_protocol"
@@ -186,13 +228,69 @@ def main() -> None:
     )
 
     # Preserve the imported 114-work packet as history while exposing an active
-    # source-review view that follows the research-corpus denominator.
+    # source-review view that follows the authoritative 142-work denominator.
     review_dir = ROOT / "reviews" / "universal"
     active_ids = set(papers_by_id)
     source_rows = read_csv(review_dir / "universal_114_source_review.csv")
-    active_source_rows = [
-        row for row in source_rows if row["paper_id"] in active_ids
-    ]
+    source_by_id = {row["paper_id"]: row for row in source_rows}
+    authoritative_by_id = {
+        row["paper_id"]: row for row in read_csv(AUTHORITATIVE)
+    }
+    master_by_id = {row["paper_id"]: row for row in master_rows}
+    active_source_rows = []
+    for paper in papers:
+        paper_id = paper["paper_id"]
+        authoritative = authoritative_by_id[paper_id]
+        old = source_by_id.get(paper_id)
+        if old:
+            master = master_by_id[paper_id]
+            row = dict(old)
+            row.update({
+                "global_priority": master["track_priority"],
+                "review_track": master["review_track"],
+                "paper_id": paper_id,
+                "canonical_title": paper["title"],
+                "canonical_authors": paper["authors"],
+                "canonical_year": paper["year"],
+                "canonical_venue": paper["venue"],
+                "doi": paper["doi"],
+                "source_url": paper["primary_url"],
+                "current_scope": paper["scope_relation"],
+                "current_category": paper["primary_category"],
+                "secondary_roles": paper["paper_type"],
+            })
+        else:
+            master = master_by_id[paper_id]
+            row = {field: "" for field in source_rows[0]}
+            row.update({
+                "global_priority": master["track_priority"],
+                "review_track": master["review_track"],
+                "paper_id": paper_id,
+                "canonical_title": paper["title"],
+                "canonical_authors": paper["authors"],
+                "canonical_year": paper["year"],
+                "canonical_venue": paper["venue"],
+                "doi": paper["doi"] or "Not reported",
+                "source_url": paper["primary_url"],
+                "version_status": authoritative["cutoff_basis"],
+                "identity_verdict": "imported_authoritative_142",
+                "current_scope": paper["scope_relation"],
+                "recommended_scope": paper["scope_relation"],
+                "scope_rationale": authoritative["security_relevance"],
+                "current_category": paper["primary_category"],
+                "recommended_category": paper["primary_category"],
+                "secondary_roles": paper["paper_type"],
+                "multiagent_verdict": authoritative["interaction_dependency"],
+                "attack_evidence_status": pending_evidence_status(paper),
+                "attack_instance_coding_required": "pending",
+                "evidence_locators": authoritative["evidence_locator"],
+                "author_claim_vs_corpus_interpretation": "Imported corpus interpretation pending named human signoff.",
+                "limitations_maturity": "Claim-level extraction pending.",
+                "review_outcome": "imported_authoritative_142_pending_claim_review",
+                "promote_to_load_bearing": "pending",
+                "review_status": authoritative["evidence_level"],
+            })
+        active_source_rows.append(row)
     write_csv(
         review_dir / "active_source_review.csv",
         active_source_rows,

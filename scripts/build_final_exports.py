@@ -9,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CUTOFF = "2026-07-01"
+SOURCE_PACKAGE = ROOT / "corpus/source_packages/2026-07-01"
+AUTHORITATIVE = SOURCE_PACKAGE / "multiagent_security_all_relevant_to_2026-07-01.csv"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -55,30 +57,12 @@ def venue_family(value: str) -> str:
     return value
 
 
-def publication_status(paper: dict[str, str]) -> tuple[str, str]:
-    note_path = paper["note_path"]
-    if "/arxiv/" in note_path:
-        return "non_peer_or_unverified", "preprint"
-    if any(
-        marker in note_path
-        for marker in ("/neurips_workshop/", "/aamas_workshop/", "/fedkdd_workshop/")
-    ) or paper["paper_id"] == "hagag2026architecture_matters":
-        return "workshop_or_nonarchival", "workshop"
-    if "/journals_" in note_path:
-        return "peer_reviewed", "journal"
-    return "peer_reviewed", "conference"
-
-
 def canonical_rows() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
     papers = read_csv(ROOT / "corpus/papers.csv")
-    reviews = {
-        row["paper_id"]: row
-        for row in read_csv(ROOT / "reviews/universal/active_source_review.csv")
-    }
+    papers_by_id = {row["paper_id"]: row for row in papers}
     rows = []
-    for paper in papers:
-        review = reviews[paper["paper_id"]]
-        status, venue_type = publication_status(paper)
+    for source in read_csv(AUTHORITATIVE):
+        paper = papers_by_id[source["paper_id"]]
         rows.append(
             {
                 "paper_id": paper["paper_id"],
@@ -86,26 +70,26 @@ def canonical_rows() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
                 "authors": paper["authors"],
                 "year": paper["year"],
                 "venue": paper["venue"],
-                "venue_family": venue_family(paper["venue"]),
-                "venue_type": venue_type,
+                "venue_family": source["venue_family"],
+                "venue_type": source["venue_type"],
                 "doi": paper["doi"],
                 "primary_url": paper["primary_url"],
                 "open_access_url": paper["open_access_url"],
-                "publication_status": status,
+                "publication_status": source["publication_status"],
                 "scope_relation": paper["scope_relation"],
-                "primary_role": paper["primary_category"],
+                "primary_role": source["primary_role"],
                 "interaction_dependency": paper["multiagent_dependency"],
-                "security_relevance": review["scope_rationale"],
-                "evidence_level": review["review_status"],
-                "evidence_locator": review["evidence_locators"],
+                "security_relevance": source["security_relevance"],
+                "evidence_level": source["evidence_level"],
+                "evidence_locator": source["evidence_locator"],
                 "discovery_source": paper["discovery_source"],
                 "cutoff": CUTOFF,
-                "cutoff_basis": "first version available before cutoff",
+                "cutoff_basis": source["cutoff_basis"],
                 "note_path": paper["note_path"],
             }
         )
     rows.sort(key=lambda row: (int(row["year"]), row["title"].lower()))
-    return rows, {row["paper_id"]: row for row in papers}
+    return rows, papers_by_id
 
 
 def canonical_nonpeer_rows(papers: dict[str, dict[str, str]]) -> list[dict[str, str]]:
@@ -242,28 +226,18 @@ def main() -> None:
         "scope_relation", "screening_status", "threshold_rule", "cutoff",
         "semantic_scholar_id",
     ]
+    authoritative_nonpeer = read_csv(
+        SOURCE_PACKAGE / "multiagent_security_non_peer_citations_gt_10.csv"
+    )
     write_csv(
         ROOT / "corpus/final/non_peer_included_citations_gt_10.csv",
         included_nonpeer_fields,
-        canonical_nonpeer_rows(papers),
+        authoritative_nonpeer,
     )
-
-    candidate_fields = [
-        "record_id", "title", "publication_date", "venue", "arxiv_id",
-        "doi", "primary_url", "citations", "citation_source",
-        "citation_snapshot_date", "recommended_scope", "gate_decision",
-        "source_review_status", "threshold_rule", "cutoff",
-        "semantic_scholar_id",
-    ]
     write_csv(
         ROOT / "corpus/final/non_peer_citations_gt_10.csv",
-        candidate_fields,
-        nonpeer_candidate_rows(10, strict=True),
-    )
-    write_csv(
-        ROOT / "corpus/final/non_peer_candidates_citations_gte_10.csv",
-        candidate_fields,
-        nonpeer_candidate_rows(10, strict=False),
+        included_nonpeer_fields,
+        authoritative_nonpeer,
     )
 
 

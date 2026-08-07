@@ -165,10 +165,10 @@ FINAL_PAPER_FIELDS = [
     "note_path",
 ]
 FINAL_NONPEER_FIELDS = [
-    "record_id", "title", "publication_date", "venue", "arxiv_id", "doi",
+    "paper_id", "title", "year", "venue", "arxiv_id", "doi",
     "primary_url", "citations", "citation_source", "citation_snapshot_date",
-    "recommended_scope", "gate_decision", "source_review_status",
-    "threshold_rule", "cutoff", "semantic_scholar_id",
+    "scope_relation", "screening_status", "threshold_rule", "cutoff",
+    "semantic_scholar_id",
 ]
 FINAL_INCLUDED_NONPEER_FIELDS = [
     "paper_id", "title", "year", "venue", "arxiv_id", "doi",
@@ -192,7 +192,7 @@ VERIFICATION_STATES = {
     "fully_reviewed",
 }
 INCLUSION_STATES = {"included", "excluded", "pending"}
-PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "general"}
+PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "survey", "general"}
 SCOPE_RELATIONS = {"core_security", "security_relevant", "adjacent"}
 ATTACK_EVIDENCE_STATES = {
     "confirmed_attack_bearing", "confirmed_attack_bearing_secondary",
@@ -319,8 +319,6 @@ def main() -> int:
     sok_ids = [row["sok_id"].strip() for row in sok_papers]
     if duplicates(sok_ids):
         errors.append("sok_related/papers.csv contains duplicate sok_id values")
-    if corpus_ids.intersection(sok_ids):
-        errors.append("sok-related works must not appear in the research corpus")
     expected_sok_bib_keys = {
         row["bibtex_key"].strip() for row in sok_papers
     }
@@ -349,12 +347,19 @@ def main() -> int:
             errors.append(
                 f"sok_related/papers.csv:{line}: invalid cutoff status"
             )
-        expected_cutoff = (
-            "pre_cutoff"
-            if row["first_public_date"] < "2026-07-01"
-            else "post_cutoff"
-        )
-        if row["cutoff_status"] != expected_cutoff:
+        first_public_date = row["first_public_date"]
+        expected_cutoff = None
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", first_public_date):
+            expected_cutoff = (
+                "pre_cutoff"
+                if first_public_date < "2026-07-01"
+                else "post_cutoff"
+            )
+        elif first_public_date != "Not reported":
+            errors.append(
+                f"sok_related/papers.csv:{line}: invalid first public date"
+            )
+        if expected_cutoff and row["cutoff_status"] != expected_cutoff:
             errors.append(
                 f"sok_related/papers.csv:{line}: cutoff status/date mismatch"
             )
@@ -378,17 +383,16 @@ def main() -> int:
             errors.append(f"{label} contains duplicate paper IDs")
         if not set(ids).issubset(corpus_ids):
             errors.append(f"{label} contains papers outside the canonical corpus")
-    influential_ids = {
-        row["record_id"]
-        for row in peer_first
-        if row["peer_first_stratum"] == "influential_non_peer"
-    }
-    exported_candidate_ids = [row["record_id"] for row in final_nonpeer]
-    if set(exported_candidate_ids) != influential_ids:
+    exported_candidate_ids = [row["paper_id"] for row in final_nonpeer]
+    included_nonpeer_ids = [
+        row["paper_id"] for row in final_included_nonpeer
+    ]
+    if set(exported_candidate_ids) != set(included_nonpeer_ids):
         errors.append(
-            "non_peer_citations_gt_10.csv must contain every influential "
-            "non-peer candidate"
+            "the two authoritative non-peer exports must contain the same IDs"
         )
+    if not set(exported_candidate_ids).issubset(corpus_ids):
+        errors.append("non-peer export contains papers outside the canonical corpus")
     if duplicates(exported_candidate_ids):
         errors.append("non_peer_citations_gt_10.csv contains duplicate record IDs")
     for line, row in enumerate(final_all, start=2):
@@ -818,6 +822,12 @@ def main() -> int:
         "source_reviewed_pending_author_signoff",
         "blocked_pending_exact_source",
         "blocked_metadata_signoff",
+        "official_metadata_and_abstract_screened",
+        "official_arxiv_metadata_and_abstract_screened",
+        "official_workshop_metadata_and_full_text_screened",
+        "boundary_full_text_screened",
+        "full_text_scope_screened",
+        "claim_level_review_required",
     }
     for line, row in enumerate(universal_source_review, start=2):
         paper_id = row["paper_id"].strip()
@@ -996,7 +1006,7 @@ def main() -> int:
         f"{len(cross_category_review)} cross-category reviews; "
         f"{len(universal_review)} papers in the universal checklist; "
         f"{len(final_all)} papers in the canonical final export; "
-        f"{len(sok_papers)} works in the separate SoK-related set; "
+        f"{len(sok_papers)} works in the supporting SoK-related view; "
         f"{len(universal_source_corrections)} universal source-review "
         "corrections."
     )

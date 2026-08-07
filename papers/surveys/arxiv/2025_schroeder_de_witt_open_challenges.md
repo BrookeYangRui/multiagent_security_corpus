@@ -13,7 +13,7 @@ BibTeX key: schroederdewitt2025openchallenges
 ## Paper Type
 Survey; Position paper
 
-Primary category: Not applicable; separate `sok_related` set
+Primary category: survey
 
 Scope relation: direct
 

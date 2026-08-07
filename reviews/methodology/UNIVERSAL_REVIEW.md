@@ -6,18 +6,18 @@ counting; it does not determine whether the paper contains attack evidence.
 
 ## Files
 
-- `reviews/queues/universal.csv`: master checklist for all 107 research papers.
+- `reviews/queues/universal.csv`: master checklist for all 142 canonical works.
 - `reviews/queues/load_bearing.csv`: 20 load-bearing papers, including source
   blockers.
-- `reviews/queues/standard_attack.csv`: 42 attack-primary papers.
-- `reviews/queues/cross_category.csv`: 45 defense, evaluation, and general
+- `reviews/queues/standard_attack.csv`: 45 attack-primary papers.
+- `reviews/queues/cross_category.csv`: 77 defense, evaluation, survey, and general
   papers requiring attack-bearing screening.
 
-The three review tracks are mutually exclusive and jointly cover all 107
-structured research papers. All 107 have an active source-review proposal in
+The three review tracks are mutually exclusive and jointly cover all 142
+canonical works. All 142 have an active source-review row in
 `reviews/universal/active_source_review.csv`; every row still requires named
-human signoff or resolution of its explicit blocker. SoK-related works use a
-separate supporting-literature denominator.
+human signoff or resolution of its explicit blocker. The SoK-related supporting
+view may overlap the corpus and is not added to the canonical denominator.
 
 ## Minimum Review
 

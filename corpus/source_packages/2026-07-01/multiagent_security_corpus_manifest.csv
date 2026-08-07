@@ -1,0 +1,8 @@
+﻿file,records,sha256,description,literature_cutoff,citation_snapshot
+multiagent_security_all_relevant_to_2026-07-01.csv,142,cda8dc3b1cc24f5abbc046d7735ec870a6e8d5fb1994837d1d0c58689c804bf0,Search-closed all-relevant academic corpus,2026-07-01,
+multiagent_security_peer_reviewed_to_2026-07-01.csv,90,f7a51877a2bb4611c2ecbddb01c95eb587c33c9116802d492865ddc02772d727,Archival peer-reviewed conference and journal backbone,2026-07-01,
+multiagent_security_non_peer_citations_gt_10.csv,19,3b0eaeb39dcef479267fc48449a98ac82ef1046016b2237a4a0020e9497629fc,High-uptake non-archival or non-backbone retrieval set with citations greater than 10,2026-07-01,2026-08-06
+multiagent_security_cves_verified_expanded_to_2026-07-01.csv,52,46c1ef2e46178f5122dd6a78b205942f03a447fbb29dff9cdb725a96b897e7fe,Verified and source-linked CVE/advisory evidence,2026-07-01,
+multiagent_security_industry_reports_to_2026-07-01.csv,16,8ff3a71f5aee60a0ceb8242dcd552201ccded4a9a82dfa55cf0e4530153323ea,"Official practitioner, nonprofit, and government evidence",2026-07-01,
+multiagent_security_strongly_related_soks_to_2026-07-01.csv,14,18297a578171adeb4183e937e64ed67b136e0fa0acd566631506fe3ec3954129,"Closest SoKs, surveys, reviews, and challenge papers",2026-07-01,
+README_multiagent_security_corpus_2026-07-01.md,,d160783494fe2ec60bf0290a5ef614d29979e9d09a9998b3b1158f32b67bca08,"Methodology, definitions, counts, and limitations",2026-07-01,

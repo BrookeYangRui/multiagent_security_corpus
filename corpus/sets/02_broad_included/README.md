@@ -36,23 +36,23 @@ must not enter corpus-level denominators. Unresolved records are not exclusions.
 | ACL | 11 |
 | Findings of ACL | 5 |
 | AAAI | 5 |
-| AAAI proceedings | 4 |
-| FINDINGS ACL | 4 |
 | NeurIPS | 3 |
-| EMNLP MAIN | 3 |
-| Formal proceedings (10.48448 DOI) | 3 |
+| AAAI proceedings | 3 |
 | Findings of EMNLP | 2 |
 | Conference on Empirical Methods in Natural Language Processing | 2 |
 | The Web Conference | 2 |
-| ACL LONG | 2 |
+| EMNLP MAIN | 2 |
 | EMNLP | 2 |
+| FINDINGS ACL | 2 |
+| Findings of ACL 2026 | 2 |
 | IJCNLP-AACL | 2 |
+| Formal proceedings (10.48448 DOI) | 2 |
 | Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems | 2 |
 | ICML | 1 |
 | COLM 2024 | 1 |
 | International Conference on Learning Representations | 1 |
-| North American Chapter of the Association for Computational Linguistics | 1 |
-| Trans. Mach. Learn. Res. | 1 |
+| NAACL 2025 | 1 |
+| Transactions on Machine Learning Research | 1 |
 | COLM | 1 |
 | Findings of EACL | 1 |
 | ESORICS 2025 International Workshops | 1 |
@@ -63,32 +63,37 @@ must not enter corpus-level denominators. Unresolved records are not exclusions.
 | Chinese Journal of Aeronautics | 1 |
 | IEEE Access | 1 |
 | 2026 Joint European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit) | 1 |
-| 2025 3rd International Conference on Foundation and Large Language Models (FLLM) | 1 |
+| FLLM 2025 | 1 |
 | International Conference on Agents | 1 |
 | ICMLA | 1 |
-| IEEE International Conference on Information Reuse and Integration | 1 |
+| IEEE IRI 2025 | 1 |
 | IEEE/RJS International Conference on Intelligent RObots and Systems | 1 |
-| International Symposium on Image and Signal Processing and Analysis | 1 |
+| IEEE ISPA 2025 | 1 |
 | 2024 IEEE Intelligent Vehicles Symposium (IV) | 1 |
 | IEEE Transactions on Computational Social Systems | 1 |
 | IEEE Transactions on Pattern Analysis and Machine Intelligence | 1 |
 | IEEE International WIE Conference on Electrical and Computer Engineering | 1 |
-| ACM Asia Conference on Computer and Communications Security | 1 |
+| ACM AsiaCCS 2026 | 1 |
 | ACM CAIS 2026 | 1 |
 | Proceedings of the 2025 6th International Conference on Computer Science and Management Technology | 1 |
 | Proceedings of the 3rd ACM International Conference on AI-Powered Software | 1 |
-| Proceedings of the 2026 International Conference on Generative Artificial Intelligence and Education | 1 |
+| GAIE 2026 | 1 |
 | International Journal of Advanced Computer Science and Applications | 1 |
+| AAAI 2026 | 1 |
 | AAAI Symposium Series | 1 |
-| REALM 1 | 1 |
+| ACL 2025 | 1 |
+| EMNLP 2025 | 1 |
+| REALM Workshop at ACL 2025 | 1 |
+| ACL LONG | 1 |
 | EACL DEMO | 1 |
 | EACL LONG | 1 |
 | FINDINGS EACL | 1 |
 | Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences | 1 |
 | Annual Meeting of the Association for Computational Linguistics | 1 |
-| International Conference on Agents and Artificial Intelligence | 1 |
-| International Conference on Evaluation of Novel Approaches to Software Engineering | 1 |
-| Neural Information Processing Systems | 1 |
+| EACL 2026 Industry Track | 1 |
+| ICAART 2026 | 1 |
+| ENASE 2026 | 1 |
+| NeurIPS 2024 | 1 |
 | AAMAS | 1 |
 
 ## Rebuild

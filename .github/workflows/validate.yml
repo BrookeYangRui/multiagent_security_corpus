@@ -22,6 +22,7 @@ jobs:
       - name: Validate corpus
         run: |
           python scripts/build_peer_first_eligibility.py --check
+          python scripts/import_authoritative_142.py
           python scripts/build_universal_review_queue.py
           python scripts/build_corpus_sets.py
           python scripts/build_final_exports.py

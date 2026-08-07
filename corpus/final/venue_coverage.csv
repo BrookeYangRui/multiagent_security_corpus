@@ -1,26 +1,41 @@
 venue_family,venue_type,paper_count,core_security,security_relevant,adjacent,cutoff
-AAAI,conference,8,4,4,0,2026-07-01
-AAAI Symposium Series,conference,1,1,0,0,2026-07-01
-AAMAS,conference,3,1,1,1,2026-07-01
-ACL,conference,15,12,2,1,2026-07-01
-ACL Findings,conference,10,9,1,0,2026-07-01
+AAAI,conference,9,5,4,0,2026-07-01
+AAAI Symposium Series,conference,1,0,1,0,2026-07-01
+AAMAS,conference,2,0,2,0,2026-07-01
+ACL,conference,15,12,3,0,2026-07-01
+ACL Findings,conference,12,10,2,0,2026-07-01
 ACL System Demonstrations,conference,1,0,1,0,2026-07-01
+ACL Workshop,conference,1,1,0,0,2026-07-01
+ACM AsiaCCS,conference,1,0,1,0,2026-07-01
 ACM CCS,conference,1,0,1,0,2026-07-01
-COLM,conference,3,2,1,0,2026-07-01
+ACM Computing Surveys,journal,2,0,2,0,2026-07-01
+AI Open,journal,1,0,1,0,2026-07-01
+AI and Ethics,journal,1,0,1,0,2026-07-01
+COLM,conference,3,3,0,0,2026-07-01
 CVPR,conference,1,1,0,0,2026-07-01
-EMNLP,conference,2,2,0,0,2026-07-01
+Chinese Journal of Aeronautics,journal,1,1,0,0,2026-07-01
+EACL,conference,1,0,1,0,2026-07-01
+EMNLP,conference,3,1,2,0,2026-07-01
+ENASE 2026,conference,1,0,1,0,2026-07-01
 ESORICS 2025 International Workshops,conference,1,1,0,0,2026-07-01
+FLLM 2025,conference,1,1,0,0,2026-07-01
+GAIE 2026,conference,1,1,0,0,2026-07-01
+ICAART 2026,conference,1,0,1,0,2026-07-01
 ICLR,conference,3,3,0,0,2026-07-01
 ICML,conference,5,4,1,0,2026-07-01
 IEEE Access,journal,1,1,0,0,2026-07-01
+IEEE IRI 2025,conference,1,1,0,0,2026-07-01
+IEEE ISPA 2025,conference,1,0,1,0,2026-07-01
 IEEE S&P,conference,1,0,1,0,2026-07-01
 IEEE Transactions on Computational Social Systems,journal,1,0,1,0,2026-07-01
 IJCNLP-AACL,conference,2,2,0,0,2026-07-01
-IWCMC,conference,1,1,0,0,2026-07-01
 Information Processing & Management,journal,1,1,0,0,2026-07-01
-Journal of Cybersecurity and Privacy,journal,1,1,0,0,2026-07-01
-NeurIPS,conference,3,2,1,0,2026-07-01
+KDD,conference,1,0,1,0,2026-07-01
+NAACL,conference,1,0,1,0,2026-07-01
+NeurIPS,conference,4,2,2,0,2026-07-01
 Science China Information Sciences,journal,1,1,0,0,2026-07-01
 Scientific Reports,journal,1,1,0,0,2026-07-01
 The Web Conference,conference,1,1,0,0,2026-07-01
-USENIX Security,conference,1,1,0,0,2026-07-01
+Transactions on Machine Learning Research,journal,1,0,1,0,2026-07-01
+USENIX Security,conference,2,1,1,0,2026-07-01
+npj Artificial Intelligence,journal,1,1,0,0,2026-07-01

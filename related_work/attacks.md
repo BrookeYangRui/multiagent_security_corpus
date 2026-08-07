@@ -45,13 +45,13 @@ The four-family check is recorded row by row in
 The 20 load-bearing papers selected for source review are listed in
 `reviews/queues/load_bearing.csv`. All received a source-level review, but
 none is human-verified: 18 await author signoff and two retain explicit source
-blockers. The remaining 42 attack-primary papers are in
-`reviews/queues/standard_attack.csv`. The two queues jointly cover all 55
+blockers. The remaining 45 attack-primary papers are in
+`reviews/queues/standard_attack.csv`. The two queues jointly cover all 58
 attack-primary papers because reclassification leaves 13 attack papers and
 seven defense/evaluation papers in the load-bearing queue.
 
 Attack-bearing evidence is not restricted to attack-primary papers. The master
-checklist in `reviews/queues/universal.csv` also assigns 45 remaining defense,
-evaluation, and general papers to cross-category screening. Together, the three
-mutually exclusive tracks cover all 107 research papers; all 107 have active
+checklist in `reviews/queues/universal.csv` also assigns 77 remaining defense,
+evaluation, survey, and general papers to cross-category screening. Together,
+the three mutually exclusive tracks cover all 142 canonical works; all 142 have active
 source-review proposals, but none is human-verified without named signoff.

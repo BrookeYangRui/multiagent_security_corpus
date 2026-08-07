@@ -1,9 +1,10 @@
 # Multi-Agent Security SoKs and Surveys
 
-This directory contains notes for the separate `sok_related` supporting set.
-These works are not counted in the canonical research corpus.
+This directory contains survey, SoK, perspective, review, and comparator notes.
+Seven notes belong to survey-primary works in the canonical 142-work corpus;
+the wider 14-work `sok_related` view intentionally overlaps that corpus.
 
-Only reviews, SoKs, perspectives, research agendas, and risk taxonomies whose
-central object is security or risk in interacting multi-agent systems belong
-here. General AI-agent security surveys with only incidental multi-agent
-coverage are excluded in `../../sok_related/exclusions.csv`.
+Direct multi-agent security syntheses and the authoritative package's closest
+agentic-security comparators are both filed here. Use `relation_level` and
+`multiagent_security_centrality` in `../../sok_related/papers.csv` to distinguish
+them, and never add the supporting-view count to the canonical denominator.

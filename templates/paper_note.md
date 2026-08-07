@@ -32,8 +32,7 @@ Select one or more:
 - Empirical study
 - Theoretical analysis
 
-Primary category: attack, defense, evaluation, or general. Survey-primary works
-belong to the separate `sok_related` set and use `Not applicable` here.
+Primary category: attack, defense, evaluation, survey, or general.
 
 Scope relation: core_security, security_relevant, or adjacent
 

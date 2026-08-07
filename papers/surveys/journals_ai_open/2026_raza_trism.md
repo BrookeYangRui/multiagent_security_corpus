@@ -13,7 +13,7 @@ BibTeX key: raza2026trism
 ## Paper Type
 Survey; Position paper
 
-Primary category: Not applicable; separate `sok_related` set
+Primary category: survey
 
 Scope relation: strongly_related
 
