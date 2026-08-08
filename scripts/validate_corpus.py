@@ -388,6 +388,26 @@ def main() -> int:
             f"peer_reviewed.csv must contain the frozen 90-work publication view, "
             f"found {len(final_peer)}"
         )
+    expected_peer_by_id = {
+        row["paper_id"].strip(): row
+        for row in final_all
+        if row["publication_status"].strip() == "peer_reviewed"
+    }
+    actual_peer_by_id = {
+        row["paper_id"].strip(): row
+        for row in final_peer
+    }
+    if set(actual_peer_by_id) != set(expected_peer_by_id):
+        errors.append(
+            "peer_reviewed.csv must exactly project the peer-reviewed IDs from "
+            "all_relevant_papers.csv"
+        )
+    for paper_id in sorted(set(actual_peer_by_id) & set(expected_peer_by_id)):
+        if actual_peer_by_id[paper_id] != expected_peer_by_id[paper_id]:
+            errors.append(
+                f"peer_reviewed.csv row differs from all_relevant_papers.csv: "
+                f"{paper_id}"
+            )
     for line, row in enumerate(final_peer, start=2):
         if row["publication_status"].strip() != "peer_reviewed":
             errors.append(
