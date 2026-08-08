@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "artifact_count": 43,
+  "source_files": [
+    "corpus/sets/05_analysis_specific/evaluation_artifacts.csv",
+    "corpus/sets/05_analysis_specific/evaluation_measurement_coding.csv",
+    "corpus/final/all_relevant_papers.csv"
+  ],
+  "publication_status": {
+    "non_peer_or_unverified": 13,
+    "peer_reviewed": 26,
+    "workshop_or_nonarchival": 4
+  },
+  "venue_type": {
+    "conference": 23,
+    "journal": 3,
+    "preprint": 13,
+    "workshop": 4
+  },
+  "primary_eval_category": {
+    "adaptive_defense_detection": 9,
+    "collective_decision_deception": 8,
+    "delegation_protocol_action": 6,
+    "privacy_information_flow": 6,
+    "propagation_topology": 11,
+    "trace_procedural_compliance": 3
+  },
+  "impact_stage_max": {
+    "S1_observable": 4,
+    "S2_trace": 21,
+    "S3_executed_or_persistent": 17,
+    "S4_deployment": 0,
+    "pending": 1
+  },
+  "interaction_counterfactual": {
+    "component_or_attack_controls": 25,
+    "edge_state_authority_ablation": 8,
+    "matched_architecture": 4,
+    "matched_single_agent": 5,
+    "none_reported": 0,
+    "pending": 1
+  },
+  "availability_kind": {
+    "code_and_data": 1,
+    "code_or_harness": 6,
+    "data_only": 0,
+    "paper_only": 35,
+    "project_page": 0,
+    "unverified": 1
+  },
+  "coding_status": {
+    "assistant_derived_pending_author_signoff": 43
+  },
+  "peer_sensitivity": {
+    "peer_reviewed": {
+      "artifact_count": 26,
+      "venue_type": {
+        "conference": 23,
+        "journal": 3,
+        "preprint": 0,
+        "workshop": 0
+      },
+      "primary_eval_category": {
+        "adaptive_defense_detection": 2,
+        "collective_decision_deception": 7,
+        "delegation_protocol_action": 6,
+        "privacy_information_flow": 4,
+        "propagation_topology": 6,
+        "trace_procedural_compliance": 1
+      },
+      "impact_stage_max": {
+        "S1_observable": 2,
+        "S2_trace": 13,
+        "S3_executed_or_persistent": 10,
+        "S4_deployment": 0,
+        "pending": 1
+      },
+      "interaction_counterfactual": {
+        "component_or_attack_controls": 14,
+        "edge_state_authority_ablation": 6,
+        "matched_architecture": 2,
+        "matched_single_agent": 3,
+        "none_reported": 0,
+        "pending": 1
+      },
+      "availability_kind": {
+        "code_and_data": 1,
+        "code_or_harness": 5,
+        "data_only": 0,
+        "paper_only": 20,
+        "project_page": 0,
+        "unverified": 0
+      }
+    },
+    "other": {
+      "artifact_count": 17,
+      "venue_type": {
+        "conference": 0,
+        "journal": 0,
+        "preprint": 13,
+        "workshop": 4
+      },
+      "primary_eval_category": {
+        "adaptive_defense_detection": 7,
+        "collective_decision_deception": 1,
+        "delegation_protocol_action": 0,
+        "privacy_information_flow": 2,
+        "propagation_topology": 5,
+        "trace_procedural_compliance": 2
+      },
+      "impact_stage_max": {
+        "S1_observable": 2,
+        "S2_trace": 8,
+        "S3_executed_or_persistent": 7,
+        "S4_deployment": 0,
+        "pending": 0
+      },
+      "interaction_counterfactual": {
+        "component_or_attack_controls": 11,
+        "edge_state_authority_ablation": 2,
+        "matched_architecture": 2,
+        "matched_single_agent": 2,
+        "none_reported": 0,
+        "pending": 0
+      },
+      "availability_kind": {
+        "code_and_data": 0,
+        "code_or_harness": 1,
+        "data_only": 0,
+        "paper_only": 15,
+        "project_page": 0,
+        "unverified": 1
+      }
+    }
+  }
+}

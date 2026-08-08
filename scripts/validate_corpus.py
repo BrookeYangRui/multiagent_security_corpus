@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import csv
+import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 
@@ -18,6 +20,12 @@ ANALYSIS_SET = SETS / "05_analysis_specific"
 EXCLUDED_CSV = SEARCH_SET / "structured_exclusions.csv"
 REFERENCES = ROOT / "corpus" / "references.bib"
 EVALUATION_ARTIFACTS = ANALYSIS_SET / "evaluation_artifacts.csv"
+EVALUATION_MEASUREMENT_CODING = (
+    ANALYSIS_SET / "evaluation_measurement_coding.csv"
+)
+EVALUATION_MEASUREMENT_SUMMARY = (
+    ANALYSIS_SET / "evaluation_measurement_summary.json"
+)
 POST_CUTOFF_CSV = SEARCH_SET / "post_cutoff_papers.csv"
 POST_CUTOFF_REFERENCES = SEARCH_SET / "post_cutoff_references.bib"
 ATTACK_SCREENING_CSV = SEARCH_SET / "search_catalog.csv"
@@ -72,7 +80,13 @@ EVALUATION_ARTIFACT_FIELDS = [
     "artifact_id", "artifact_name", "artifact_type", "canonical_paper_id",
     "paper_title", "primary_category", "note_path", "evaluation_focus",
     "unit", "denominator", "metrics", "availability_url",
-    "publication_status", "notes",
+    "publication_status", "notes", "display_venue", "venue_type",
+    "source_version",
+]
+EVALUATION_MEASUREMENT_FIELDS = [
+    "artifact_id", "primary_eval_category", "secondary_eval_categories",
+    "impact_stage_max", "interaction_counterfactual", "availability_kind",
+    "coding_basis", "coding_status", "evidence_locator",
 ]
 POST_CUTOFF_FIELDS = [
     "paper_id", "title", "authors", "source_date", "primary_url",
@@ -194,6 +208,109 @@ VERIFICATION_STATES = {
 INCLUSION_STATES = {"included", "excluded", "pending"}
 PRIMARY_CATEGORIES = {"attack", "defense", "evaluation", "survey", "general"}
 SCOPE_RELATIONS = {"core_security", "security_relevant", "adjacent"}
+EVALUATION_PRIMARY_CATEGORIES = {
+    "propagation_topology",
+    "collective_decision_deception",
+    "privacy_information_flow",
+    "delegation_protocol_action",
+    "trace_procedural_compliance",
+    "adaptive_defense_detection",
+}
+EVALUATION_IMPACT_STAGES = {
+    "S1_observable",
+    "S2_trace",
+    "S3_executed_or_persistent",
+    "S4_deployment",
+    "pending",
+}
+EVALUATION_COUNTERFACTUALS = {
+    "matched_single_agent",
+    "matched_architecture",
+    "edge_state_authority_ablation",
+    "component_or_attack_controls",
+    "none_reported",
+    "pending",
+}
+EVALUATION_AVAILABILITY_KINDS = {
+    "code_and_data",
+    "code_or_harness",
+    "data_only",
+    "project_page",
+    "paper_only",
+    "unverified",
+}
+EVALUATION_CODING_STATUSES = {
+    "assistant_derived_pending_author_signoff",
+}
+EXPECTED_EVALUATION_PRIMARY_COUNTS = {
+    "adaptive_defense_detection": 9,
+    "collective_decision_deception": 8,
+    "delegation_protocol_action": 6,
+    "privacy_information_flow": 6,
+    "propagation_topology": 11,
+    "trace_procedural_compliance": 3,
+}
+EXPECTED_EVALUATION_PEER_PRIMARY_COUNTS = {
+    "adaptive_defense_detection": 2,
+    "collective_decision_deception": 7,
+    "delegation_protocol_action": 6,
+    "privacy_information_flow": 4,
+    "propagation_topology": 6,
+    "trace_procedural_compliance": 1,
+}
+EXPECTED_EVALUATION_OTHER_PRIMARY_COUNTS = {
+    "adaptive_defense_detection": 7,
+    "collective_decision_deception": 1,
+    "delegation_protocol_action": 0,
+    "privacy_information_flow": 2,
+    "propagation_topology": 5,
+    "trace_procedural_compliance": 2,
+}
+EXPECTED_EVALUATION_ARTIFACT_IDS = {
+    "artifact_tamas",
+    "artifact_aciarena",
+    "artifact_risklab",
+    "artifact_liecraft",
+    "artifact_agentleak",
+    "artifact_pear",
+    "artifact_amongus_aamas",
+    "artifact_magpie",
+    "artifact_gambit",
+    "artifact_gammaf",
+    "artifact_harp",
+    "artifact_calbench",
+    "artifact_colosseum",
+    "artifact_macbench",
+    "artifact_netsafe",
+    "artifact_mama",
+    "artifact_psysafe",
+    "artifact_masleak",
+    "artifact_amongus_attack",
+    "artifact_controlvalve",
+    "artifact_architecture_matters",
+    "artifact_a2asecbench",
+    "artifact_safeagents",
+    "artifact_troublemaker",
+    "artifact_master",
+    "artifact_shadows_code",
+    "artifact_lying_truths",
+    "artifact_hierarchical_attacks",
+    "artifact_faulty_agents",
+    "artifact_financial_fraud",
+    "artifact_trust_paradox",
+    "artifact_prompt_infection",
+    "artifact_whos_mole",
+    "artifact_collaborative_shadows",
+    "artifact_dont_trust_upstream",
+    "artifact_blindguard",
+    "artifact_medsentry",
+    "artifact_badacts",
+    "artifact_sgoatmas",
+    "artifact_misinfotask",
+    "artifact_alteda_traces",
+    "artifact_colludebench_v0",
+    "artifact_valueflow",
+}
 ATTACK_EVIDENCE_STATES = {
     "confirmed_attack_bearing", "confirmed_attack_bearing_secondary",
     "confirmed_attack_mention_only", "confirmed_not_attack_bearing",
@@ -239,6 +356,14 @@ def main() -> int:
         evaluation_artifacts = read_csv(
             EVALUATION_ARTIFACTS, EVALUATION_ARTIFACT_FIELDS
         )
+        evaluation_measurement = read_csv(
+            EVALUATION_MEASUREMENT_CODING,
+            EVALUATION_MEASUREMENT_FIELDS,
+        )
+        evaluation_summary_text = EVALUATION_MEASUREMENT_SUMMARY.read_text(
+            encoding="utf-8"
+        )
+        evaluation_summary = json.loads(evaluation_summary_text)
         post_cutoff = read_csv(POST_CUTOFF_CSV, POST_CUTOFF_FIELDS)
         attack_screening = read_csv(ATTACK_SCREENING_CSV, ATTACK_SCREENING_FIELDS)
         attack_canonical_bridge = read_csv(
@@ -281,7 +406,7 @@ def main() -> int:
         )
         sok_papers = read_csv(SOK_PAPERS_CSV, SOK_FIELDS)
         sok_exclusions = read_csv(SOK_EXCLUSIONS_CSV, SOK_EXCLUSION_FIELDS)
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
 
@@ -369,6 +494,7 @@ def main() -> int:
     if set(sok_ids).intersection(excluded_sok_ids):
         errors.append("a work cannot be both SoK-related included and excluded")
     final_ids = [row["paper_id"].strip() for row in final_all]
+    final_by_id = {row["paper_id"].strip(): row for row in final_all}
     if len(final_ids) != len(corpus_ids) or set(final_ids) != corpus_ids:
         errors.append(
             "all_relevant_papers.csv must exactly equal the canonical papers.csv ID set"
@@ -955,11 +1081,20 @@ def main() -> int:
     artifact_ids = [row["artifact_id"].strip() for row in evaluation_artifacts]
     for value in sorted(duplicates(artifact_ids)):
         errors.append(f"duplicate evaluation artifact_id: {value}")
-    if len(evaluation_artifacts) != 43:
+    artifact_id_set = set(artifact_ids)
+    if (
+        len(evaluation_artifacts) != len(EXPECTED_EVALUATION_ARTIFACT_IDS)
+        or artifact_id_set != EXPECTED_EVALUATION_ARTIFACT_IDS
+    ):
         errors.append(
-            f"evaluation_artifacts.csv must contain the frozen 43-artifact view, "
-            f"found {len(evaluation_artifacts)}"
+            "evaluation_artifacts.csv must exactly equal the frozen "
+            f"{len(EXPECTED_EVALUATION_ARTIFACT_IDS)}-artifact ID set"
         )
+    artifact_canonical_ids = [
+        row["canonical_paper_id"].strip() for row in evaluation_artifacts
+    ]
+    for value in sorted(duplicates(artifact_canonical_ids)):
+        errors.append(f"duplicate evaluation canonical_paper_id: {value}")
     for field in ("unit", "denominator", "metrics"):
         descriptions = [row[field].strip() for row in evaluation_artifacts]
         if any(not value for value in descriptions):
@@ -969,6 +1104,21 @@ def main() -> int:
                 f"evaluation_artifacts.csv: {field} descriptions are not "
                 "lexically unique in the frozen 43-artifact view"
             )
+
+    measurement_ids = [
+        row["artifact_id"].strip() for row in evaluation_measurement
+    ]
+    for value in sorted(duplicates(measurement_ids)):
+        errors.append(f"duplicate evaluation measurement artifact_id: {value}")
+    if (
+        len(evaluation_measurement) != len(EXPECTED_EVALUATION_ARTIFACT_IDS)
+        or set(measurement_ids) != EXPECTED_EVALUATION_ARTIFACT_IDS
+        or set(measurement_ids) != artifact_id_set
+    ):
+        errors.append(
+            "evaluation_measurement_coding.csv must exactly equal the frozen "
+            "evaluation artifact ID set"
+        )
 
     for line, row in enumerate(papers, start=2):
         paper_id = row["paper_id"].strip()
@@ -1005,6 +1155,15 @@ def main() -> int:
             elif not note_path.is_relative_to(ROOT / "papers"):
                 errors.append(f"papers.csv:{line}: note is outside papers/: {note}")
 
+    artifact_by_id = {
+        row["artifact_id"].strip(): row for row in evaluation_artifacts
+    }
+    canonical_category_to_artifact_category = {
+        "attack": "attacks",
+        "defense": "defenses",
+        "evaluation": "evaluations",
+        "general": "general",
+    }
     for line, row in enumerate(evaluation_artifacts, start=2):
         artifact_id = row["artifact_id"].strip()
         canonical_id = row["canonical_paper_id"].strip()
@@ -1015,26 +1174,313 @@ def main() -> int:
             errors.append(
                 f"evaluation_artifacts.csv:{line}: missing artifact_id"
             )
-        if canonical_id not in papers_by_id:
+        canonical_paper = papers_by_id.get(canonical_id)
+        if canonical_paper is None:
             errors.append(
                 f"evaluation_artifacts.csv:{line}: unknown canonical_paper_id: "
                 f"{canonical_id}"
             )
-        elif note != papers_by_id[canonical_id]["note_path"].strip():
-            errors.append(
-                f"evaluation_artifacts.csv:{line}: note_path does not match "
-                f"canonical paper: {note}"
+        else:
+            if note != canonical_paper["note_path"].strip():
+                errors.append(
+                    f"evaluation_artifacts.csv:{line}: note_path does not match "
+                    f"canonical paper: {note}"
+                )
+            if row["paper_title"].strip() != canonical_paper["title"].strip():
+                errors.append(
+                    f"evaluation_artifacts.csv:{line}: paper_title does not "
+                    f"match canonical paper: {artifact_id}"
+                )
+            expected_category = canonical_category_to_artifact_category.get(
+                canonical_paper["primary_category"].strip()
             )
+            if category != expected_category:
+                errors.append(
+                    f"evaluation_artifacts.csv:{line}: primary_category does "
+                    f"not match canonical paper: {artifact_id}"
+                )
         if category not in {"attacks", "defenses", "evaluations", "general"}:
             errors.append(
                 f"evaluation_artifacts.csv:{line}: invalid primary_category: "
                 f"{category}"
+            )
+        canonical_export = final_by_id.get(canonical_id)
+        if canonical_export is None:
+            errors.append(
+                f"evaluation_artifacts.csv:{line}: canonical paper absent from "
+                f"all_relevant_papers.csv: {canonical_id}"
+            )
+        else:
+            export_fields = {
+                "paper_title": "title",
+                "note_path": "note_path",
+                "publication_status": "publication_status",
+                "display_venue": "venue",
+                "venue_type": "venue_type",
+            }
+            for artifact_field, export_field in export_fields.items():
+                if row[artifact_field].strip() != canonical_export[
+                    export_field
+                ].strip():
+                    errors.append(
+                        f"evaluation_artifacts.csv:{line}: {artifact_field} "
+                        f"does not match final export for {artifact_id}"
+                    )
+        if not row["source_version"].strip():
+            errors.append(
+                f"evaluation_artifacts.csv:{line}: blank source_version"
+            )
+        if not row["availability_url"].strip().startswith(
+            ("https://", "http://")
+        ):
+            errors.append(
+                f"evaluation_artifacts.csv:{line}: invalid availability_url"
             )
         note_path = ROOT / note
         if not note or not note_path.is_file():
             errors.append(
                 f"evaluation_artifacts.csv:{line}: note does not exist: {note}"
             )
+
+    measurement_by_id = {
+        row["artifact_id"].strip(): row for row in evaluation_measurement
+    }
+    for line, row in enumerate(evaluation_measurement, start=2):
+        artifact_id = row["artifact_id"].strip()
+        primary = row["primary_eval_category"].strip()
+        secondary = [
+            value.strip()
+            for value in row["secondary_eval_categories"].split(";")
+            if value.strip()
+        ]
+        impact = row["impact_stage_max"].strip()
+        counterfactual = row["interaction_counterfactual"].strip()
+        availability = row["availability_kind"].strip()
+        coding_status = row["coding_status"].strip()
+        if primary not in EVALUATION_PRIMARY_CATEGORIES:
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: invalid primary "
+                f"category: {primary}"
+            )
+        if len(secondary) != len(set(secondary)):
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: duplicate secondary "
+                f"category: {artifact_id}"
+            )
+        for value in secondary:
+            if value not in EVALUATION_PRIMARY_CATEGORIES:
+                errors.append(
+                    f"evaluation_measurement_coding.csv:{line}: invalid "
+                    f"secondary category: {value}"
+                )
+            if value == primary:
+                errors.append(
+                    f"evaluation_measurement_coding.csv:{line}: primary category "
+                    f"repeated as secondary: {artifact_id}"
+                )
+        if impact not in EVALUATION_IMPACT_STAGES:
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: invalid impact "
+                f"stage: {impact}"
+            )
+        if counterfactual not in EVALUATION_COUNTERFACTUALS:
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: invalid "
+                f"counterfactual: {counterfactual}"
+            )
+        if availability not in EVALUATION_AVAILABILITY_KINDS:
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: invalid "
+                f"availability kind: {availability}"
+            )
+        if coding_status not in EVALUATION_CODING_STATUSES:
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: invalid coding "
+                f"status: {coding_status}"
+            )
+        for field in ("coding_basis", "coding_status", "evidence_locator"):
+            if not row[field].strip():
+                errors.append(
+                    f"evaluation_measurement_coding.csv:{line}: blank {field}"
+                )
+        artifact = artifact_by_id.get(artifact_id)
+        if artifact and not row["evidence_locator"].strip().startswith(
+            artifact["note_path"].strip() + "#"
+        ):
+            errors.append(
+                f"evaluation_measurement_coding.csv:{line}: evidence locator "
+                f"does not start with the canonical note path: {artifact_id}"
+            )
+
+    if any(
+        row["impact_stage_max"].strip() == "S4_deployment"
+        for row in evaluation_measurement
+    ):
+        errors.append(
+            "the frozen 43-artifact view has no S4 deployment evidence; "
+            "platform or sandbox cases cannot substitute for an exposure, "
+            "control, incident, and recovery denominator"
+        )
+
+    a2a_measurement = measurement_by_id.get("artifact_a2asecbench")
+    if a2a_measurement is not None:
+        if a2a_measurement["impact_stage_max"].strip() != "pending":
+            errors.append(
+                "A2ASecBench impact_stage_max must remain pending while its "
+                "exact-full-text source blocker is unresolved"
+            )
+        if a2a_measurement["availability_kind"].strip() != "code_and_data":
+            errors.append(
+                "A2ASecBench availability must preserve the separately "
+                "evidenced code-and-data release"
+            )
+        if a2a_measurement["interaction_counterfactual"].strip() != "pending":
+            errors.append(
+                "A2ASecBench interaction counterfactual must remain pending "
+                "while its exact-full-text source blocker is unresolved"
+            )
+
+    joined_measurements = []
+    for artifact in evaluation_artifacts:
+        artifact_id = artifact["artifact_id"].strip()
+        measurement = measurement_by_id.get(artifact_id)
+        canonical_export = final_by_id.get(
+            artifact["canonical_paper_id"].strip()
+        )
+        if measurement is not None and canonical_export is not None:
+            joined_measurements.append((measurement, canonical_export))
+
+    def complete_counts(
+        values: list[str], domain: set[str] | None = None
+    ) -> dict[str, int]:
+        counts = Counter(values)
+        keys = domain if domain is not None else set(counts)
+        return {key: counts[key] for key in sorted(keys)}
+
+    def count_joined(
+        field: str, domain: set[str] | None = None
+    ) -> dict[str, int]:
+        return complete_counts(
+            [
+                measurement[field].strip()
+                for measurement, _ in joined_measurements
+            ],
+            domain,
+        )
+
+    def count_export(
+        field: str, domain: set[str] | None = None
+    ) -> dict[str, int]:
+        return complete_counts(
+            [
+                export[field].strip()
+                for _, export in joined_measurements
+            ],
+            domain,
+        )
+
+    def sensitivity_summary(peer_reviewed: bool) -> dict[str, object]:
+        selected = [
+            (measurement, export)
+            for measurement, export in joined_measurements
+            if (export["publication_status"].strip() == "peer_reviewed")
+            is peer_reviewed
+        ]
+
+        def count_selected(
+            field: str, domain: set[str], from_export: bool = False
+        ) -> dict[str, int]:
+            return complete_counts(
+                [
+                    (export if from_export else measurement)[field].strip()
+                    for measurement, export in selected
+                ],
+                domain,
+            )
+
+        return {
+            "artifact_count": len(selected),
+            "venue_type": count_selected(
+                "venue_type",
+                {"conference", "journal", "preprint", "workshop"},
+                from_export=True,
+            ),
+            "primary_eval_category": count_selected(
+                "primary_eval_category", EVALUATION_PRIMARY_CATEGORIES
+            ),
+            "impact_stage_max": count_selected(
+                "impact_stage_max", EVALUATION_IMPACT_STAGES
+            ),
+            "interaction_counterfactual": count_selected(
+                "interaction_counterfactual", EVALUATION_COUNTERFACTUALS
+            ),
+            "availability_kind": count_selected(
+                "availability_kind", EVALUATION_AVAILABILITY_KINDS
+            ),
+        }
+
+    expected_evaluation_summary = {
+        "schema_version": 1,
+        "artifact_count": len(joined_measurements),
+        "source_files": [
+            "corpus/sets/05_analysis_specific/evaluation_artifacts.csv",
+            "corpus/sets/05_analysis_specific/evaluation_measurement_coding.csv",
+            "corpus/final/all_relevant_papers.csv",
+        ],
+        "publication_status": count_export("publication_status"),
+        "venue_type": count_export("venue_type"),
+        "primary_eval_category": count_joined(
+            "primary_eval_category", EVALUATION_PRIMARY_CATEGORIES
+        ),
+        "impact_stage_max": count_joined(
+            "impact_stage_max", EVALUATION_IMPACT_STAGES
+        ),
+        "interaction_counterfactual": count_joined(
+            "interaction_counterfactual", EVALUATION_COUNTERFACTUALS
+        ),
+        "availability_kind": count_joined(
+            "availability_kind", EVALUATION_AVAILABILITY_KINDS
+        ),
+        "coding_status": count_joined(
+            "coding_status", EVALUATION_CODING_STATUSES
+        ),
+        "peer_sensitivity": {
+            "peer_reviewed": sensitivity_summary(True),
+            "other": sensitivity_summary(False),
+        },
+    }
+    peer_summary = expected_evaluation_summary["peer_sensitivity"][
+        "peer_reviewed"
+    ]
+    other_summary = expected_evaluation_summary["peer_sensitivity"]["other"]
+    if (
+        expected_evaluation_summary["primary_eval_category"]
+        != EXPECTED_EVALUATION_PRIMARY_COUNTS
+        or peer_summary["artifact_count"] != 26
+        or other_summary["artifact_count"] != 17
+        or peer_summary["primary_eval_category"]
+        != EXPECTED_EVALUATION_PEER_PRIMARY_COUNTS
+        or other_summary["primary_eval_category"]
+        != EXPECTED_EVALUATION_OTHER_PRIMARY_COUNTS
+    ):
+        errors.append(
+            "evaluation measurement coding drifted from the frozen overall "
+            "or peer-sensitivity category distribution"
+        )
+    canonical_evaluation_summary = (
+        json.dumps(expected_evaluation_summary, indent=2, ensure_ascii=True)
+        + "\n"
+    )
+    if evaluation_summary != expected_evaluation_summary:
+        errors.append(
+            "evaluation_measurement_summary.json does not exactly regenerate "
+            "from the artifact coding and final export"
+        )
+    if evaluation_summary_text != canonical_evaluation_summary:
+        errors.append(
+            "evaluation_measurement_summary.json is not in deterministic "
+            "canonical JSON form"
+        )
 
     if errors:
         for error in errors:
@@ -1044,7 +1490,8 @@ def main() -> int:
     print(
         f"Corpus valid: {len(papers)} paper rows, {len(excluded)} exclusions, "
         f"{len(bib_keys)} BibTeX entries, "
-        f"{len(evaluation_artifacts)} evaluation artifacts, "
+        f"{len(evaluation_artifacts)} evaluation artifacts and "
+        f"{len(evaluation_measurement)} measurement codings, "
         f"{len(post_cutoff)} post-cutoff watchlist records, and "
         f"{len(attack_screening)} search-screening entities; "
         f"{len(peer_first)} canonical broad-inclusion decisions, "

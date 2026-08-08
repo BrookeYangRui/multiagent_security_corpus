@@ -4,9 +4,10 @@
 from 6,105 OpenAlex and Semantic Scholar source-query memberships. It preserves
 query-family provenance, staged decisions, and reasons for exclusion or
 non-resolution. The paper artifact separately releases the prospective literal
-queries, request URLs/order, response digests, an abstract-hash membership
-ledger, and a machine-checked provenance manifest. Original API response bodies
-are withheld from the public artifact pending source-license review.
+queries, request URLs/order, retrieval-time response-body digests, an
+abstract-hash membership ledger, and a machine-checked provenance manifest.
+Parsed API payloads and third-party abstract text are withheld pending
+source-license review; original HTTP bytes and headers were not preserved.
 
 Final screening outcomes include 326 inclusion records and 343 unresolved
 records. Inclusion records are canonicalized at work level in
