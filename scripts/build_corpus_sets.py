@@ -350,7 +350,7 @@ def main() -> None:
 
     gate_counts = Counter(row["gate_decision"] for row in taxonomy_rows)
     manifest_rows = [
-        {"set_id": "search_catalog", "count": str(len(search)), "status": "frozen", "unit": "retrieved record", "source": str(SEARCH.relative_to(ROOT))},
+        {"set_id": "search_catalog", "count": str(len(search)), "status": "frozen", "unit": "transitively deduplicated search entity", "source": str(SEARCH.relative_to(ROOT))},
         {"set_id": "broad_included", "count": str(len(broad)), "status": "frozen", "unit": "work", "source": str(BROAD.relative_to(ROOT))},
         {"set_id": "structured_corpus", "count": str(len(papers)), "status": "source_reviewed_pending_author_signoff", "unit": "work", "source": str(PAPERS.relative_to(ROOT))},
         {"set_id": "taxonomy_candidates", "count": str(len(taxonomy_rows)), "status": "adjudication_in_progress", "unit": "work", "source": str(TAXONOMY.relative_to(ROOT))},

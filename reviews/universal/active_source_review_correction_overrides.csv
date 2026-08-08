@@ -1,0 +1,2 @@
+paper_id,field_or_category,previous_correction,active_correction,change_reason,evidence_source
+hu2026lying_truths,Evidence locator,Tie ASR and downstream rates to the exact Sec. 5 tables and CoPHEME denominator.,Tie ASR/downstream rates to Sec. 5; record the Sec. 5.5 Table 3 Full Model versus Single-Agent ablation and classify the effect as interaction-amplified rather than composition-induced.,Refined after locating the single-agent ablation; retains the historical correction without overwriting it.,https://aclanthology.org/2026.acl-long.270/

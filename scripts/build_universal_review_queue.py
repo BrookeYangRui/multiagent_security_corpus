@@ -299,9 +299,37 @@ def main() -> None:
     correction_rows = read_csv(
         review_dir / "universal_source_review_corrections.csv"
     )
+    override_rows = read_csv(
+        review_dir / "active_source_review_correction_overrides.csv"
+    )
+    overrides = {
+        (row["paper_id"], row["field_or_category"]): row
+        for row in override_rows
+    }
+    if len(overrides) != len(override_rows):
+        raise ValueError("duplicate active source-review correction override")
+    matched_overrides = set()
     active_corrections = [
-        row for row in correction_rows if row["paper_id"] in active_ids
+        dict(row) for row in correction_rows if row["paper_id"] in active_ids
     ]
+    for row in active_corrections:
+        key = (row["paper_id"], row["field_or_category"])
+        override = overrides.get(key)
+        if not override:
+            continue
+        if row["recommended_correction"] != override["previous_correction"]:
+            raise ValueError(
+                "active correction override no longer matches historical source: "
+                f"{key}"
+            )
+        row["recommended_correction"] = override["active_correction"]
+        matched_overrides.add(key)
+    missing_overrides = set(overrides) - matched_overrides
+    if missing_overrides:
+        raise ValueError(
+            "active correction overrides did not match active records: "
+            f"{sorted(missing_overrides)}"
+        )
     write_csv(
         review_dir / "active_source_review_corrections.csv",
         active_corrections,
