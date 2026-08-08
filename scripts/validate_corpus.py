@@ -383,6 +383,21 @@ def main() -> int:
             errors.append(f"{label} contains duplicate paper IDs")
         if not set(ids).issubset(corpus_ids):
             errors.append(f"{label} contains papers outside the canonical corpus")
+    if len(final_peer) != 90:
+        errors.append(
+            f"peer_reviewed.csv must contain the frozen 90-work publication view, "
+            f"found {len(final_peer)}"
+        )
+    for line, row in enumerate(final_peer, start=2):
+        if row["publication_status"].strip() != "peer_reviewed":
+            errors.append(
+                f"peer_reviewed.csv:{line}: publication_status is not peer_reviewed"
+            )
+        if row["venue_type"].strip() not in {"conference", "journal"}:
+            errors.append(
+                f"peer_reviewed.csv:{line}: non-archival venue_type: "
+                f"{row['venue_type']}"
+            )
     exported_candidate_ids = [row["paper_id"] for row in final_nonpeer]
     included_nonpeer_ids = [
         row["paper_id"] for row in final_included_nonpeer
@@ -920,6 +935,20 @@ def main() -> int:
     artifact_ids = [row["artifact_id"].strip() for row in evaluation_artifacts]
     for value in sorted(duplicates(artifact_ids)):
         errors.append(f"duplicate evaluation artifact_id: {value}")
+    if len(evaluation_artifacts) != 43:
+        errors.append(
+            f"evaluation_artifacts.csv must contain the frozen 43-artifact view, "
+            f"found {len(evaluation_artifacts)}"
+        )
+    for field in ("unit", "denominator", "metrics"):
+        descriptions = [row[field].strip() for row in evaluation_artifacts]
+        if any(not value for value in descriptions):
+            errors.append(f"evaluation_artifacts.csv: blank {field} description")
+        if len(set(descriptions)) != len(descriptions):
+            errors.append(
+                f"evaluation_artifacts.csv: {field} descriptions are not "
+                "lexically unique in the frozen 43-artifact view"
+            )
 
     for line, row in enumerate(papers, start=2):
         paper_id = row["paper_id"].strip()
