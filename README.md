@@ -20,7 +20,7 @@ cutoff: `2026-07-01 00:00 UTC`.
 | `corpus/evidence/industry_reports.csv` | 16 reports |
 
 Start with `reports/FINAL_SEARCH_CLOSURE.md` for the search sources, screening
-rules, cutoff handling, and evidence limitations. The 2,182-row search catalog
+rules, cutoff handling, and evidence limitations. The 2,182-entity search catalog
 and the 325-work broad screen under `corpus/sets/` are audit and candidate
 ledgers, not included-paper denominators. `corpus/papers.csv` is the sole
 canonical included-paper list; it is imported from the authoritative 142-work
@@ -31,6 +31,8 @@ metadata and must not be added to 142 because seven records overlap.
 
 Paper notes and source reviews remain unverified until named human signoff.
 CVEs and industry material never enter an academic-paper denominator.
+Original annotations/data and scripts are released under the CC BY 4.0/MIT
+terms in `LICENSE`; cited papers and bibliographic facts are not relicensed.
 
 The cross-paper conclusions and manuscript-ready candidate statements are in
 `reports/INSIGHTS.md`. They remain synthesis proposals pending the named human

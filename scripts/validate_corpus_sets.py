@@ -196,7 +196,7 @@ def main() -> int:
         return 1
 
     print(
-        "Corpus sets valid: 2182 search records, 325 broad works, 115 taxonomy "
+        "Corpus sets valid: 2182 search entities, 325 broad works, 115 taxonomy "
         f"candidates, {len(contextual)} contextual works, {len(claims)} claim "
         f"candidates, and {len(eligibility)} audit decisions."
     )

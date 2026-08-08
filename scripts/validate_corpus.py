@@ -997,7 +997,7 @@ def main() -> int:
         f"{len(bib_keys)} BibTeX entries, "
         f"{len(evaluation_artifacts)} evaluation artifacts, "
         f"{len(post_cutoff)} post-cutoff watchlist records, and "
-        f"{len(attack_screening)} attack-screening records; "
+        f"{len(attack_screening)} search-screening entities; "
         f"{len(peer_first)} canonical broad-inclusion decisions, "
         f"{len(attack_canonical_bridge)} canonical attack bridges, "
         f"{len(targeted_attack_gap_search)} targeted gap decisions, and "

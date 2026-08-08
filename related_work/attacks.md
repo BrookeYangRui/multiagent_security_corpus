@@ -5,19 +5,18 @@ below are generated from `corpus/papers.csv` at the frozen 2026-07-01 cutoff.
 
 ## Corpus Boundary
 
-The attack-primary corpus contains 55 canonical papers: 47 `core_security` and
-8 `security_relevant`. Forty-two have a formal conference, journal, workshop,
-or proceedings venue; 13 remain arXiv-only. A paper can describe attacks and
+The frozen imported primary-role field contains 58 attack papers: 44
+`core_security` and 14 `security_relevant`. Forty are in the canonical archival
+publication view and 18 are nonarchival or unresolved. These are paper-placement
+fields pending source signoff, not accepted attack-claim counts. A paper can describe attacks and
 still have another primary category when its main contribution is a benchmark,
 defense, evaluation, or system study.
 
-The deterministic route from retrieval to these 55 papers is recorded in
-`corpus/sets/01_search_catalog/search_catalog.csv` and `corpus/sets/01_search_catalog/canonical_bridges.csv`. The
-retrieved ledger has 2,182 screening records, of which 1,085 enter the attack
-candidate frame. Candidate decisions remain explicit: 40 exact canonical attack
-bindings, 26 bindings to another primary category, 102 eligible backlog records,
-767 screening exclusions, and 150 unresolved records. The remaining 1,097
-retrieved records are outside the attack query frame.
+The search ledger has 2,182 deduplicated entities, while the 142-work canonical
+package is a separate curated mapping set. The released crosswalk links 105
+canonical works to broad inclusions, ten to excluded or unresolved search hits,
+and 27 to no mechanical search match. Accordingly, neither search screening nor
+the imported paper role is treated as a deterministic attack-claim decision.
 
 ## Targeted Gap Check
 
@@ -35,20 +34,21 @@ The four-family check is recorded row by row in
   FuncPoison (`long2025funcpoison`) and OMNI-LEAK (`naik2026omnileak`). XAMT is
   excluded because its LLM-MAS component supplies a formulation and proposed
   protocol rather than demonstrated interacting-agent evidence.
-- No pre-cutoff attack-primary paper demonstrating an LLM-MAS Sybil or identity
-  minting attack was verified. A2ASecBench and BlockA2A remain evaluation- and
+- No retained row is currently coded as an attack-primary LLM-MAS Sybil or
+  identity-minting demonstration. A2ASecBench and BlockA2A remain evaluation- and
   defense-primary evidence for the identity surface. This is a bounded negative
-  search result, not an impossibility claim.
+  coding result that may change after unresolved screening and source signoff,
+  not an impossibility claim.
 
 ## Evidence Status
 
 The 20 load-bearing papers selected for source review are listed in
 `reviews/queues/load_bearing.csv`. All received a source-level review, but
 none is human-verified: 18 await author signoff and two retain explicit source
-blockers. The remaining 45 attack-primary papers are in
-`reviews/queues/standard_attack.csv`. The two queues jointly cover all 58
-attack-primary papers because reclassification leaves 13 attack papers and
-seven defense/evaluation papers in the load-bearing queue.
+blockers. The 45 records in `reviews/queues/standard_attack.csv` are
+attack-review candidates, not a final attack-primary denominator.
+Reclassification can move a paper between attack, defense, and evaluation
+roles without moving it between the mutually exclusive review queues.
 
 Attack-bearing evidence is not restricted to attack-primary papers. The master
 checklist in `reviews/queues/universal.csv` also assigns 77 remaining defense,
