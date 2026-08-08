@@ -317,7 +317,7 @@ def summary_text(rows: list[dict[str, str]], snapshot: dict) -> str:
         "",
         "This ledger canonicalizes the 326 inclusion records produced by the frozen",
         "interaction-security screen into 325 unique works. It does not alter the",
-        "2,182-record retrieval denominator or resolve the 343 screening records that",
+        "2,182-entity search denominator or resolve the 343 screening entities that",
         "remain undecidable.",
         "",
         "## Rule",
