@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+zero_oid="0000000000000000000000000000000000000000"
+validation_parent=""
+validation_worktree=""
+
+cleanup() {
+  if [[ -n "$validation_worktree" && -d "$validation_worktree" ]]; then
+    git worktree remove --force "$validation_worktree" >/dev/null 2>&1 || true
+  fi
+  if [[ -n "$validation_parent" && -d "$validation_parent" ]]; then
+    rmdir "$validation_parent" >/dev/null 2>&1 || true
+  fi
+}
+trap cleanup EXIT
+
+declare -A validated_oids=()
+while read -r local_ref local_oid remote_ref remote_oid; do
+  if [[ "$local_oid" == "$zero_oid" || -n "${validated_oids[$local_oid]:-}" ]]; then
+    continue
+  fi
+  validated_oids[$local_oid]=1
+
+  validation_parent="$(mktemp -d)"
+  validation_worktree="$validation_parent/worktree"
+  git worktree add --detach --quiet "$validation_worktree" "$local_oid"
+
+  echo "Validating $local_ref at $local_oid before push..."
+  (
+    cd "$validation_worktree"
+    scripts/validate_all.sh
+  )
+
+  git worktree remove --force "$validation_worktree"
+  validation_worktree=""
+  rmdir "$validation_parent"
+  validation_parent=""
+done

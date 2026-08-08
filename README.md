@@ -41,10 +41,12 @@ signoff described by the evidence policy.
 ## Validate
 
 ```bash
-python3 scripts/import_authoritative_142.py
-python3 scripts/build_universal_review_queue.py
-python3 scripts/build_corpus_sets.py
-python3 scripts/build_final_exports.py
-python3 scripts/validate_corpus.py
-python3 scripts/validate_corpus_sets.py
+scripts/validate_all.sh
+```
+
+Enable the tracked pre-push guard once per clone so a commit that fails the
+same deterministic rebuild cannot reach GitHub:
+
+```bash
+git config core.hooksPath .githooks
 ```

@@ -2,6 +2,8 @@ name: Validate corpus
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 permissions:
@@ -20,12 +22,4 @@ jobs:
           python-version: "3.12"
 
       - name: Validate corpus
-        run: |
-          python scripts/build_peer_first_eligibility.py --check
-          python scripts/import_authoritative_142.py
-          python scripts/build_universal_review_queue.py
-          python scripts/build_corpus_sets.py
-          python scripts/build_final_exports.py
-          python scripts/validate_corpus.py
-          python scripts/validate_corpus_sets.py
-          git diff --exit-code
+        run: scripts/validate_all.sh
