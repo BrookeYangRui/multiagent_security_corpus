@@ -17,7 +17,7 @@ paper-level collapse of claim-level evidence.
 | Provisional strict-gate passes | 45 | Author signoff required |
 | Contextual candidate decisions | 26 | Not strict core |
 | Adjacent candidate decisions | 9 | Not core |
-| Source-blocked taxonomy candidates | 1 | Canonical source required |
+| Source-blocked taxonomy candidates | 1 | Flooding source/signoff required; recovered A2A and CalBench remain pending named signoff |
 | Pending taxonomy candidates | 34 | Full-text adjudication required |
 | Structured paper notes | 142 | Mixed review depth; not human-verified |
 | Active field-level corrections | 220 | 20 critical, 100 high, 100 medium |
@@ -35,8 +35,9 @@ has been declared.
    `corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv`.
 3. Adjudicate the 20 critical corrections, then the high and medium rows in
    `reviews/universal/active_source_review_corrections.csv`.
-4. Resolve the explicit source blockers in
-   `reviews/universal/active_source_review.csv`.
+4. Resolve the remaining source blocker in
+   `reviews/universal/active_source_review.csv`, then sign off the recovered
+   A2ASecBench and CalBench rows with exact locators.
 5. Keep imported `core_security`/`security_relevant` scope labels distinct from
    the five-gate taxonomy decisions; reconcile them only after adjudication.
 6. Split each eligible paper in
@@ -74,3 +75,7 @@ The expert should return:
 
 Do not upgrade any verification state without a named reviewer and an
 adjudication note tied to canonical full-text evidence.
+
+Historical pre-authoritative corpus views are no longer part of the working
+tree. Their counts remain documented above and are recoverable from Git
+history; they must not be mixed with the current 142-work denominator.

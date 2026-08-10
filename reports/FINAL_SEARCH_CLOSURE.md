@@ -5,8 +5,9 @@ Literature cutoff: `2026-07-01 00:00 UTC`
 The user-designated source of truth is the package preserved under
 `corpus/source_packages/2026-07-01/`. Its 142-work academic export is the sole
 canonical paper denominator. Earlier 107-, 114-, 129-, 139-, and 181-work views
-are superseded and remain only in explicitly named archive directories or audit
-ledgers.
+are superseded. Their counts remain only as historical audit context and in Git
+history; they are not files in the current export and must not be mixed with the
+142-work denominator.
 
 ## Current Counts
 
