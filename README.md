@@ -28,6 +28,9 @@ package under `corpus/source_packages/2026-07-01/`. Survey and SoK works retaine
 by that package remain in the 142-work denominator and are filed under
 `papers/surveys/`. The 14-work `sok_related/` view is supporting synthesis
 metadata and must not be added to 142 because seven records overlap.
+The source package remains immutable; source-backed canonical corrections are
+recorded in `corpus/canonical_field_overrides.csv` and applied fail-loud during
+import.
 
 Paper notes and source reviews remain unverified until named human signoff.
 CVEs and industry material never enter an academic-paper denominator.

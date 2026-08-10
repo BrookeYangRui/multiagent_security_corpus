@@ -424,9 +424,10 @@ model, not outside it.
 > **A correctly authenticated malicious peer is still malicious. Signed malice
 > remains malice.**
 
-**Cross-paper observation.** A2ASecBench studies protocol-valid attacks by
-registered or spoofed remote agents across discovery, task state, requests, and
-returned artifacts
+**Cross-paper observation.** A2ASecBench separates spoofed publishers,
+malicious registered remote agents, and adversarial clients or users; depending
+on the attack, the Host can become a confused deputy across discovery, task
+state, requests, and returned artifacts
 ([note](../papers/evaluations/iclr/2026_li_a2asecbench.md),
 `li2026a2asecbench`). BlockA2A supplies identity, signatures, provenance,
 reputation, access control, and revocation, but relies on a large trusted

@@ -20,6 +20,7 @@ SOK_SOURCE = (
     / "multiagent_security_strongly_related_soks_to_2026-07-01.csv"
 )
 PAPERS = ROOT / "corpus/papers.csv"
+PAPER_OVERRIDES = ROOT / "corpus/canonical_field_overrides.csv"
 REFERENCES = ROOT / "corpus/references.bib"
 SOK_PAPERS = ROOT / "sok_related/papers.csv"
 SOK_REFERENCES = ROOT / "sok_related/references.bib"
@@ -55,11 +56,41 @@ SOK_FIELDS = [
     "first_public_date", "cutoff_status", "note_path", "accessed_version",
     "access_date", "prepared_by", "verification_status",
 ]
+PAPER_OVERRIDE_FIELDS = [
+    "paper_id", "field", "previous_value", "active_value", "reason",
+    "evidence_source",
+]
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def apply_paper_overrides(rows: list[dict[str, str]]) -> None:
+    """Apply source-backed corrections while keeping the frozen package intact."""
+    rows_by_id = {row["paper_id"]: row for row in rows}
+    overrides = read_csv(PAPER_OVERRIDES)
+    if overrides and list(overrides[0]) != PAPER_OVERRIDE_FIELDS:
+        raise ValueError("canonical_field_overrides.csv has an unexpected header")
+    seen: set[tuple[str, str]] = set()
+    for override in overrides:
+        key = (override["paper_id"], override["field"])
+        if key in seen:
+            raise ValueError(f"duplicate canonical field override: {key}")
+        seen.add(key)
+        paper_id, field = key
+        if paper_id not in rows_by_id:
+            raise ValueError(f"canonical field override has no paper: {paper_id}")
+        if field not in PAPER_FIELDS or field == "paper_id":
+            raise ValueError(f"canonical field override has invalid field: {key}")
+        row = rows_by_id[paper_id]
+        if row[field] != override["previous_value"]:
+            raise ValueError(
+                "canonical field override no longer matches imported source: "
+                f"{key}"
+            )
+        row[field] = override["active_value"]
 
 
 def normalized_title(value: str) -> str:
@@ -489,6 +520,7 @@ def main() -> None:
             note.write_text(note_text(source, key, category), encoding="utf-8")
             created_notes += 1
 
+    apply_paper_overrides(output_rows)
     with PAPERS.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=PAPER_FIELDS, lineterminator="\n")
         writer.writeheader()

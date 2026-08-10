@@ -13,6 +13,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS_CSV = ROOT / "corpus" / "papers.csv"
+CANONICAL_FIELD_OVERRIDES_CSV = (
+    ROOT / "corpus" / "canonical_field_overrides.csv"
+)
 SETS = ROOT / "corpus" / "sets"
 SEARCH_SET = SETS / "01_search_catalog"
 BROAD_SET = SETS / "02_broad_included"
@@ -69,6 +72,10 @@ PAPER_FIELDS = [
     "system_failure", "evaluation", "discovery_source", "discovery_query",
     "accessed_version", "access_date", "note_path", "prepared_by",
     "verification_status", "inclusion_status", "exclusion_reason",
+]
+CANONICAL_FIELD_OVERRIDE_FIELDS = [
+    "paper_id", "field", "previous_value", "active_value", "reason",
+    "evidence_source",
 ]
 EXCLUDED_FIELDS = [
     "paper_id", "title", "authors", "year", "primary_url",
@@ -352,6 +359,10 @@ def main() -> int:
     errors: list[str] = []
     try:
         papers = read_csv(PAPERS_CSV, PAPER_FIELDS)
+        canonical_field_overrides = read_csv(
+            CANONICAL_FIELD_OVERRIDES_CSV,
+            CANONICAL_FIELD_OVERRIDE_FIELDS,
+        )
         excluded = read_csv(EXCLUDED_CSV, EXCLUDED_FIELDS)
         evaluation_artifacts = read_csv(
             EVALUATION_ARTIFACTS, EVALUATION_ARTIFACT_FIELDS
@@ -441,6 +452,30 @@ def main() -> int:
         errors.append(f"duplicate post-cutoff paper_id: {value}")
     corpus_ids = {row["paper_id"].strip() for row in papers}
     papers_by_id = {row["paper_id"].strip(): row for row in papers}
+    override_keys: list[tuple[str, str]] = []
+    for line, row in enumerate(canonical_field_overrides, start=2):
+        paper_id = row["paper_id"].strip()
+        field = row["field"].strip()
+        override_keys.append((paper_id, field))
+        if paper_id not in papers_by_id:
+            errors.append(
+                f"canonical_field_overrides.csv:{line}: unknown paper_id"
+            )
+            continue
+        if field not in PAPER_FIELDS or field == "paper_id":
+            errors.append(
+                f"canonical_field_overrides.csv:{line}: invalid field"
+            )
+            continue
+        if papers_by_id[paper_id][field] != row["active_value"]:
+            errors.append(
+                f"canonical_field_overrides.csv:{line}: active value was not applied"
+            )
+    for paper_id, field in sorted(duplicates(override_keys)):
+        errors.append(
+            "canonical_field_overrides.csv contains duplicate override: "
+            f"{paper_id}/{field}"
+        )
     sok_ids = [row["sok_id"].strip() for row in sok_papers]
     if duplicates(sok_ids):
         errors.append("sok_related/papers.csv contains duplicate sok_id values")
@@ -561,6 +596,15 @@ def main() -> int:
         if paper and row["note_path"].strip() != paper["note_path"].strip():
             errors.append(
                 f"all_relevant_papers.csv:{line}: note_path does not match papers.csv"
+            )
+        if (
+            paper
+            and row["interaction_dependency"].strip()
+            != paper["multiagent_dependency"].strip()
+        ):
+            errors.append(
+                f"all_relevant_papers.csv:{line}: interaction dependency does not "
+                "match papers.csv"
             )
     for value in sorted(corpus_ids.intersection(post_cutoff_ids)):
         errors.append(f"post-cutoff paper appears in papers.csv: {value}")
