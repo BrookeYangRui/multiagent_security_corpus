@@ -72,9 +72,10 @@ claimed risk.
 Availability is separate from reproduction and evidence verification.  In
 particular, `code_and_data` records evidence about release contents; it does not
 mean that the corpus maintainers executed the release or verified its reported
-results.  A2ASecBench is therefore `code_and_data` while its impact stage and
-interaction counterfactual remain `pending` because the exact full-text evidence
-blocker is unresolved.
+results.  A2ASecBench and CalBench are `code_and_data`; their primary sources
+support `S3_executed_or_persistent` effects and component or attack controls,
+but neither reports a matched structural interaction ablation.  These codes
+remain provisional pending named human signoff.
 
 ## Status And Provenance
 

@@ -437,10 +437,11 @@ can become confused deputies through legitimate delegation
 ([note](../papers/attacks/iclr/2026_jha_control_flow_hijacking.md),
 `jha2026controlflowhijacking`).
 
-The A2ASecBench record remains `blocked_pending_exact_full_text`; it supports
-this high-level protocol-surface observation through official publication and
-project evidence, but no paper-table statistic from it should enter the
-manuscript until its exact final-PDF locators are signed off.
+The published ICLR paper is now source-resolved against OpenReview
+`LfdFnakqGJ`. Its exact locators support the protocol-stage taxonomy, the
+1,800-task suite denominator, and the reported NeMo gateway experiment. The
+Capability Cloaking and Tables 3--4 trial denominators remain unstated, and all
+SoK interpretations still require named human signoff.
 
 **Our interpretation.** In open A2A systems, a remote agent should be modeled as
 a software supply-chain dependency with delegated authority, not merely as

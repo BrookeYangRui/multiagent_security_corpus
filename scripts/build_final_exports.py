@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CUTOFF = "2026-07-01"
 SOURCE_PACKAGE = ROOT / "corpus/source_packages/2026-07-01"
 AUTHORITATIVE = SOURCE_PACKAGE / "multiagent_security_all_relevant_to_2026-07-01.csv"
+ACTIVE_SOURCE_REVIEW = ROOT / "reviews/universal/active_source_review.csv"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -60,9 +61,17 @@ def venue_family(value: str) -> str:
 def canonical_rows() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
     papers = read_csv(ROOT / "corpus/papers.csv")
     papers_by_id = {row["paper_id"]: row for row in papers}
+    active_reviews = {
+        row["paper_id"]: row for row in read_csv(ACTIVE_SOURCE_REVIEW)
+    }
+    if set(active_reviews) != set(papers_by_id):
+        raise ValueError(
+            "active source review must cover the canonical corpus before final export"
+        )
     rows = []
     for source in read_csv(AUTHORITATIVE):
         paper = papers_by_id[source["paper_id"]]
+        review = active_reviews[source["paper_id"]]
         rows.append(
             {
                 "paper_id": paper["paper_id"],
@@ -80,8 +89,8 @@ def canonical_rows() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
                 "primary_role": source["primary_role"],
                 "interaction_dependency": paper["multiagent_dependency"],
                 "security_relevance": source["security_relevance"],
-                "evidence_level": source["evidence_level"],
-                "evidence_locator": source["evidence_locator"],
+                "evidence_level": review["review_status"],
+                "evidence_locator": review["evidence_locators"],
                 "discovery_source": paper["discovery_source"],
                 "cutoff": CUTOFF,
                 "cutoff_basis": source["cutoff_basis"],

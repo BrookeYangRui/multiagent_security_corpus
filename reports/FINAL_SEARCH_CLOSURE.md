@@ -42,7 +42,9 @@ records rather than current included-paper lists.
 ## Version and Evidence Policy
 
 The canonical unit is a work, not a version. Published and preprint versions
-are merged under one `paper_id`. The package's `cutoff_basis`, official URLs,
-publication status, evidence level, and evidence locator are preserved in the
-final export. `agent_unverified`, metadata-only, abstract-only, blocked, and
-pending-signoff states remain visible and are not promoted by import.
+are merged under one `paper_id`. The final export preserves the package's
+cutoff basis, official URLs, and publication status; evidence level and locator
+are projected from the fail-loud active source-review view so later source
+resolution does not rewrite the frozen package. Metadata-only, abstract-only,
+blocked, and pending-signoff states remain visible and are never promoted to
+human-verified status by import.

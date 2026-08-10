@@ -12,6 +12,7 @@ UNIVERSAL_114_SOURCE_REVIEW.xlsx             original workbook representation
 active_source_review.csv                     active 142-work canonical view
 active_source_review_corrections.csv         active historical corrections
 active_source_review_correction_overrides.csv audited active-view refinements
+active_source_review_row_overrides.csv        audited field-level row refinements
 ```
 
 The original packet is immutable review history. The active view includes the
@@ -20,9 +21,12 @@ contain 20 load-bearing, 45 standard attack-primary, and 77 cross-category
 works. The 14-work SoK-related file is a supporting view with intentional
 overlap, not an additional denominator.
 
-The override ledger records refinements made after the historical packet. The
-builder verifies each previous value before applying its active replacement, so
-upstream history remains intact and unexpected source changes fail loudly.
+The two override ledgers record refinements made after the historical packet.
+The builder verifies each previous correction or row value before applying its
+active replacement, so upstream history remains intact and unexpected source
+changes fail loudly. Row overrides can resolve a source-access block after an
+exact primary version is recovered, but they must retain a pending named-human
+signoff status until a reviewer is recorded.
 
 ## Verification Status
 

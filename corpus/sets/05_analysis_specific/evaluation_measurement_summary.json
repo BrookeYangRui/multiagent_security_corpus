@@ -27,24 +27,24 @@
   },
   "impact_stage_max": {
     "S1_observable": 4,
-    "S2_trace": 21,
-    "S3_executed_or_persistent": 17,
+    "S2_trace": 20,
+    "S3_executed_or_persistent": 19,
     "S4_deployment": 0,
-    "pending": 1
+    "pending": 0
   },
   "interaction_counterfactual": {
-    "component_or_attack_controls": 25,
+    "component_or_attack_controls": 27,
     "edge_state_authority_ablation": 8,
-    "matched_architecture": 4,
+    "matched_architecture": 3,
     "matched_single_agent": 5,
     "none_reported": 0,
-    "pending": 1
+    "pending": 0
   },
   "availability_kind": {
-    "code_and_data": 1,
+    "code_and_data": 2,
     "code_or_harness": 6,
     "data_only": 0,
-    "paper_only": 35,
+    "paper_only": 34,
     "project_page": 0,
     "unverified": 1
   },
@@ -71,17 +71,17 @@
       "impact_stage_max": {
         "S1_observable": 2,
         "S2_trace": 13,
-        "S3_executed_or_persistent": 10,
+        "S3_executed_or_persistent": 11,
         "S4_deployment": 0,
-        "pending": 1
+        "pending": 0
       },
       "interaction_counterfactual": {
-        "component_or_attack_controls": 14,
+        "component_or_attack_controls": 15,
         "edge_state_authority_ablation": 6,
         "matched_architecture": 2,
         "matched_single_agent": 3,
         "none_reported": 0,
-        "pending": 1
+        "pending": 0
       },
       "availability_kind": {
         "code_and_data": 1,
@@ -110,24 +110,24 @@
       },
       "impact_stage_max": {
         "S1_observable": 2,
-        "S2_trace": 8,
-        "S3_executed_or_persistent": 7,
+        "S2_trace": 7,
+        "S3_executed_or_persistent": 8,
         "S4_deployment": 0,
         "pending": 0
       },
       "interaction_counterfactual": {
-        "component_or_attack_controls": 11,
+        "component_or_attack_controls": 12,
         "edge_state_authority_ablation": 2,
-        "matched_architecture": 2,
+        "matched_architecture": 1,
         "matched_single_agent": 2,
         "none_reported": 0,
         "pending": 0
       },
       "availability_kind": {
-        "code_and_data": 0,
+        "code_and_data": 1,
         "code_or_harness": 1,
         "data_only": 0,
-        "paper_only": 15,
+        "paper_only": 14,
         "project_page": 0,
         "unverified": 1
       }

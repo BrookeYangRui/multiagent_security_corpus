@@ -65,6 +65,36 @@ def write_csv(path: Path, rows: list[dict[str, str]], fields: list[str]) -> None
         writer.writerows(rows)
 
 
+def apply_source_row_overrides(
+    rows: list[dict[str, str]], override_path: Path
+) -> None:
+    """Apply audited active-view refinements without rewriting review history."""
+    rows_by_id = {row["paper_id"]: row for row in rows}
+    overrides = read_csv(override_path)
+    seen: set[tuple[str, str]] = set()
+    for override in overrides:
+        key = (override["paper_id"], override["field"])
+        if key in seen:
+            raise ValueError(f"duplicate active source-review row override: {key}")
+        seen.add(key)
+        paper_id, field = key
+        if paper_id not in rows_by_id:
+            raise ValueError(
+                f"active source-review row override has no active paper: {paper_id}"
+            )
+        row = rows_by_id[paper_id]
+        if field not in row:
+            raise ValueError(
+                f"active source-review row override has unknown field: {key}"
+            )
+        if row[field] != override["previous_value"]:
+            raise ValueError(
+                "active source-review row override no longer matches historical "
+                f"source: {key}"
+            )
+        row[field] = override["active_value"]
+
+
 def pending_evidence_status(paper: dict[str, str]) -> str:
     roles = {part.strip().casefold() for part in paper["paper_type"].split(";")}
     if paper["primary_category"] == "attack":
@@ -291,6 +321,10 @@ def main() -> None:
                 "review_status": authoritative["evidence_level"],
             })
         active_source_rows.append(row)
+    apply_source_row_overrides(
+        active_source_rows,
+        review_dir / "active_source_review_row_overrides.csv",
+    )
     write_csv(
         review_dir / "active_source_review.csv",
         active_source_rows,
@@ -303,7 +337,11 @@ def main() -> None:
         review_dir / "active_source_review_correction_overrides.csv"
     )
     overrides = {
-        (row["paper_id"], row["field_or_category"]): row
+        (
+            row["paper_id"],
+            row["field_or_category"],
+            row["previous_correction"],
+        ): row
         for row in override_rows
     }
     if len(overrides) != len(override_rows):
@@ -313,16 +351,17 @@ def main() -> None:
         dict(row) for row in correction_rows if row["paper_id"] in active_ids
     ]
     for row in active_corrections:
-        key = (row["paper_id"], row["field_or_category"])
+        key = (
+            row["paper_id"],
+            row["field_or_category"],
+            row["recommended_correction"],
+        )
         override = overrides.get(key)
         if not override:
             continue
-        if row["recommended_correction"] != override["previous_correction"]:
-            raise ValueError(
-                "active correction override no longer matches historical source: "
-                f"{key}"
-            )
         row["recommended_correction"] = override["active_correction"]
+        row["rationale"] = override["change_reason"]
+        row["evidence_source"] = override["evidence_source"]
         matched_overrides.add(key)
     missing_overrides = set(overrides) - matched_overrides
     if missing_overrides:

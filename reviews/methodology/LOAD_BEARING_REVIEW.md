@@ -12,10 +12,11 @@ present. The universal source review later examined all 20 papers. Their 55
 corrections are retained as a subset of the 231-row ledger in
 `reviews/universal/universal_source_review_corrections.csv`.
 
-Eighteen rows are source-reviewed pending author signoff. Flooding remains
-blocked on final-journal metadata. A2ASecBench remains blocked in the broader
-review packet until exact final-PDF locators are confirmed. No paper was
-upgraded from `agent_unverified`.
+Nineteen rows are source-reviewed pending author signoff. A2ASecBench's
+published ICLR paper and exact locators are recorded; its analytical coding
+still requires named human review. Flooding is the only remaining source
+blocker and still requires final-journal metadata and locator checks. No paper
+was upgraded to human-verified status.
 
 Author or designated-reviewer signoff must check:
 

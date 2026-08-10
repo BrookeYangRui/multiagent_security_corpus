@@ -7,19 +7,19 @@ pre-`2026-07-01` source package.
 
 | Evidence level | Works |
 | --- | ---: |
-| Assistant source reviewed, pending author signoff | 88 |
+| Assistant source reviewed, pending author signoff | 90 |
 | Source reviewed, pending author signoff | 18 |
 | Official metadata and abstract screened | 19 |
 | Full-text scope screened | 7 |
 | Official arXiv metadata and abstract screened | 3 |
 | Boundary full-text screened | 2 |
-| Blocked pending exact source | 2 |
+| Blocked pending exact source | 1 |
 | Official workshop metadata and full text screened | 1 |
 | Claim-level review required | 1 |
-| Blocked metadata signoff | 1 |
 
-These labels are preserved from the source package. None implies named human
-signoff unless that signoff is separately recorded.
+These labels come from the frozen source package plus fail-loud active-view
+overrides for later source resolution. None implies named human signoff unless
+that signoff is separately recorded.
 
 ## Active Review Coverage
 

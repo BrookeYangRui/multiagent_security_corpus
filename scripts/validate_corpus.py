@@ -949,6 +949,9 @@ def main() -> int:
             )
 
     source_ids = [row["paper_id"].strip() for row in universal_source_review]
+    source_by_id = {
+        row["paper_id"].strip(): row for row in universal_source_review
+    }
     for value in sorted(duplicates(source_ids)):
         errors.append(f"duplicate universal source-review paper_id: {value}")
     if set(source_ids) != corpus_ids:
@@ -959,6 +962,18 @@ def main() -> int:
         for paper_id in sorted(set(source_ids) - corpus_ids):
             errors.append(
                 f"unknown paper in universal source review: {paper_id}"
+            )
+    for line, row in enumerate(final_all, start=2):
+        review = source_by_id.get(row["paper_id"].strip())
+        if review and row["evidence_level"].strip() != review["review_status"].strip():
+            errors.append(
+                f"all_relevant_papers.csv:{line}: evidence level does not match "
+                "active source review"
+            )
+        if review and row["evidence_locator"].strip() != review["evidence_locators"].strip():
+            errors.append(
+                f"all_relevant_papers.csv:{line}: evidence locator does not match "
+                "active source review"
             )
 
     source_track_counts = {
@@ -1324,20 +1339,52 @@ def main() -> int:
 
     a2a_measurement = measurement_by_id.get("artifact_a2asecbench")
     if a2a_measurement is not None:
-        if a2a_measurement["impact_stage_max"].strip() != "pending":
+        if (
+            a2a_measurement["impact_stage_max"].strip()
+            != "S3_executed_or_persistent"
+        ):
             errors.append(
-                "A2ASecBench impact_stage_max must remain pending while its "
-                "exact-full-text source blocker is unresolved"
+                "A2ASecBench impact_stage_max must preserve the S3 coding "
+                "supported by executed protocol effects and persistent task state"
             )
         if a2a_measurement["availability_kind"].strip() != "code_and_data":
             errors.append(
-                "A2ASecBench availability must preserve the separately "
-                "evidenced code-and-data release"
+                "A2ASecBench availability must preserve the evidenced "
+                "code-and-data release"
             )
-        if a2a_measurement["interaction_counterfactual"].strip() != "pending":
+        if (
+            a2a_measurement["interaction_counterfactual"].strip()
+            != "component_or_attack_controls"
+        ):
             errors.append(
-                "A2ASecBench interaction counterfactual must remain pending "
-                "while its exact-full-text source blocker is unresolved"
+                "A2ASecBench interaction counterfactual must preserve the "
+                "attack-and-component-control coding; no interaction "
+                "ablation is reported"
+            )
+
+    calbench_measurement = measurement_by_id.get("artifact_calbench")
+    if calbench_measurement is not None:
+        if (
+            calbench_measurement["impact_stage_max"].strip()
+            != "S3_executed_or_persistent"
+        ):
+            errors.append(
+                "CalBench impact_stage_max must preserve the S3 coding "
+                "supported by validated writes to mutable calendars"
+            )
+        if calbench_measurement["availability_kind"].strip() != "code_and_data":
+            errors.append(
+                "CalBench availability must preserve the reviewed "
+                "code-and-data release"
+            )
+        if (
+            calbench_measurement["interaction_counterfactual"].strip()
+            != "component_or_attack_controls"
+        ):
+            errors.append(
+                "CalBench interaction counterfactual must preserve the "
+                "component-and-policy-control coding; no matched interaction "
+                "or architecture ablation is reported"
             )
 
     joined_measurements = []
