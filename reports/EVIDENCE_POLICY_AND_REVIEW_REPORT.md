@@ -32,8 +32,10 @@ The three disjoint queues jointly cover all 142 works:
 | Cross category | 77 |
 
 `reviews/universal/active_source_review.csv` has one row per canonical paper.
-The historical 114-work packet and the superseded 181-candidate AI review are
-retained only under archival paths.
+The historical 114-work packet and superseded 181-candidate AI review are not
+part of the current export. Their review state is represented by the active
+rows and is recoverable from repository history; neither is a current evidence
+denominator.
 
 ## Claim Use
 
