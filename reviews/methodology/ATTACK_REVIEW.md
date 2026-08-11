@@ -1,12 +1,11 @@
 # Attack Review Queue
 
-`attack_review_queue.csv` contains the 42 attack-primary papers not selected for
-the initial load-bearing review. Together with
-`load_bearing_review_queue.csv`, it covers all 55 attack-primary papers. After
-source-review reclassification, the load-bearing queue includes 13 attack papers
-plus seven defense/evaluation papers;
-`attack_review_queue.csv` contains the remaining attack papers as priorities
-21-62.
+`reviews/queues/standard_attack.csv` contains 45 standard attack-track review
+records. Together with 20 load-bearing and 77 cross-category records, the three
+mutually exclusive queues cover all 142 canonical works. These are review
+routes, not accepted attack-paper denominators: the frozen imported placement
+field currently labels 58 works attack-primary, and source signoff may move a
+work between attack, defense, and evaluation roles.
 
 ## Standard Review
 
@@ -22,7 +21,8 @@ For each paper, verify:
 8. source locations for every load-bearing claim in the paper note.
 
 If a paper supports a headline finding or exposes a disputed classification,
-promote it to the load-bearing protocol and perform a full evidence review.
+promote its review depth to the load-bearing protocol without duplicating its
+row across queues.
 
 ## Status
 

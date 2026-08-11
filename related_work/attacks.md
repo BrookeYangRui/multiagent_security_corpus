@@ -44,9 +44,10 @@ The four-family check is recorded row by row in
 
 The 20 load-bearing papers selected for source review are listed in
 `reviews/queues/load_bearing.csv`. All received a source-level review, but
-none is human-verified: 18 await author signoff and two retain explicit source
-blockers. The 45 records in `reviews/queues/standard_attack.csv` are
-attack-review candidates, not a final attack-primary denominator.
+none is human-verified: 19 await author signoff and Flooding retains the only
+explicit source blocker. The 45 records in
+`reviews/queues/standard_attack.csv` are attack-review candidates, not a final
+attack-primary denominator.
 Reclassification can move a paper between attack, defense, and evaluation
 roles without moving it between the mutually exclusive review queues.
 

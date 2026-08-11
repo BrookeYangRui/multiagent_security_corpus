@@ -8,7 +8,6 @@ This directory preserves the original imported 114-work packet and the active
 ```text
 universal_114_source_review.csv              one consolidated row per work
 universal_source_review_corrections.csv      231 field-level corrections
-UNIVERSAL_114_SOURCE_REVIEW.xlsx             original workbook representation
 active_source_review.csv                     active 142-work canonical view
 active_source_review_corrections.csv         active historical corrections
 active_source_review_correction_overrides.csv audited active-view refinements
