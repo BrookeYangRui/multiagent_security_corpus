@@ -41,6 +41,18 @@ The cross-paper conclusions and manuscript-ready candidate statements are in
 `reports/INSIGHTS.md`. They remain synthesis proposals pending the named human
 signoff described by the evidence policy.
 
+## Persistent review reconciliation
+
+`artifact/search/v2/` provides a three-set review view over the frozen search
+universe. It keeps 318 targeted cutoff candidate records visible, resolves them
+to canonical works by paper ID, arXiv identifier, DOI, and exact title, and
+separates primary, secondary, exclude, and pending decisions. The persistent
+ledger protects explicit human adjudication while allowing generated seeds to
+refresh when source records change. This view is an audit and review workflow;
+it does not replace the 142-work canonical corpus or create a new paper
+denominator. See `artifact/search/v2/README.md` for the files and precedence
+rules.
+
 ## Validate
 
 ```bash

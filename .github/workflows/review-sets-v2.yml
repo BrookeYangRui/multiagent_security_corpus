@@ -1,0 +1,41 @@
+name: Validate review sets v2
+
+on:
+  push:
+    branches:
+      - main
+      - complete-review-sets-v2
+    paths:
+      - artifact/search/v2/**
+      - tests/test_review_sets_v2.py
+      - scripts/validate_all.sh
+      - README.md
+      - .github/workflows/review-sets-v2.yml
+  pull_request:
+    paths:
+      - artifact/search/v2/**
+      - tests/test_review_sets_v2.py
+      - scripts/validate_all.sh
+      - README.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check deterministic output
+        run: python artifact/search/v2/build_review_sets.py --check
+
+      - name: Run review-set regression checks
+        run: python tests/test_review_sets_v2.py

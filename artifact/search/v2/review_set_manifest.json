@@ -1,0 +1,90 @@
+{
+  "candidate_unit": "canonical work",
+  "canonical_current_category_counts": {
+    "attack": 58,
+    "defense": 40,
+    "evaluation": 34,
+    "general": 3,
+    "survey": 7
+  },
+  "canonical_route_works_visible": 142,
+  "cutoff": "2026-07-01",
+  "decision_priority": "persistent ledger, canonical/source review, peer-first reviewed gate, structured exclusion, full-text search screen, weaker routes",
+  "decision_sets": [
+    "primary",
+    "secondary",
+    "exclude"
+  ],
+  "deduplicated_route_groups": 2217,
+  "deduplication_priority": [
+    "canonical_paper_id",
+    "arxiv_id",
+    "doi",
+    "exact_normalized_title"
+  ],
+  "exclude_count": 1396,
+  "human_signoff_required_count": 2217,
+  "identifier_override_count": 3,
+  "ledger_count": 2217,
+  "pending_count": 341,
+  "pending_policy": "pending rows remain in the queue and never enter a final set",
+  "primary_count": 303,
+  "queue_count": 2217,
+  "route_row_counts": {
+    "broad": 325,
+    "canonical": 142,
+    "peerfirst": 115,
+    "search": 2182,
+    "structured_exclude": 29,
+    "targeted": 318,
+    "targeted_gap": 12,
+    "venue": 94
+  },
+  "route_rows_total": 3217,
+  "schema_version": 2,
+  "secondary_count": 177,
+  "source_files": {
+    "artifact/search/v2/identifier_alias_overrides.csv": {
+      "rows": 3,
+      "sha256": "2ce1d258ee997aacbd2a3efada60059bd053906566fa8e04b6fe0610dda1c0fb"
+    },
+    "corpus/final/all_relevant_papers.csv": {
+      "rows": 142,
+      "sha256": "6401e811b785aa4da007ac7776af6ee7add2a5fe5956adc1ccb8e2c33e143a7d"
+    },
+    "corpus/papers.csv": {
+      "rows": 142,
+      "sha256": "c7a2c80667f5e15b3b3686b99657a09e742ed58b40e83c1540c33bee71bc2787"
+    },
+    "corpus/sets/01_search_catalog/search_catalog.csv": {
+      "rows": 2182,
+      "sha256": "57539907429538f169e0a9f23ad7f2f32c6268e65c298e6987f6c2cdd3ecf871"
+    },
+    "corpus/sets/01_search_catalog/structured_exclusions.csv": {
+      "rows": 29,
+      "sha256": "e6c8ac3405b84a0a5a9598f5bdd37ff212d8826b6d5c750f762ffb3469bfe69e"
+    },
+    "corpus/sets/01_search_catalog/targeted_gap_search.csv": {
+      "rows": 13,
+      "sha256": "5f26fad699e2e7307788e1ddb965fa2eff281e3c7cbf181e7938e37f4b819ee1"
+    },
+    "corpus/sets/02_broad_included/broad_included.csv": {
+      "rows": 325,
+      "sha256": "83ef166049e31bbb035ad53ec97b9e62a1c0c4ae72236266aa107c02699199a0"
+    },
+    "corpus/sets/03_taxonomy_eligible/taxonomy_candidates.csv": {
+      "rows": 115,
+      "sha256": "09a1970b210f64252c1c0261b4395468891632c3b35b690210490a35d0b9f09d"
+    },
+    "reviews/universal/active_source_review.csv": {
+      "rows": 142,
+      "sha256": "f9578e2255c3182896780b8e3203438bb77ff51557dcfe9194c141c970d5f577"
+    }
+  },
+  "summary_row_count": 65,
+  "targeted_candidate_records_visible_in_route_queue": 318,
+  "targeted_canonical_works": 317,
+  "targeted_cutoff_candidate_records": 318,
+  "targeted_derivation": "325 broad-screen works minus seven records explicitly reviewed with recommended_scope=adjacent",
+  "targeted_version_merges": 1
+}
