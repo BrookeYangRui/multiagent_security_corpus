@@ -1,4 +1,4 @@
-name: Assemble review sets v2
+name: Review sets v2
 
 on:
   push:
@@ -6,14 +6,24 @@ on:
       - complete-review-sets-v2
     paths:
       - .bootstrap/v2/**
+      - artifact/search/v2/**
+      - tests/test_review_sets_v2.py
+      - scripts/validate_all.sh
+      - README.md
       - .github/workflows/review-sets-v2.yml
+  pull_request:
+    paths:
+      - artifact/search/v2/**
+      - tests/test_review_sets_v2.py
+      - scripts/validate_all.sh
+      - README.md
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  assemble:
+  review-sets:
     runs-on: ubuntu-latest
     steps:
       - name: Check out corpus
@@ -21,17 +31,31 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Select mode
+        id: mode
+        shell: bash
+        run: |
+          if compgen -G '.bootstrap/v2/chunk*' > /dev/null; then
+            echo 'value=assemble' >> "$GITHUB_OUTPUT"
+          else
+            echo 'value=validate' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Restore reviewed source changes
+        if: steps.mode.outputs.value == 'assemble'
         shell: bash
         run: |
           set -euo pipefail
+          cp .github/workflows/review-sets-v2.yml /tmp/review-sets-v2.yml
           cat .bootstrap/v2/chunk* > /tmp/v2-source-bootstrap.b64
           base64 --decode /tmp/v2-source-bootstrap.b64 > /tmp/v2-source-bootstrap.tar.gz
           echo "c08776f455ce8d8b251e2cc00bcdf727ae1a27c340861ab2b749c1c127b46e79  /tmp/v2-source-bootstrap.tar.gz" | sha256sum --check
           tar -xzf /tmp/v2-source-bootstrap.tar.gz
+          cp /tmp/review-sets-v2.yml .github/workflows/review-sets-v2.yml
           rm -rf .bootstrap/v2
 
       - name: Build the three review sets
+        if: steps.mode.outputs.value == 'assemble'
         run: python artifact/search/v2/build_review_sets.py --write
 
       - name: Check deterministic output
@@ -41,12 +65,14 @@ jobs:
         run: python tests/test_review_sets_v2.py
 
       - name: Commit source and generated ledgers
+        if: steps.mode.outputs.value == 'assemble'
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
+          git reset -- .github/workflows/review-sets-v2.yml
           git diff --cached --stat
           git commit -m "Build persistent review sets"
           git push origin HEAD:complete-review-sets-v2
