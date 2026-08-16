@@ -17,4 +17,6 @@ fi
 "$corpus_python" scripts/build_final_exports.py
 "$corpus_python" scripts/validate_corpus.py
 "$corpus_python" scripts/validate_corpus_sets.py
+"$corpus_python" artifact/search/v2/build_review_sets.py --check
+"$corpus_python" tests/test_review_sets_v2.py
 git diff --exit-code
