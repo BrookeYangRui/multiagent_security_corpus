@@ -1,40 +1,52 @@
-name: Review sets v2
+name: Assemble review sets v2
 
 on:
   push:
     branches:
       - complete-review-sets-v2
+    paths:
+      - .bootstrap/v2/**
+      - .github/workflows/review-sets-v2.yml
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  snapshot:
+  assemble:
     runs-on: ubuntu-latest
     steps:
       - name: Check out corpus
         uses: actions/checkout@v4
-
-      - name: Record branch state
-        run: |
-          mkdir -p artifact/search/v2
-          git rev-parse HEAD > artifact/search/v2/corpus_snapshot_commit.txt
-          find corpus reviews scripts tests .github -type f -print | sort > artifact/search/v2/corpus_snapshot_files.txt
-
-      - name: Upload corpus snapshot
-        uses: actions/upload-artifact@v4
         with:
-          name: corpus-v2-working-snapshot
-          path: |
-            AGENTS.md
-            README.md
-            Makefile
-            pyproject.toml
-            corpus/
-            reviews/
-            scripts/
-            tests/
-            .github/
-            artifact/search/v2/
-          if-no-files-found: error
+          fetch-depth: 0
+
+      - name: Restore reviewed source changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .bootstrap/v2/chunk* > /tmp/v2-source-bootstrap.b64
+          base64 --decode /tmp/v2-source-bootstrap.b64 > /tmp/v2-source-bootstrap.tar.gz
+          echo "c08776f455ce8d8b251e2cc00bcdf727ae1a27c340861ab2b749c1c127b46e79  /tmp/v2-source-bootstrap.tar.gz" | sha256sum --check
+          tar -xzf /tmp/v2-source-bootstrap.tar.gz
+          rm -rf .bootstrap/v2
+
+      - name: Build the three review sets
+        run: python artifact/search/v2/build_review_sets.py --write
+
+      - name: Check deterministic output
+        run: python artifact/search/v2/build_review_sets.py --check
+
+      - name: Run regression checks
+        run: python tests/test_review_sets_v2.py
+
+      - name: Commit source and generated ledgers
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Build persistent review sets"
+          git push origin HEAD:complete-review-sets-v2
