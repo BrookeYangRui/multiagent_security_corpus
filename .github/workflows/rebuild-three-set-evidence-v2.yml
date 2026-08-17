@@ -1,0 +1,76 @@
+name: Hardened three-set source review
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - three-set-corpus-review
+    paths:
+      - scripts/rebuild_three_set_from_evidence_v2.py
+      - .github/workflows/rebuild-three-set-evidence-v2.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all source-review artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf review-evidence
+          mkdir -p review-evidence
+
+          download_run() {
+            local run_id="$1"
+            local destination="$2"
+            for attempt in 1 2 3 4 5 6; do
+              rm -rf "$destination"
+              mkdir -p "$destination"
+              if gh run download "$run_id" \
+                   --repo BrookeYangRui/multiagent_security_corpus \
+                   --dir "$destination"; then
+                return 0
+              fi
+              sleep $((attempt * 10))
+            done
+            return 1
+          }
+
+          download_run 31990472611 review-evidence/full-source-review
+          download_run 31991087846 review-evidence/metadata-review
+          download_run 31994103912 review-evidence/blocked-source-review
+
+      - name: Rebuild and audit the three sets
+        run: python scripts/rebuild_three_set_from_evidence_v2.py
+
+      - name: Validate corpus invariants
+        run: python scripts/validate_three_set_corpus.py
+
+      - name: Remove temporary evidence and one-shot workflows
+        run: |
+          rm -rf review-evidence
+          rm -f .github/workflows/rebuild-three-set-evidence.yml
+          rm -f .github/workflows/rebuild-three-set-evidence-v2.yml
+
+      - name: Commit source-reviewed outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Complete source-evidence review for all three sets"
+          git push origin HEAD:three-set-corpus-review
