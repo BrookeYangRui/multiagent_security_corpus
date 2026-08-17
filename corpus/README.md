@@ -1,7 +1,23 @@
-# Authoritative review corpus
+# Authoritative corpus views
 
-These files are the only paper-population tables used by the SoK. The fixed 1 July 2026 review universe contains 2,217 deduplicated works: 303 primary, 177 secondary, 1,396 exclude, and 341 pending. The four decision files partition the queue exactly. Pending rows remain visible but never enter a final evidence set.
+The repository uses three evidence sets and one screened search ledger.
 
-The targeted route contains 318 cutoff-eligible records resolving to 317 works. `primary.csv` and `secondary.csv` add a descriptive `broad_role` (`attack`, `defense`, `evaluation`, `other`). Existing source-reviewed/imported roles are preserved; rows without a prior role use a title-level rule and are marked `assistant_derived_pending_author_signoff`. Role coding never changes inclusion.
+| File | Count | Role in the SoK |
+| --- | ---: | --- |
+| `set1_core.csv` | 97 | Mature evidence used to build the systematization, counts, and headline findings. |
+| `set2_emerging.csv` | 249 | In-scope early work used only for emerging directions and open problems. |
+| `set3_context.csv` | 0 | Contextual citations. This set is not part of the MAS-security corpus. |
+| `screened_out.csv` | 1,871 | Search records outside the direct corpus and without an active citation role. |
 
-`papers/` contains partial source notes and is not a corpus-membership list. Historical source paths retained in provenance fields explain how a row entered review; the superseded broad-screen, canonical-142, taxonomy-115, and source-package tables themselves have been removed.
+Set 1 and Set 2 pass the same strict MAS-security scope gate. Set 1 then
+satisfies the maturity rule: peer reviewed, or more than 10 citations in the
+frozen citation snapshot. Set 3 supports background and comparison only.
+
+`review_ledger.csv` records every decision and preserves the previous label.
+`author_priority_review.csv` identifies promotions, downgrades, missing
+full-text locators, and unclear interaction tags. The review is model-assisted;
+all retained rows require named-author signoff before they can be described as
+human verified.
+
+The literature cutoff is 2026-07-01. Citation counts are frozen on 2026-08-17.
+OpenAlex is preferred, with Semantic Scholar used when OpenAlex has no count.

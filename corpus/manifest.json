@@ -1,33 +1,22 @@
 {
-  "authoritative_counts": {
-    "exclude": 1396,
-    "pending": 341,
-    "primary": 303,
-    "secondary": 177,
-    "total": 2217
+  "author_priority_review_count": 97,
+  "citation_snapshot_date": "2026-08-17",
+  "citation_threshold": "strictly greater than 10",
+  "corpus_counts": {
+    "set1_core": 97,
+    "set2_emerging": 249,
+    "total_corpus": 346
   },
-  "candidate_unit": "canonical work",
-  "cutoff": "2026-07-01",
-  "decision_precedence": [
-    "persistent human adjudication",
-    "canonical/source review",
-    "peer-first reviewed gate",
-    "structured exclusion",
-    "full-text search screen",
-    "weaker discovery routes"
-  ],
+  "counts": {
+    "screened_out": 1871,
+    "set1_core": 97,
+    "set2_emerging": 249,
+    "set3_context": 0
+  },
   "files": {
-    "README.md": {
-      "rows": null,
-      "sha256": "2e013d892b4ee0ba0e759c74f58ad9653adba1328ceb6edaab4eef3991c70a29"
-    },
-    "decision_ledger.csv": {
-      "rows": 2217,
-      "sha256": "2be448a22f8cb0f94b2663d2da7a2ad9833265a5b1b2fc2cadf267de681df3bc"
-    },
-    "exclude.csv": {
-      "rows": 1396,
-      "sha256": "1f199dec3c6991b7725c2e68e540b62aefc77052f7f3af91caaf4ea14b4d2aed"
+    "author_priority_review.csv": {
+      "rows": 97,
+      "sha256": "491bf79616bbe7bec2378a6424e560ccd4b1bfa9f33d5a3481bd2cf1ee77444b"
     },
     "identifier_alias_overrides.csv": {
       "rows": 3,
@@ -37,47 +26,54 @@
       "rows": 2404,
       "sha256": "ede84e6d25f6cc9122efbb21ff58ff75858da8c895054b00965fc8679a842345"
     },
-    "pending.csv": {
-      "rows": 341,
-      "sha256": "43af064ca8bf4ce7e7d04ab0b004ff493cfa9601bd05e96136b2b80ff3f3461d"
-    },
-    "primary.csv": {
-      "rows": 303,
-      "sha256": "c868d3dc9748a4991398facb5ad4f36713f3766dbf6488df431c04b80c0aa3c3"
-    },
-    "review_queue.csv": {
+    "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "999fc9744df3bdfb0a92e99da1d8e0aae58b9cb2989550baec905233410d229f"
+      "sha256": "582e9404a75138b11341b4b244c3eaca5795ef97b2133513c0e9120bfb77305b"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
-    "secondary.csv": {
-      "rows": 177,
-      "sha256": "fcf6168bce947f25dda6f36d772287c5cb594ba20208556f733899cb52102b4a"
+    "screened_out.csv": {
+      "rows": 1871,
+      "sha256": "7cd0b7ad11ac340a3685c8c98feff56df443d39fa80fb28e543cd9c3a85aaa81"
+    },
+    "set1_core.csv": {
+      "rows": 97,
+      "sha256": "0417af8c77ba04cc4e089e667eb90b6e2c7c23daa7dff156bb068b9aedba7dff"
+    },
+    "set2_emerging.csv": {
+      "rows": 249,
+      "sha256": "ea0ded598c7f61a9d48c60767ed4e6e045d6846166c12d92086583befe26c7af"
+    },
+    "set3_context.csv": {
+      "rows": 0,
+      "sha256": "35ea822b03097ef11ebbcaf7514d6a93567b6b92ac283229a64ef4bff8c5193d"
     },
     "summary.csv": {
-      "rows": 18,
-      "sha256": "c4508cb133d2fada029303c21c102f806b0d5ada71c2397dd607e386476678e2"
+      "rows": 14,
+      "sha256": "e1dd661b0cd1abc37f2b4831e7fba01c8408abe3a5e28b4325eb8238117e7e20"
     }
   },
-  "primary_broad_role_counts": {
-    "attack": 76,
-    "defense": 91,
-    "evaluation": 49,
-    "other": 87
+  "literature_cutoff": "2026-07-01",
+  "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review",
+  "schema_version": 1,
+  "search_universe": 2217,
+  "set1_contributions": {
+    "attack": 34,
+    "defense": 21,
+    "evaluation": 18,
+    "general": 24
   },
-  "role_coding_note": "Broad roles are descriptive. Imported/source-reviewed roles are preserved; otherwise a title-level rule supplies a provisional dominant role pending author signoff.",
-  "schema_version": 3,
-  "secondary_broad_role_counts": {
-    "attack": 22,
-    "defense": 24,
-    "evaluation": 33,
-    "other": 98
+  "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count > 10",
+  "set2_contributions": {
+    "attack": 52,
+    "defense": 47,
+    "evaluation": 34,
+    "general": 114,
+    "survey": 2
   },
-  "targeted_route": {
-    "canonical_works": 317,
-    "records": 318
-  }
+  "set3_roles": {},
+  "source_file_inventory": [],
+  "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification."
 }

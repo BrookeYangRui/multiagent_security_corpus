@@ -1,19 +1,15 @@
-population,dimension,value,count,note
-all_work_queue,decision,primary,303,
-all_work_queue,decision,secondary,177,
-all_work_queue,decision,exclude,1396,
-all_work_queue,decision,pending,341,
-primary,broad_role,attack,76,Descriptive dominant-role coding; mixed works receive one broad role.
-primary,broad_role,defense,91,Descriptive dominant-role coding; mixed works receive one broad role.
-primary,broad_role,evaluation,49,Descriptive dominant-role coding; mixed works receive one broad role.
-primary,broad_role,other,87,Descriptive dominant-role coding; mixed works receive one broad role.
-secondary,broad_role,attack,22,Descriptive role coding; not an inclusion decision.
-secondary,broad_role,defense,24,Descriptive role coding; not an inclusion decision.
-secondary,broad_role,evaluation,33,Descriptive role coding; not an inclusion decision.
-secondary,broad_role,other,98,Descriptive role coding; not an inclusion decision.
-primary,year,2023,1,
-primary,year,2024,13,
-primary,year,2025,91,
-primary,year,2026,198,
-targeted_route,records,cutoff_candidate_records,318,
-targeted_route,works,canonical_works,317,
+metric,label,count
+evidence_set,set1_core,97
+evidence_set,set2_emerging,249
+evidence_set,set3_context,0
+evidence_set,screened_out,1871
+set1_core_contribution,attack,34
+set1_core_contribution,defense,21
+set1_core_contribution,evaluation,18
+set1_core_contribution,general,24
+set2_emerging_contribution,attack,52
+set2_emerging_contribution,defense,47
+set2_emerging_contribution,evaluation,34
+set2_emerging_contribution,general,114
+set2_emerging_contribution,survey,2
+quality_control,author_priority_review,97
