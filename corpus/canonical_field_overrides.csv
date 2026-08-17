@@ -1,2 +1,0 @@
-paper_id,field,previous_value,active_value,reason,evidence_source
-zou2026calbench,multiagent_dependency,generated scenarios with CP-SAT oracles,yes: five agents hold private calendars and must reach consistent distributed commitments without global access,Replace an environment description with the interaction dependency established by the designated arXiv v3.,https://arxiv.org/pdf/2605.09823
