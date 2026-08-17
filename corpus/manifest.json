@@ -1,22 +1,22 @@
 {
-  "author_priority_review_count": 97,
+  "author_priority_review_count": 232,
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "strictly greater than 10",
   "corpus_counts": {
-    "set1_core": 97,
-    "set2_emerging": 249,
-    "total_corpus": 346
+    "set1_core": 27,
+    "set2_emerging": 266,
+    "total_corpus": 293
   },
   "counts": {
-    "screened_out": 1871,
-    "set1_core": 97,
-    "set2_emerging": 249,
-    "set3_context": 0
+    "screened_out": 1524,
+    "set1_core": 27,
+    "set2_emerging": 266,
+    "set3_context": 400
   },
   "files": {
     "author_priority_review.csv": {
-      "rows": 97,
-      "sha256": "491bf79616bbe7bec2378a6424e560ccd4b1bfa9f33d5a3481bd2cf1ee77444b"
+      "rows": 232,
+      "sha256": "d8f94e89846e591d9dc849be49d0d9d3ba5104a3b2915292adaee8574115ae6b"
     },
     "identifier_alias_overrides.csv": {
       "rows": 3,
@@ -28,31 +28,31 @@
     },
     "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "582e9404a75138b11341b4b244c3eaca5795ef97b2133513c0e9120bfb77305b"
+      "sha256": "addf9786cf516c9a8e56486c7ff65f8f1b0651981902a9324ed7ba9553acacde"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
     "screened_out.csv": {
-      "rows": 1871,
-      "sha256": "7cd0b7ad11ac340a3685c8c98feff56df443d39fa80fb28e543cd9c3a85aaa81"
+      "rows": 1524,
+      "sha256": "fe89ca1a868e8511603715951999b2e924282e7b6c535bf94312d5b3d16d7c3f"
     },
     "set1_core.csv": {
-      "rows": 97,
-      "sha256": "0417af8c77ba04cc4e089e667eb90b6e2c7c23daa7dff156bb068b9aedba7dff"
+      "rows": 27,
+      "sha256": "922a845747201f6abf2ea5ca9035b1243ef5704df82f1421d93b55797a348e06"
     },
     "set2_emerging.csv": {
-      "rows": 249,
-      "sha256": "ea0ded598c7f61a9d48c60767ed4e6e045d6846166c12d92086583befe26c7af"
+      "rows": 266,
+      "sha256": "67baa6f0c75ed2a7f9a1df39a3a5a0064addc3c6fbd3b2cd95d62c40fae3dbe9"
     },
     "set3_context.csv": {
-      "rows": 0,
-      "sha256": "35ea822b03097ef11ebbcaf7514d6a93567b6b92ac283229a64ef4bff8c5193d"
+      "rows": 400,
+      "sha256": "c1c5a58f13c032d35fd6c19754d2210582c6c4bc2c4efd15f0530416d1add749"
     },
     "summary.csv": {
-      "rows": 14,
-      "sha256": "e1dd661b0cd1abc37f2b4831e7fba01c8408abe3a5e28b4325eb8238117e7e20"
+      "rows": 22,
+      "sha256": "c44d478506aa1e6344a863cf842f90182ed5e55da7dde44108f9824fc9cbbf65"
     }
   },
   "literature_cutoff": "2026-07-01",
@@ -60,20 +60,286 @@
   "schema_version": 1,
   "search_universe": 2217,
   "set1_contributions": {
-    "attack": 34,
-    "defense": 21,
-    "evaluation": 18,
-    "general": 24
+    "attack": 6,
+    "defense": 2,
+    "evaluation": 8,
+    "survey": 11
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count > 10",
   "set2_contributions": {
-    "attack": 52,
-    "defense": 47,
-    "evaluation": 34,
-    "general": 114,
-    "survey": 2
+    "attack": 46,
+    "defense": 46,
+    "evaluation": 29,
+    "general": 133,
+    "survey": 12
   },
-  "set3_roles": {},
-  "source_file_inventory": [],
+  "set3_roles": {
+    "agentic_security_context": 8,
+    "classical_foundation": 2,
+    "defense_analogy": 32,
+    "deployment_evidence": 11,
+    "measurement_context": 49,
+    "protocol_or_standard": 45,
+    "related_work": 91,
+    "source_readiness_context": 162
+  },
+  "source_file_inventory": [
+    {
+      "path": "blocked-source-review/blocked-source-resolution-0/resolved_0.jsonl",
+      "rows": 8
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-0/summary_0.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-1/resolved_1.jsonl",
+      "rows": 8
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-1/summary_1.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-2/resolved_2.jsonl",
+      "rows": 8
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-2/summary_2.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-3/resolved_3.jsonl",
+      "rows": 7
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-3/summary_3.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-4/resolved_4.jsonl",
+      "rows": 7
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-4/summary_4.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-5/resolved_5.jsonl",
+      "rows": 7
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-5/summary_5.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-6/resolved_6.jsonl",
+      "rows": 7
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-6/summary_6.json",
+      "rows": 0
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-7/resolved_7.jsonl",
+      "rows": 7
+    },
+    {
+      "path": "blocked-source-review/blocked-source-resolution-7/summary_7.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-0/full_review_enriched_0.jsonl.gz",
+      "rows": 103
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-0/summary_0.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-1/full_review_enriched_1.jsonl.gz",
+      "rows": 103
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-1/summary_1.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-2/full_review_enriched_2.jsonl.gz",
+      "rows": 103
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-2/summary_2.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-3/full_review_enriched_3.jsonl.gz",
+      "rows": 103
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-3/summary_3.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-4/full_review_enriched_4.jsonl.gz",
+      "rows": 103
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-4/summary_4.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-5/full_review_enriched_5.jsonl.gz",
+      "rows": 102
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-5/summary_5.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-6/full_review_enriched_6.jsonl.gz",
+      "rows": 102
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-6/summary_6.json",
+      "rows": 0
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-7/full_review_enriched_7.jsonl.gz",
+      "rows": 102
+    },
+    {
+      "path": "full-source-review/full-corpus-review-enrichment-7/summary_7.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-0/fast_enriched_0.jsonl.gz",
+      "rows": 52
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-0/summary_0.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-1/fast_enriched_1.jsonl.gz",
+      "rows": 52
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-1/summary_1.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-10/fast_enriched_10.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-10/summary_10.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-11/fast_enriched_11.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-11/summary_11.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-12/fast_enriched_12.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-12/summary_12.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-13/fast_enriched_13.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-13/summary_13.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-14/fast_enriched_14.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-14/summary_14.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-15/fast_enriched_15.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-15/summary_15.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-2/fast_enriched_2.jsonl.gz",
+      "rows": 52
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-2/summary_2.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-3/fast_enriched_3.jsonl.gz",
+      "rows": 52
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-3/summary_3.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-4/fast_enriched_4.jsonl.gz",
+      "rows": 52
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-4/summary_4.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-5/fast_enriched_5.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-5/summary_5.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-6/fast_enriched_6.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-6/summary_6.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-7/fast_enriched_7.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-7/summary_7.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-8/fast_enriched_8.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-8/summary_8.json",
+      "rows": 0
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-9/fast_enriched_9.jsonl.gz",
+      "rows": 51
+    },
+    {
+      "path": "metadata-review/fast-corpus-review-enrichment-9/summary_9.json",
+      "rows": 0
+    }
+  ],
   "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification."
 }
