@@ -1,22 +1,22 @@
 {
-  "author_priority_review_count": 234,
+  "author_priority_review_count": 127,
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 192,
-    "set2_emerging": 263,
-    "total_corpus": 455
+    "set1_core": 139,
+    "set2_emerging": 180,
+    "total_corpus": 319
   },
   "counts": {
-    "screened_out": 1524,
-    "set1_core": 192,
-    "set2_emerging": 263,
-    "set3_context": 238
+    "screened_out": 1543,
+    "set1_core": 139,
+    "set2_emerging": 180,
+    "set3_context": 355
   },
   "files": {
     "author_priority_review.csv": {
-      "rows": 234,
-      "sha256": "3d5005cbf3bcc26e7fc7a3ec273d6b132ca4d4ac921098ad62395fee5a9bace9"
+      "rows": 127,
+      "sha256": "55b3e8d228e125166a01939c9fff3d90fa05b36382b774bd42ea3587c72bbf88"
     },
     "identifier_alias_overrides.csv": {
       "rows": 3,
@@ -28,31 +28,31 @@
     },
     "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "977a988f81ea71d47146d9ace9ecb607aaa122f7ebdcab0112d014ac7606daa6"
+      "sha256": "97d976bf83f66b92b670ba93c94ef9824701fb1dc8c80300d825ebde9259a34b"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
     "screened_out.csv": {
-      "rows": 1524,
-      "sha256": "27bb0b038d953403f081e6f8425cdd2b69363c9ce676fd6bf999c45ed34ab2e6"
+      "rows": 1543,
+      "sha256": "8e7280074938f7a8e4d93895781080fdbd7cb3c9fc8d40d459d48473810a6f44"
     },
     "set1_core.csv": {
-      "rows": 192,
-      "sha256": "b3f5b7325032c959ceb12775b80840446096bddda7874fe0d84d02b3ba2e4310"
+      "rows": 139,
+      "sha256": "b814b2ca6ff426d35443b9d5a11825bc0f6a39f9a3ffd93c92af97b1ee26317b"
     },
     "set2_emerging.csv": {
-      "rows": 263,
-      "sha256": "bd8eab9e666147f33b17fa5431efe807814e324b9f3d47a549a44b63c34676bd"
+      "rows": 180,
+      "sha256": "60abe9c9eaa40eb48f18d75d9fef9aa9f392238a1470b4ba1e0913a20c875485"
     },
     "set3_context.csv": {
-      "rows": 238,
-      "sha256": "117d0b016fd952db4ccceeefd5bb1189adbf610d5794f1102aff540eea3bcf32"
+      "rows": 355,
+      "sha256": "5fcf2e2eda30206b0e47dfa342650cdbdcdc381da567f458194abf59c31aeb8f"
     },
     "summary.csv": {
-      "rows": 23,
-      "sha256": "1fe596fe418ee980e49972b2cb5073fd23eec5778c74b29fed942135ec5818d5"
+      "rows": 24,
+      "sha256": "3200e18063d03767853944a928ed5b42a26703421278953639a9638ea304fc0a"
     }
   },
   "literature_cutoff": "2026-07-01",
@@ -61,28 +61,29 @@
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
   "search_universe": 2217,
   "set1_contributions": {
-    "attack": 50,
-    "defense": 39,
-    "evaluation": 32,
-    "general": 54,
+    "attack": 32,
+    "defense": 26,
+    "evaluation": 22,
+    "general": 42,
     "survey": 17
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 44,
-    "defense": 45,
-    "evaluation": 29,
-    "general": 133,
-    "survey": 12
+    "attack": 35,
+    "defense": 38,
+    "evaluation": 18,
+    "general": 79,
+    "survey": 10
   },
   "set3_roles": {
-    "agentic_security_context": 8,
-    "classical_foundation": 2,
-    "defense_analogy": 32,
-    "deployment_evidence": 11,
-    "measurement_context": 49,
-    "protocol_or_standard": 45,
-    "related_work": 91
+    "agentic_security_context": 15,
+    "classical_foundation": 4,
+    "defense_analogy": 50,
+    "deployment_evidence": 13,
+    "measurement_context": 92,
+    "protocol_or_standard": 55,
+    "related_work": 120,
+    "single_agent_baseline": 6
   },
   "source_file_inventory": [
     {
@@ -342,7 +343,7 @@
       "rows": 0
     }
   ],
-  "taxonomy_ready_count": 40,
-  "taxonomy_ready_set1_count": 27,
+  "taxonomy_ready_count": 38,
+  "taxonomy_ready_set1_count": 24,
   "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification."
 }
