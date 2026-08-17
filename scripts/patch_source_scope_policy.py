@@ -2,10 +2,12 @@
 """Patch the frozen 2026-08-17 source-review builder to the revised corpus policy.
 
 The base builder is restored from commit f5c205e during the one-shot source
-rerun.  These replacements deliberately change only scope/maturity semantics:
-prior inclusion labels cannot bypass source evidence, interaction presence is a
-scope condition while interaction *dependence* is not, soft safety/trust claims
-need an explicit MAS-system target, and the maturity threshold is >=10.
+rerun. These replacements change only scope and maturity semantics. Prior
+review labels cannot bypass source evidence. Scope signals are taken from the
+title and abstract so incidental mentions in Related Work do not promote a
+paper. Interaction presence is a scope condition while interaction dependence
+is not. Soft safety/trust claims need an explicit MAS-system target, and the
+maturity threshold is >=10.
 """
 
 from __future__ import annotations
@@ -47,7 +49,7 @@ def main() -> int:
         '        clean(queue_row.get("rationale", "")),\n'
         '        clean(queue_row.get("screening_note", "")),\n'
         '    ]\n',
-        '    # Scope signals must come from the paper/source, not from prior review labels.\n'
+        '    # Scope signals must come from the paper/source, not prior review labels.\n'
         '    parts = [clean(queue_row.get("title", ""))]\n',
         "source-text parts",
     )
@@ -55,7 +57,11 @@ def main() -> int:
     text = replace_once(
         text,
         '    all_text = clean(" ".join(parts + [abstract_text, evidence_text, paper_text]))\n',
-        '    all_text = clean(" ".join(parts + [abstract_text, paper_text]))\n',
+        '    # Corpus membership is based on the paper\'s stated contribution.\n'
+        '    # Full text is retained for later taxonomy/evidence extraction, but\n'
+        '    # it cannot make a paper in-scope merely because Related Work mentions\n'
+        '    # attacks, privacy, or other MAS-security terms.\n'
+        '    all_text = clean(" ".join(parts + [abstract_text]))\n',
         "source-text composition",
     )
 
