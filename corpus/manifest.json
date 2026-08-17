@@ -1,22 +1,22 @@
 {
-  "author_priority_review_count": 118,
+  "author_priority_review_count": 115,
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 128,
-    "set2_emerging": 175,
-    "total_corpus": 303
+    "set1_core": 121,
+    "set2_emerging": 166,
+    "total_corpus": 287
   },
   "counts": {
-    "screened_out": 1531,
-    "set1_core": 128,
-    "set2_emerging": 175,
-    "set3_context": 383
+    "screened_out": 1540,
+    "set1_core": 121,
+    "set2_emerging": 166,
+    "set3_context": 390
   },
   "files": {
     "author_priority_review.csv": {
-      "rows": 118,
-      "sha256": "1551efc0810f784984c4b536038dac53187c0fcf75406b37a52a241be59a11c1"
+      "rows": 115,
+      "sha256": "e0a51953123fac39c01654826fe67ca635e6829417d6da37ec29ed084a084be0"
     },
     "identifier_alias_overrides.csv": {
       "rows": 3,
@@ -28,31 +28,31 @@
     },
     "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "c13e66aea242b961fb7c8563cb345dc340aaa5a778c73fcd6dec643b682b88d0"
+      "sha256": "5273fc9042e011b6d344b5fb75d209a216998b136ce995f05346a895b3fd070b"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
     "screened_out.csv": {
-      "rows": 1531,
-      "sha256": "2939c6fc5ede7000cb17d9821cb8d715f9b63c4a6b53280e27fdd9b7144f6ae3"
+      "rows": 1540,
+      "sha256": "ffbe5b4e80c5e34741d7112f7d5f292aceac4bd637628401591b3089ce17c108"
     },
     "set1_core.csv": {
-      "rows": 128,
-      "sha256": "c489952a07df4916ae6e9499821537d8bd122257d5cb6c2bfe824b364dfb7662"
+      "rows": 121,
+      "sha256": "ab9df3ab6757b8742b63f707970c27bdf3738920160a584f314202654fee109f"
     },
     "set2_emerging.csv": {
-      "rows": 175,
-      "sha256": "81efa6007cddd89c9ebb519dc34c68f2df766fde911f906b0f2bf5639d293dd9"
+      "rows": 166,
+      "sha256": "c83eb5a20bf4d8617f185766a9792127cdab7380e6af3eb34456455112c44bcb"
     },
     "set3_context.csv": {
-      "rows": 383,
-      "sha256": "4fadc565654354229a4610e0236b2d7e40d4cf91282b654910a9f380ac35a274"
+      "rows": 390,
+      "sha256": "409f454e92e1369ee5e182ee976e619282ea530b291f3ea230d5981291e459e8"
     },
     "summary.csv": {
       "rows": 24,
-      "sha256": "3c42e66ea248b9dcc824c1b03096fa8584db81c267b87bde45038fc7d6d4b98b"
+      "sha256": "1d3c2605369015b2beb4fde2182f7513cc82981de195d88a4f1451edb8573c0c"
     }
   },
   "literature_cutoff": "2026-07-01",
@@ -64,24 +64,24 @@
     "attack": 31,
     "defense": 26,
     "evaluation": 19,
-    "general": 42,
-    "survey": 10
+    "general": 36,
+    "survey": 9
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 34,
+    "attack": 33,
     "defense": 38,
-    "evaluation": 17,
-    "general": 78,
-    "survey": 8
+    "evaluation": 15,
+    "general": 73,
+    "survey": 7
   },
   "set3_roles": {
     "agentic_security_context": 15,
-    "classical_foundation": 3,
+    "classical_foundation": 4,
     "defense_analogy": 53,
-    "deployment_evidence": 13,
-    "measurement_context": 102,
-    "protocol_or_standard": 59,
+    "deployment_evidence": 16,
+    "measurement_context": 100,
+    "protocol_or_standard": 64,
     "related_work": 132,
     "single_agent_baseline": 6
   },
