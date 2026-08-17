@@ -2,12 +2,13 @@
 """Patch the frozen 2026-08-17 source-review builder to the revised corpus policy.
 
 The base builder is restored from commit f5c205e during the one-shot source
-rerun. These replacements change only scope and maturity semantics. Prior
-review labels cannot bypass source evidence. Scope signals are taken from the
-title and abstract so incidental mentions in Related Work do not promote a
-paper. Interaction presence is a scope condition while interaction dependence
-is not. Soft safety/trust claims need an explicit MAS-system target, and the
-maturity threshold is >=10.
+rerun. These replacements change only scope and maturity semantics. Scope
+signals are taken from the title and abstract so incidental mentions in Related
+Work do not promote a paper. The frozen pre-policy ledger remains a negative
+anchor, except where the old exclusion was specifically caused by the former
+interaction-dependence requirement or a newly available title is explicitly
+about MAS security. Interaction presence is a scope condition while interaction
+dependence is not. The maturity threshold is >=10.
 """
 
 from __future__ import annotations
@@ -73,7 +74,22 @@ def main() -> int:
         '    # Direct security always qualifies as a protected property. Softer\n'
         '    # safety/trust/reliability language qualifies only when the source\n'
         '    # explicitly targets the multi-agent system rather than an external task.\n'
-        '    security_property = direct_security or (soft_security and system_target)\n\n'
+        '    security_property = direct_security or (soft_security and system_target)\n'
+        '    frozen_scope = clean(queue_row.get("strict_scope_pass", "")).lower()\n'
+        '    frozen_reason = clean(queue_row.get("scope_reason", "")).lower()\n'
+        '    title_text = clean(queue_row.get("title", "")).lower()\n'
+        '    explicit_security_title = (\n'
+        '        has_any(title_text, MULTI_TERMS)\n'
+        '        and (has_any(title_text, DIRECT_SECURITY_TERMS) or has_any(title_text, SOFT_SECURITY_TERMS))\n'
+        '    )\n'
+        '    # A frozen negative decision is reconsidered only when the old reason\n'
+        '    # was the interaction-dependence requirement we are intentionally\n'
+        '    # removing, or when the title itself clearly identifies MAS security.\n'
+        '    reconsider_old_negative = (\n'
+        '        "interaction-dependent mechanism" in frozen_reason\n'
+        '        or explicit_security_title\n'
+        '    )\n'
+        '    hard_prior_exclude = frozen_scope == "no" and not reconsider_old_negative\n\n'
         '    scope_pass = False\n',
         "security-property definition",
     )
@@ -88,6 +104,11 @@ def main() -> int:
         '        )\n'
         '    elif has_llm and has_multi and direct_security and interaction \\\n'
         '            and (system_target or count_terms(text, INTERACTION_TERMS) >= 2):\n',
+        '    elif hard_prior_exclude:\n'
+        '        scope_reason = (\n'
+        '            "Frozen source review kept the work outside the MAS-security "\n'
+        '            "corpus for a reason other than the former interaction-dependence gate."\n'
+        '        )\n'
         '    elif has_llm and has_multi and security_property and interaction:\n',
         "scope gate",
     )
