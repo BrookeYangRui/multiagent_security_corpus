@@ -1,0 +1,60 @@
+name: Rebuild corpus membership
+
+on:
+  push:
+    branches:
+      - agent/rebuild-corpus-membership
+    paths:
+      - .github/workflows/rebuild-corpus-membership.yml
+      - scripts/rebuild_membership_from_ledger.py
+      - scripts/validate_three_set_corpus.py
+      - CORPUS_SET_POLICY.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out review branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild membership from frozen ledger
+        run: python scripts/rebuild_membership_from_ledger.py
+
+      - name: Validate authoritative sets
+        run: python scripts/validate_three_set_corpus.py
+
+      - name: Show resulting counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m = json.loads(Path('corpus/manifest.json').read_text())
+          print(json.dumps({
+              'counts': m['counts'],
+              'corpus_counts': m['corpus_counts'],
+              'taxonomy_ready_set1_count': m.get('taxonomy_ready_set1_count'),
+              'citation_threshold': m.get('citation_threshold'),
+              'set1_maturity_rule': m.get('set1_maturity_rule'),
+          }, indent=2, sort_keys=True))
+          PY
+
+      - name: Commit regenerated corpus views
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add corpus
+          if git diff --cached --quiet; then
+            echo "No generated corpus changes"
+            exit 0
+          fi
+          git commit -m "Rebuild corpus membership from frozen ledger"
+          git push origin HEAD:agent/rebuild-corpus-membership
