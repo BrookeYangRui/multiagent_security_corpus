@@ -2,10 +2,10 @@
 
 | File | Count | Role in the SoK |
 | --- | ---: | --- |
-| `set1_core.csv` | 139 | In-scope mature corpus: peer reviewed or at least 10 frozen citations. |
-| `set2_emerging.csv` | 180 | In-scope emerging corpus that has not yet met the Set 1 maturity rule. |
-| `set3_context.csv` | 355 | Contextual citations; not part of the MAS-security corpus. |
-| `screened_out.csv` | 1,543 | Reviewed search records outside the active evidence sets. |
+| `set1_core.csv` | 128 | In-scope mature corpus: peer reviewed or at least 10 frozen citations. |
+| `set2_emerging.csv` | 175 | In-scope emerging corpus that has not yet met the Set 1 maturity rule. |
+| `set3_context.csv` | 383 | Contextual citations; not part of the MAS-security corpus. |
+| `screened_out.csv` | 1,531 | Reviewed search records outside the active evidence sets. |
 
 Set 1 and Set 2 use the same MAS-security scope gate. Membership requires an
 LLM multi-agent system, a concrete security property, and a material inter-agent
