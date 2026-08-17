@@ -2,9 +2,17 @@
 
 Auditable literature corpus for security of interacting LLM agents. Literature cutoff: `2026-07-01`.
 
+## Frozen manuscript corpus
+
+The USENIX 2027 SoK manuscript-facing corpus is frozen as of `2026-08-17`. The authoritative counts are **Set 1 = 121**, **Set 2 = 166**, **Set 3 = 390**, and **screened out = 1,540**. Set 1 and Set 2 together form the **287-work MAS-security corpus**.
+
+Corpus membership and the frozen citation snapshot should not be regenerated silently. Any later correction must be treated as an explicit new corpus revision with documented changes. The repository keeps validation automation, but the one-shot reconstruction and migration workflows have been retired after the freeze.
+
+See [`FROZEN_SNAPSHOT.md`](FROZEN_SNAPSHOT.md) for the frozen definitions and counts.
+
 ## Authoritative review universe
 
-The frozen ledger contains 2,217 deduplicated works and 3,217 discovery-route records. The current manuscript-facing partition is:
+The frozen ledger contains 2,217 deduplicated works and 3,217 discovery-route records. The manuscript-facing partition is:
 
 | File | Count | Meaning |
 | --- | ---: | --- |
