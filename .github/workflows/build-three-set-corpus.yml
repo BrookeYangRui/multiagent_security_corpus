@@ -17,7 +17,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - name: Check out corpus
         uses: actions/checkout@v4
@@ -32,10 +32,30 @@ jobs:
           set -euo pipefail
           rm -rf review-evidence
           mkdir -p review-evidence
-          gh run download 31990472611 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/full-source-review
-          gh run download 31991087846 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/metadata-review
-          gh run download 31994103912 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/blocked-source-review
-          find review-evidence -type f -maxdepth 5 | sort
+
+          download_run() {
+            local run_id="$1"
+            local destination="$2"
+            local attempt
+            for attempt in 1 2 3 4 5 6; do
+              rm -rf "$destination"
+              mkdir -p "$destination"
+              if gh run download "$run_id" \
+                   --repo BrookeYangRui/multiagent_security_corpus \
+                   --dir "$destination"; then
+                return 0
+              fi
+              echo "Artifact download for run $run_id failed on attempt $attempt" >&2
+              sleep $((attempt * 10))
+            done
+            echo "Artifact download for run $run_id failed after six attempts" >&2
+            return 1
+          }
+
+          download_run 31990472611 review-evidence/full-source-review
+          download_run 31991087846 review-evidence/metadata-review
+          download_run 31994103912 review-evidence/blocked-source-review
+          find review-evidence -maxdepth 6 -type f | sort
 
       - name: Build Set 1, Set 2, and Set 3
         run: python scripts/build_three_set_corpus.py
@@ -43,10 +63,8 @@ jobs:
       - name: Validate the new corpus
         run: python scripts/validate_three_set_corpus.py
 
-      - name: Remove one-shot builder workflow and downloaded evidence
-        run: |
-          rm -rf review-evidence
-          rm -f .github/workflows/build-three-set-corpus.yml
+      - name: Remove downloaded evidence
+        run: rm -rf review-evidence
 
       - name: Commit reviewed sets
         shell: bash
