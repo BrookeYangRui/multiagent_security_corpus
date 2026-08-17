@@ -7,25 +7,74 @@ on:
     paths:
       - .github/workflows/rebuild-corpus-membership.yml
       - scripts/rebuild_membership_from_ledger.py
+      - scripts/patch_source_scope_policy.py
       - scripts/validate_three_set_corpus.py
       - CORPUS_SET_POLICY.md
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: write
 
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
-      - name: Check out review branch
+      - name: Check out review branch with history
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Rebuild membership from frozen ledger
+      - name: Restore frozen source-review builder
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show f5c205eeaa3db336b07d5ca0ba0b0c8588e234a1:scripts/build_three_set_corpus.py > scripts/build_three_set_corpus.py
+          git show f5c205eeaa3db336b07d5ca0ba0b0c8588e234a1:scripts/rebuild_three_set_from_evidence_v2.py > scripts/rebuild_three_set_from_evidence_v2.py
+          python scripts/patch_source_scope_policy.py scripts/build_three_set_corpus.py
+
+      - name: Download frozen source-review artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf review-evidence
+          mkdir -p review-evidence
+
+          download_run() {
+            local run_id="$1"
+            local destination="$2"
+            for attempt in 1 2 3; do
+              rm -rf "$destination"
+              mkdir -p "$destination"
+              if gh run download "$run_id" --repo BrookeYangRui/multiagent_security_corpus --dir "$destination"; then
+                return 0
+              fi
+              sleep $((attempt * 5))
+            done
+            return 1
+          }
+
+          download_run 31990472611 review-evidence/full-source-review
+          download_run 31991087846 review-evidence/metadata-review
+          download_run 31994103912 review-evidence/blocked-source-review
+          find review-evidence -type f | sort | head -40
+
+      - name: Re-screen all 2,217 works from source evidence
+        run: python scripts/rebuild_three_set_from_evidence_v2.py
+
+      - name: Apply membership and readiness separation
         run: python scripts/rebuild_membership_from_ledger.py
+
+      - name: Remove one-shot reconstruction inputs
+        shell: bash
+        run: |
+          rm -rf review-evidence
+          rm -f corpus/review_queue.csv
+          rm -f scripts/build_three_set_corpus.py
+          rm -f scripts/rebuild_three_set_from_evidence_v2.py
 
       - name: Validate authoritative sets
         run: python scripts/validate_three_set_corpus.py
@@ -42,6 +91,7 @@ jobs:
               'taxonomy_ready_set1_count': m.get('taxonomy_ready_set1_count'),
               'citation_threshold': m.get('citation_threshold'),
               'set1_maturity_rule': m.get('set1_maturity_rule'),
+              'scope_rule': m.get('scope_rule'),
           }, indent=2, sort_keys=True))
           PY
 
@@ -56,5 +106,5 @@ jobs:
             echo "No generated corpus changes"
             exit 0
           fi
-          git commit -m "Rebuild corpus membership from frozen ledger"
+          git commit -m "Re-screen corpus under separated scope and evidence rules"
           git push origin HEAD:agent/rebuild-corpus-membership
