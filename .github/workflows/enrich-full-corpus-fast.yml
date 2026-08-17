@@ -1,0 +1,166 @@
+name: Fast enrich full corpus review
+
+on:
+  push:
+    branches:
+      - full-corpus-expert-review
+    paths:
+      - .github/workflows/enrich-full-corpus-fast.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Fetch metadata and abstracts
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 16
+        run: |
+          mkdir -p fast-enrichment
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, gzip, html, json, os, re, time, urllib.parse, urllib.request
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+
+          ROOT=Path('.')
+          shard=int(os.environ['SHARD']); shards=int(os.environ['SHARDS'])
+          rows=[]
+          for decision in ('primary','secondary','pending'):
+              path=ROOT/'corpus'/f'{decision}.csv'
+              if not path.exists(): continue
+              with path.open(encoding='utf-8-sig',newline='') as h:
+                  for row in csv.DictReader(h):
+                      row=dict(row); row['starting_decision']=decision; rows.append(row)
+          rows=sorted(rows,key=lambda r:r.get('work_key',''))
+          rows=[r for i,r in enumerate(rows) if i % shards == shard]
+          UA='MAS-SoK-source-review/2.1 (mailto:ryang54@jh.edu)'
+
+          def clean(v):
+              if v is None: return ''
+              v=html.unescape(str(v)); v=re.sub(r'<[^>]+>',' ',v); return re.sub(r'\s+',' ',v).strip()
+
+          def req_json(url, attempts=3):
+              last=''
+              for a in range(attempts):
+                  try:
+                      request=urllib.request.Request(url,headers={'User-Agent':UA,'Accept':'application/json'})
+                      with urllib.request.urlopen(request,timeout=30) as r: return json.load(r),''
+                  except Exception as e:
+                      last=repr(e); time.sleep(min(4,.4*(2**a)))
+              return None,last
+
+          def inv_abs(inv):
+              if not isinstance(inv,dict): return ''
+              pos=[]
+              for w,ps in inv.items():
+                  for p in ps or []: pos.append((int(p),w))
+              return clean(' '.join(w for _,w in sorted(pos)))
+
+          arxiv_ids=[r.get('arxiv_id','').strip() for r in rows if r.get('arxiv_id','').strip()]
+          arxiv_meta={}
+          for start in range(0,len(arxiv_ids),50):
+              ids=arxiv_ids[start:start+50]
+              url='https://export.arxiv.org/api/query?id_list='+urllib.parse.quote(','.join(ids))+'&max_results='+str(len(ids))
+              try:
+                  request=urllib.request.Request(url,headers={'User-Agent':UA})
+                  with urllib.request.urlopen(request,timeout=40) as r: root=ET.fromstring(r.read())
+                  ns={'a':'http://www.w3.org/2005/Atom'}
+                  for e in root.findall('a:entry',ns):
+                      aid=e.findtext('a:id','',ns).rsplit('/',1)[-1].split('v')[0]
+                      arxiv_meta[aid]={
+                        'arxiv_title':clean(e.findtext('a:title','',ns)),
+                        'arxiv_abstract':clean(e.findtext('a:summary','',ns)),
+                        'arxiv_published':clean(e.findtext('a:published','',ns)),
+                        'arxiv_updated':clean(e.findtext('a:updated','',ns)),
+                        'arxiv_categories':';'.join(x.attrib.get('term','') for x in e.findall('a:category',ns)),
+                      }
+              except Exception as e:
+                  for aid in ids: arxiv_meta.setdefault(aid,{'arxiv_error':repr(e)})
+              time.sleep(.6)
+
+          out=[]
+          for i,row in enumerate(rows,1):
+              r=dict(row); doi=row.get('doi','').strip().lower(); aid=row.get('arxiv_id','').strip()
+              if aid in arxiv_meta: r.update(arxiv_meta[aid])
+              oa=None; cr=None; s2=None
+              if doi:
+                  data,err=req_json('https://api.openalex.org/works/https://doi.org/'+urllib.parse.quote(doi,safe='/:')+'?mailto=ryang54@jh.edu')
+                  oa=data; r['openalex_error']=err
+                  data,err=req_json('https://api.crossref.org/works/'+urllib.parse.quote(doi,safe=''))
+                  cr=(data or {}).get('message') if data else None; r['crossref_error']=err
+                  data,err=req_json('https://api.semanticscholar.org/graph/v1/paper/DOI:'+urllib.parse.quote(doi,safe='')+'?fields=title,abstract,year,venue,publicationTypes,publicationDate,externalIds,openAccessPdf,citationCount,referenceCount')
+                  s2=data; r['s2_error']=err
+              elif aid:
+                  data,err=req_json('https://api.openalex.org/works/https://arxiv.org/abs/'+urllib.parse.quote(aid,safe='')+'?mailto=ryang54@jh.edu')
+                  oa=data; r['openalex_error']=err
+                  data,err=req_json('https://api.semanticscholar.org/graph/v1/paper/ARXIV:'+urllib.parse.quote(aid,safe='')+'?fields=title,abstract,year,venue,publicationTypes,publicationDate,externalIds,openAccessPdf,citationCount,referenceCount')
+                  s2=data; r['s2_error']=err
+              if oa:
+                  pl=oa.get('primary_location') or {}; src=pl.get('source') or {}; best=oa.get('best_oa_location') or {}
+                  r.update({
+                    'openalex_id':clean(oa.get('id','')),
+                    'openalex_title':clean(oa.get('display_name','')),
+                    'openalex_abstract':inv_abs(oa.get('abstract_inverted_index')),
+                    'openalex_type':clean(oa.get('type','')),
+                    'openalex_date':clean(oa.get('publication_date','')),
+                    'openalex_citations':str(oa.get('cited_by_count','')),
+                    'openalex_source':clean(src.get('display_name','')),
+                    'openalex_landing':clean(pl.get('landing_page_url','')),
+                    'openalex_pdf':clean(best.get('pdf_url','') or pl.get('pdf_url','')),
+                    'openalex_topics':';'.join(clean((t.get('display_name') or '')) for t in (oa.get('topics') or [])[:10]),
+                  })
+              if cr:
+                  r.update({
+                    'crossref_title':clean(' '.join(cr.get('title') or [])),
+                    'crossref_abstract':clean(cr.get('abstract','')),
+                    'crossref_type':clean(cr.get('type','')),
+                    'crossref_container':clean('; '.join(cr.get('container-title') or [])),
+                    'crossref_publisher':clean(cr.get('publisher','')),
+                    'crossref_url':clean(cr.get('URL','')),
+                    'crossref_citations':str(cr.get('is-referenced-by-count','')),
+                  })
+              if s2 and not s2.get('error'):
+                  r.update({
+                    's2_title':clean(s2.get('title','')),
+                    's2_abstract':clean(s2.get('abstract','')),
+                    's2_year':str(s2.get('year','') or ''),
+                    's2_venue':clean(s2.get('venue','')),
+                    's2_publication_types':';'.join(s2.get('publicationTypes') or []),
+                    's2_date':clean(s2.get('publicationDate','')),
+                    's2_citations':str(s2.get('citationCount','') or ''),
+                    's2_references':str(s2.get('referenceCount','') or ''),
+                    's2_pdf':clean((s2.get('openAccessPdf') or {}).get('url','')),
+                  })
+              abstracts=[r.get(k,'') for k in ('arxiv_abstract','s2_abstract','openalex_abstract','crossref_abstract') if r.get(k,'')]
+              r['best_abstract']=max(abstracts,key=len) if abstracts else ''
+              out.append(r)
+              print(f'shard {shard}: {i}/{len(rows)} abs={bool(r["best_abstract"])} {row.get("work_key")}',flush=True)
+              time.sleep(.03)
+
+          path=ROOT/'fast-enrichment'/f'fast_enriched_{shard}.jsonl.gz'
+          with gzip.open(path,'wt',encoding='utf-8') as h:
+              for r in out: h.write(json.dumps(r,ensure_ascii=False)+'\n')
+          summary={'shard':shard,'rows':len(out),'with_abstract':sum(bool(r.get('best_abstract')) for r in out)}
+          (ROOT/'fast-enrichment'/f'summary_{shard}.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upload fast enrichment shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: fast-corpus-review-enrichment-${{ matrix.shard }}
+          path: fast-enrichment/
+          if-no-files-found: error
