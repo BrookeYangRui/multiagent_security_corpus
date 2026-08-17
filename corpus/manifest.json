@@ -1,22 +1,22 @@
 {
-  "author_priority_review_count": 232,
+  "author_priority_review_count": 115,
   "citation_snapshot_date": "2026-08-17",
-  "citation_threshold": "strictly greater than 10",
+  "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 27,
-    "set2_emerging": 266,
-    "total_corpus": 293
+    "set1_core": 121,
+    "set2_emerging": 166,
+    "total_corpus": 287
   },
   "counts": {
-    "screened_out": 1524,
-    "set1_core": 27,
-    "set2_emerging": 266,
-    "set3_context": 400
+    "screened_out": 1540,
+    "set1_core": 121,
+    "set2_emerging": 166,
+    "set3_context": 390
   },
   "files": {
     "author_priority_review.csv": {
-      "rows": 232,
-      "sha256": "d8f94e89846e591d9dc849be49d0d9d3ba5104a3b2915292adaee8574115ae6b"
+      "rows": 115,
+      "sha256": "e0a51953123fac39c01654826fe67ca635e6829417d6da37ec29ed084a084be0"
     },
     "identifier_alias_overrides.csv": {
       "rows": 3,
@@ -28,60 +28,62 @@
     },
     "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "addf9786cf516c9a8e56486c7ff65f8f1b0651981902a9324ed7ba9553acacde"
+      "sha256": "5273fc9042e011b6d344b5fb75d209a216998b136ce995f05346a895b3fd070b"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
     "screened_out.csv": {
-      "rows": 1524,
-      "sha256": "fe89ca1a868e8511603715951999b2e924282e7b6c535bf94312d5b3d16d7c3f"
+      "rows": 1540,
+      "sha256": "ffbe5b4e80c5e34741d7112f7d5f292aceac4bd637628401591b3089ce17c108"
     },
     "set1_core.csv": {
-      "rows": 27,
-      "sha256": "922a845747201f6abf2ea5ca9035b1243ef5704df82f1421d93b55797a348e06"
+      "rows": 121,
+      "sha256": "ab9df3ab6757b8742b63f707970c27bdf3738920160a584f314202654fee109f"
     },
     "set2_emerging.csv": {
-      "rows": 266,
-      "sha256": "67baa6f0c75ed2a7f9a1df39a3a5a0064addc3c6fbd3b2cd95d62c40fae3dbe9"
+      "rows": 166,
+      "sha256": "c83eb5a20bf4d8617f185766a9792127cdab7380e6af3eb34456455112c44bcb"
     },
     "set3_context.csv": {
-      "rows": 400,
-      "sha256": "c1c5a58f13c032d35fd6c19754d2210582c6c4bc2c4efd15f0530416d1add749"
+      "rows": 390,
+      "sha256": "409f454e92e1369ee5e182ee976e619282ea530b291f3ea230d5981291e459e8"
     },
     "summary.csv": {
-      "rows": 22,
-      "sha256": "c44d478506aa1e6344a863cf842f90182ed5e55da7dde44108f9824fc9cbbf65"
+      "rows": 24,
+      "sha256": "1d3c2605369015b2beb4fde2182f7513cc82981de195d88a4f1451edb8573c0c"
     }
   },
   "literature_cutoff": "2026-07-01",
   "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review",
-  "schema_version": 1,
+  "schema_version": 2,
+  "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
   "search_universe": 2217,
   "set1_contributions": {
-    "attack": 6,
-    "defense": 2,
-    "evaluation": 8,
-    "survey": 11
+    "attack": 31,
+    "defense": 26,
+    "evaluation": 19,
+    "general": 36,
+    "survey": 9
   },
-  "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count > 10",
+  "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 46,
-    "defense": 46,
-    "evaluation": 29,
-    "general": 133,
-    "survey": 12
+    "attack": 33,
+    "defense": 38,
+    "evaluation": 15,
+    "general": 73,
+    "survey": 7
   },
   "set3_roles": {
-    "agentic_security_context": 8,
-    "classical_foundation": 2,
-    "defense_analogy": 32,
-    "deployment_evidence": 11,
-    "measurement_context": 49,
-    "protocol_or_standard": 45,
-    "related_work": 91,
-    "source_readiness_context": 162
+    "agentic_security_context": 15,
+    "classical_foundation": 4,
+    "defense_analogy": 53,
+    "deployment_evidence": 16,
+    "measurement_context": 100,
+    "protocol_or_standard": 64,
+    "related_work": 132,
+    "single_agent_baseline": 6
   },
   "source_file_inventory": [
     {
@@ -341,5 +343,7 @@
       "rows": 0
     }
   ],
+  "taxonomy_ready_count": 18,
+  "taxonomy_ready_set1_count": 12,
   "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification."
 }
