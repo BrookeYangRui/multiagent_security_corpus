@@ -1,0 +1,181 @@
+name: Resolve blocked corpus sources
+
+on:
+  push:
+    branches:
+      - full-corpus-expert-review
+    paths:
+      - .github/workflows/resolve-blocked-sources.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Resolve full sources
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 8
+        run: |
+          mkdir -p blocked-sources
+          python - <<'PY'
+          from __future__ import annotations
+          import csv, hashlib, html, json, os, re, subprocess, tempfile, time, urllib.parse, urllib.request
+          from pathlib import Path
+
+          ROOT=Path('.')
+          shard=int(os.environ['SHARD']); shards=int(os.environ['SHARDS'])
+          rows=[]
+          with (ROOT/'corpus/secondary.csv').open(encoding='utf-8-sig',newline='') as h:
+              for row in csv.DictReader(h):
+                  if row.get('decision')=='secondary': rows.append(dict(row))
+          # The source-blocked flag lives in rationale/decision source in the current snapshot.
+          rows=[r for r in rows if 'direct' in (r.get('rationale','')+' '+r.get('decision_source','')).lower() or any(x in (r.get('title','').lower()) for x in ['attack','security','secure','privacy','leak','malicious','byzantine','collusion','prompt injection','fault','trust','risk','propagation','governance'])]
+          rows=sorted(rows,key=lambda r:r.get('work_key',''))
+          rows=[r for i,r in enumerate(rows) if i % shards == shard]
+          UA='MAS-SoK-source-resolution/2.0 (mailto:ryang54@jh.edu)'
+
+          def request(url, accept='*/*', attempts=3, timeout=50):
+              last=''
+              for a in range(attempts):
+                  try:
+                      req=urllib.request.Request(url,headers={'User-Agent':UA,'Accept':accept})
+                      with urllib.request.urlopen(req,timeout=timeout) as resp:
+                          return resp.read(35_000_001), dict(resp.headers), resp.geturl(), ''
+                  except Exception as e:
+                      last=repr(e); time.sleep(min(6,.5*(2**a)))
+              return b'',{},url,last
+
+          def json_req(url):
+              data,_,_,err=request(url,'application/json')
+              if not data: return None,err
+              try: return json.loads(data),''
+              except Exception as e: return None,repr(e)
+
+          def html_pdf_links(url):
+              data,headers,final,err=request(url,'text/html,application/xhtml+xml',attempts=2)
+              if not data: return [],err
+              text=data.decode('utf-8','ignore')
+              links=[]
+              pats=[
+                r'<meta[^>]+(?:name|property)=["\'](?:citation_pdf_url|og:pdf|pdf_url)["\'][^>]+content=["\']([^"\']+)',
+                r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:name|property)=["\'](?:citation_pdf_url|og:pdf|pdf_url)["\']',
+                r'href=["\']([^"\']+\.pdf(?:\?[^"\']*)?)["\']',
+              ]
+              for pat in pats:
+                  for m in re.finditer(pat,text,re.I):
+                      links.append(urllib.parse.urljoin(final,html.unescape(m.group(1))))
+              return links,''
+
+          def candidate_urls(row):
+              doi=row.get('doi','').strip().lower(); aid=row.get('arxiv_id','').strip(); urls=[]; notes=[]
+              if aid: urls.append('https://arxiv.org/pdf/'+aid)
+              if doi.startswith('10.5281/zenodo.'):
+                  rec=doi.rsplit('.',1)[-1]
+                  js,err=json_req('https://zenodo.org/api/records/'+urllib.parse.quote(rec))
+                  if js:
+                      for f in js.get('files') or []:
+                          link=(f.get('links') or {}).get('content') or (f.get('links') or {}).get('self') or ''
+                          if link and (str(f.get('key','')).lower().endswith('.pdf') or 'pdf' in str(f.get('type','')).lower()): urls.append(link)
+                  if err: notes.append('zenodo:'+err)
+              if doi:
+                  js,err=json_req('https://api.unpaywall.org/v2/'+urllib.parse.quote(doi,safe='')+'?email=ryang54@jh.edu')
+                  if js:
+                      for loc in [js.get('best_oa_location') or {}]+list(js.get('oa_locations') or []):
+                          for k in ('url_for_pdf','url'):
+                              if loc.get(k): urls.append(loc[k])
+                  if err: notes.append('unpaywall:'+err)
+                  js,err=json_req('https://api.openalex.org/works/https://doi.org/'+urllib.parse.quote(doi,safe='/:')+'?mailto=ryang54@jh.edu')
+                  if js:
+                      for loc in [js.get('best_oa_location') or {},js.get('primary_location') or {}]+list(js.get('locations') or []):
+                          for k in ('pdf_url','landing_page_url'):
+                              if loc.get(k): urls.append(loc[k])
+                  if err: notes.append('openalex:'+err)
+                  js,err=json_req('https://api.crossref.org/works/'+urllib.parse.quote(doi,safe=''))
+                  msg=(js or {}).get('message') if js else None
+                  if msg:
+                      for link in msg.get('link') or []:
+                          if link.get('URL'): urls.append(link['URL'])
+                      if msg.get('URL'): urls.append(msg['URL'])
+                  if err: notes.append('crossref:'+err)
+                  urls.append('https://doi.org/'+doi)
+              if row.get('primary_url'): urls.append(row['primary_url'])
+              expanded=[]
+              for u in urls:
+                  if not u: continue
+                  expanded.append(u)
+                  if not re.search(r'\.pdf(?:$|\?)',u,re.I):
+                      links,err=html_pdf_links(u)
+                      expanded.extend(links)
+                      if err: notes.append('html:'+u+':'+err)
+              seen=set(); out=[]
+              for u in expanded:
+                  if u and u not in seen: seen.add(u); out.append(u)
+              return out,notes
+
+          def fetch_pdf_text(urls):
+              errs=[]
+              for u in urls[:18]:
+                  data,headers,final,err=request(u,'application/pdf,text/html;q=0.7,*/*;q=0.3',attempts=2,timeout=70)
+                  if err or not data:
+                      errs.append(u+':'+err); continue
+                  ctype=(headers.get('Content-Type') or '').lower()
+                  if len(data)>35_000_000:
+                      errs.append(u+':too_large'); continue
+                  if not data.startswith(b'%PDF') and 'pdf' not in ctype:
+                      # A landing page may reveal a new PDF link.
+                      try:
+                          text=data.decode('utf-8','ignore')
+                          more=[]
+                          for pat in [r'citation_pdf_url["\']?\s+content=["\']([^"\']+)',r'href=["\']([^"\']+\.pdf(?:\?[^"\']*)?)']:
+                              more += [urllib.parse.urljoin(final,html.unescape(x)) for x in re.findall(pat,text,re.I)]
+                          for m in more:
+                              if m not in urls: urls.append(m)
+                      except Exception: pass
+                      errs.append(u+':not_pdf'); continue
+                  with tempfile.TemporaryDirectory() as td:
+                      pdf=Path(td)/'p.pdf'; txt=Path(td)/'p.txt'; pdf.write_bytes(data)
+                      p=subprocess.run(['pdftotext','-layout','-f','1','-l','80',str(pdf),str(txt)],capture_output=True,text=True,timeout=120)
+                      if p.returncode or not txt.exists(): errs.append(u+':pdftotext'); continue
+                      text=txt.read_text(encoding='utf-8',errors='ignore')
+                  if len(text.split())<500:
+                      errs.append(u+':too_little_text'); continue
+                  return {'pdf_url':final,'pdf_sha256':hashlib.sha256(data).hexdigest(),'pdf_bytes':len(data),'pdf_words':len(text.split()),'pdf_text':text[:400000],'errors':' | '.join(errs)}
+              return {'errors':' | '.join(errs)}
+
+          output=[]
+          for i,row in enumerate(rows,1):
+              urls,notes=candidate_urls(row)
+              result=dict(row); result.update(fetch_pdf_text(urls)); result['candidate_urls']=';'.join(urls); result['resolver_notes']=' | '.join(notes)
+              output.append(result)
+              print(f'shard {shard} {i}/{len(rows)} pdf={bool(result.get("pdf_url"))} {row.get("work_key")}',flush=True)
+          path=ROOT/'blocked-sources'/f'resolved_{shard}.jsonl'
+          with path.open('w',encoding='utf-8') as h:
+              for r in output: h.write(json.dumps(r,ensure_ascii=False)+'\n')
+          summary={'shard':shard,'rows':len(output),'pdfs':sum(bool(r.get('pdf_url')) for r in output)}
+          (ROOT/'blocked-sources'/f'summary_{shard}.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upload resolved sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: blocked-source-resolution-${{ matrix.shard }}
+          path: blocked-sources/
+          if-no-files-found: error
