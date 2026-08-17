@@ -1,0 +1,174 @@
+name: Enrich pending review sources
+
+on:
+  push:
+    branches:
+      - review-all-341-pending
+    paths:
+      - .github/workflows/enrich-pending-review.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Fetch Crossref, OpenAlex, and arXiv metadata
+        shell: bash
+        run: |
+          mkdir -p review-enrichment
+          python - <<'PY'
+          import csv, html, json, re, time, urllib.parse, urllib.request
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+
+          ROOT = Path('.')
+          rows = list(csv.DictReader((ROOT/'corpus/pending.csv').open(encoding='utf-8-sig', newline='')))
+          UA = 'multiagent-security-corpus-review/1.0 (mailto:ryang54@jh.edu)'
+
+          def request_json(url, attempts=5):
+              last=''
+              for attempt in range(attempts):
+                  try:
+                      req=urllib.request.Request(url, headers={'User-Agent':UA, 'Accept':'application/json'})
+                      with urllib.request.urlopen(req, timeout=45) as r:
+                          return json.load(r), ''
+                  except Exception as e:
+                      last=repr(e)
+                      time.sleep(min(8, 0.75*(2**attempt)))
+              return None, last
+
+          def clean_markup(value):
+              if not value: return ''
+              value=html.unescape(str(value))
+              value=re.sub(r'<[^>]+>', ' ', value)
+              value=re.sub(r'\s+', ' ', value).strip()
+              return value
+
+          def inv_abstract(inv):
+              if not isinstance(inv, dict): return ''
+              positions=[]
+              for word, ps in inv.items():
+                  for p in ps or []:
+                      positions.append((int(p), word))
+              return ' '.join(w for _,w in sorted(positions))
+
+          arxiv_ids=[r['arxiv_id'].strip() for r in rows if r.get('arxiv_id','').strip()]
+          arxiv_meta={}
+          for start in range(0,len(arxiv_ids),25):
+              ids=arxiv_ids[start:start+25]
+              url='https://export.arxiv.org/api/query?id_list='+urllib.parse.quote(','.join(ids))+'&max_results='+str(len(ids))
+              try:
+                  req=urllib.request.Request(url, headers={'User-Agent':UA})
+                  with urllib.request.urlopen(req,timeout=45) as resp:
+                      root=ET.fromstring(resp.read())
+                  ns={'a':'http://www.w3.org/2005/Atom'}
+                  for entry in root.findall('a:entry',ns):
+                      aid=(entry.findtext('a:id','',ns).rsplit('/',1)[-1]).split('v')[0]
+                      arxiv_meta[aid]={
+                          'arxiv_title':clean_markup(entry.findtext('a:title','',ns)),
+                          'arxiv_abstract':clean_markup(entry.findtext('a:summary','',ns)),
+                          'arxiv_published':entry.findtext('a:published','',ns),
+                          'arxiv_updated':entry.findtext('a:updated','',ns),
+                          'arxiv_categories':';'.join(x.attrib.get('term','') for x in entry.findall('a:category',ns)),
+                          'arxiv_authors':';'.join(clean_markup(x.findtext('a:name','',ns)) for x in entry.findall('a:author',ns)),
+                      }
+              except Exception as e:
+                  for aid in ids:
+                      arxiv_meta.setdefault(aid, {'arxiv_error':repr(e)})
+              time.sleep(1.0)
+
+          output=[]
+          for i,row in enumerate(rows,1):
+              out=dict(row)
+              doi=row.get('doi','').strip().lower()
+              cr=None; crerr=''
+              if doi:
+                  cr,crerr=request_json('https://api.crossref.org/works/'+urllib.parse.quote(doi,safe=''))
+                  cr=(cr or {}).get('message') if cr else None
+                  time.sleep(0.08)
+              if cr:
+                  out.update({
+                      'crossref_title':clean_markup(' '.join(cr.get('title') or [])),
+                      'crossref_abstract':clean_markup(cr.get('abstract','')),
+                      'crossref_type':clean_markup(cr.get('type','')),
+                      'crossref_subtype':clean_markup(cr.get('subtype','')),
+                      'crossref_publisher':clean_markup(cr.get('publisher','')),
+                      'crossref_container':clean_markup('; '.join(cr.get('container-title') or [])),
+                      'crossref_url':clean_markup(cr.get('URL','')),
+                      'crossref_relation':json.dumps(cr.get('relation') or {},ensure_ascii=False,sort_keys=True),
+                      'crossref_author_count':str(len(cr.get('author') or [])),
+                      'crossref_reference_count':str(cr.get('reference-count','')),
+                      'crossref_is_referenced_by_count':str(cr.get('is-referenced-by-count','')),
+                  })
+              else:
+                  out['crossref_error']=crerr
+
+              oa=None; oaerr=''
+              if doi:
+                  oa,oaerr=request_json('https://api.openalex.org/works/https://doi.org/'+urllib.parse.quote(doi,safe='/:')+'?mailto=ryang54@jh.edu')
+                  time.sleep(0.08)
+              elif row.get('arxiv_id','').strip():
+                  aid=row['arxiv_id'].strip()
+                  oa,oaerr=request_json('https://api.openalex.org/works/https://arxiv.org/abs/'+urllib.parse.quote(aid,safe='')+'?mailto=ryang54@jh.edu')
+                  time.sleep(0.08)
+              if oa:
+                  primary_loc=oa.get('primary_location') or {}
+                  source=primary_loc.get('source') or {}
+                  best=oa.get('best_oa_location') or {}
+                  out.update({
+                      'openalex_id':clean_markup(oa.get('id','')),
+                      'openalex_title':clean_markup(oa.get('display_name','')),
+                      'openalex_abstract':clean_markup(inv_abstract(oa.get('abstract_inverted_index'))),
+                      'openalex_type':clean_markup(oa.get('type','')),
+                      'openalex_publication_date':clean_markup(oa.get('publication_date','')),
+                      'openalex_cited_by_count':str(oa.get('cited_by_count','')),
+                      'openalex_primary_source':clean_markup(source.get('display_name','')),
+                      'openalex_landing_page_url':clean_markup(primary_loc.get('landing_page_url','')),
+                      'openalex_pdf_url':clean_markup(best.get('pdf_url','') or primary_loc.get('pdf_url','')),
+                      'openalex_oa_status':clean_markup((oa.get('open_access') or {}).get('oa_status','')),
+                      'openalex_topics':';'.join(clean_markup((t.get('display_name') or '')) for t in (oa.get('topics') or [])[:8]),
+                      'openalex_concepts':';'.join(clean_markup((c.get('display_name') or '')) for c in (oa.get('concepts') or [])[:12]),
+                      'openalex_authorship_count':str(len(oa.get('authorships') or [])),
+                      'openalex_referenced_works_count':str(len(oa.get('referenced_works') or [])),
+                  })
+              else:
+                  out['openalex_error']=oaerr
+
+              aid=row.get('arxiv_id','').strip()
+              if aid and aid in arxiv_meta:
+                  out.update(arxiv_meta[aid])
+              output.append(out)
+              if i % 25 == 0:
+                  print(f'enriched {i}/{len(rows)}', flush=True)
+
+          fields=[]
+          for row in output:
+              for k in row:
+                  if k not in fields: fields.append(k)
+          with (ROOT/'review-enrichment/pending_enriched.csv').open('w',encoding='utf-8',newline='') as h:
+              w=csv.DictWriter(h,fieldnames=fields)
+              w.writeheader(); w.writerows(output)
+          summary={
+              'rows':len(output),
+              'crossref_abstracts':sum(bool(x.get('crossref_abstract')) for x in output),
+              'openalex_abstracts':sum(bool(x.get('openalex_abstract')) for x in output),
+              'arxiv_abstracts':sum(bool(x.get('arxiv_abstract')) for x in output),
+              'openalex_pdf_urls':sum(bool(x.get('openalex_pdf_url')) for x in output),
+          }
+          (ROOT/'review-enrichment/summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upload enrichment
+        uses: actions/upload-artifact@v4
+        with:
+          name: pending-review-enrichment
+          path: review-enrichment/
+          if-no-files-found: error
