@@ -1,0 +1,60 @@
+name: Build three-set corpus
+
+on:
+  push:
+    branches:
+      - three-set-corpus-review
+    paths:
+      - scripts/build_three_set_corpus.py
+      - .github/workflows/build-three-set-corpus.yml
+      - CORPUS_SET_POLICY.md
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download source-review artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf review-evidence
+          mkdir -p review-evidence
+          gh run download 31990472611 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/full-source-review
+          gh run download 31991087846 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/metadata-review
+          gh run download 31994103912 --repo BrookeYangRui/multiagent_security_corpus --dir review-evidence/blocked-source-review
+          find review-evidence -type f -maxdepth 5 | sort
+
+      - name: Build Set 1, Set 2, and Set 3
+        run: python scripts/build_three_set_corpus.py
+
+      - name: Validate the new corpus
+        run: python scripts/validate_three_set_corpus.py
+
+      - name: Remove one-shot builder workflow and downloaded evidence
+        run: |
+          rm -rf review-evidence
+          rm -f .github/workflows/build-three-set-corpus.yml
+
+      - name: Commit reviewed sets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Build the authoritative three-set corpus"
+          git push origin HEAD:three-set-corpus-review
