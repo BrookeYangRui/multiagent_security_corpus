@@ -1,0 +1,25 @@
+name: Export corpus working tree
+on:
+  push:
+    branches: [authoritative-three-set-cleanup]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corpus-working-tree
+          path: |
+            README.md
+            corpus/
+            artifact/search/v2/
+            scripts/
+            reviews/
+            reports/
+            papers/
+            related_work/
+          if-no-files-found: warn
