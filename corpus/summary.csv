@@ -1,0 +1,19 @@
+population,dimension,value,count,note
+all_work_queue,decision,primary,303,
+all_work_queue,decision,secondary,177,
+all_work_queue,decision,exclude,1396,
+all_work_queue,decision,pending,341,
+primary,broad_role,attack,76,Descriptive dominant-role coding; mixed works receive one broad role.
+primary,broad_role,defense,91,Descriptive dominant-role coding; mixed works receive one broad role.
+primary,broad_role,evaluation,49,Descriptive dominant-role coding; mixed works receive one broad role.
+primary,broad_role,other,87,Descriptive dominant-role coding; mixed works receive one broad role.
+secondary,broad_role,attack,22,Descriptive role coding; not an inclusion decision.
+secondary,broad_role,defense,24,Descriptive role coding; not an inclusion decision.
+secondary,broad_role,evaluation,33,Descriptive role coding; not an inclusion decision.
+secondary,broad_role,other,98,Descriptive role coding; not an inclusion decision.
+primary,year,2023,1,
+primary,year,2024,13,
+primary,year,2025,91,
+primary,year,2026,198,
+targeted_route,records,cutoff_candidate_records,318,
+targeted_route,works,canonical_works,317,

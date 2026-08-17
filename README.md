@@ -1,67 +1,26 @@
 # Multi-Agent Security Corpus
 
-Auditable literature corpus for security of interacting LLM agents. Search
-cutoff: `2026-07-01 00:00 UTC`.
+Auditable literature corpus for security of interacting LLM agents. Search cutoff: `2026-07-01 00:00 UTC`.
 
-## Canonical corpus
+## One authoritative review universe
 
 | File | Count |
 | --- | ---: |
-| `corpus/papers.csv` | 142 canonical academic works |
-| `corpus/final/all_relevant_papers.csv` | 142 canonical academic works |
-| `corpus/final/peer_reviewed.csv` | 90 archival conference or journal works |
-| `corpus/final/non_peer_citations_gt_10.csv` | 19 retained non-peer works with citations > 10 |
-| `corpus/final/yearly_distribution.csv` | 4 annual rows for trend plotting |
-| `reports/figures/corpus_growth_by_year.svg` | Annual and cumulative growth figure |
-| `corpus/sets/02_broad_included/yearly_distribution.csv` | 4 annual rows for all 325 broad-screen works |
-| `reports/figures/broad_corpus_growth_by_year.svg` | Broad-screen annual and cumulative growth figure |
-| `sok_related/papers.csv` | 14-work supporting synthesis view; overlaps the corpus |
-| `corpus/evidence/cves.csv` | 52 CVEs and advisories |
-| `corpus/evidence/industry_reports.csv` | 16 reports |
+| `corpus/review_queue.csv` | 2,217 works |
+| `corpus/primary.csv` | 303 primary |
+| `corpus/secondary.csv` | 177 secondary |
+| `corpus/exclude.csv` | 1,396 exclude |
+| `corpus/pending.csv` | 341 pending |
+| targeted route | 318 records / 317 works |
 
-Start with `reports/FINAL_SEARCH_CLOSURE.md` for the search sources, screening
-rules, cutoff handling, and evidence limitations. The 2,182-entity search catalog
-and the 325-work broad screen under `corpus/sets/` are audit and candidate
-ledgers, not included-paper denominators. `corpus/papers.csv` is the sole
-canonical included-paper list; it is imported from the authoritative 142-work
-package under `corpus/source_packages/2026-07-01/`. Survey and SoK works retained
-by that package remain in the 142-work denominator and are filed under
-`papers/surveys/`. The 14-work `sok_related/` view is supporting synthesis
-metadata and must not be added to 142 because seven records overlap.
-The source package remains immutable; source-backed canonical corrections are
-recorded in `corpus/canonical_field_overrides.csv` and applied fail-loud during
-import.
+Older broad-screen, canonical-142, taxonomy-115, and source-package denominators were removed rather than archived so that counts cannot be mixed across versions. `primary` is the direct interaction-security evidence pool; `secondary` is security-relevant context; `exclude` is outside the evidence boundary; `pending` remains unresolved and is never counted as final evidence.
 
-Paper notes and source reviews remain unverified until named human signoff.
-CVEs and industry material never enter an academic-paper denominator.
-Original annotations/data and scripts are released under the CC BY 4.0/MIT
-terms in `LICENSE`; cited papers and bibliographic facts are not relicensed.
+`corpus/routes.csv` preserves route-level provenance and `corpus/decision_ledger.csv` preserves review decisions. Discovery-route membership alone cannot promote a work. Stronger source or human review overrides weaker discovery evidence, and equal-strength conflicts remain pending.
 
-The cross-paper conclusions and manuscript-ready candidate statements are in
-`reports/INSIGHTS.md`. They remain synthesis proposals pending the named human
-signoff described by the evidence policy.
-
-## Persistent review reconciliation
-
-`artifact/search/v2/` provides a three-set review view over the frozen search
-universe. It keeps 318 targeted cutoff candidate records visible, resolves them
-to canonical works by paper ID, arXiv identifier, DOI, and exact title, and
-separates primary, secondary, exclude, and pending decisions. The persistent
-ledger protects explicit human adjudication while allowing generated seeds to
-refresh when source records change. This view is an audit and review workflow;
-it does not replace the 142-work canonical corpus or create a new paper
-denominator. See `artifact/search/v2/README.md` for the files and precedence
-rules.
+`papers/` contains source notes where available, not a denominator. `related_work/` contains synthesis notes. `corpus/evidence/` contains non-paper evidence such as CVEs and industry reports and never enters the academic-work counts above.
 
 ## Validate
 
 ```bash
 scripts/validate_all.sh
-```
-
-Enable the tracked pre-push guard once per clone so a commit that fails the
-same deterministic rebuild cannot reach GitHub:
-
-```bash
-git config core.hooksPath .githooks
 ```
