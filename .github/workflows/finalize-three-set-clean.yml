@@ -1,0 +1,94 @@
+name: Isolated final three-set review
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - finalize-three-set-clean
+    paths:
+      - .github/workflows/finalize-three-set-clean.yml
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: final-three-set-corpus
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out isolated review branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download complete source evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf review-evidence
+          mkdir -p review-evidence
+
+          download_run() {
+            local run_id="$1"
+            local destination="$2"
+            for attempt in 1 2 3 4 5 6; do
+              rm -rf "$destination"
+              mkdir -p "$destination"
+              if gh run download "$run_id" \
+                   --repo BrookeYangRui/multiagent_security_corpus \
+                   --dir "$destination"; then
+                return 0
+              fi
+              echo "Retrying artifact run $run_id after attempt $attempt" >&2
+              sleep $((attempt * 10))
+            done
+            return 1
+          }
+
+          download_run 31990472611 review-evidence/full-source-review
+          download_run 31991087846 review-evidence/metadata-review
+          download_run 31994103912 review-evidence/blocked-source-review
+
+      - name: Finalize Set 1, Set 2, and Set 3
+        run: python scripts/finalize_three_set_source_review.py
+
+      - name: Validate final evidence sets
+        run: python scripts/validate_three_set_corpus.py
+
+      - name: Remove temporary and one-shot files
+        run: |
+          rm -rf review-evidence
+          rm -f .github/workflows/build-three-set-corpus.yml
+          rm -f .github/workflows/rebuild-three-set-evidence.yml
+          rm -f .github/workflows/rebuild-three-set-evidence-v2.yml
+          rm -f .github/workflows/finalize-three-set-source-review.yml
+          rm -f .github/workflows/promote-source-reviewed-three-set.yml
+          rm -f .github/workflows/finalize-three-set-clean.yml
+
+      - name: Commit final corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Finalize source-reviewed Set 1, Set 2, and Set 3"
+          git push origin HEAD:finalize-three-set-clean
+
+      - name: Merge reviewed corpus into main
+        shell: bash
+        run: |
+          set -euo pipefail
+          reviewed_sha=$(git rev-parse HEAD)
+          git fetch origin main
+          git checkout -B main origin/main
+          git merge --no-ff --no-edit "$reviewed_sha"
+          git push origin main
