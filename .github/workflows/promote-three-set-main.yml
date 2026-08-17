@@ -1,0 +1,58 @@
+name: Promote validated three-set corpus
+
+on:
+  push:
+    branches:
+      - three-set-corpus-review
+    paths:
+      - corpus/set1_core.csv
+      - corpus/set2_emerging.csv
+      - corpus/set3_context.csv
+      - corpus/screened_out.csv
+      - corpus/manifest.json
+      - scripts/validate_three_set_corpus.py
+      - scripts/validate_all.sh
+      - .github/workflows/promote-three-set-main.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out reviewed branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate reviewed corpus
+        run: |
+          test -f corpus/set1_core.csv
+          test -f corpus/set2_emerging.csv
+          test -f corpus/set3_context.csv
+          test -f corpus/screened_out.csv
+          python scripts/validate_three_set_corpus.py
+
+      - name: Verify fast-forward ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+
+      - name: Remove one-shot promotion workflow
+        run: rm -f .github/workflows/promote-three-set-main.yml
+
+      - name: Fast-forward main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Remove one-shot corpus promotion workflow"
+          fi
+          git push origin HEAD:main
