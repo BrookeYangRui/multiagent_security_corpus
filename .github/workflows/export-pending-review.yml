@@ -1,0 +1,33 @@
+name: Export pending review snapshot
+
+on:
+  push:
+    branches:
+      - review-all-341-pending
+    paths:
+      - .github/workflows/export-pending-review.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Record snapshot
+        run: |
+          mkdir -p review-export
+          git rev-parse HEAD > review-export/commit.txt
+          cp -r corpus scripts tests reviews papers templates review-export/ 2>/dev/null || true
+          cp README.md AGENTS.md Makefile pyproject.toml review-export/ 2>/dev/null || true
+
+      - name: Upload snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: pending-review-snapshot
+          path: review-export/
+          if-no-files-found: error
