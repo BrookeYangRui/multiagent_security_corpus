@@ -60,10 +60,26 @@ jobs:
           download_run 31990472611 review-evidence/full-source-review
           download_run 31991087846 review-evidence/metadata-review
           download_run 31994103912 review-evidence/blocked-source-review
-          find review-evidence -type f | sort | head -40
 
       - name: Re-screen all 2,217 works from source evidence
-        run: python scripts/rebuild_three_set_from_evidence_v2.py
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          path = Path('scripts/rebuild_three_set_from_evidence_v2.py')
+          spec = importlib.util.spec_from_file_location('source_rebuild', path)
+          module = importlib.util.module_from_spec(spec)
+          assert spec.loader is not None
+          spec.loader.exec_module(module)
+
+          module.reconstruct_queue()
+          builder = module.load_module()
+          evidence_index = module.make_index(builder)
+          builder.load_source_index = lambda: evidence_index
+          raise SystemExit(builder.main())
+          PY
 
       - name: Apply membership and readiness separation
         run: python scripts/rebuild_membership_from_ledger.py
