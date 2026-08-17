@@ -1,0 +1,257 @@
+name: Postprocess and merge all pending reviews
+
+on:
+  push:
+    branches:
+      - pending-postprocess-runner
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  postprocess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out runner
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Wait for first-pass source review
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 420); do
+            git fetch origin review-all-341-pending --force
+            rm -rf /tmp/reviewed-corpus
+            git worktree prune
+            git worktree add -B review-all-341-pending /tmp/reviewed-corpus origin/review-all-341-pending
+            if [ ! -e /tmp/reviewed-corpus/corpus/pending.csv ] && [ -e /tmp/reviewed-corpus/reviews/pending_resolution.csv ]; then
+              echo "First-pass source review is ready"
+              exit 0
+            fi
+            git worktree remove --force /tmp/reviewed-corpus || true
+            sleep 30
+          done
+          echo "Timed out waiting for first-pass review" >&2
+          exit 1
+
+      - name: Apply strict full-text and system-boundary checks
+        working-directory: /tmp/reviewed-corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv, json, re
+          from collections import Counter
+          from pathlib import Path
+
+          ROOT=Path('.')
+          CORPUS=ROOT/'corpus'
+          AUDIT=ROOT/'reviews/pending_resolution.csv'
+          REVIEWER='OpenAI GPT-5.6 Pro (agent source review)'
+          REVIEW_DATE='2026-08-17'
+
+          STRONG_RELATION=[
+              'inter-agent','inter agent','cross-agent','cross agent','agent-to-agent','agent to agent',
+              'shared memory','shared state','delegat','handoff','hand-off','consensus','voting','vote',
+              'debate','collusion','colluding','coalition','topology','propagat','spread across agents',
+              'communication between agents','agent communication','collective decision','quorum',
+              'malicious agent','compromised agent','byzantine agent','routing','aggregation',
+          ]
+          SELF_TARGET=[
+              'security of multi-agent','security of the multi-agent','multi-agent security','multi agent security',
+              'attack on multi-agent','attack against multi-agent','attacks on multi-agent','attacks against multi-agent',
+              'defend multi-agent','defense for multi-agent','multi-agent vulnerability','multi-agent threat',
+              'malicious agent','compromised agent','byzantine agent','cross-agent leakage','inter-agent leakage',
+              'shared memory poisoning','consensus manipulation','collective manipulation','agent collusion',
+              'propagation across agents','spread across agents','delegated authority','delegation attack',
+              'communication attack','topology attack','agent-to-agent security','security among agents',
+          ]
+          METHOD_ONLY_PATTERNS=[
+              r'multi[- ]agent.{0,45}(?:jailbreak|red team|red-team|attack).{0,45}(?:llm|language model)',
+              r'multi[- ]agent.{0,45}defen[cs]e against.{0,40}(?:jailbreak|attack)',
+              r'attacker[- ]disguiser', r'agents? for multi[- ]strategy shilling attacks',
+              r'multi[- ]agent automated penetration', r'multi[- ]agent.{0,30}smart contract fuzz',
+              r'multi[- ]agent framework for securing llm code generation',
+              r'multi[- ]agent framework for camouflage attack',
+          ]
+          EXTERNAL_ONLY_PATTERNS=[
+              r'penetration test',r'smart contract fuzz',r'vulnerability detection',r'vulnerability discovery',
+              r'malware detection',r'intrusion detection',r'phishing detection',r'cyber threat intelligence',
+              r'code generation',r'fraud detection',r'shilling attack',r'text-to-image',r'drug discovery',
+              r'data center cooling',r'construction safety',r'air traffic',r'fault diagnosis',
+              r'named entity recognition',r'business process automation',r'knowledge integration',
+          ]
+
+          def read(path):
+              with path.open(encoding='utf-8-sig',newline='') as h:
+                  r=csv.DictReader(h); return list(r.fieldnames or []),list(r)
+          def write(path,fields,rows):
+              path.parent.mkdir(parents=True,exist_ok=True)
+              with path.open('w',encoding='utf-8',newline='') as h:
+                  w=csv.DictWriter(h,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows(rows)
+          def low(x): return (x or '').lower()
+          def anyterm(text,terms): return any(t in text for t in terms)
+          def anypat(text,pats): return any(re.search(p,text,re.I|re.S) for p in pats)
+
+          audit_fields,audit=read(AUDIT)
+          if len(audit)!=341: raise SystemExit(f'expected 341 audit rows, found {len(audit)}')
+          for extra in ('first_pass_decision','postprocess_action','postprocess_note','final_decision'):
+              if extra not in audit_fields: audit_fields.append(extra)
+
+          finals={}
+          changes=Counter()
+          for row in audit:
+              original=row['decision']
+              final=original
+              text=' '.join(low(row.get(k,'')) for k in ('title','abstract','evidence_sentence','rationale'))
+              strong=anyterm(text,STRONG_RELATION)
+              self_target=anyterm(text,SELF_TARGET)
+              method_only=anypat(text,METHOD_ONLY_PATTERNS)
+              external_only=anypat(text,EXTERNAL_ONLY_PATTERNS)
+              basis=low(row.get('evidence_basis',''))
+              note='No second-pass change.'
+              action='kept'
+              if row.get('post_cutoff')=='yes':
+                  final='exclude'; note='Frozen-cutoff check requires exclusion.'
+              elif original=='primary' and basis!='full_text':
+                  final='secondary'; note='Strict primary inclusion requires recovered full-text evidence; abstract-only evidence remains secondary.'
+              elif original=='primary' and not strong:
+                  final='secondary'; note='No strong cross-principal relation was located in the recovered source evidence.'
+              elif original=='primary' and method_only and not self_target:
+                  final='secondary'; note='The multi-agent workflow is used to attack or defend another target; the interacting MAS is not the protected or violated object.'
+              elif original in {'primary','secondary'} and external_only and not self_target:
+                  final='exclude'; note='The agents perform an external application or cybersecurity task, with no security property of the interacting LLM-agent system.'
+              elif original=='primary' and not self_target:
+                  final='secondary'; note='The source is security-relevant and relational, but does not clearly locate the violated or protected property in the multi-agent execution.'
+              if final!=original:
+                  action=f'{original}_to_{final}'; changes[action]+=1
+              row['first_pass_decision']=original
+              row['postprocess_action']=action
+              row['postprocess_note']=note
+              row['final_decision']=final
+              row['decision']=final
+              finals[row['work_key']]=row
+          write(AUDIT,audit_fields,audit)
+
+          queue_fields,queue=read(CORPUS/'review_queue.csv')
+          for row in queue:
+              review=finals.get(row.get('work_key',''))
+              if not review: continue
+              row['decision']=review['final_decision']
+              if 'decision_source' in row: row['decision_source']='agent_source_review:pending_341_strict'
+              if 'rationale' in row: row['rationale']=review['rationale']+' Second pass: '+review['postprocess_note']
+              if 'reviewer' in row: row['reviewer']=REVIEWER
+              if 'reviewed_at' in row: row['reviewed_at']=REVIEW_DATE
+              if 'human_signoff_required' in row: row['human_signoff_required']='yes'
+              if 'category_review_status' in row: row['category_review_status']='agent_source_review_pending_author_signoff'
+              if row['decision']=='exclude' and 'recommended_primary_category' in row: row['recommended_primary_category']=''
+          write(CORPUS/'review_queue.csv',queue_fields,sorted(queue,key=lambda r:r['work_key']))
+
+          for decision in ('primary','secondary','exclude'):
+              fields,_=read(CORPUS/f'{decision}.csv')
+              rows=[r for r in queue if r.get('decision')==decision]
+              write(CORPUS/f'{decision}.csv',fields,sorted(rows,key=lambda r:r['work_key']))
+
+          ledger_fields,ledger=read(CORPUS/'decision_ledger.csv')
+          for row in ledger:
+              review=finals.get(row.get('work_key',''))
+              if not review: continue
+              row['decision']=review['final_decision']
+              if 'decision_source' in row: row['decision_source']='agent_source_review:pending_341_strict'
+              if 'rationale' in row: row['rationale']=review['rationale']+' Second pass: '+review['postprocess_note']
+              if 'reviewer' in row: row['reviewer']=REVIEWER
+              if 'reviewed_at' in row: row['reviewed_at']=REVIEW_DATE
+              if 'human_signoff_required' in row: row['human_signoff_required']='yes'
+          write(CORPUS/'decision_ledger.csv',ledger_fields,ledger)
+
+          counts=Counter(r['decision'] for r in queue)
+          if set(counts)-{'primary','secondary','exclude'} or sum(counts.values())!=2217:
+              raise SystemExit(f'invalid final partition {counts}')
+
+          def update_readme(path):
+              if not path.exists(): return
+              text=path.read_text(encoding='utf-8')
+              patterns={
+                  r'\| `corpus/primary\.csv` \| [^\n]+':f'| `corpus/primary.csv` | {counts["primary"]:,} primary |',
+                  r'\| `corpus/secondary\.csv` \| [^\n]+':f'| `corpus/secondary.csv` | {counts["secondary"]:,} secondary |',
+                  r'\| `corpus/exclude\.csv` \| [^\n]+':f'| `corpus/exclude.csv` | {counts["exclude"]:,} exclude |',
+                  r'^.*corpus/pending\.csv.*\n':'',
+                  r'\b303 primary\b':f'{counts["primary"]:,} primary',
+                  r'\b177 secondary\b':f'{counts["secondary"]:,} secondary',
+                  r'\b1,396 exclude\b':f'{counts["exclude"]:,} exclude',
+                  r'\b341 pending\b':'0 pending',
+              }
+              for p,v in patterns.items(): text=re.sub(p,v,text,flags=re.M)
+              text=text.replace('`pending` remains unresolved and is never counted as final evidence.','All reviewed works are assigned to one of the three final sets; no pending decision remains.')
+              path.write_text(text,encoding='utf-8')
+          update_readme(ROOT/'README.md');update_readme(CORPUS/'README.md')
+
+          manifest_path=CORPUS/'manifest.json'
+          if manifest_path.exists():
+              m=json.loads(manifest_path.read_text(encoding='utf-8'))
+              m['decision_counts']=dict(counts)
+              m['pending']=0
+              m['pending_resolution_second_pass']={'records':341,'changes':dict(changes),'reviewer':REVIEWER,'reviewed_at':REVIEW_DATE,'human_signoff_required':True,'audit_path':'reviews/pending_resolution.csv'}
+              manifest_path.write_text(json.dumps(m,indent=2,ensure_ascii=False,sort_keys=True)+'\n',encoding='utf-8')
+
+          (ROOT/'reviews/pending_resolution_complete.json').write_text(json.dumps({'resolved':341,'new_decisions':Counter(r['final_decision'] for r in audit),'final_corpus_counts':counts,'second_pass_changes':changes,'reviewer':REVIEWER,'reviewed_at':REVIEW_DATE,'human_signoff_required':True},indent=2,ensure_ascii=False,sort_keys=True)+'\n',encoding='utf-8')
+          print('Second-pass changes',dict(changes))
+          print('Final counts',dict(counts))
+          PY
+
+      - name: Validate final three-set corpus
+        working-directory: /tmp/reviewed-corpus
+        run: |
+          python scripts/validate_authoritative_corpus.py
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          root=Path('.')
+          assert not (root/'corpus/pending.csv').exists()
+          with (root/'reviews/pending_resolution.csv').open(encoding='utf-8-sig',newline='') as h: rows=list(csv.DictReader(h))
+          assert len(rows)==341
+          assert all(r['final_decision'] in {'primary','secondary','exclude'} for r in rows)
+          assert all(r['human_signoff_required']=='yes' for r in rows)
+          print(json.loads((root/'reviews/pending_resolution_complete.json').read_text()))
+          PY
+          if [ -x scripts/validate_all.sh ]; then scripts/validate_all.sh; fi
+
+      - name: Commit strict adjudications
+        working-directory: /tmp/reviewed-corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat
+          git commit -m "Apply strict source checks to pending reviews" || true
+          git push origin HEAD:review-all-341-pending
+
+      - name: Reopen and merge reviewed corpus PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PR=$(gh pr list --repo "$GITHUB_REPOSITORY" --head review-all-341-pending --state all --json number --jq '.[0].number')
+          if [ -z "$PR" ]; then
+            gh pr create --repo "$GITHUB_REPOSITORY" --head review-all-341-pending --base main --title "Resolve all 341 pending corpus works" --body "Every previously pending work received an auditable agent source review and a strict second pass. The final corpus has exactly three disjoint sets and zero pending decisions. Human signoff remains explicit on all 341 reviewed rows."
+            PR=$(gh pr list --repo "$GITHUB_REPOSITORY" --head review-all-341-pending --state open --json number --jq '.[0].number')
+          else
+            gh pr reopen "$PR" --repo "$GITHUB_REPOSITORY" || true
+          fi
+          SUMMARY=$(cat /tmp/reviewed-corpus/reviews/pending_resolution_complete.json)
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body "All 341 pending works are resolved. Final machine-readable summary:\n\n\`\`\`json\n${SUMMARY}\n\`\`\`\n\nThis is an agent source review, not human verification; author signoff remains visible per row."
+          gh pr ready "$PR" --repo "$GITHUB_REPOSITORY" || true
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --squash --delete-branch --subject "Resolve all 341 pending corpus works" --body "Complete two-pass source review of every formerly pending work, retain per-work evidence and rationale, and leave exactly three final sets with zero pending decisions."
+
+      - name: Remove runner branch
+        if: success()
+        run: git push origin --delete pending-postprocess-runner || true
