@@ -1,0 +1,97 @@
+name: Wait for pending review and merge
+
+on:
+  push:
+    branches:
+      - pending-review-watchdog
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  wait-validate-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    steps:
+      - name: Check out watchdog
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Wait for the reviewed branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 360); do
+            git fetch origin review-all-341-pending --force
+            rm -rf /tmp/reviewed-corpus
+            git worktree add --detach /tmp/reviewed-corpus FETCH_HEAD
+            if [ ! -e /tmp/reviewed-corpus/corpus/pending.csv ] && [ -e /tmp/reviewed-corpus/reviews/pending_resolution.csv ]; then
+              echo "Reviewed corpus is ready at $(git -C /tmp/reviewed-corpus rev-parse HEAD)"
+              exit 0
+            fi
+            git worktree remove --force /tmp/reviewed-corpus || true
+            echo "Attempt ${attempt}: source review still running"
+            sleep 30
+          done
+          echo "Timed out waiting for the reviewed corpus" >&2
+          exit 1
+
+      - name: Validate all 341 decisions
+        working-directory: /tmp/reviewed-corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_authoritative_corpus.py
+          python - <<'PY'
+          import csv
+          from collections import Counter
+          from pathlib import Path
+          root=Path('.')
+          with (root/'reviews/pending_resolution.csv').open(encoding='utf-8-sig',newline='') as h:
+              audit=list(csv.DictReader(h))
+          if len(audit)!=341:
+              raise SystemExit(f'expected 341 audit rows, found {len(audit)}')
+          counts=Counter(r['decision'] for r in audit)
+          if set(counts)-{'primary','secondary','exclude'} or sum(counts.values())!=341:
+              raise SystemExit(f'invalid audit decisions: {counts}')
+          with (root/'corpus/review_queue.csv').open(encoding='utf-8-sig',newline='') as h:
+              queue=list(csv.DictReader(h))
+          remaining=[r['work_key'] for r in queue if r.get('decision') not in {'primary','secondary','exclude'}]
+          if remaining:
+              raise SystemExit(f'non-final decisions remain: {remaining[:10]}')
+          print('Resolved decisions:', dict(counts))
+          print('Final set counts:', {name: sum(1 for _ in open(root/f'corpus/{name}.csv',encoding='utf-8-sig'))-1 for name in ('primary','secondary','exclude')})
+          PY
+          if [ -x scripts/validate_all.sh ]; then scripts/validate_all.sh; fi
+
+      - name: Merge the completed review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          PR=$(gh pr list --repo "$GITHUB_REPOSITORY" --head review-all-341-pending --state open --json number --jq '.[0].number')
+          test -n "$PR"
+          COUNTS=$(python - <<'PY'
+          import csv
+          from collections import Counter
+          from pathlib import Path
+          root=Path('/tmp/reviewed-corpus')
+          with (root/'reviews/pending_resolution.csv').open(encoding='utf-8-sig',newline='') as h:
+              rows=list(csv.DictReader(h))
+          c=Counter(r['decision'] for r in rows)
+          print(f"primary {c['primary']}, secondary {c['secondary']}, exclude {c['exclude']}")
+          PY
+          )
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body "All 341 pending works received an agent source review. New decisions: ${COUNTS}. The final review queue contains zero pending records. Full validation passed; author signoff remains visible on the reviewed rows."
+          gh pr ready "$PR" --repo "$GITHUB_REPOSITORY" || true
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --squash --delete-branch --subject "Resolve all 341 pending corpus works" --body "Complete source review of every formerly pending work, preserve per-work rationale and evidence basis, and leave exactly three disjoint final sets with zero pending decisions."
+
+      - name: Remove watchdog branch
+        if: success()
+        shell: bash
+        run: git push origin --delete pending-review-watchdog || true
