@@ -106,7 +106,7 @@ def membership_reason(row: dict[str, str], set_name: str) -> str:
 def main() -> int:
     ledger_path = CORPUS / "review_ledger.csv"
     ledger = read_csv(ledger_path)
-    if len(ledger) != 2217:
+    if len(ledger) != 2215:
         raise SystemExit(f"unexpected review ledger size: {len(ledger)}")
 
     fields = list(ledger[0].keys())

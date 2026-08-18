@@ -1,47 +1,25 @@
 name: Validate corpus
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out PR branch
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Apply verified identity patch
-        run: python3 scripts/patch_reconciliation_identity_duplicates.py
-
-      - name: Apply evaluation and benchmark reconciliation
-        run: python3 scripts/apply_evaluation_benchmark_reconciliation_v2.py
-
-      - name: Validate generated corpus
+      - name: Validate corpus
         run: scripts/validate_all.sh
-
-      - name: Commit generated corpus revision
-        run: |
-          rm -f .github/workflows/apply-evaluation-benchmark-reconciliation.yml
-          rm -f scripts/apply_evaluation_benchmark_reconciliation.py
-          rm -f scripts/apply_evaluation_benchmark_reconciliation_v2.py
-          rm -f scripts/patch_reconciliation_identity_duplicates.py
-          rm -f corpus/adjudication/reconciliation_run_marker.txt
-          git checkout origin/main -- .github/workflows/validate.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "Freeze reconciled 226-work corpus [reconciliation-generated]"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
