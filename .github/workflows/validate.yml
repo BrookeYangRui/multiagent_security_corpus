@@ -7,42 +7,19 @@ on:
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out reconciliation branch
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Apply reconciliation once
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          if [ ! -f corpus/manual_review_queue_2026-08-18.csv ]; then
-            python3 scripts/apply_evaluation_benchmark_reconciliation.py
-          fi
-
       - name: Validate corpus
         run: scripts/validate_all.sh
-
-      - name: Commit generated revision
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
-            rm -f .github/workflows/apply-evaluation-benchmark-reconciliation.yml
-            git checkout origin/main -- .github/workflows/validate.yml
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "Freeze evaluation and benchmark reconciliation [reconciliation-generated]"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
