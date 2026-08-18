@@ -1,0 +1,2 @@
+Trigger corrected 2026-08-18 evaluation and benchmark reconciliation run.
+This marker may be removed after the generated corpus is committed.
