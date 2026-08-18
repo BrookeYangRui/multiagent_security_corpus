@@ -1,0 +1,17 @@
+evidence_set,work_key,title,decision,target_set,target_role,reason_code,confidence
+set1_core,arxiv:2502.14321,Beyond Self-Talk: A Communication-Centric Survey of LLM-Based Multi-Agent Systems,move,set3_context,protocol_or_standard,security_is_challenge_not_primary_contribution,high
+set1_core,doi:10.1117/12.3076579,Comprehensive survey on communication structure adaptive control and collaborative optimization for multiagent systems based on deepseek large language model,move,set3_context,related_work,general_mas_survey_not_security_central,high
+set1_core,ko2026sevenchallenges,Seven Security Challenges in Cross-Domain Multi-Agent LLM Systems,keep,set1_core,,mas_security_is_primary_subject,high
+set1_core,arxiv:2506.05364,Survey of LLM Agent Communication with MCP: A Software Design Pattern Centric Review,move,set3_context,protocol_or_standard,communication_design_survey_with_security_as_open_challenge,high
+set1_core,doi:10.3389/fcomp.2026.1802727,The dark side of autonomous intelligence: a survey on data leakage and privacy failures in agentic AI,move,set3_context,agentic_security_context,agentic_privacy_survey_not_mas_specific,high
+set1_core,raza2026trism,TRiSM for Agentic AI: A Review of Trust Risk and Security Management in LLM-based Agentic Multi-Agent Systems,keep,set1_core,,mas_security_is_primary_subject,high
+set1_core,doi:10.56726/irjmets98584,A Literature Survey on Privacy-Preserving Multi-Agent RAG Systems with an Intelligent Tag-Inference Routing System,keep,set1_core,,mas_privacy_is_primary_subject,high
+set1_core,doi:10.59324/ejaset.2026.4(2).16,Orchestration and Verification of Agentic AI Systems: A Survey of Multi-Agent Collaboration and Safety,keep,set1_core,,mas_safety_security_verification_are_substantive,high
+set1_core,doi:10.38124/ijisrt/26feb1090,Trustworthy Agentic AI: A Survey and Taxonomy of Secure Coordination and Hallucination Mitigation in Multi-Agent Large Language Model Systems,keep,set1_core,,secure_multi_agent_coordination_is_substantive,high
+set2_emerging,doi:10.20944/preprints202602.1655.v1,A Survey on the Unique Security of Autonomous and Collaborative LLM Agents: Threats Defenses and Futures,keep,set2_emerging,,multi_agent_collaboration_attacks_are_substantive_security_paradigm,high
+set2_emerging,arxiv:2604.23338,A Systematic Survey of Security Threats and Defenses in LLM-Based AI Agents: A Layered Attack Surface Framework,keep,set2_emerging,,multi_agent_coordination_is_explicit_security_attack_surface_layer,high
+set2_emerging,doi:10.21203/rs.3.rs-9839978/v1,Agentic and Multi-Agent Systems: A Systematic Review of Tool Use Benchmarks and Governance,move,set3_context,related_work,agentic_systems_review_not_security_central,high
+set2_emerging,doi:10.2139/ssrn.6839946,Agentic and Multi-Agent Systems: A Systematic Review of Tool Use Benchmarks and Governance,merge,doi:10.21203/rs.3.rs-9839978/v1,,duplicate_cross_platform_version,high
+set2_emerging,arxiv:2606.26627,Agents That Know Too Much: A Data-Centric Survey of Privacy in LLM Agents,move,set3_context,agentic_security_context,agent_privacy_survey_not_mas_specific,high
+set2_emerging,doi:10.20944/preprints202604.2147.v1,LLM-Based Multi-Agent Orchestration: A Survey of Frameworks Communication Protocols and Emerging Patterns,move,set3_context,protocol_or_standard,orchestration_survey_security_not_primary,high
+set2_emerging,doi:10.2139/ssrn.7218206,Vulnerabilities in Autonomous Execution: A Survey of Security Threats and Defenses in LLM-driven Multi-Agent Systems,keep,set2_emerging,,mas_security_is_primary_subject,high
