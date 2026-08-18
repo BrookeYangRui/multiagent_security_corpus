@@ -10,13 +10,13 @@ Citation snapshot date: `2026-08-17`
 
 | Partition | Count | Role |
 | --- | ---: | --- |
-| Set 1 | 108 | Mature in-scope MAS-security corpus |
-| Set 2 | 132 | Emerging in-scope MAS-security corpus |
-| Set 3 | 434 | Contextual literature outside the MAS-security corpus |
+| Set 1 | 104 | Mature in-scope MAS-security corpus |
+| Set 2 | 128 | Emerging in-scope MAS-security corpus |
+| Set 3 | 441 | Contextual literature outside the MAS-security corpus |
 | Screened out | 1,543 | Reviewed works outside the active evidence sets |
-| Review universe | 2,217 | All deduplicated reviewed works |
+| Review universe | 2,216 | All deduplicated reviewed works |
 
-Set 1 plus Set 2 is the 240-work MAS-security corpus.
+Set 1 plus Set 2 is the 232-work MAS-security corpus.
 
 ## Membership rule
 
@@ -48,3 +48,7 @@ This snapshot is the manuscript-facing corpus for the current USENIX 2027 SoK re
 ## 2026-08-18 adjudication revision
 
 All 109 works previously labeled `general` in Set 1 and Set 2 were individually adjudicated. The revision retained 62 works in the MAS-security corpus, moved 44 to Set 3, screened out 3, and reduced the residual `general` category to 9 works. The adjudication ledgers under `corpus/adjudication/` are part of this frozen snapshot.
+
+## 2026-08-18 survey-scope adjudication revision
+
+All 16 records labeled `survey` in Set 1 and Set 2 were reviewed against the same substantive MAS-security scope gate. Eight surveys remain in the MAS-security corpus, seven unique works move to Set 3 because MAS-specific security is contextual rather than a substantive primary contribution, and the Research Square / SSRN copies of `Agentic and Multi-Agent Systems: A Systematic Review of Tool Use, Benchmarks, and Governance` are merged as one work. The deduplicated review universe is therefore 2,216 works and the MAS-security corpus is 232 works.

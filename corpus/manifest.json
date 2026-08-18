@@ -3,57 +3,17 @@
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 108,
-    "set2_emerging": 132,
-    "total_corpus": 240
+    "set1_core": 104,
+    "set2_emerging": 128,
+    "total_corpus": 232
   },
   "counts": {
-    "set1_core": 108,
-    "set2_emerging": 132,
-    "set3_context": 434,
+    "set1_core": 104,
+    "set2_emerging": 128,
+    "set3_context": 441,
     "screened_out": 1543
   },
   "files": {
-    "author_priority_review.csv": {
-      "rows": 115,
-      "sha256": "e0a51953123fac39c01654826fe67ca635e6829417d6da37ec29ed084a084be0"
-    },
-    "identifier_alias_overrides.csv": {
-      "rows": 3,
-      "sha256": "499ce350b815d21ee71b2cb7024e41c329c651848c5c41b6baf37885f4327081"
-    },
-    "identifier_aliases.csv": {
-      "rows": 2404,
-      "sha256": "ede84e6d25f6cc9122efbb21ff58ff75858da8c895054b00965fc8679a842345"
-    },
-    "review_ledger.csv": {
-      "rows": 2217,
-      "sha256": "6c64bce6ab277d775063564aa52ffe5e46daaf1ae2462e0a772b92888ad69fa7"
-    },
-    "routes.csv": {
-      "rows": 3217,
-      "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
-    },
-    "screened_out.csv": {
-      "rows": 1543,
-      "sha256": "fef766a9f16470c23724cc27c18e1773e5d5f649be70780a68731d997fa36171"
-    },
-    "set1_core.csv": {
-      "rows": 108,
-      "sha256": "94796a4481b64689aa0e5da1992cde05f117e91f88657a6aa75d3df58c186868"
-    },
-    "set2_emerging.csv": {
-      "rows": 132,
-      "sha256": "8678b6963d8f01687b59a6406e1dc833458e19bb5700f6a199895bd1aef4bd26"
-    },
-    "set3_context.csv": {
-      "rows": 434,
-      "sha256": "92c6deb9a849554bffe4b8333055cbe0ac26f1ad041a073e2171fc54bb6630c6"
-    },
-    "summary.csv": {
-      "rows": 24,
-      "sha256": "9ba34f1a856df1c4c2d239f6278cf891d0cf26c847240ba5be5fa665690813bf"
-    },
     "adjudication/general_set1_2026-08-18.csv": {
       "rows": 36,
       "sha256": "f27bb8fceef2dca013328ddbb750e68c30b2d5588e7de7c98307d5a851bdebf5"
@@ -61,19 +21,63 @@
     "adjudication/general_set2_2026-08-18.csv": {
       "rows": 73,
       "sha256": "c1cff013dae31b76b7c9c424e56a2f97385a4db2bc99722b3f1e3ce47003d850"
+    },
+    "adjudication/survey_scope_2026-08-18.csv": {
+      "rows": 16,
+      "sha256": "648a9fd3fe06301ba646dac2d51e37ca5498649acc39937e931f8cd46a8c4286"
+    },
+    "author_priority_review.csv": {
+      "rows": 115,
+      "sha256": "e0a51953123fac39c01654826fe67ca635e6829417d6da37ec29ed084a084be0"
+    },
+    "identifier_alias_overrides.csv": {
+      "rows": 4,
+      "sha256": "eaf51eef544e3c1b65dad92ffc511500d940d791f9db5205c14c6a1b8847f2dd"
+    },
+    "identifier_aliases.csv": {
+      "rows": 2404,
+      "sha256": "26041b500786e225492513538308ca12fbd6439780c8542f43aff32a73594706"
+    },
+    "review_ledger.csv": {
+      "rows": 2216,
+      "sha256": "f634ced7c8c5af0a5b4fc27ebd6db5107a5d77605443d161bfb855cf21f58499"
+    },
+    "routes.csv": {
+      "rows": 3217,
+      "sha256": "a6e413cf1b44d6c46563ab4cc98284c19a9029f36d9baa74715aa377af266c9b"
+    },
+    "screened_out.csv": {
+      "rows": 1543,
+      "sha256": "fef766a9f16470c23724cc27c18e1773e5d5f649be70780a68731d997fa36171"
+    },
+    "set1_core.csv": {
+      "rows": 104,
+      "sha256": "3241ddfce639bb122df4d68dd4a0116b010b843aa1d1514afc09b3556a004593"
+    },
+    "set2_emerging.csv": {
+      "rows": 128,
+      "sha256": "f624bef7a9ed30c5156c909a04f6ea39779cb52790b853506198c261954c1dd4"
+    },
+    "set3_context.csv": {
+      "rows": 441,
+      "sha256": "5e9c3a32482cab251706bf33013d394c92e8b488cdb361f4e39503f19891d28c"
+    },
+    "summary.csv": {
+      "rows": 24,
+      "sha256": "0516b52da5660bd9d39346e32c90086c55e4a85e752224699bb8bed22f8ae61e"
     }
   },
   "literature_cutoff": "2026-07-01",
   "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review",
   "schema_version": 2,
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
-  "search_universe": 2217,
+  "search_universe": 2216,
   "set1_contributions": {
     "attack": 33,
     "defense": 39,
     "evaluation": 22,
     "general": 5,
-    "survey": 9
+    "survey": 5
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
@@ -81,16 +85,16 @@
     "defense": 61,
     "evaluation": 22,
     "general": 4,
-    "survey": 7
+    "survey": 3
   },
   "set3_roles": {
-    "agentic_security_context": 19,
+    "agentic_security_context": 21,
     "classical_foundation": 4,
     "defense_analogy": 53,
     "deployment_evidence": 25,
     "measurement_context": 123,
-    "protocol_or_standard": 64,
-    "related_work": 140,
+    "protocol_or_standard": 67,
+    "related_work": 142,
     "single_agent_baseline": 6
   },
   "source_file_inventory": [
@@ -351,8 +355,8 @@
       "rows": 0
     }
   ],
-  "taxonomy_ready_count": 18,
-  "taxonomy_ready_set1_count": 12,
+  "taxonomy_ready_count": 14,
+  "taxonomy_ready_set1_count": 11,
   "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification.",
   "adjudication_revision": {
     "date": "2026-08-18",
@@ -363,5 +367,14 @@
     "screened_out": 3,
     "remaining_general": 9,
     "frozen_corpus_total": 240
+  },
+  "survey_adjudication_revision": {
+    "date": "2026-08-18",
+    "reviewed_records": 16,
+    "retained_in_corpus": 8,
+    "moved_unique_works_to_set3": 7,
+    "identity_duplicates_merged": 1,
+    "frozen_corpus_total": 232,
+    "review_universe": 2216
   }
 }
