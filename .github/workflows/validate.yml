@@ -21,6 +21,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Inspect reconciled identities
+        run: |
+          python3 - <<'PY'
+          import csv
+          with open('corpus/review_ledger.csv', encoding='utf-8-sig', newline='') as f:
+              rows=list(csv.DictReader(f))
+          for r in rows:
+              if r.get('work_key') == 'li2026a2asecbench' or r.get('work_key') == 'wang2026masleak' or r.get('arxiv_id') == '2505.12442':
+                  print({k:r.get(k,'') for k in ['work_key','title','evidence_set','strict_scope_pass','peer_reviewed','maturity_rule_pass','dominant_contribution','arxiv_id','citation_role']})
+          print('ledger_rows',len(rows))
+          PY
+
       - name: Apply evaluation and benchmark reconciliation
         run: python3 scripts/apply_evaluation_benchmark_reconciliation_v2.py
 
