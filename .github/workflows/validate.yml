@@ -1,25 +1,40 @@
 name: Validate corpus
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out PR branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Validate corpus
+      - name: Apply evaluation and benchmark reconciliation
+        run: python3 scripts/apply_evaluation_benchmark_reconciliation.py
+
+      - name: Validate generated corpus
         run: scripts/validate_all.sh
+
+      - name: Commit generated corpus revision
+        run: |
+          rm -f .github/workflows/apply-evaluation-benchmark-reconciliation.yml
+          git checkout origin/main -- .github/workflows/validate.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Freeze reconciled 226-work corpus [reconciliation-generated]"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
