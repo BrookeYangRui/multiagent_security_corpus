@@ -24,11 +24,11 @@ benchmark.
 
 The base manifest has 2,216 frozen works:
 
-- Set 1: 99
-- Set 2: 133
-- Set 3: 444
-- Screened out: 1,540
-- Active MAS-security corpus: 232 = 99 + 133
+- Set 1: 104
+- Set 2: 128
+- Set 3: 441
+- Screened out: 1,543
+- Active MAS-security corpus: 232 = 104 + 128
 
 These counts remain canonical until adjudications are integrated through the review
 ledger and builder.
@@ -157,9 +157,17 @@ active evaluation rows moving to Set 3. The three moves above are already includ
 those 17 and must not be subtracted twice. Combining the two audits mechanically gives
 a **provisional 227** active works: `232 - 17 + 12`.
 
-This is only a reconciliation checkpoint. General/survey adjudications, identity
-merges, builder integration, rebuild validation, and named-author signoff must be
-completed before manuscript counts change.
+This is only a reconciliation checkpoint. Identity merges, builder integration,
+rebuild validation, and named-author signoff must be completed before manuscript
+counts change.
+
+## Builder consistency blocker
+
+The current manifest and frozen `review_ledger.csv` contain 2,216 records. However,
+`scripts/rebuild_membership_from_ledger.py` still hard-codes an expected ledger size
+of 2,217. A clean integration must remove or update this stale hard-coded invariant
+before invoking the rebuild. The rebuild must derive or validate the universe size
+against the current frozen manifest rather than an obsolete literal.
 
 ## Benchmark-report corrections required before manuscript use
 
