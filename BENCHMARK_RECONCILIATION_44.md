@@ -41,55 +41,83 @@ All 44 report papers are mapped in
 | Action | Count | Meaning |
 | --- | ---: | --- |
 | keep | 20 | Current active membership and dominant contribution remain appropriate |
-| promote_set1 | 5 | Current Set 3 record should move to Set 1 |
+| promote_set1 | 7 | Current Set 3 record should move to Set 1 |
 | promote_set2 | 4 | Current Set 3 record should move to Set 2 |
 | add_set1 | 1 | A2ASecBench is absent from the frozen generated sets/ledger and should enter Set 1 |
 | move_set3 | 3 | Current active evaluation paper is measurement/context rather than MAS-security |
-| keep_set3 | 4 | Benchmark-relevant context, but not active MAS-security evidence |
+| keep_set3 | 5 | Benchmark-relevant context, but not active MAS-security evidence |
 | relabel | 2 | Keep active membership but change dominant contribution |
 | alias_merge_upgrade | 1 | Merge an older arXiv identity into the published canonical record and upgrade maturity |
-| needs_source_review | 3 | Do not change membership until claim-level source review resolves the boundary |
 | post_cutoff | 1 | Retain outside the frozen active corpus |
 
-### High-value corrections
+No benchmark-report row remains unresolved in this audit.
 
-**Promote or add to active corpus**
+### Add or promote to active corpus
 
-- A2ASecBench -> Set 1 / evaluation.
-- ACIARena -> Set 1 / evaluation.
-- PEAR -> Set 1 / evaluation.
-- Hidden in Plain Text -> Set 1 / evaluation.
-- RiskLab -> Set 1 / evaluation, with named-author signoff still required.
-- LieCraft -> Set 1 / evaluation, medium confidence.
-- GAMBIT -> Set 2 / evaluation.
-- MAC-Bench -> Set 2 / evaluation.
-- SafeAgents -> Set 2 / evaluation.
-- Collaborative Shadows -> Set 2 / attack.
+**Set 1**
 
-The strongest contradictions are ACIARena, PEAR, SafeAgents, Hidden in Plain Text,
-GAMBIT, and MAC-Bench: their canonical notes describe a material inter-agent
-security path, while the frozen Set 3 rows use generic scope-rejection language.
+- A2ASecBench -> evaluation.
+- ACIARena -> evaluation.
+- PEAR -> evaluation.
+- Hidden in Plain Text -> evaluation.
+- RiskLab -> evaluation; named-author signoff is still required for manuscript use.
+- LieCraft -> evaluation.
+- The Subtle Art of Defection -> evaluation.
+- ATAG -> general, with `security_characterization` / threat-assessment methodology as the natural subtype.
 
-**Move from active corpus to context**
+**Set 2**
+
+- GAMBIT -> evaluation.
+- MAC-Bench -> evaluation.
+- SafeAgents -> evaluation.
+- Collaborative Shadows -> attack.
+
+The strongest frozen-ledger contradictions are cases where the Set 3 row uses a
+generic scope-rejection reason while the canonical source note or primary source
+explicitly describes a material inter-agent security path.
+
+### Primary-source resolutions for the former boundary cases
+
+**The Subtle Art of Defection -> Set 1 / evaluation.** The experiment uses four
+agents with one explicitly uncooperative member. Its uncooperative behaviors include
+strategic deception, threats, punishment, and greedy exploitation; the paper measures
+collective collapse/resource overuse and evaluates detection/mitigation. The security
+failure is therefore tied to one member's behavior through communication and shared
+resource dynamics, rather than being merely generic cooperation measurement.
+
+**ATAG -> Set 1 / general.** ATAG extends attack-graph reasoning to agentic
+applications by modeling facts, interaction rules, and multi-step paths across
+interconnected agents. Its case studies include a three-agent trip planner and a
+hierarchical multi-agent email responder in which compromise propagates across agent
+boundaries. The dominant contribution is threat assessment/security
+characterization, not an empirical benchmark.
+
+**From Tasks to Teams / M-SAEA -> keep Set 3 / evaluation context.** The framework
+introduces multi-agent risk concepts and a cross-agent divergence metric, but the
+reported experiment audits prerecorded R-Judge trajectories and the formal setup
+allows `M >= 1`. The headline evaluated result therefore does not establish that an
+inter-agent relation is materially required for the measured security property.
+
+### Move from active corpus to context
 
 - Deliberation and drift -> Set 3 / measurement context.
 - Reproducibility Study of Cooperation, Competition, and Maliciousness -> Set 3 /
   measurement context.
 - Revisiting Multi-Agent Debate as Test-Time Scaling -> Set 3 / measurement context.
 
-These are also present in the separate 44-row evaluation-scope adjudication. They
+These three are also present in the separate 44-row evaluation-scope adjudication and
 must be applied only once during integration.
 
-**Keep active, but fix primary contribution**
+### Keep active, but fix primary contribution
 
-- Who's the Mole? / AgentXposed: Set 1 remains, but the benchmark-and-detection
-  contribution is better represented as `evaluation` than `attack`.
-- A Trace-Based Assurance Framework for Agentic AI Orchestration: Set 1 remains,
-  but the report shows no empirical evaluation; its primary contribution is better
-  represented as `general` / security-assurance methodology. Its evaluation
-  estimators remain analysis artifacts.
+- Who's the Mole? / AgentXposed: keep Set 1, change `attack` -> `evaluation`. The
+  benchmark-and-detection contribution is dominant; the attack primitive remains a
+  secondary role.
+- A Trace-Based Assurance Framework for Agentic AI Orchestration: keep Set 1, change
+  `evaluation` -> `general`. The work contributes security-assurance methodology and
+  estimators rather than a reported empirical evaluation.
 
-**Identity correction**
+### Identity correction
 
 - `arxiv:2505.12442` ("IP Leakage Attacks Targeting LLM-Based Multi-Agent Systems")
   is the earlier version of the published USENIX Security paper MASLeak. Merge it
@@ -97,48 +125,41 @@ must be applied only once during integration.
   1 under the peer-reviewed maturity rule. This is an identity/maturity correction,
   not an additional paper.
 
-**Do not promote yet**
+### Keep contextual
 
-- The Subtle Art of Defection: current note is not claim-level extracted.
-- ATAG: the benchmark report gives multi-agent attack-graph evidence, but the
-  canonical note is still imported and the paper has no runtime empirical
-  evaluation. Source review should decide whether it becomes Set 1 `general`
-  threat-modeling/security characterization.
-- From Tasks to Teams / M-SAEA: the reported auditor operates over prerecorded
-  trajectories and the framework admits M>=1; source review must establish that a
-  material inter-agent security relation is part of the evaluated property.
+- EIB-Learner / Understanding the Information Propagation Effects of Communication
+  Topologies -> generic propagation measurement.
+- PsySafe -> broad safety/trait-manipulation context under the current narrow
+  security gate.
+- ValueFlow -> behavioral/value propagation measurement.
+- Agent Drift / ASI -> behavioral degradation measurement.
+- From Tasks to Teams / M-SAEA -> risk-evaluation methodology whose headline
+  experiment does not establish a material multi-agent dependency.
 
-**Keep contextual**
-
-- EIB-Learner / information-propagation study.
-- PsySafe under the current narrow security gate.
-- ValueFlow.
-- Agent Drift / ASI.
-
-**Post-cutoff**
+### Post-cutoff
 
 - WeClawArena stays outside the frozen active corpus because its reported version is
   after the 2026-07-01 cutoff.
 
 ## Count implications
 
-Do **not** replace the current 232 count with a new paper number yet.
+Do **not** replace the current 232 count with a new manuscript number yet.
 
 If the non-pending recommendations in this 44-paper reconciliation were applied by
-themselves, the net active-corpus change would be:
+themselves, the active-corpus change would be:
 
-- 10 add/promote into Set 1/2
+- 12 add/promote into Set 1/2
 - 3 move from Set 1/2 to Set 3
-- net +7, or 239 active works relative to the current main snapshot
+- net +9, or **241 active works** relative to the current main snapshot
 
-That is not the final corpus because the separate evaluation-scope audit proposes
-17 active evaluation rows moving to Set 3. Since the three moves above are already
-among those 17, combining the two audits mechanically gives a **provisional 225**
-active works: `232 - 17 + 10`.
+That is not the final corpus because the separate evaluation-scope audit proposes 17
+active evaluation rows moving to Set 3. The three moves above are already included in
+those 17 and must not be subtracted twice. Combining the two audits mechanically gives
+a **provisional 227** active works: `232 - 17 + 12`.
 
-This number is only a reconciliation checkpoint. General and survey adjudications,
-identity merges, source-review decisions, and rebuild validation must be applied
-before any manuscript count is changed.
+This is only a reconciliation checkpoint. General/survey adjudications, identity
+merges, builder integration, rebuild validation, and named-author signoff must be
+completed before manuscript counts change.
 
 ## Benchmark-report corrections required before manuscript use
 
