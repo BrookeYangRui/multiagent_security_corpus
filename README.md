@@ -49,4 +49,4 @@ scripts/validate_all.sh
 python3 scripts/validate_three_set_corpus.py
 ```
 
-The validator checks that the four sets partition all 2,217 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the generated views.
+The validator checks that the four sets partition all 2,216 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the frozen views.
