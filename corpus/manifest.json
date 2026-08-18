@@ -3,15 +3,15 @@
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 121,
-    "set2_emerging": 166,
-    "total_corpus": 287
+    "set1_core": 108,
+    "set2_emerging": 132,
+    "total_corpus": 240
   },
   "counts": {
-    "screened_out": 1540,
-    "set1_core": 121,
-    "set2_emerging": 166,
-    "set3_context": 390
+    "set1_core": 108,
+    "set2_emerging": 132,
+    "set3_context": 434,
+    "screened_out": 1543
   },
   "files": {
     "author_priority_review.csv": {
@@ -28,31 +28,39 @@
     },
     "review_ledger.csv": {
       "rows": 2217,
-      "sha256": "5273fc9042e011b6d344b5fb75d209a216998b136ce995f05346a895b3fd070b"
+      "sha256": "6c64bce6ab277d775063564aa52ffe5e46daaf1ae2462e0a772b92888ad69fa7"
     },
     "routes.csv": {
       "rows": 3217,
       "sha256": "09a09be1e97e412d26bda282fc04639e6a5bde9126792f3992ed97e0a2c1c4b2"
     },
     "screened_out.csv": {
-      "rows": 1540,
-      "sha256": "ffbe5b4e80c5e34741d7112f7d5f292aceac4bd637628401591b3089ce17c108"
+      "rows": 1543,
+      "sha256": "fef766a9f16470c23724cc27c18e1773e5d5f649be70780a68731d997fa36171"
     },
     "set1_core.csv": {
-      "rows": 121,
-      "sha256": "ab9df3ab6757b8742b63f707970c27bdf3738920160a584f314202654fee109f"
+      "rows": 108,
+      "sha256": "94796a4481b64689aa0e5da1992cde05f117e91f88657a6aa75d3df58c186868"
     },
     "set2_emerging.csv": {
-      "rows": 166,
-      "sha256": "c83eb5a20bf4d8617f185766a9792127cdab7380e6af3eb34456455112c44bcb"
+      "rows": 132,
+      "sha256": "8678b6963d8f01687b59a6406e1dc833458e19bb5700f6a199895bd1aef4bd26"
     },
     "set3_context.csv": {
-      "rows": 390,
-      "sha256": "409f454e92e1369ee5e182ee976e619282ea530b291f3ea230d5981291e459e8"
+      "rows": 434,
+      "sha256": "92c6deb9a849554bffe4b8333055cbe0ac26f1ad041a073e2171fc54bb6630c6"
     },
     "summary.csv": {
       "rows": 24,
-      "sha256": "1d3c2605369015b2beb4fde2182f7513cc82981de195d88a4f1451edb8573c0c"
+      "sha256": "9ba34f1a856df1c4c2d239f6278cf891d0cf26c847240ba5be5fa665690813bf"
+    },
+    "adjudication/general_set1_2026-08-18.csv": {
+      "rows": 36,
+      "sha256": "f27bb8fceef2dca013328ddbb750e68c30b2d5588e7de7c98307d5a851bdebf5"
+    },
+    "adjudication/general_set2_2026-08-18.csv": {
+      "rows": 73,
+      "sha256": "c1cff013dae31b76b7c9c424e56a2f97385a4db2bc99722b3f1e3ce47003d850"
     }
   },
   "literature_cutoff": "2026-07-01",
@@ -61,28 +69,28 @@
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
   "search_universe": 2217,
   "set1_contributions": {
-    "attack": 31,
-    "defense": 26,
-    "evaluation": 19,
-    "general": 36,
+    "attack": 33,
+    "defense": 39,
+    "evaluation": 22,
+    "general": 5,
     "survey": 9
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 33,
-    "defense": 38,
-    "evaluation": 15,
-    "general": 73,
+    "attack": 38,
+    "defense": 61,
+    "evaluation": 22,
+    "general": 4,
     "survey": 7
   },
   "set3_roles": {
-    "agentic_security_context": 15,
+    "agentic_security_context": 19,
     "classical_foundation": 4,
     "defense_analogy": 53,
-    "deployment_evidence": 16,
-    "measurement_context": 100,
+    "deployment_evidence": 25,
+    "measurement_context": 123,
     "protocol_or_standard": 64,
-    "related_work": 132,
+    "related_work": 140,
     "single_agent_baseline": 6
   },
   "source_file_inventory": [
@@ -345,5 +353,15 @@
   ],
   "taxonomy_ready_count": 18,
   "taxonomy_ready_set1_count": 12,
-  "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification."
+  "verification_note": "Model-assisted source review. Named author signoff is required before claiming human verification.",
+  "adjudication_revision": {
+    "date": "2026-08-18",
+    "scope": "all 109 rows previously labeled general in Set 1 and Set 2",
+    "reviewed": 109,
+    "retained_in_corpus": 62,
+    "moved_to_set3": 44,
+    "screened_out": 3,
+    "remaining_general": 9,
+    "frozen_corpus_total": 240
+  }
 }

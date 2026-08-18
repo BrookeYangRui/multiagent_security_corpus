@@ -1,6 +1,6 @@
 # Frozen Corpus Snapshot
 
-Freeze date: `2026-08-17`
+Freeze date: `2026-08-18`
 
 Literature cutoff: `2026-07-01`
 
@@ -10,13 +10,13 @@ Citation snapshot date: `2026-08-17`
 
 | Partition | Count | Role |
 | --- | ---: | --- |
-| Set 1 | 121 | Mature in-scope MAS-security corpus |
-| Set 2 | 166 | Emerging in-scope MAS-security corpus |
-| Set 3 | 390 | Contextual literature outside the MAS-security corpus |
-| Screened out | 1,540 | Reviewed works outside the active evidence sets |
+| Set 1 | 108 | Mature in-scope MAS-security corpus |
+| Set 2 | 132 | Emerging in-scope MAS-security corpus |
+| Set 3 | 434 | Contextual literature outside the MAS-security corpus |
+| Screened out | 1,543 | Reviewed works outside the active evidence sets |
 | Review universe | 2,217 | All deduplicated reviewed works |
 
-Set 1 plus Set 2 is the 287-work MAS-security corpus.
+Set 1 plus Set 2 is the 240-work MAS-security corpus.
 
 ## Membership rule
 
@@ -44,3 +44,7 @@ Full-text taxonomy readiness is tracked separately and never changes Set 1 versu
 ## Freeze policy
 
 This snapshot is the manuscript-facing corpus for the current USENIX 2027 SoK revision. The set membership and frozen citation counts must not be silently regenerated or changed. Corrections require an explicit new revision, a documented change log, and a new frozen snapshot. Validation may check the frozen files but must not rewrite them.
+
+## 2026-08-18 adjudication revision
+
+All 109 works previously labeled `general` in Set 1 and Set 2 were individually adjudicated. The revision retained 62 works in the MAS-security corpus, moved 44 to Set 3, screened out 3, and reduced the residual `general` category to 9 works. The adjudication ledgers under `corpus/adjudication/` are part of this frozen snapshot.

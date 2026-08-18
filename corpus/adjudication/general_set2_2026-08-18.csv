@@ -1,0 +1,74 @@
+evidence_set,work_key,title,recommended_membership,recommended_contribution,general_subtype,set3_role_if_moved,reason_code,confidence
+set2_emerging,arxiv:2408.13406,Collaboration Dynamics and Reliability Challenges of Multi-Agent Systems in Finite Element Analysis,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2410.22932,Multi-Agent Large Language Models for Conversational Task-Solving,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2504.07461,The Achilles Heel of Distributed Multi-Agent Systems,keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2511.08710,Convergence Dynamics of Agent-to-Agent Interactions with Misaligned Objectives,keep_current,general,formal_security_analysis,,true_general_system_level_security,high
+set2_emerging,arxiv:2512.20973,DAO-Agent: Zero-Knowledge-Verified Incentives for Decentralized Multi-Agent Coordination,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2503.23138,EncGPT: A Multi-Agent Workflow for Dynamic Encryption Algorithms,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2512.16167,Ev-Trust: Evolutionarily Stable Trust Mechanism for LLM-Based Multi-Agent Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,allegrini2025formalizing,"Formalizing the Safety, Security, and Functional Properties of Agentic AI Systems",keep_current,general,formal_security_analysis,,true_general_system_level_security,high
+set2_emerging,arxiv:2511.17621,From Competition to Coordination: Market Making as a Safe and Aligned Multi-Agent System,move_set3,context,,agentic_security_context,adjacent_safety_governance_not_concrete_security,high
+set2_emerging,arxiv:2507.21159,MAC: Masked Agent Collaboration for Medical Decision Making,move_set3,context,,deployment_evidence,external_application_or_deployment_context,high
+set2_emerging,arxiv:2510.04488,Multi-Agent Collaborative Intelligence: Dual-Dial Control for Reliable Reasoning,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2512.21352,Multi-Agent LLM Committees for Autonomous Software Beta Testing,move_set3,context,,deployment_evidence,external_application_or_deployment_context,high
+set2_emerging,arxiv:2512.16279,QuadSentinel: Sequent Safety for Machine-Checkable Control of Multi-Agent Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2506.11083,RedDebate: Safer Responses through Multi-Agent Red Teaming Debates,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.32388/ubj6kd,A Review of AgentNet: Decentralized Evolutionary Coordination in LLM-Based Multi-Agent Systems,move_set3,context,,related_work,generic_mas_method_not_security_central,high
+set2_emerging,arxiv:2510.19420,Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2510.14312,"Terrarium: A Blackboard for Multi-Agent Safety, Privacy, and Security Studies",keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2510.10943,The Social Cost of Intelligence: Bias Propagation in LLM Multi-Agent Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2510.27617,VeriMoA: A Mixture-of-Agents Framework for Verified Spec-to-HDL Generation,move_set3,context,,related_work,generic_mas_method_not_security_central,high
+set2_emerging,doi:10.5281/zenodo.19844471,Accountable Multi-Agent AI Systems: Orchestration with Human-in-the-Loop Verification,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.05703,Active Learning for Communication Structure Optimization in Multi-Agent LLM Systems,move_set3,context,,related_work,generic_mas_method_not_security_central,high
+set2_emerging,doi:10.5281/zenodo.18902320,Algorithmic Cowardice: Cognitive Dissonance and Moral Conformity in Multi-Agent LLM Systems,keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.19103615,Behavioral Drift in Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2604.13705,Beyond Arrow's Impossibility: Fairness as an Emergent Property of Multi-Agent LLM Deliberation,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2604.22879,Beyond Single-Agent Alignment: Preventing Context-Fragmented Policy Violations in Multi-Agent Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.18913935,Codette: An Ethical Multi-Agent Architecture for Governed LLM Collaboration,move_set3,context,,agentic_security_context,adjacent_safety_governance_not_concrete_security,medium
+set2_emerging,doi:10.5281/zenodo.18261735,Differences in Alignment Between Single-Agent and Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2606.17368,Distributed General-Purpose Agent Networks,keep_current,general,system_protocol_design,,true_general_system_level_security,high
+set2_emerging,arxiv:2603.15809,Don't Trust Stubborn Neighbors: A Security Framework for Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2604.07911,Dynamic Attentional Context Scoping for Isolation in Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.09278,EquiMem: Game-Theoretic Shared-Memory Calibration for Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2603.06856,Evaluating Multi-Agent LLM Architectures for Rare Disease Diagnosis,move_set3,context,,deployment_evidence,external_application_or_deployment_context,high
+set2_emerging,arxiv:2602.00755,Evolving Interpretable Constitutions for Multi-Agent LLM Coordination,move_set3,context,,agentic_security_context,adjacent_safety_governance_not_concrete_security,high
+set2_emerging,doi:10.2139/ssrn.7041478,Failure Modes in Production Multi-Agent LLM Systems,screened_out,excluded,,,post_cutoff_no_pre_cutoff_version,high
+set2_emerging,arxiv:2606.16047,From Argument Components to Graphs: Structured Deliberation and Confidence Gating in Multi-Agent LLMs,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2604.07667,From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2606.10322,Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2606.24535,Governed Shared Memory for Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2603.00121,A Graph-Theoretic Agreement Framework for Multi-Agent LLM Systems,screened_out,excluded,,,withdrawn_source,medium
+set2_emerging,arxiv:2606.07937,Hallucination Cascade in Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,doi:10.17605/osf.io/3fxqn,Infodeme: Misinformation Propagation in Multi-Agent LLM Systems,keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2606.28456,Is Lying an Emergent Behaviour in Multi-Agent LLM Systems?,keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2603.08852,LDP: An Identity-Aware Protocol for Secure Multi-Agent LLM Communication,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.30042,Learning to Choose: Adaptive Method Selection in Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,doi:10.2139/ssrn.7157742,LightWDN-Agent: Privacy-Aware Multi-Agent Automation for Water Distribution Networks,screened_out,excluded,,,post_cutoff_no_pre_cutoff_version,medium
+set2_emerging,doi:10.5281/zenodo.19244877,Memetic Cascade Detection and Symbolic Immunity in Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.19545651,Multi-Agent LLM Deliberation on Contested National Identity,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,doi:10.2139/ssrn.6734798,"Multi-Agent Orchestration: Coordination, Trust, and Cascading Failures",keep_current,general,security_characterization,,true_general_system_level_security,high
+set2_emerging,arxiv:2602.01011,Multi-Agent Teams Hold Experts Back,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2605.12240,No Action Without a NOD: A Verification Architecture for Reliable Multi-Agent Services,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.12991,Not Just RLHF: Sycophancy in Multi-Agent LLM Systems,move_set3,context,,agentic_security_context,adjacent_safety_governance_not_concrete_security,high
+set2_emerging,doi:10.5281/zenodo.20162877,Protocol-Layer Governance for Identity-Bound Multi-Agent Oversight,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2606.15024,Resilient Consensus in Agentic AI,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.09076,Robust Multi-Agent LLMs under Byzantine Faults,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.2139/ssrn.6886059,Safety-Filtered Multi-Agent Learning for Demand Response,move_set3,context,,related_work,generic_mas_method_not_security_central,high
+set2_emerging,arxiv:2604.02767,SentinelAgent: Intent-Verified Delegation Chains for Multi-Agent Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2606.12709,"Smarter Saboteurs, Better Fixers: Scaling Laws for Multi-Agent Security",keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2603.29846,SNEAK: Evaluating Strategic Communication and Information Leakage in Multi-Agent LLMs,keep_current,evaluation,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.30391,Social Reasoning in Machines: Collective Truth-Seeking in Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2605.16746,State Contamination in Memory-Augmented LLM Agents,keep_current,attack,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.20678936,Switchboard: Human-in-the-Loop Interrupt Routing for Multi-Agent LLM Systems,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.18614898,SYNAPSE: A Stigmergic Coordination Protocol for Multi-Agent LLM Systems,move_set3,context,,related_work,generic_mas_method_not_security_central,medium
+set2_emerging,doi:10.2139/ssrn.6626960,Synthetic Consilium: Multi-Agent Deliberation for Cognitive Bias Mitigation,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2605.01704,The Reasoning Trap: Information-Theoretic Limits of Multi-Agent Deliberation,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,doi:10.33767/osf.io/sjtp2_v1,The Spiral of Attention: How Disruptive Agents Centralize Multi-Agent Deliberation,keep_current,attack,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2602.03688,TodyComm: Dynamic Communication for Multi-Agent LLM Systems,move_set3,context,,related_work,generic_mas_method_not_security_central,high
+set2_emerging,arxiv:2606.28425,Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems,keep_current,attack,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2604.27132,TRUST: A Decentralized Framework for Trustworthy Multi-Agent AI Services,keep_current,defense,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2603.11132,WebWeaver: Topology Confidentiality Attacks on Multi-Agent LLM Systems,keep_current,attack,,,reclassify_dominant_contribution,high
+set2_emerging,arxiv:2605.20548,What Do Agents Communicate? Characterizing Information Exchange in Multi-Agent LLM Systems,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2606.27443,When Does Personality Composition Matter in Multi-Agent LLM Systems?,move_set3,context,,measurement_context,reliability_alignment_or_behavior_not_security,high
+set2_emerging,arxiv:2606.28958,When Latent Agents Lie: KV Cache Integrity in Multi-Agent LLM Systems,keep_current,attack,,,reclassify_dominant_contribution,high
+set2_emerging,doi:10.5281/zenodo.20413765,XunMing-AI: Multi-Agent LLM Orchestration for Logic Synthesis,move_set3,context,,deployment_evidence,external_application_or_deployment_context,medium
