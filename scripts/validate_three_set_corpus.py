@@ -23,4 +23,4 @@ if dict(Counter(r["dominant_contribution"] for r in S["set2_emerging"]))!=E2: ra
 if len(rows("manual_review_queue_2026-08-18.csv"))!=227: raise SystemExit("manual queue incomplete")
 m=json.loads((C/"manifest.json").read_text())
 if m["counts"]!=actual or m["corpus_counts"]["total_corpus"]!=227 or m["search_universe"]!=2215: raise SystemExit("manifest mismatch")
-print(f"Frozen corpus valid: Set1=105 Set2=121 Set3={actual['set3_context']} screened={actual['screened_out']} active=227 universe=2216")
+print(f"Frozen corpus valid: Set1=105 Set2=122 Set3={actual['set3_context']} screened={actual['screened_out']} active=227 universe=2215")
