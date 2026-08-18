@@ -12,7 +12,7 @@ See [`FROZEN_SNAPSHOT.md`](FROZEN_SNAPSHOT.md) for the frozen definitions and co
 
 ## Authoritative review universe
 
-The frozen ledger contains 2,216 deduplicated works and 3,217 discovery-route records. The manuscript-facing partition is:
+The frozen ledger contains 2,215 deduplicated works and 3,217 discovery-route records. The manuscript-facing partition is:
 
 | File | Count | Meaning |
 | --- | ---: | --- |
@@ -29,11 +29,13 @@ Set 1 then applies the frozen maturity union:
 peer_reviewed == yes OR frozen_citation_count >= 10
 ```
 
-Interaction-dependence strength and full-text taxonomy readiness are recorded separately. In particular, `taxonomy_ready` does not change Set 1 versus Set 2 membership. The current manifest flags 115 rows for priority named-author review, and model-assisted decisions must not be described as human verified before signoff.
+Interaction-dependence strength and full-text taxonomy readiness are recorded separately. In particular, `taxonomy_ready` does not change Set 1 versus Set 2 membership. The current manifest flags 103 rows for priority named-author review, and model-assisted decisions must not be described as human verified before signoff.
 
 `corpus/routes.csv` preserves route-level provenance. `corpus/review_ledger.csv` preserves current and previous review decisions, source locators, publication/citation metadata, evidence fields, and readiness flags. Historical canonical, broad-screen, and earlier primary/secondary denominators may still appear in reconstruction material, but they are not the current evidence-set definitions.
 
 The 2026-08-18 survey-scope adjudication reviewed all 16 survey records, retained 8 in the MAS-security corpus, moved 7 unique works to Set 3, and merged one cross-platform duplicate.
+
+The 2026-08-18 evaluation and benchmark reconciliation re-adjudicated all 44 evaluation-primary works and reconciled the separate 44-paper benchmark analysis set. It also merged the duplicate MASLeak arXiv/published identities and promoted the existing screened-out A2ASecBench record into Set 1.
 
 ## Policy
 
@@ -49,6 +51,6 @@ scripts/validate_all.sh
 python3 scripts/validate_three_set_corpus.py
 ```
 
-The validator checks that the four sets partition all 2,216 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the frozen views.
+The validator checks that the four sets partition all 2,215 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the frozen views.
 
-The 2026-08-18 evaluation and benchmark reconciliation freezes the active corpus at 227 works. `corpus/manual_review_queue_2026-08-18.csv` contains all 227 active works for named-author signoff.
+`corpus/manual_review_queue_2026-08-18.csv` contains all 227 active works for named-author signoff.
