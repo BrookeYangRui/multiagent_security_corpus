@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Apply evaluation and benchmark reconciliation
-        run: python3 scripts/apply_evaluation_benchmark_reconciliation.py
+        run: python3 scripts/apply_evaluation_benchmark_reconciliation_v2.py
 
       - name: Validate generated corpus
         run: scripts/validate_all.sh
@@ -30,6 +30,8 @@ jobs:
       - name: Commit generated corpus revision
         run: |
           rm -f .github/workflows/apply-evaluation-benchmark-reconciliation.yml
+          rm -f scripts/apply_evaluation_benchmark_reconciliation.py
+          rm -f scripts/apply_evaluation_benchmark_reconciliation_v2.py
           git checkout origin/main -- .github/workflows/validate.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
