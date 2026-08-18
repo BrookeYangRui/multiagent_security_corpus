@@ -14,7 +14,7 @@ Citation snapshot date: `2026-08-17`
 | Set 2 | 122 | Emerging in-scope MAS-security corpus |
 | Set 3 | 447 | Contextual literature outside the MAS-security corpus |
 | Screened out | 1,541 | Reviewed works outside the active evidence sets |
-| Review universe | 2,216 | All deduplicated reviewed works |
+| Review universe | 2,215 | All deduplicated reviewed works |
 
 Set 1 plus Set 2 is the 227-work MAS-security corpus.
 
@@ -45,17 +45,18 @@ Full-text taxonomy readiness is tracked separately and never changes Set 1 versu
 
 This snapshot is the manuscript-facing corpus for the current USENIX 2027 SoK revision. The set membership and frozen citation counts must not be silently regenerated or changed. Corrections require an explicit new revision, a documented change log, and a new frozen snapshot. Validation may check the frozen files but must not rewrite them.
 
-## 2026-08-18 adjudication revision
+## 2026-08-18 general-category adjudication revision
 
 All 109 works previously labeled `general` in Set 1 and Set 2 were individually adjudicated. The revision retained 62 works in the MAS-security corpus, moved 44 to Set 3, screened out 3, and reduced the residual `general` category to 9 works. The adjudication ledgers under `corpus/adjudication/` are part of this frozen snapshot.
 
 ## 2026-08-18 survey-scope adjudication revision
 
-All 16 records labeled `survey` in Set 1 and Set 2 were reviewed against the same substantive MAS-security scope gate. Eight surveys remain in the MAS-security corpus, seven unique works move to Set 3 because MAS-specific security is contextual rather than a substantive primary contribution, and the Research Square / SSRN copies of `Agentic and Multi-Agent Systems: A Systematic Review of Tool Use, Benchmarks, and Governance` are merged as one work. The deduplicated review universe is therefore 2,216 works and the MAS-security corpus is 232 works.
-
+All 16 records labeled `survey` in Set 1 and Set 2 were reviewed against the same substantive MAS-security scope gate. Eight surveys remained in the MAS-security corpus, seven unique works moved to Set 3, and the Research Square / SSRN copies of `Agentic and Multi-Agent Systems: A Systematic Review of Tool Use, Benchmarks, and Governance` were merged as one work. At that intermediate revision the corpus contained 232 active works and the review universe contained 2,216 works.
 
 ## 2026-08-18 evaluation and benchmark reconciliation revision
 
-All 44 evaluation-primary works were re-adjudicated: 27 remain active and 17 move to context. The 44-paper benchmark analysis set was then reconciled against canonical identities, adding/promoting 12 security-relevant works into the active corpus, confirming that `Deliberation and drift` was already contextual in the frozen ledger, correcting two dominant-contribution labels, and canonicalizing the MASLeak arXiv/USENIX version chain. A2ASecBench already existed in the deduplicated review ledger and is promoted rather than added. The duplicate MASLeak preprint/published identities are merged, reducing the review universe to 2,215 works.
+All 44 evaluation-primary works were re-adjudicated: 27 remain active and 17 move to context. The separate 44-paper benchmark analysis set was then reconciled against canonical identities. Twelve works were added or promoted into the active corpus, two dominant-contribution labels were corrected, and one post-cutoff benchmark remained outside the frozen corpus. `Deliberation and drift` was already contextual in the frozen ledger, so it does not create an additional active-corpus removal.
 
-The resulting frozen partition is Set 1 = 105, Set 2 = 121, Set 3 = 447, screened out = 1,541, for a 227-work MAS-security corpus. All 227 active rows are exported to `corpus/manual_review_queue_2026-08-18.csv` and remain pending named-author signoff.
+Two identity corrections matter for the final denominator. A2ASecBench already existed in `review_ledger.csv` as a screened-out work and is promoted rather than added to the review universe. MASLeak existed as both an active arXiv preprint row and a separate screened-out published canonical row; these are merged into the published USENIX Security record, reducing the deduplicated review universe by one.
+
+The resulting frozen partition is **Set 1 = 105, Set 2 = 122, Set 3 = 447, screened out = 1,541**, for a **2,215-work review universe** and a **227-work MAS-security corpus**. All 227 active rows are exported to `corpus/manual_review_queue_2026-08-18.csv` and remain pending named-author signoff.
