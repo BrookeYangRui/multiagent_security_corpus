@@ -4,13 +4,16 @@ on:
   push:
     branches:
       - freeze/evaluation-benchmark-2026-08-18
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   apply:
-    if: ${{ !contains(github.event.head_commit.message, '[reconciliation-generated]') }}
+    if: ${{ github.event_name == 'pull_request' || !contains(github.event.head_commit.message, '[reconciliation-generated]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out branch
