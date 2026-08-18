@@ -1,0 +1,45 @@
+evidence_set,title,decision,target_set,target_role,reason_code,confidence
+set1_core,"Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation",keep,set1_core,,adversarial_multi_agent_behavior_is_substantive_security_evaluation,medium
+set1_core,"CRDA: Content Risk Drift Assessment of Large Language Models through Adversarial Multi-Agent Interaction",keep,set1_core,,adversarial_interaction_and_content_risk_are_primary_evaluation,high
+set1_core,"Debate, Deliberate, Decide (D3): A Cost-Aware Adversarial Framework for Reliable and Interpretable LLM Evaluation",move,set3_context,measurement_context,adversarial_debate_is_evaluation_method_not_security_threat,high
+set1_core,"NetSafe: Exploring the Topological Safety of Multi-agent System",keep,set1_core,,malicious_queries_and_topology_dependent_attack_propagation_are_substantive,high
+set1_core,"Benchmarking the Robustness of Agentic Systems to Adversarially-Induced Harmful Behaviors",keep,set1_core,,explicit_compromised_agent_attack_and_harmful_target_actions,high
+set1_core,"MAGPIE: A Benchmark for Multi-Agent Contextual Privacy Evaluation",keep,set1_core,,multi_agent_contextual_privacy_leakage_is_primary_property,high
+set1_core,"Quantifying Privacy Leakage in Multi-Agent LLMs: A Unified Theoretical and Empirical Analysis",keep,set1_core,,inter_agent_privacy_leakage_and_adversaries_are_primary,high
+set1_core,"Reproducibility Study of Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation",move,set3_context,measurement_context,reproducibility_and_negotiation_measurement_not_security_primary,high
+set1_core,"Revisiting Multi-Agent Debate as Test-Time Scaling: A Systematic Study of Conditional Effectiveness",move,set3_context,measurement_context,test_time_scaling_and_task_effectiveness_not_mas_security,high
+set1_core,"TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems",keep,set1_core,,explicit_multi_agent_security_benchmark_and_attack_suite,high
+set1_core,"TCLMA: A Two-dimension Contrastive Learning based Multiagent Framework for Scientific Novelty Evaluation",move,set3_context,deployment_evidence,mas_used_for_scientific_novelty_evaluation_not_security,high
+set1_core,"Topology Matters: Measuring Memory Leakage in Multi-Agent LLMs",keep,set1_core,,topology_dependent_inter_agent_memory_leakage_is_primary_property,high
+set1_core,"WOLF: Werewolf-based Observations for LLM Deception and Falsehoods",keep,set1_core,,adversarial_deception_detection_is_collective_integrity_evaluation,medium
+set1_core,"A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance",keep,set1_core,,attack_injection_capability_limits_and_containment_are_substantive,high
+set1_core,"AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems",keep,set1_core,,internal_channel_privacy_leakage_is_primary_security_benchmark,high
+set1_core,"Autonomous Evaluation Architectures: Multi-Agent LLM Pipelines, Browser-Grounded Testing: Programmatic Alignment via DSPy, and Adversarial Robustness in Production Orchestration Systems",move,set3_context,measurement_context,generic_pipeline_evaluation_and_alignment_not_mas_security_primary,high
+set1_core,"Trustworthy Causal Reasoning in LLM-based Multi-Agent Smart Building Systems: A Multi-Level Evaluation Across Observational, Interventional, and Counterfactual Tasks",move,set3_context,deployment_evidence,causal_reasoning_accuracy_in_application_not_mas_security,high
+set1_core,"Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us",keep,set1_core,,misaligned_deceptive_principals_and_interaction_are_security_relevant,medium
+set1_core,"Whispering Agents: An Event-Driven Covert Communication Protocol for the Internet of Agents",keep,set1_core,,covert_inter_agent_communication_and_information_hiding_are_primary,high
+set1_core,"Persuade Me if You Can: A Framework for Evaluating Persuasion Effectiveness and Susceptibility Among Large Language Models",move,set3_context,measurement_context,persuasion_capability_measurement_not_mas_security_evaluation,high
+set1_core,"Security of LLM Agents: A Case Study Approach",keep,set1_core,,security_is_primary_and_source_review_supports_inter_agent_security_path,medium
+set1_core,"Multi-AI Agent Oriented Privacy Policy Compliance Checking Based on Large Language Models in Mobile IoT Systems",move,set3_context,deployment_evidence,mas_is_tool_for_external_privacy_compliance_checking,high
+set2_emerging,"MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems",keep,set2_emerging,,malicious_agents_attack_defense_and_topology_risk_are_substantive,high
+set2_emerging,"Adversarial Consensus Verification for Reliable LLM agents in Financial Forensics: The Pave Interchange Benchmark",move,set3_context,deployment_evidence,adversarial_verifier_is_benign_method_for_financial_correctness,high
+set2_emerging,"Auditing Agent Harness Safety",keep,set2_emerging,,permission_boundaries_cross_agent_leakage_and_unauthorized_access,high
+set2_emerging,"Behavioral Drift in Multi-Agent LLM Systems: Emergent Failure Modes, Cascade Dynamics, and Measurement Challenges",move,set3_context,measurement_context,longitudinal_behavioral_stability_not_concrete_security_property,high
+set2_emerging,"Beyond Individual Agent Monitoring: Empirical Evidence of Three Relational Failure Modes in LLM-Based Multi-Agent Systems",move,set3_context,measurement_context,generic_relational_failure_modes_without_concrete_security_property,high
+set2_emerging,"CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs",keep,set2_emerging,,coordination_privacy_tradeoff_is_explicit_mas_security_property,high
+set2_emerging,"Chain-Centric Multi-Agent Framework: Layer-Separated LLM Collaboration Without Subjective Confidence Evaluation",move,set3_context,related_work,generic_collaboration_architecture_and_confidence_evaluation,high
+set2_emerging,"Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems",keep,set2_emerging,,collusion_secret_communication_and_secondary_goals_are_primary,high
+set2_emerging,"Containing the Cascade: A Benchmark and Reference Mediator for Failure Propagation in Tool-Using LLM Multi-Agent Systems",move,set3_context,measurement_context,failure_propagation_benchmark_without_explicit_security_threat,high
+set2_emerging,"GAMMAF: A Common Framework for Graph-Based Anomaly Monitoring Benchmarking in LLM Multi-Agent Systems",keep,set2_emerging,,compromised_nodes_prompt_infection_and_defense_benchmarking,high
+set2_emerging,"HARP: Measuring Harm Amplification in Multi-Agent LLM Systems",keep,set2_emerging,,attack_harness_collusion_context_corruption_and_persistent_attacks,high
+set2_emerging,"Multi-Paradigm Agent Interaction in Practice:A Systematic Analysis of Generator-Evaluator, ReAct Loop,and Adversarial Evaluation in the buddyMe Framework",move,set3_context,measurement_context,generic_agent_interaction_paradigm_analysis_not_security,high
+set2_emerging,"SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care",move,set3_context,deployment_evidence,clinical_sycophancy_behavior_evaluation_not_mas_security,high
+set2_emerging,"The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure",keep,set2_emerging,,semantic_hijacking_attack_propagation_and_defense_are_primary,high
+set2_emerging,"Towards Security-Auditable LLM Agents: A Unified Graph Representation",keep,set2_emerging,,security_auditing_attack_chain_reconstruction_and_trust_abuse,high
+set2_emerging,"Achilles Heel of Distributed Multi-Agent Systems",keep,set2_emerging,,malicious_attack_red_teaming_and_attack_success_are_substantive,high
+set2_emerging,"Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies",keep,set2_emerging,,malicious_agents_compromised_communication_poisoning_and_privacy_attacks,high
+set2_emerging,"Algorithmic Cowardice: Cognitive Dissonance and Moral Conformity in Multi-Agent LLM Interactions",move,set3_context,measurement_context,moral_conformity_and_cognitive_dissonance_not_concrete_security,high
+set2_emerging,"Infodeme: Structural Determinants of Misinformation Propagation in LLM Agent Societies",keep,set2_emerging,,misinformation_propagation_is_collective_integrity_property,medium
+set2_emerging,"Is Lying an Emergent Behaviour in LLMs? Evidence from Gaslighting AI agents in a Sustainability Game",move,set3_context,measurement_context,emergent_lying_behavior_study_without_explicit_security_threat,high
+set2_emerging,"Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows",keep,set2_emerging,,malicious_agent_sabotage_prompt_injection_and_repair_are_primary,high
+set2_emerging,"SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models",keep,set2_emerging,,asymmetric_adversary_and_information_leakage_are_primary,high
