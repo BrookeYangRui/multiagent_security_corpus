@@ -13,13 +13,13 @@ FILES = {
     "screened_out": "screened_out.csv",
 }
 FROZEN_COUNTS = {
-    "set1_core": 108,
-    "set2_emerging": 132,
-    "set3_context": 434,
+    "set1_core": 104,
+    "set2_emerging": 128,
+    "set3_context": 441,
     "screened_out": 1543,
 }
-FROZEN_SET1_CONTRIBUTIONS = {"attack": 33, "defense": 39, "evaluation": 22, "general": 5, "survey": 9}
-FROZEN_SET2_CONTRIBUTIONS = {"attack": 38, "defense": 61, "evaluation": 22, "general": 4, "survey": 7}
+FROZEN_SET1_CONTRIBUTIONS = {"attack": 33, "defense": 39, "evaluation": 22, "general": 5, "survey": 5}
+FROZEN_SET2_CONTRIBUTIONS = {"attack": 38, "defense": 61, "evaluation": 22, "general": 4, "survey": 3}
 
 
 def rows(name):
@@ -46,7 +46,7 @@ for left in keys:
             raise SystemExit(f"sets overlap: {left} and {right}")
 
 ledger = rows("review_ledger.csv")
-if len(ledger) != 2217:
+if len(ledger) != 2216:
     raise SystemExit(f"review ledger changed size: {len(ledger)}")
 if set().union(*keys.values()) != {row["work_key"] for row in ledger}:
     raise SystemExit("sets do not partition review_ledger.csv")
@@ -93,11 +93,15 @@ adj2 = rows("adjudication/general_set2_2026-08-18.csv")
 if len(adj1) != 36 or len(adj2) != 73:
     raise SystemExit("frozen general adjudication ledgers are incomplete")
 
+survey_adj = rows("adjudication/survey_scope_2026-08-18.csv")
+if len(survey_adj) != 16 or sum(row.get("decision") == "keep" for row in survey_adj) != 8 or sum(row.get("decision") == "merge" for row in survey_adj) != 1:
+    raise SystemExit("frozen survey adjudication ledger is incomplete")
+
 manifest = json.loads((C/"manifest.json").read_text(encoding="utf-8"))
 if manifest["counts"] != actual:
     raise SystemExit("manifest counts do not match")
-if manifest.get("corpus_counts", {}).get("total_corpus") != 240:
-    raise SystemExit("manifest corpus total must be frozen at 240")
+if manifest.get("corpus_counts", {}).get("total_corpus") != 232:
+    raise SystemExit("manifest corpus total must be frozen at 232")
 if manifest.get("set1_contributions") != FROZEN_SET1_CONTRIBUTIONS:
     raise SystemExit("manifest Set 1 contribution counts do not match the frozen revision")
 if manifest.get("set2_contributions") != FROZEN_SET2_CONTRIBUTIONS:
@@ -118,5 +122,5 @@ print(
     "Frozen three-set corpus valid: "
     f"Set 1={actual['set1_core']}, Set 2={actual['set2_emerging']}, "
     f"Set 3={actual['set3_context']}, screened out={actual['screened_out']}; "
-    "MAS-security corpus=240; residual general=9"
+    "MAS-security corpus=232; surveys=8; residual general=9"
 )
