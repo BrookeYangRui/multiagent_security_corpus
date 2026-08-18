@@ -2,6 +2,8 @@
 
 Review date: 2026-08-18
 
+Status: applied to the frozen corpus on 2026-08-18
+
 Scope: all 109 rows currently labeled `general` in Set 1 and Set 2.
 
 This is an adjudication ledger, not a direct rewrite of the generated canonical corpus files. Each row was reviewed for two separate questions:
@@ -47,9 +49,9 @@ The retained `general` subtype vocabulary can therefore be reduced to:
 
 `trust_governance` is not needed as a residual primary contribution in this adjudication. Papers that introduce concrete governance controls are better classified as defenses; broader ethics, alignment, fairness, and governance papers belong in Set 3 unless they establish a concrete MAS security property.
 
-## Proposed corpus impact
+## Frozen corpus impact
 
-If every adjudication in the ledger is applied:
+These adjudications are applied in the 2026-08-18 frozen corpus revision:
 
 | Set | Current | Proposed |
 | --- | ---: | ---: |
