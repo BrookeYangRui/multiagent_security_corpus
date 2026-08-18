@@ -31,6 +31,8 @@ block = '''        if action == "alias_merge_upgrade":
             continue
 '''
 s = s[:start] + block + s[end:]
+
+# Identity facts established from the frozen ledger.
 s = s.replace(
     'if len(ledger) != 2216: raise SystemExit("reconciliation must preserve 2,216-work universe")',
     'if len(ledger) != 2215: raise SystemExit("reconciliation must produce the deduplicated 2,215-work universe")',
@@ -41,7 +43,7 @@ s = s.replace(
 )
 s = s.replace(
     'if sum(counts.values()) != 2216 or counts["set1_core"] + counts["set2_emerging"] != 226:',
-    'if sum(counts.values()) != 2215 or counts["set1_core"] + counts["set2_emerging"] != 226:',
+    'if sum(counts.values()) != 2215 or counts["set1_core"] + counts["set2_emerging"] != 227:',
 )
 s = s.replace('m["search_universe"] = 2216;', 'm["search_universe"] = 2215;')
 s = s.replace('The frozen ledger contains 2,216 deduplicated works', 'The frozen ledger contains 2,215 deduplicated works')
@@ -52,4 +54,30 @@ s = s.replace(
 s = s.replace('if len(L)!=2216 or set().union(*K.values())', 'if len(L)!=2215 or set().union(*K.values())')
 s = s.replace('m["search_universe"]!=2216', 'm["search_universe"]!=2215')
 s = s.replace('"universe":2216', '"universe":2215')
+
+# The actual frozen benchmark reconciliation shows that Deliberation and drift was
+# already contextual in the current ledger, so it is not an additional active removal.
+s = s.replace('counts["set2_emerging"] != 121', 'counts["set2_emerging"] != 122')
+s = s.replace('exp2 = {"attack":38,"defense":61,"evaluation":15,"general":4,"survey":3}', 'exp2 = {"attack":38,"defense":61,"evaluation":16,"general":4,"survey":3}')
+s = s.replace('if len(manual) != 226:', 'if len(manual) != 227:')
+s = s.replace('{"set1_core":105,"set2_emerging":121,"total_corpus":226}', '{"set1_core":105,"set2_emerging":122,"total_corpus":227}')
+s = s.replace('"additional_unique_active_to_context_move":1,', '"additional_unique_active_to_context_move":0,')
+s = s.replace('"final_active_corpus":226', '"final_active_corpus":227')
+s = s.replace('"rows":226,"status":"pending_named_author_signoff"', '"rows":227,"status":"pending_named_author_signoff"')
+s = s.replace('All 226 active works are queued', 'All 227 active works are queued')
+s = s.replace('**Set 2 = 121**', '**Set 2 = 122**')
+s = s.replace('**226-work MAS-security corpus**', '**227-work MAS-security corpus**')
+s = s.replace('| `corpus/set2_emerging.csv` | 121 |', '| `corpus/set2_emerging.csv` | 122 |')
+s = s.replace('together form the 226-work MAS-security corpus', 'together form the 227-work MAS-security corpus')
+s = s.replace('freezes the active corpus at 226 works', 'freezes the active corpus at 227 works')
+s = s.replace('contains all active works for named-author signoff.', 'contains all 227 active works for named-author signoff.')
+s = s.replace('| Set 2 | 121 |', '| Set 2 | 122 |')
+s = s.replace('Set 1 plus Set 2 is the 226-work MAS-security corpus.', 'Set 1 plus Set 2 is the 227-work MAS-security corpus.')
+s = s.replace('moving one additional unique active work (`Deliberation and drift`) to context, ', 'confirming that `Deliberation and drift` was already contextual in the frozen ledger, ')
+s = s.replace('for a 226-work MAS-security corpus. All 226 active rows', 'for a 227-work MAS-security corpus. All 227 active rows')
+s = s.replace('if len(rows("manual_review_queue_2026-08-18.csv"))!=226:', 'if len(rows("manual_review_queue_2026-08-18.csv"))!=227:')
+s = s.replace('m["corpus_counts"]["total_corpus"]!=226', 'm["corpus_counts"]["total_corpus"]!=227')
+s = s.replace('active=226', 'active=227')
+s = s.replace('"active":226', '"active":227')
+
 p.write_text(s, encoding='utf-8')
