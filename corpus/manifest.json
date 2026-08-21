@@ -9,7 +9,7 @@
     "scope": "all 109 rows previously labeled general in Set 1 and Set 2",
     "screened_out": 3
   },
-  "author_priority_review_count": 103,
+  "author_priority_review_count": 100,
   "benchmark_reconciliation_revision": {
     "active_additions_or_promotions": 12,
     "additional_unique_active_to_context_move": 0,
@@ -23,16 +23,30 @@
   },
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
+  "confirmed_membership_revision": {
+    "audit": "adjudication/confirmed_membership_revision_2026-08-21.csv",
+    "canonical_retained": "doi:10.2139/ssrn.6996678",
+    "date": "2026-08-21",
+    "decision_scope": "membership_and_canonical_identity_only",
+    "duplicate_identity_merges": 1,
+    "duplicate_removed": "doi:10.2139/ssrn.6884338",
+    "excluded": 5,
+    "moved_to_set3": 5,
+    "resulting_active_corpus": 216,
+    "reviewed_membership_changes": 10,
+    "reviewer": "expiol",
+    "source_evidence_verified": false
+  },
   "corpus_counts": {
-    "set1_core": 105,
-    "set2_emerging": 122,
-    "total_corpus": 227
+    "set1_core": 104,
+    "set2_emerging": 112,
+    "total_corpus": 216
   },
   "counts": {
-    "screened_out": 1541,
-    "set1_core": 105,
-    "set2_emerging": 122,
-    "set3_context": 447
+    "screened_out": 1546,
+    "set1_core": 104,
+    "set2_emerging": 112,
+    "set3_context": 452
   },
   "evaluation_adjudication_revision": {
     "date": "2026-08-18",
@@ -45,6 +59,10 @@
     "adjudication/benchmark_reconciliation_2026-08-18.csv": {
       "rows": 44,
       "sha256": "0e50ed1e21c5f990d2e081f787618e10d17603cd6a2cfce8396651d51ff9c33e"
+    },
+    "adjudication/confirmed_membership_revision_2026-08-21.csv": {
+      "rows": 11,
+      "sha256": "3f794ede5f7f24113291e45d109d03261d8640f8711092c0331d69140056045b"
     },
     "adjudication/evaluation_scope_2026-08-18.csv": {
       "rows": 44,
@@ -67,72 +85,76 @@
       "sha256": "648a9fd3fe06301ba646dac2d51e37ca5498649acc39937e931f8cd46a8c4286"
     },
     "author_priority_review.csv": {
-      "rows": 103,
-      "sha256": "36a5877a02ba62d74e626bfd1696bb97c5063615d1556ef7e79f101909338aac"
+      "rows": 100,
+      "sha256": "a835aec1046e72a989ae43776bf5d83e1dd6d8bf72a90aec7596d90d96c42a26"
     },
     "identifier_alias_overrides.csv": {
-      "rows": 5,
-      "sha256": "f7c47cf5e75ee731fbcef286934dfbe271ffb162b238456c667968e57572bf48"
+      "rows": 6,
+      "sha256": "727baa7a263e12b533f3b09f88cf3428801e28d7e6dfd7d3af8df5059c7108ba"
     },
     "identifier_aliases.csv": {
       "rows": 2404,
-      "sha256": "26041b500786e225492513538308ca12fbd6439780c8542f43aff32a73594706"
+      "sha256": "72e1f8d331bc3957383de6a3abf7bf3bd0650d5333b2137e5adb10c683579375"
     },
     "manual_review_queue_2026-08-18.csv": {
-      "rows": 227,
-      "sha256": "c435812314dd874f44c5279ebeb7fef0bc11792bcd3b9bae49e6019589cfd862"
+      "rows": 226,
+      "sha256": "b57eeead50bcbdd58ab6f9122291525e46ab73c9d80f3e0d2b81ccd58bc7453d"
     },
     "review_ledger.csv": {
-      "rows": 2215,
-      "sha256": "e06f5689ac974646432f07960f6dbac745092be14686800b4ed78aa043019100"
+      "rows": 2214,
+      "sha256": "7ee9f30bbee46c7006ef37b7a4ef648736aeeb7268239f931dcc6a0c5b9be173"
     },
     "routes.csv": {
       "rows": 3217,
-      "sha256": "a6e413cf1b44d6c46563ab4cc98284c19a9029f36d9baa74715aa377af266c9b"
+      "sha256": "2c6911977f53a504471e580081a620c48ffa0a73f1ad295dbc01a0198c7913e5"
     },
     "screened_out.csv": {
-      "rows": 1541,
-      "sha256": "d6971333fdc86ce870199b8605b50822058eaaa3069a9927639940a02fb670b8"
+      "rows": 1546,
+      "sha256": "81a320198248af9c96ba49ee8a4bd8a08ff50ca720d1b258481b443d3d0027db"
     },
     "set1_core.csv": {
-      "rows": 105,
-      "sha256": "a5e75f658a5f95cdf6c5b66c112c44f9740fdfa4ac2919534af4de630e054b32"
+      "rows": 104,
+      "sha256": "019c4391d7cca9df25d162cf96715588d9152a9b1ca036e3085d38a4edea7271"
     },
     "set2_emerging.csv": {
-      "rows": 122,
-      "sha256": "49d671f5fb355067318dd2e35bda50a779557a49be38fd24b02832283893f421"
+      "rows": 112,
+      "sha256": "4f3b74aef77d959f1e5a14de72bd703bbf64505e223a46b860d59a5bece2328e"
     },
     "set3_context.csv": {
-      "rows": 447,
-      "sha256": "cd1f3d9f627441321f82320b5ec1a125bbba3701d64379e373ad58baa11334c0"
+      "rows": 452,
+      "sha256": "bc6077b616edf7417309e6bf87cc072c378ea9d1b28089cabe1ef7a6466642a3"
+    },
+    "sets/01_search_catalog/structured_exclusions.csv": {
+      "rows": 6,
+      "sha256": "45006bb35985fb3e5bfdcd4fb02595cda9801ef4e5c9945b3b41702a40779909"
     },
     "summary.csv": {
-      "rows": 24,
-      "sha256": "2dde74047e7d1df0549d000587382df6afd8189937384c799b09a373697cdecb"
+      "rows": 27,
+      "sha256": "b0498b2368969a77c70d944641941f10257c20451e2ac1d720387ebca22408b7"
     }
   },
   "literature_cutoff": "2026-07-01",
   "manual_review_queue": {
     "path": "manual_review_queue_2026-08-18.csv",
-    "rows": 227,
-    "status": "pending_named_author_signoff"
+    "rows": 226,
+    "status": "partial_named_membership_signoff_source_evidence_pending"
   },
-  "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review",
+  "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review; expiol, named secondary membership signoff",
   "schema_version": 2,
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
-  "search_universe": 2215,
+  "search_universe": 2214,
   "set1_contributions": {
     "attack": 33,
-    "defense": 39,
+    "defense": 38,
     "evaluation": 21,
     "general": 7,
     "survey": 5
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 38,
-    "defense": 61,
-    "evaluation": 16,
+    "attack": 35,
+    "defense": 55,
+    "evaluation": 15,
     "general": 4,
     "survey": 3
   },
@@ -143,7 +165,7 @@
     "deployment_evidence": 30,
     "measurement_context": 128,
     "protocol_or_standard": 66,
-    "related_work": 140,
+    "related_work": 145,
     "single_agent_baseline": 5
   },
   "source_file_inventory": [
@@ -415,5 +437,5 @@
   },
   "taxonomy_ready_count": 17,
   "taxonomy_ready_set1_count": 10,
-  "verification_note": "Model-assisted source review. All 227 active works are queued for named-author manual signoff; do not claim human verification before signoff."
+  "verification_note": "Named reviewer expiol confirmed ten Membership changes and one duplicate identity merge on 2026-08-21. The revision does not assert source/evidence verification."
 }

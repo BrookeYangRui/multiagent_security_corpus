@@ -4,7 +4,7 @@ Auditable literature corpus for security of interacting LLM agents. Literature c
 
 ## Frozen manuscript corpus
 
-The USENIX 2027 SoK manuscript-facing corpus is frozen as of `2026-08-18`. The authoritative counts are **Set 1 = 105**, **Set 2 = 122**, **Set 3 = 447**, and **screened out = 1,541**. Set 1 and Set 2 together form the **227-work MAS-security corpus**.
+The USENIX 2027 SoK manuscript-facing corpus is frozen as of `2026-08-18`. The authoritative counts after the 2026-08-21 confirmed-membership revision are **Set 1 = 104**, **Set 2 = 112**, **Set 3 = 452**, and **screened out = 1,546**. Set 1 and Set 2 together form the **216-work MAS-security corpus**.
 
 Corpus membership and the frozen citation snapshot should not be regenerated silently. Any later correction must be treated as an explicit new corpus revision with documented changes. The repository keeps validation automation, but the one-shot reconstruction and migration workflows have been retired after the freeze.
 
@@ -12,16 +12,16 @@ See [`FROZEN_SNAPSHOT.md`](FROZEN_SNAPSHOT.md) for the frozen definitions and co
 
 ## Authoritative review universe
 
-The frozen ledger contains 2,215 deduplicated works and 3,217 discovery-route records. The manuscript-facing partition is:
+The frozen ledger contains 2,214 deduplicated works and 3,217 discovery-route records. The manuscript-facing partition is:
 
 | File | Count | Meaning |
 | --- | ---: | --- |
-| `corpus/set1_core.csv` | 105 | in-scope mature MAS-security work |
-| `corpus/set2_emerging.csv` | 122 | in-scope emerging MAS-security work |
-| `corpus/set3_context.csv` | 447 | contextual literature outside the MAS-security corpus |
-| `corpus/screened_out.csv` | 1,541 | reviewed works outside the active evidence sets |
+| `corpus/set1_core.csv` | 104 | in-scope mature MAS-security work |
+| `corpus/set2_emerging.csv` | 112 | in-scope emerging MAS-security work |
+| `corpus/set3_context.csv` | 452 | contextual literature outside the MAS-security corpus |
+| `corpus/screened_out.csv` | 1,546 | reviewed works outside the active evidence sets |
 
-Set 1 and Set 2 use the same MAS-security scope gate and together form the 227-work MAS-security corpus. Membership requires an LLM multi-agent system, a concrete protected property, and a material inter-agent interaction path. A paper does not need a matched single-agent or rewired-system comparison merely to enter the corpus.
+Set 1 and Set 2 use the same MAS-security scope gate and together form the 216-work MAS-security corpus. Membership requires an LLM multi-agent system, a concrete protected property, and a material inter-agent interaction path. A paper does not need a matched single-agent or rewired-system comparison merely to enter the corpus.
 
 Set 1 then applies the frozen maturity union:
 
@@ -51,6 +51,11 @@ scripts/validate_all.sh
 python3 scripts/validate_three_set_corpus.py
 ```
 
-The validator checks that the four sets partition all 2,215 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the frozen views.
+The validator checks that the four sets partition all 2,214 works, that Set 1 and Set 2 satisfy the scope/maturity invariants, that Set 3 is contextual only, and that the manifest matches the frozen views.
 
-`corpus/manual_review_queue_2026-08-18.csv` contains all 227 active works for named-author signoff.
+`corpus/manual_review_queue_2026-08-18.csv` preserves the 226-record classification cohort after one duplicate DOI merge. Ten Membership decisions have named human signoff; source/evidence verification remains pending.
+
+
+## 2026-08-21 confirmed-membership revision
+
+Named reviewer `expiol` confirmed ten Membership changes: five works moved to Set 3 and five moved to screened out. Duplicate DOI `10.2139/ssrn.6884338` was merged into retained canonical DOI `10.2139/ssrn.6996678`. This revision covers Membership and canonical identity only; it does not assert source/evidence verification.
