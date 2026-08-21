@@ -9,7 +9,7 @@
     "scope": "all 109 rows previously labeled general in Set 1 and Set 2",
     "screened_out": 3
   },
-  "author_priority_review_count": 103,
+  "author_priority_review_count": 94,
   "benchmark_reconciliation_revision": {
     "active_additions_or_promotions": 12,
     "additional_unique_active_to_context_move": 0,
@@ -24,15 +24,15 @@
   "citation_snapshot_date": "2026-08-17",
   "citation_threshold": "at least 10",
   "corpus_counts": {
-    "set1_core": 105,
-    "set2_emerging": 122,
-    "total_corpus": 227
+    "set1_core": 96,
+    "set2_emerging": 105,
+    "total_corpus": 201
   },
   "counts": {
-    "screened_out": 1541,
-    "set1_core": 105,
-    "set2_emerging": 122,
-    "set3_context": 447
+    "screened_out": 1550,
+    "set1_core": 96,
+    "set2_emerging": 105,
+    "set3_context": 463
   },
   "evaluation_adjudication_revision": {
     "date": "2026-08-18",
@@ -58,17 +58,37 @@
       "rows": 73,
       "sha256": "c1cff013dae31b76b7c9c424e56a2f97385a4db2bc99722b3f1e3ce47003d850"
     },
+    "adjudication/manual_corpus_classification_2026-08-21.csv": {
+      "rows": 228,
+      "sha256": "bbf1d7f85969fde1643cb9ae678c9a233a71aa53dcd4c8ea53691bef1c3ee360"
+    },
+    "adjudication/manual_decision_signoff_2026-08-21.csv": {
+      "rows": 32,
+      "sha256": "6b051b1519edef23a094da850734505688a90d1ad00f400e914d1135b94e4138"
+    },
     "adjudication/manual_signoff_changes_2026-08-18.csv": {
       "rows": 32,
-      "sha256": "ca0ddda7e7f9ee9f04df2ceb606773121b97f2473b199fb0003b90cafabda33d"
+      "sha256": "cd3790fae1d72c9968802cc6876305b5bfa2c41a05a92b093243a927c8c1866f"
     },
     "adjudication/survey_scope_2026-08-18.csv": {
       "rows": 16,
       "sha256": "648a9fd3fe06301ba646dac2d51e37ca5498649acc39937e931f8cd46a8c4286"
     },
     "author_priority_review.csv": {
-      "rows": 103,
-      "sha256": "36a5877a02ba62d74e626bfd1696bb97c5063615d1556ef7e79f101909338aac"
+      "rows": 94,
+      "sha256": "a477881cf011938fad253f2b5edfa9714cce34a221045f60653206126d648ed9"
+    },
+    "evidence/cves.csv": {
+      "rows": 52,
+      "sha256": "6121bc9c443e4e89c8bba91c68945d7ccd71ae4a36195b84cdebd45d0d3d47bd"
+    },
+    "evidence/industry_reports.csv": {
+      "rows": 16,
+      "sha256": "28bdc1599e1aa8790407670bf7d57fd65528f91286100dfe8692fad02ff99687"
+    },
+    "evidence/standards.csv": {
+      "rows": 0,
+      "sha256": "0307bdec20cb995547e4ec00fbd4e82129049cd6eb7cdbf6783b958da1d361b0"
     },
     "identifier_alias_overrides.csv": {
       "rows": 5,
@@ -79,71 +99,104 @@
       "sha256": "26041b500786e225492513538308ca12fbd6439780c8542f43aff32a73594706"
     },
     "manual_review_queue_2026-08-18.csv": {
-      "rows": 227,
-      "sha256": "c435812314dd874f44c5279ebeb7fef0bc11792bcd3b9bae49e6019589cfd862"
+      "rows": 228,
+      "sha256": "9d963af6a35b1b9ec22149a834b841127fea29e0d15caa72288bfbbd45cd2f69"
     },
     "review_ledger.csv": {
-      "rows": 2215,
-      "sha256": "e06f5689ac974646432f07960f6dbac745092be14686800b4ed78aa043019100"
+      "rows": 2214,
+      "sha256": "8cbea07a1bde214fc5325ab6ae2b13f4b8742a283f4ba880d12beb3a394b3d9e"
     },
     "routes.csv": {
       "rows": 3217,
-      "sha256": "a6e413cf1b44d6c46563ab4cc98284c19a9029f36d9baa74715aa377af266c9b"
+      "sha256": "92001fe6193a13ed0d213be1932d33d3da822f7b0dc2da3d87bb7b23224c10d4"
     },
     "screened_out.csv": {
-      "rows": 1541,
-      "sha256": "d6971333fdc86ce870199b8605b50822058eaaa3069a9927639940a02fb670b8"
+      "rows": 1550,
+      "sha256": "e80b09bb4eca96ed4f0666849dfe987c7963e7523fdd6a34f0ae044b9eb1a261"
     },
     "set1_core.csv": {
-      "rows": 105,
-      "sha256": "a5e75f658a5f95cdf6c5b66c112c44f9740fdfa4ac2919534af4de630e054b32"
+      "rows": 96,
+      "sha256": "14d49ba478bb97253861248fd007fb97a7fa151383d3b0858918ab75f27bf9e3"
     },
     "set2_emerging.csv": {
-      "rows": 122,
-      "sha256": "49d671f5fb355067318dd2e35bda50a779557a49be38fd24b02832283893f421"
+      "rows": 105,
+      "sha256": "1ffd36f35e309ee1fa65a23d575e524a2cfce10f430b5e99fa5e0c11ade5daf5"
     },
     "set3_context.csv": {
-      "rows": 447,
-      "sha256": "cd1f3d9f627441321f82320b5ec1a125bbba3701d64379e373ad58baa11334c0"
+      "rows": 463,
+      "sha256": "c68090423efd1b0d34276520b2f44302a08c0545b47053f0f68376a9939a7e40"
+    },
+    "sets/01_search_catalog/post_cutoff_papers.csv": {
+      "rows": 1,
+      "sha256": "b2039efaa3417a925223c1b6414d1adb5385b5696241780d9b27c4c2c113e9be"
+    },
+    "sets/01_search_catalog/structured_exclusions.csv": {
+      "rows": 9,
+      "sha256": "f94896b308de6216eba5166529b7d9c02fc8ba9a1aeee65df8899da78c6a84c8"
     },
     "summary.csv": {
-      "rows": 24,
-      "sha256": "2dde74047e7d1df0549d000587382df6afd8189937384c799b09a373697cdecb"
+      "rows": 29,
+      "sha256": "034555eab62fe79f7c458d06b00f2a152f04ca576788d7ef12bcecd12d6cc03c"
     }
   },
   "literature_cutoff": "2026-07-01",
+  "manual_corpus_classification_signoff_revision": {
+    "accepted": 201,
+    "date": "2026-08-21",
+    "decision_scope": "membership_and_dominant_contribution_only",
+    "excluded": 9,
+    "explicit_contribution_decisions": 211,
+    "ledger": "adjudication/manual_corpus_classification_2026-08-21.csv",
+    "moved_to_set3": 18,
+    "resulting_active_corpus": 201,
+    "retained_previous_contributions": 17,
+    "reviewed": 228,
+    "reviewer": "expiol",
+    "source_evidence_verified": false
+  },
+  "manual_decision_signoff_revision": {
+    "approved": 30,
+    "date": "2026-08-21",
+    "decision_scope": "membership_and_dominant_contribution_only",
+    "ledger": "adjudication/manual_decision_signoff_2026-08-21.csv",
+    "rejected": 2,
+    "resulting_active_corpus": 228,
+    "reviewed": 32,
+    "reviewer": "expiol",
+    "source_evidence_verified": false
+  },
   "manual_review_queue": {
     "path": "manual_review_queue_2026-08-18.csv",
-    "rows": 227,
-    "status": "pending_named_author_signoff"
+    "rows": 228,
+    "status": "classification_signoff_complete_source_evidence_pending"
   },
-  "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review",
+  "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review; expiol, named decision signoff; expiol, named corpus classification signoff",
   "schema_version": 2,
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
-  "search_universe": 2215,
+  "search_universe": 2214,
   "set1_contributions": {
-    "attack": 33,
-    "defense": 39,
-    "evaluation": 21,
-    "general": 7,
+    "attack": 24,
+    "defense": 40,
+    "evaluation": 22,
+    "general": 5,
     "survey": 5
   },
   "set1_maturity_rule": "peer_reviewed == yes OR frozen_citation_count >= 10",
   "set2_contributions": {
-    "attack": 38,
-    "defense": 61,
-    "evaluation": 16,
-    "general": 4,
-    "survey": 3
+    "attack": 18,
+    "defense": 54,
+    "evaluation": 22,
+    "general": 6,
+    "survey": 5
   },
   "set3_roles": {
     "agentic_security_context": 21,
     "classical_foundation": 4,
     "defense_analogy": 53,
     "deployment_evidence": 30,
-    "measurement_context": 128,
+    "measurement_context": 126,
     "protocol_or_standard": 66,
-    "related_work": 140,
+    "related_work": 158,
     "single_agent_baseline": 5
   },
   "source_file_inventory": [
@@ -413,7 +466,7 @@
     "review_universe": 2216,
     "reviewed_records": 16
   },
-  "taxonomy_ready_count": 17,
-  "taxonomy_ready_set1_count": 10,
-  "verification_note": "Model-assisted source review. All 227 active works are queued for named-author manual signoff; do not claim human verification before signoff."
+  "taxonomy_ready_count": 18,
+  "taxonomy_ready_set1_count": 7,
+  "verification_note": "Named reviewer expiol classified all 228 reviewed works on 2026-08-21. The signoff covers scope and dominant contribution only; source/evidence verification remains pending and must not be inferred from classification signoff."
 }

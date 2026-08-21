@@ -10,13 +10,13 @@ Citation snapshot date: `2026-08-17`
 
 | Partition | Count | Role |
 | --- | ---: | --- |
-| Set 1 | 105 | Mature in-scope MAS-security corpus |
-| Set 2 | 122 | Emerging in-scope MAS-security corpus |
-| Set 3 | 447 | Contextual literature outside the MAS-security corpus |
-| Screened out | 1,541 | Reviewed works outside the active evidence sets |
-| Review universe | 2,215 | All deduplicated reviewed works |
+| Set 1 | 96 | Mature in-scope MAS-security corpus |
+| Set 2 | 105 | Emerging in-scope MAS-security corpus |
+| Set 3 | 463 | Contextual literature outside the MAS-security corpus |
+| Screened out | 1,550 | Reviewed works outside the active evidence sets |
+| Frozen review universe | 2,214 | All deduplicated reviewed works |
 
-Set 1 plus Set 2 is the 227-work MAS-security corpus.
+Set 1 plus Set 2 is the 201-work MAS-security corpus.
 
 ## Membership rule
 
@@ -60,3 +60,13 @@ All 44 evaluation-primary works were re-adjudicated: 27 remain active and 17 mov
 Two identity corrections matter for the final denominator. A2ASecBench already existed in `review_ledger.csv` as a screened-out work and is promoted rather than added to the review universe. MASLeak existed as both an active arXiv preprint row and a separate screened-out published canonical row; these are merged into the published USENIX Security record, reducing the deduplicated review universe by one.
 
 The resulting frozen partition is **Set 1 = 105, Set 2 = 122, Set 3 = 447, screened out = 1,541**, for a **2,215-work review universe** and a **227-work MAS-security corpus**. All 227 active rows are exported to `corpus/manual_review_queue_2026-08-18.csv` and remain pending named-author signoff.
+
+
+## 2026-08-21 named decision-signoff correction
+
+Named reviewer `expiol` confirmed the 32-row changed-decision ledger. Thirty proposals were approved. `Algorithmic Cowardice` was restored from Set 3 to Set 2 after full-text scope review, while `Containing the Cascade` was removed from the frozen partition because its DOI was first registered after the cutoff. The corrected partition is **Set 1 = 105, Set 2 = 123, Set 3 = 445, screened out = 1,541**, for a **2,214-work frozen review universe** and a **228-work MAS-security corpus**. This confirms membership and dominant contribution only; the complete source/evidence queue remains pending.
+
+
+## 2026-08-21 complete classification-signoff correction
+
+Named reviewer `expiol` adjudicated all 228 rows in the manual classification cohort. The decisions retain 201 works in the active MAS-security corpus, move 18 works to Set 3, and screen out 9 works. The corrected partition is **Set 1 = 96, Set 2 = 105, Set 3 = 463, screened out = 1,550**, for a **2,214-work frozen review universe**. Dominant contributions use the explicit human selection where supplied and retain the previous value for 17 blank, non-applicable, or unresolved contribution fields. This signoff does not assert source/evidence verification.
