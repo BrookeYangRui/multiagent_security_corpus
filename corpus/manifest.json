@@ -29,7 +29,7 @@
     "total_corpus": 201
   },
   "counts": {
-    "screened_out": 1550,
+    "screened_out": 1549,
     "set1_core": 96,
     "set2_emerging": 105,
     "set3_context": 463
@@ -45,6 +45,10 @@
     "adjudication/benchmark_reconciliation_2026-08-18.csv": {
       "rows": 44,
       "sha256": "0e50ed1e21c5f990d2e081f787618e10d17603cd6a2cfce8396651d51ff9c33e"
+    },
+    "adjudication/confirmed_membership_revision_2026-08-21.csv": {
+      "rows": 11,
+      "sha256": "3f794ede5f7f24113291e45d109d03261d8640f8711092c0331d69140056045b"
     },
     "adjudication/evaluation_scope_2026-08-18.csv": {
       "rows": 44,
@@ -103,16 +107,16 @@
       "sha256": "9d963af6a35b1b9ec22149a834b841127fea29e0d15caa72288bfbbd45cd2f69"
     },
     "review_ledger.csv": {
-      "rows": 2214,
-      "sha256": "8cbea07a1bde214fc5325ab6ae2b13f4b8742a283f4ba880d12beb3a394b3d9e"
+      "rows": 2213,
+      "sha256": "98b4197681071392475b551f0c8b80c609a32743b4cf7c8a01277736ff7e7e2d"
     },
     "routes.csv": {
       "rows": 3217,
-      "sha256": "92001fe6193a13ed0d213be1932d33d3da822f7b0dc2da3d87bb7b23224c10d4"
+      "sha256": "bc5be4e2cbbf6a6ab782f8bdcd2eb6f60782466cffee45c070b83e87f7ae9028"
     },
     "screened_out.csv": {
-      "rows": 1550,
-      "sha256": "e80b09bb4eca96ed4f0666849dfe987c7963e7523fdd6a34f0ae044b9eb1a261"
+      "rows": 1549,
+      "sha256": "9700cb54e20bc6939ebec9e5df4058d9d0adc51c080c5b5aca0252cd1cfcfbc0"
     },
     "set1_core.csv": {
       "rows": 96,
@@ -132,11 +136,11 @@
     },
     "sets/01_search_catalog/structured_exclusions.csv": {
       "rows": 9,
-      "sha256": "f94896b308de6216eba5166529b7d9c02fc8ba9a1aeee65df8899da78c6a84c8"
+      "sha256": "c47d162391ef5c35a8c366d8ad722695401e7f640afec82f445d95cc1dbf62c0"
     },
     "summary.csv": {
       "rows": 29,
-      "sha256": "034555eab62fe79f7c458d06b00f2a152f04ca576788d7ef12bcecd12d6cc03c"
+      "sha256": "2421b6fb97b83b9e7461e1e9458e56036759d0a32594c3db754d0ec7679a4ef9"
     }
   },
   "literature_cutoff": "2026-07-01",
@@ -173,7 +177,18 @@
   "reviewer": "OpenAI GPT-5.6 Pro, model-assisted source review; expiol, named decision signoff; expiol, named corpus classification signoff",
   "schema_version": 2,
   "scope_rule": "LLM multi-agent system + concrete security property + material inter-agent interaction path; interaction-dependence strength is coded separately",
-  "search_universe": 2214,
+  "search_universe": 2213,
+  "secondary_membership_review_revision": {
+    "canonical_duplicate_removed": "doi:10.2139/ssrn.6884338",
+    "canonical_record_retained": "doi:10.2139/ssrn.6996678",
+    "date": "2026-08-21",
+    "duplicate_identity_merges": 1,
+    "ledger": "adjudication/confirmed_membership_revision_2026-08-21.csv",
+    "membership_rechecks": 10,
+    "precedence": "applied after manual_corpus_classification_signoff_revision",
+    "reviewer": "expiol",
+    "source_evidence_verified": false
+  },
   "set1_contributions": {
     "attack": 24,
     "defense": 40,

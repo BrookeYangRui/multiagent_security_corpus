@@ -2,7 +2,7 @@ metric,label,count
 evidence_set,set1_core,96
 evidence_set,set2_emerging,105
 evidence_set,set3_context,463
-evidence_set,screened_out,1550
+evidence_set,screened_out,1549
 set1_core_contribution,attack,24
 set1_core_contribution,defense,40
 set1_core_contribution,evaluation,22

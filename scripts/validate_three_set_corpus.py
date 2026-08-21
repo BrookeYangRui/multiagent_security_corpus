@@ -4,7 +4,7 @@ from collections import Counter
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]; C=R/"corpus"
 FILES={"set1_core":"set1_core.csv","set2_emerging":"set2_emerging.csv","set3_context":"set3_context.csv","screened_out":"screened_out.csv"}
-EXPECTED={'set1_core':96,'set2_emerging':105,'set3_context':463,'screened_out':1550}
+EXPECTED={'set1_core':96,'set2_emerging':105,'set3_context':463,'screened_out':1549}
 E1={'attack':24,'defense':40,'evaluation':22,'general':5,'survey':5}
 E2={'attack':18,'defense':54,'evaluation':22,'general':6,'survey':5}
 def rows(p):
@@ -16,7 +16,7 @@ for a in K:
   for b in K:
     if a<b and K[a]&K[b]: raise SystemExit(f"overlap {a} {b}")
 L=rows("review_ledger.csv"); LB={r["work_key"]:r for r in L}
-if len(L)!=2214 or set().union(*K.values())!=set(LB): raise SystemExit("ledger partition mismatch")
+if len(L)!=2213 or set().union(*K.values())!=set(LB): raise SystemExit("ledger partition mismatch")
 if any(r["strict_scope_pass"]!="yes" or r["maturity_rule_pass"]!="yes" for r in S["set1_core"]): raise SystemExit("invalid Set 1 row")
 if any(r["strict_scope_pass"]!="yes" or r["maturity_rule_pass"]!="no" for r in S["set2_emerging"]): raise SystemExit("invalid Set 2 row")
 if any(r["strict_scope_pass"]=="yes" or not r["citation_role"] for r in S["set3_context"]): raise SystemExit("invalid Set 3 row")
@@ -30,10 +30,13 @@ X=rows("sets/01_search_catalog/structured_exclusions.csv")
 if len(X)!=9 or any(r["decision"]!="exclude" or r["reviewer"]!="expiol" for r in X): raise SystemExit("structured exclusions mismatch")
 for r in A:
   expected={"accept":r["previous_membership"],"move_set3":"set3_context","exclude":"screened_out"}[r["human_scope_decision"]]
+  if r["work_key"]=="doi:10.2139/ssrn.6884338":
+    if r["adjudicated_membership"]!="screened_out" or "doi:10.2139/ssrn.6884338" in LB or "doi:10.2139/ssrn.6996678" not in LB: raise SystemExit("duplicate identity reconciliation mismatch")
+    continue
   if r["adjudicated_membership"]!=expected or LB[r["work_key"]]["evidence_set"]!=expected: raise SystemExit(f"classification application mismatch: {r['work_key']}")
   if r["human_contribution_decision"] and LB[r["work_key"]]["dominant_contribution"]!=r["human_contribution_decision"]: raise SystemExit(f"contribution application mismatch: {r['work_key']}")
 signoff=rows("adjudication/manual_signoff_changes_2026-08-18.csv")
 if len(signoff)!=32 or Counter(r["human_decision"] for r in signoff)!={"approve":30,"reject":2}: raise SystemExit("changed-decision signoff mismatch")
 m=json.loads((C/"manifest.json").read_text())
-if m["counts"]!=actual or m["corpus_counts"]["total_corpus"]!=201 or m["search_universe"]!=2214: raise SystemExit("manifest mismatch")
-print("Human-classified corpus valid: Set1=96 Set2=105 Set3=463 screened=1550 active=201 universe=2214 scope=201/18/9 source_evidence_verified=no")
+if m["counts"]!=actual or m["corpus_counts"]["total_corpus"]!=201 or m["search_universe"]!=2213: raise SystemExit("manifest mismatch")
+print("Human-classified corpus valid: Set1=96 Set2=105 Set3=463 screened=1549 active=201 universe=2213 scope=201/18/9 source_evidence_verified=no")

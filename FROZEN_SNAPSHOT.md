@@ -13,8 +13,8 @@ Citation snapshot date: `2026-08-17`
 | Set 1 | 96 | Mature in-scope MAS-security corpus |
 | Set 2 | 105 | Emerging in-scope MAS-security corpus |
 | Set 3 | 463 | Contextual literature outside the MAS-security corpus |
-| Screened out | 1,550 | Reviewed works outside the active evidence sets |
-| Frozen review universe | 2,214 | All deduplicated reviewed works |
+| Screened out | 1,549 | Reviewed works outside the active evidence sets |
+| Frozen review universe | 2,213 | All deduplicated reviewed works |
 
 Set 1 plus Set 2 is the 201-work MAS-security corpus.
 
@@ -70,3 +70,14 @@ Named reviewer `expiol` confirmed the 32-row changed-decision ledger. Thirty pro
 ## 2026-08-21 complete classification-signoff correction
 
 Named reviewer `expiol` adjudicated all 228 rows in the manual classification cohort. The decisions retain 201 works in the active MAS-security corpus, move 18 works to Set 3, and screen out 9 works. The corrected partition is **Set 1 = 96, Set 2 = 105, Set 3 = 463, screened out = 1,550**, for a **2,214-work frozen review universe**. Dominant contributions use the explicit human selection where supplied and retain the previous value for 17 blank, non-applicable, or unresolved contribution fields. This signoff does not assert source/evidence verification.
+
+
+## 2026-08-21 secondary-review precedence correction
+
+The complete 228-row human classification is applied first. The later named
+secondary review is authoritative for its ten rechecked membership decisions,
+which agree with the complete classification. Its identity review additionally
+merges DOI `10.2139/ssrn.6884338` into canonical DOI
+`10.2139/ssrn.6996678`. The final canonical partition is **Set 1 = 96, Set 2 =
+105, Set 3 = 463, screened out = 1,549**, for a **2,213-work frozen review
+universe** and a **201-work MAS-security corpus**.
