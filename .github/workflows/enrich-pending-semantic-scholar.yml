@@ -1,0 +1,113 @@
+name: Enrich pending review with Semantic Scholar
+
+on:
+  push:
+    branches:
+      - review-all-341-pending
+    paths:
+      - .github/workflows/enrich-pending-semantic-scholar.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Fetch Semantic Scholar records
+        shell: bash
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          mkdir -p semantic-enrichment
+          python - <<'PY'
+          import csv, json, os, time, urllib.error, urllib.parse, urllib.request
+          from pathlib import Path
+
+          shard=int(os.environ['SHARD'])
+          rows=list(csv.DictReader(Path('corpus/pending.csv').open(encoding='utf-8-sig',newline='')))
+          rows=[row for index,row in enumerate(rows) if index % 4 == shard]
+          fields='paperId,title,abstract,venue,year,publicationDate,url,externalIds,openAccessPdf,publicationTypes,journal,fieldsOfStudy,s2FieldsOfStudy,citationCount,referenceCount'
+          user_agent='multiagent-security-corpus-review/1.0 (mailto:ryang54@jh.edu)'
+
+          def fetch(identifier):
+              url='https://api.semanticscholar.org/graph/v1/paper/'+urllib.parse.quote(identifier,safe=':/.')+'?fields='+urllib.parse.quote(fields,safe=',')
+              last=''
+              for attempt in range(4):
+                  try:
+                      req=urllib.request.Request(url,headers={'User-Agent':user_agent,'Accept':'application/json'})
+                      with urllib.request.urlopen(req,timeout=25) as response:
+                          return json.load(response),''
+                  except urllib.error.HTTPError as error:
+                      last=f'HTTP {error.code}: {error.reason}'
+                      if error.code == 429:
+                          time.sleep(8*(attempt+1))
+                          continue
+                      if 400 <= error.code < 500:
+                          break
+                  except Exception as error:
+                      last=repr(error)
+                  time.sleep(2*(attempt+1))
+              return None,last
+
+          output=[]
+          for position,row in enumerate(rows,1):
+              if row.get('doi','').strip():
+                  identifier='DOI:'+row['doi'].strip()
+              elif row.get('arxiv_id','').strip():
+                  identifier='ARXIV:'+row['arxiv_id'].strip()
+              else:
+                  identifier=''
+              data,error=fetch(identifier) if identifier else (None,'no DOI or arXiv identifier')
+              out={'work_key':row['work_key'],'identifier':identifier,'semantic_scholar_error':error}
+              if data:
+                  out.update({
+                      'semantic_scholar_paper_id':data.get('paperId') or '',
+                      'semantic_scholar_title':data.get('title') or '',
+                      'semantic_scholar_abstract':data.get('abstract') or '',
+                      'semantic_scholar_venue':data.get('venue') or '',
+                      'semantic_scholar_year':data.get('year') or '',
+                      'semantic_scholar_publication_date':data.get('publicationDate') or '',
+                      'semantic_scholar_url':data.get('url') or '',
+                      'semantic_scholar_external_ids':json.dumps(data.get('externalIds') or {},ensure_ascii=False,sort_keys=True),
+                      'semantic_scholar_open_pdf':(data.get('openAccessPdf') or {}).get('url') or '',
+                      'semantic_scholar_publication_types':';'.join(data.get('publicationTypes') or []),
+                      'semantic_scholar_journal':json.dumps(data.get('journal') or {},ensure_ascii=False,sort_keys=True),
+                      'semantic_scholar_fields':';'.join(data.get('fieldsOfStudy') or []),
+                      'semantic_scholar_s2_fields':';'.join((item.get('category') or '') for item in (data.get('s2FieldsOfStudy') or [])),
+                      'semantic_scholar_citation_count':data.get('citationCount') or 0,
+                      'semantic_scholar_reference_count':data.get('referenceCount') or 0,
+                  })
+              output.append(out)
+              if position % 10 == 0:
+                  print(f'shard {shard}: {position}/{len(rows)}',flush=True)
+              time.sleep(1.2)
+
+          target=Path(f'semantic-enrichment/semantic_scholar_{shard}.csv')
+          columns=[]
+          for row in output:
+              for key in row:
+                  if key not in columns: columns.append(key)
+          with target.open('w',encoding='utf-8',newline='') as handle:
+              writer=csv.DictWriter(handle,fieldnames=columns)
+              writer.writeheader(); writer.writerows(output)
+          summary={'shard':shard,'rows':len(output),'abstracts':sum(bool(row.get('semantic_scholar_abstract')) for row in output),'open_pdfs':sum(bool(row.get('semantic_scholar_open_pdf')) for row in output),'errors':sum(bool(row.get('semantic_scholar_error')) for row in output)}
+          Path(f'semantic-enrichment/summary_{shard}.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upload Semantic Scholar shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: pending-semantic-scholar-${{ matrix.shard }}
+          path: semantic-enrichment/
+          if-no-files-found: error

@@ -1,0 +1,187 @@
+name: Enrich pending review sources
+
+on:
+  push:
+    branches:
+      - review-all-341-pending
+    paths:
+      - .github/workflows/enrich-pending-review.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Check out corpus
+        uses: actions/checkout@v4
+
+      - name: Fetch Crossref, OpenAlex, and arXiv metadata
+        shell: bash
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          mkdir -p review-enrichment
+          python - <<'PY'
+          import csv, html, json, os, re, time, urllib.error, urllib.parse, urllib.request
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+
+          ROOT = Path('.')
+          shard = int(os.environ['SHARD'])
+          all_rows = list(csv.DictReader((ROOT/'corpus/pending.csv').open(encoding='utf-8-sig', newline='')))
+          rows = [row for index, row in enumerate(all_rows) if index % 4 == shard]
+          UA = 'multiagent-security-corpus-review/1.0 (mailto:ryang54@jh.edu)'
+
+          def request_json(url, attempts=3):
+              last=''
+              for attempt in range(attempts):
+                  try:
+                      req=urllib.request.Request(url, headers={'User-Agent':UA, 'Accept':'application/json'})
+                      with urllib.request.urlopen(req, timeout=20) as response:
+                          return json.load(response), ''
+                  except urllib.error.HTTPError as error:
+                      last=f'HTTP {error.code}: {error.reason}'
+                      if 400 <= error.code < 500 and error.code != 429:
+                          break
+                  except Exception as error:
+                      last=repr(error)
+                  if attempt + 1 < attempts:
+                      time.sleep(1.0 * (2 ** attempt))
+              return None, last
+
+          def clean_markup(value):
+              if not value:
+                  return ''
+              value=html.unescape(str(value))
+              value=re.sub(r'<[^>]+>', ' ', value)
+              return re.sub(r'\s+', ' ', value).strip()
+
+          def inverted_abstract(value):
+              if not isinstance(value, dict):
+                  return ''
+              positions=[]
+              for word, indexes in value.items():
+                  for index in indexes or []:
+                      positions.append((int(index), word))
+              return ' '.join(word for _, word in sorted(positions))
+
+          arxiv_ids=[row['arxiv_id'].strip() for row in rows if row.get('arxiv_id','').strip()]
+          arxiv_meta={}
+          for start in range(0,len(arxiv_ids),20):
+              ids=arxiv_ids[start:start+20]
+              url='https://export.arxiv.org/api/query?id_list='+urllib.parse.quote(','.join(ids))+'&max_results='+str(len(ids))
+              try:
+                  req=urllib.request.Request(url, headers={'User-Agent':UA})
+                  with urllib.request.urlopen(req,timeout=20) as response:
+                      root=ET.fromstring(response.read())
+                  ns={'a':'http://www.w3.org/2005/Atom'}
+                  for entry in root.findall('a:entry',ns):
+                      arxiv_id=(entry.findtext('a:id','',ns).rsplit('/',1)[-1]).split('v')[0]
+                      arxiv_meta[arxiv_id]={
+                          'arxiv_title':clean_markup(entry.findtext('a:title','',ns)),
+                          'arxiv_abstract':clean_markup(entry.findtext('a:summary','',ns)),
+                          'arxiv_published':entry.findtext('a:published','',ns),
+                          'arxiv_updated':entry.findtext('a:updated','',ns),
+                          'arxiv_categories':';'.join(item.attrib.get('term','') for item in entry.findall('a:category',ns)),
+                          'arxiv_authors':';'.join(clean_markup(item.findtext('a:name','',ns)) for item in entry.findall('a:author',ns)),
+                      }
+              except Exception as error:
+                  for arxiv_id in ids:
+                      arxiv_meta.setdefault(arxiv_id, {'arxiv_error':repr(error)})
+
+          output=[]
+          for position,row in enumerate(rows,1):
+              out=dict(row)
+              doi=row.get('doi','').strip().lower()
+              crossref=None; crossref_error=''
+              if doi:
+                  crossref,crossref_error=request_json('https://api.crossref.org/works/'+urllib.parse.quote(doi,safe=''))
+                  crossref=(crossref or {}).get('message') if crossref else None
+              if crossref:
+                  out.update({
+                      'crossref_title':clean_markup(' '.join(crossref.get('title') or [])),
+                      'crossref_abstract':clean_markup(crossref.get('abstract','')),
+                      'crossref_type':clean_markup(crossref.get('type','')),
+                      'crossref_subtype':clean_markup(crossref.get('subtype','')),
+                      'crossref_publisher':clean_markup(crossref.get('publisher','')),
+                      'crossref_container':clean_markup('; '.join(crossref.get('container-title') or [])),
+                      'crossref_url':clean_markup(crossref.get('URL','')),
+                      'crossref_relation':json.dumps(crossref.get('relation') or {},ensure_ascii=False,sort_keys=True),
+                      'crossref_author_count':str(len(crossref.get('author') or [])),
+                      'crossref_reference_count':str(crossref.get('reference-count','')),
+                      'crossref_is_referenced_by_count':str(crossref.get('is-referenced-by-count','')),
+                  })
+              else:
+                  out['crossref_error']=crossref_error
+
+              openalex=None; openalex_error=''
+              if doi:
+                  openalex,openalex_error=request_json('https://api.openalex.org/works/https://doi.org/'+urllib.parse.quote(doi,safe='/:')+'?mailto=ryang54@jh.edu')
+              elif row.get('arxiv_id','').strip():
+                  arxiv_id=row['arxiv_id'].strip()
+                  openalex,openalex_error=request_json('https://api.openalex.org/works/https://arxiv.org/abs/'+urllib.parse.quote(arxiv_id,safe='')+'?mailto=ryang54@jh.edu')
+              if openalex:
+                  location=openalex.get('primary_location') or {}
+                  source=location.get('source') or {}
+                  best=openalex.get('best_oa_location') or {}
+                  out.update({
+                      'openalex_id':clean_markup(openalex.get('id','')),
+                      'openalex_title':clean_markup(openalex.get('display_name','')),
+                      'openalex_abstract':clean_markup(inverted_abstract(openalex.get('abstract_inverted_index'))),
+                      'openalex_type':clean_markup(openalex.get('type','')),
+                      'openalex_publication_date':clean_markup(openalex.get('publication_date','')),
+                      'openalex_cited_by_count':str(openalex.get('cited_by_count','')),
+                      'openalex_primary_source':clean_markup(source.get('display_name','')),
+                      'openalex_landing_page_url':clean_markup(location.get('landing_page_url','')),
+                      'openalex_pdf_url':clean_markup(best.get('pdf_url','') or location.get('pdf_url','')),
+                      'openalex_oa_status':clean_markup((openalex.get('open_access') or {}).get('oa_status','')),
+                      'openalex_topics':';'.join(clean_markup(item.get('display_name','')) for item in (openalex.get('topics') or [])[:8]),
+                      'openalex_concepts':';'.join(clean_markup(item.get('display_name','')) for item in (openalex.get('concepts') or [])[:12]),
+                      'openalex_authorship_count':str(len(openalex.get('authorships') or [])),
+                      'openalex_referenced_works_count':str(len(openalex.get('referenced_works') or [])),
+                  })
+              else:
+                  out['openalex_error']=openalex_error
+
+              arxiv_id=row.get('arxiv_id','').strip()
+              if arxiv_id and arxiv_id in arxiv_meta:
+                  out.update(arxiv_meta[arxiv_id])
+              output.append(out)
+              if position % 20 == 0:
+                  print(f'shard {shard}: enriched {position}/{len(rows)}', flush=True)
+
+          fields=[]
+          for row in output:
+              for key in row:
+                  if key not in fields:
+                      fields.append(key)
+          target=ROOT/f'review-enrichment/pending_enriched_{shard}.csv'
+          with target.open('w',encoding='utf-8',newline='') as handle:
+              writer=csv.DictWriter(handle,fieldnames=fields)
+              writer.writeheader(); writer.writerows(output)
+          summary={
+              'shard':shard,
+              'rows':len(output),
+              'crossref_abstracts':sum(bool(item.get('crossref_abstract')) for item in output),
+              'openalex_abstracts':sum(bool(item.get('openalex_abstract')) for item in output),
+              'arxiv_abstracts':sum(bool(item.get('arxiv_abstract')) for item in output),
+              'openalex_pdf_urls':sum(bool(item.get('openalex_pdf_url')) for item in output),
+          }
+          (ROOT/f'review-enrichment/summary_{shard}.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upload enrichment shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: pending-review-enrichment-${{ matrix.shard }}
+          path: review-enrichment/
+          if-no-files-found: error
