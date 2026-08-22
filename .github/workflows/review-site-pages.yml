@@ -1,0 +1,50 @@
+name: Deploy corpus review site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "review_site/**"
+      - "corpus/set1_core.csv"
+      - "corpus/set2_emerging.csv"
+      - ".github/workflows/review-site-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static site
+        run: |
+          mkdir -p _site/data
+          cp -R review_site/. _site/
+          cp corpus/set1_core.csv _site/data/set1_core.csv
+          cp corpus/set2_emerging.csv _site/data/set2_emerging.csv
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

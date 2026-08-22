@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Human review workspace for the multi-agent security corpus.">
+  <title>MAS Security Corpus Review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Multi-Agent Security SoK</p>
+      <h1>Corpus Review</h1>
+    </div>
+    <div class="top-actions">
+      <button class="button secondary" id="importButton">Import review</button>
+      <button class="button secondary" id="exportJsonButton">Backup JSON</button>
+      <button class="button primary" id="exportCsvButton">Export CSV</button>
+      <input type="file" id="importFile" accept=".csv,.json,application/json,text/csv" hidden>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="Review summary">
+    <div class="summary-card"><span>Total corpus</span><strong id="totalCount">0</strong></div>
+    <div class="summary-card"><span>Reviewed</span><strong id="reviewedCount">0</strong></div>
+    <div class="summary-card"><span>Set 1</span><strong id="set1Count">0</strong></div>
+    <div class="summary-card"><span>Set 2</span><strong id="set2Count">0</strong></div>
+    <div class="summary-progress">
+      <div class="summary-progress-label"><span>Human review progress</span><strong id="progressLabel">0%</strong></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </section>
+
+  <main class="workspace">
+    <aside class="filters panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Browse</p>
+          <h2>Filters</h2>
+        </div>
+        <button class="text-button" id="clearFiltersButton">Clear</button>
+      </div>
+
+      <label class="field-label" for="searchInput">Search</label>
+      <input class="input" id="searchInput" type="search" placeholder="Title, venue, DOI, arXiv...">
+
+      <label class="field-label" for="setFilter">Corpus set</label>
+      <select class="input" id="setFilter">
+        <option value="all">All</option>
+        <option value="set1_core">Set 1 core</option>
+        <option value="set2_emerging">Set 2 emerging</option>
+      </select>
+
+      <label class="field-label" for="statusFilter">Human status</label>
+      <select class="input" id="statusFilter">
+        <option value="all">All</option>
+        <option value="unreviewed">Unreviewed</option>
+        <option value="reviewed">Reviewed</option>
+        <option value="revisit">Revisit</option>
+      </select>
+
+      <label class="field-label" for="typeFilter">Current type</label>
+      <select class="input" id="typeFilter"><option value="all">All</option></select>
+
+      <label class="field-label" for="interfaceFilter">Interface</label>
+      <select class="input" id="interfaceFilter"><option value="all">All</option></select>
+
+      <label class="field-label" for="riskFilter">Risk or property</label>
+      <select class="input" id="riskFilter"><option value="all">All</option></select>
+
+      <div class="filter-footer">
+        <span id="visibleCount">0 papers</span>
+        <span>J / K to move</span>
+      </div>
+    </aside>
+
+    <section class="paper-list panel" aria-label="Paper list">
+      <div class="panel-heading list-heading">
+        <div>
+          <p class="eyebrow">Queue</p>
+          <h2 id="queueTitle">All papers</h2>
+        </div>
+        <select class="compact-select" id="sortSelect" aria-label="Sort papers">
+          <option value="review">Unreviewed first</option>
+          <option value="year_desc">Newest first</option>
+          <option value="year_asc">Oldest first</option>
+          <option value="title">Title</option>
+        </select>
+      </div>
+      <div id="paperList" class="paper-list-scroll"></div>
+      <div id="emptyList" class="empty-state hidden">No papers match these filters.</div>
+    </section>
+
+    <section class="review-panel panel" aria-live="polite">
+      <div id="reviewEmpty" class="review-empty">
+        <div class="empty-icon">201</div>
+        <h2>Select a paper</h2>
+        <p>Use the queue to review the corpus one work at a time.</p>
+      </div>
+
+      <div id="reviewContent" class="hidden">
+        <div class="paper-header">
+          <div class="paper-header-main">
+            <div class="badge-row" id="paperBadges"></div>
+            <h2 id="paperTitle"></h2>
+            <p id="paperMeta" class="paper-meta"></p>
+          </div>
+          <div class="paper-nav">
+            <button class="icon-button" id="prevButton" title="Previous paper">←</button>
+            <button class="icon-button" id="nextButton" title="Next paper">→</button>
+          </div>
+        </div>
+
+        <div class="source-actions" id="sourceActions"></div>
+
+        <section class="current-box">
+          <div class="section-title-row">
+            <h3>Current corpus labels</h3>
+            <span class="muted" id="currentTaxonomyReady"></span>
+          </div>
+          <div class="current-grid" id="currentLabels"></div>
+          <details>
+            <summary>Scope and decision evidence</summary>
+            <dl class="details-list" id="decisionDetails"></dl>
+          </details>
+        </section>
+
+        <form id="reviewForm" class="review-form">
+          <div class="section-title-row">
+            <div>
+              <p class="eyebrow">Human pass</p>
+              <h3>Your classification</h3>
+            </div>
+            <span class="save-state" id="saveState">Saved locally</span>
+          </div>
+
+          <div class="form-grid two">
+            <label>
+              <span class="field-label">Review status</span>
+              <select class="input" id="reviewStatus">
+                <option value="unreviewed">Unreviewed</option>
+                <option value="reviewed">Reviewed</option>
+                <option value="revisit">Revisit</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Membership decision</span>
+              <select class="input" id="membershipDecision">
+                <option value="retain">Retain current set</option>
+                <option value="move_set1">Move to Set 1</option>
+                <option value="move_set2">Move to Set 2</option>
+                <option value="exclude">Exclude from 201</option>
+                <option value="unclear">Unclear</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-grid two">
+            <label>
+              <span class="field-label">Dominant contribution</span>
+              <select class="input" id="dominantContribution">
+                <option value="">Unclear</option>
+                <option value="attack">Attack</option>
+                <option value="defense">Defense</option>
+                <option value="evaluation">Evaluation</option>
+                <option value="survey">Survey</option>
+                <option value="general">General</option>
+                <option value="mixed">Mixed</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Interaction dependence</span>
+              <select class="input" id="interactionDependence">
+                <option value="">Unclear</option>
+                <option value="inherited">Inherited</option>
+                <option value="interaction_amplified">Interaction amplified</option>
+                <option value="composition_induced">Composition induced</option>
+                <option value="interaction_dependent_mechanism">Interaction dependent mechanism</option>
+                <option value="structurally_multi_agent">Structurally multi agent</option>
+                <option value="unclear">Unclear</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Secondary roles</legend>
+            <div class="choice-grid" id="roleChoices">
+              <label class="check-chip"><input type="checkbox" value="attack"> Attack</label>
+              <label class="check-chip"><input type="checkbox" value="defense"> Defense</label>
+              <label class="check-chip"><input type="checkbox" value="evaluation"> Evaluation</label>
+              <label class="check-chip"><input type="checkbox" value="survey"> Survey</label>
+              <label class="check-chip"><input type="checkbox" value="general"> General</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Interaction interfaces</legend>
+            <div class="choice-grid interfaces" id="interfaceChoices"></div>
+            <label class="inline-add">
+              <span class="field-label">Additional interface tags</span>
+              <input class="input" id="customInterfaces" placeholder="semicolon separated">
+            </label>
+          </fieldset>
+
+          <label>
+            <span class="field-label">Risk or security property tags</span>
+            <input class="input" id="riskProperty" list="riskSuggestions" placeholder="semicolon separated">
+            <datalist id="riskSuggestions"></datalist>
+          </label>
+
+          <div class="form-grid two">
+            <label>
+              <span class="field-label">Evidence level</span>
+              <select class="input" id="evidenceLevel">
+                <option value="">Not coded</option>
+                <option value="comparative">Comparative</option>
+                <option value="mechanism">Mechanism</option>
+                <option value="structural">Structural</option>
+                <option value="insufficient">Insufficient</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Confidence</span>
+              <select class="input" id="confidence">
+                <option value="">Not set</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span class="field-label">Human tags</span>
+            <input class="input" id="humanTags" placeholder="e.g. propagation; collusion; benchmark">
+          </label>
+
+          <label>
+            <span class="field-label">Review note</span>
+            <textarea class="input textarea" id="reviewNote" rows="4" placeholder="Why this classification is right, what needs checking, useful paper section..."></textarea>
+          </label>
+
+          <div class="form-grid two">
+            <label>
+              <span class="field-label">Reviewer</span>
+              <input class="input" id="reviewedBy" placeholder="Name or initials">
+            </label>
+            <label>
+              <span class="field-label">Reviewed at</span>
+              <input class="input" id="reviewedAt" type="date">
+            </label>
+          </div>
+
+          <div class="review-actions">
+            <button class="button secondary" type="button" id="resetPaperButton">Reset this paper</button>
+            <button class="button primary" type="button" id="reviewNextButton">Mark reviewed and next</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Local edits stay in this browser until exported. The corpus CSV files are never modified by this page.
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
