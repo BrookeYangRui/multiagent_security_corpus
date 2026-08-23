@@ -23,7 +23,7 @@ repls = [
     ('exact materialized view of the active 187 corpus', 'exact materialized view of the active 189 corpus'),
     ('if len(index) != 187:', 'if len(index) != 189:'),
     ('papers/index.csv must have 187 rows', 'papers/index.csv must have 189 rows'),
-    ('!= 187:\n        raise SystemExit("duplicate work_key in papers/index.csv")', '!= 189:\n        raise SystemExit("duplicate work_key in papers/index.csv")'),
+    ('if len({r["work_key"] for r in index}) != 187:', 'if len({r["work_key"] for r in index}) != 189:'),
     ('if len(notes) != 187:', 'if len(notes) != 189:'),
     ('expected exactly 187 paper notes', 'expected exactly 189 paper notes'),
     ('Supporting SoK comparators may overlap the 201 corpus', 'Supporting SoK comparators may overlap the active corpus'),
