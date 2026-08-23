@@ -1,0 +1,44 @@
+name: Apply defense contribution reaudit
+
+on:
+  push:
+    branches:
+      - audit/defense-reaudit-201
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/defense-reaudit-201
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply defense reaudit
+        run: python3 scripts/apply_defense_reaudit_2026_08_23.py
+
+      - name: Validate final corpus
+        run: scripts/validate_all.sh
+
+      - name: Remove one-shot audit machinery
+        run: |
+          rm scripts/apply_defense_reaudit_2026_08_23.py
+          rm .github/workflows/apply-defense-reaudit.yml
+
+      - name: Commit generated audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Apply defense contribution reaudit"
+          git push origin HEAD:audit/defense-reaudit-201
