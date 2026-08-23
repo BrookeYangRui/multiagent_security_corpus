@@ -1,12 +1,9 @@
 # Survey papers
 
-Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **10**.
-
-Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
+Final 187-corpus dominant-contribution count: **7**.
 
 ## arxiv
 
-* [A Systematic Survey of Security Threats and Defenses in LLM-Based AI Agents: A Layered Attack Surface Framework](arxiv/2026_chu_a_systematic_survey_of_security_threats_and_defe.md)  `set2_emerging`
 * [OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage](arxiv/2026_naik_omni_leak.md)  `set2_emerging`
 
 ## journals_ai_open
@@ -29,11 +26,7 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [Seven Security Challenges in Cross-Domain Multi-Agent LLM Systems](journals_npj_artificial_intelligence/2026_ko_seven_challenges.md)  `set1_core`
 
-## preprints_org
-
-* [A Survey on the Unique Security of Autonomous and Collaborative LLM Agents: Threats, Defenses, and Futures](preprints_org/2026_sun_a_survey_on_the_unique_security_of_autonomous_an.md)  `set2_emerging`
-
 ## ssrn
 
 * [Multi-Agent Orchestration: Coordination, Trust, and Cascading Failures](ssrn/2026_multi_agent_orchestration_coordination_trust_and_cascading_failures.md)  `set2_emerging`
-* [Vulnerabilities in Autonomous Execution: A Survey of Security Threats and Defenses in LLM-driven Multi-Agent Systems](ssrn/2026_vulnerabilities_in_autonomous_execution_a_survey_of_security_threats_and.md)  `set2_emerging`
+

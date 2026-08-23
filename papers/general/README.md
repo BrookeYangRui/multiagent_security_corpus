@@ -1,16 +1,6 @@
 # General papers
 
-Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **16**.
-
-Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
-
-## 2026_joint_european_conference_on_networks_and_communications_6g_summi
-
-* [Cross-Domain Query Translation for Network Troubleshooting: A Multi-Agent LLM Framework with Privacy Preservation and Self-Reflection](2026_joint_european_conference_on_networks_and_communications_6g_summi/2026_cross_domain_query_translation_for_network_troubleshooting_a_multi_agent.md)  `set1_core`
-
-## aaai
-
-* [DAWN: Distributed LLM Multi-Agent Workflow Synthesis](aaai/2026_dawn_distributed_llm_multi_agent_workflow_synthesis.md)  `set1_core`
+Final 187-corpus dominant-contribution count: **12**.
 
 ## arxiv
 
@@ -39,7 +29,3 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [MPAS: Breaking Sequential Constraints of Multi-Agent Communication Topologies via Individual-Epistemic Message Propagation](open_mind/2026_mpas_breaking_sequential_constraints_of_multi_agent_communication_topolo.md)  `set1_core`
 
-## ssrn
-
-* [MedAgentNet: Federated Multi-Agent AI for Privacy-Preserving Cross-Departmental Clinical Intelligence](ssrn/2026_medagentnet_federated_multi_agent_ai_for_privacy_preserving_cross_depart.md)  `set2_emerging`
-* [Robotic Environment Manipulation Agents (REMA): A Proactive Multi-Agent Framework for Robust](ssrn/2026_robotic_environment_manipulation_agents_rema_a_proactive_multi_agent_fra.md)  `set2_emerging`

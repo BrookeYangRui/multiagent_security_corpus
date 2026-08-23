@@ -1,8 +1,6 @@
 # Attack papers
 
-Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **44**.
-
-Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
+Final 187-corpus dominant-contribution count: **44**.
 
 ## 2026_1st_international_conference_on_emerging_technologies_and_enginee
 
@@ -98,3 +96,4 @@ Each retained work is placed under its publication venue folder. The status bann
 ## zenodo
 
 * [LLM Hijacking: When Models Manipulate Their Routers](zenodo/2025_llm_hijacking_when_models_manipulate_their_routers.md)  `set2_emerging`
+
