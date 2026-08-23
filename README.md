@@ -34,7 +34,7 @@ papers/
   surveys/<venue>/
 ```
 
-The signed dominant contribution totals are **42 attacks**, **94 defenses**, **44 evaluations**, **11 general works**, and **10 surveys**.
+After the 2026-08-23 defense dominant-contribution re-audit, the totals are **44 attacks**, **85 defenses**, **46 evaluations**, **16 general works**, and **10 surveys**.
 
 Only notes corresponding to the final 201 corpus should remain under `papers/`.
 

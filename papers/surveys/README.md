@@ -1,8 +1,8 @@
 # Survey papers
 
-Final signed corpus count: **10**.
+Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **10**.
 
-Each retained work is placed under its publication venue folder. The status banner inside every note records the final signed set and contribution.
+Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
 
 ## arxiv
 

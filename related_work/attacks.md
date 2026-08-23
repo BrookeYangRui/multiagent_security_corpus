@@ -1,8 +1,8 @@
 # Attacks
 
-This synthesis is anchored to the final signed **201 work** manuscript corpus. The active corpus contains **42 attack primary works**, all indexed in `papers/index.csv` and materialized under `papers/attacks/`.
+This synthesis is anchored to the final signed **201 work** manuscript corpus. The active corpus contains **44 attack primary works**, all indexed in `papers/index.csv` and materialized under `papers/attacks/`.
 
-The attack directory is the authoritative paper placement view. A work can still provide attack evidence when its dominant contribution is defense, evaluation, general, or survey, so the count of 42 must not be interpreted as the total number of papers containing any attack result.
+The attack directory is the authoritative paper placement view. A work can still provide attack evidence when its dominant contribution is defense, evaluation, general, or survey, so the count of 44 must not be interpreted as the total number of papers containing any attack result.
 
 ## Main interaction dependent patterns
 
@@ -28,4 +28,4 @@ The final attack set also contains work on intellectual property leakage, topolo
 
 ## Use in the SoK
 
-Use `papers/attacks/README.md` for the complete 42 work attack primary list and venue placement. Use the individual paper notes for technical claims and evidence locations. Do not reuse counts, queues, or denominators from earlier corpus versions.
+Use `papers/attacks/README.md` for the complete 44 work attack primary list and venue placement. Use the individual paper notes for technical claims and evidence locations. Do not reuse counts, queues, or denominators from earlier corpus versions.

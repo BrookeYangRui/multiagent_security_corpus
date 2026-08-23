@@ -1,8 +1,8 @@
 # Attack papers
 
-Final signed corpus count: **42**.
+Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **44**.
 
-Each retained work is placed under its publication venue folder. The status banner inside every note records the final signed set and contribution.
+Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
 
 ## 2026_1st_international_conference_on_emerging_technologies_and_enginee
 
@@ -32,24 +32,26 @@ Each retained work is placed under its publication venue folder. The status bann
 
 ## arxiv
 
-* [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](arxiv/2024_tan_wolf_within.md)  `set1_core`
+* [AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems](arxiv/2026_agentworm_self_propagating_attacks_across_llm_agent_ecosystems.md)  `set2_emerging`
 * [Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate](arxiv/2025_amplified_vulnerabilities_structured_jailbreak_attacks_on_llm_based_mult.md)  `set2_emerging`
+* [Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning](arxiv/2026_architecture_matters_comparing_rag_systems_under_knowledge_base_poisonin.md)  `set2_emerging`
+* [Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense](arxiv/2026_autonomous_llm_agent_worms_cross_platform_propagation_automated_discover.md)  `set2_emerging`
+* [Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems](arxiv/2026_blind_spots_in_the_guard_how_domain_camouflaged_injection_attacks_evade.md)  `set2_emerging`
+* [Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games](arxiv/2026_byzantine_cheap_talk_adversarial_resilience_and_topology_effects_in_llm.md)  `set2_emerging`
 * [Collaborative Shadows: Distributed Backdoor Attacks in LLM-Based Multi-Agent Systems](arxiv/2025_zhu_collaborative_shadows.md)  `set2_emerging`
 * [Demonstrations of Integrity Attacks in Multi-Agent Systems](arxiv/2025_zheng_integrity_attacks.md)  `set2_emerging`
 * [Don't Trust Your Upstream: Exploiting LLM Multi-Agent System via Topology-Guided Adversarial Propagation](arxiv/2025_liang_dont_trust_upstream.md)  `set2_emerging`
-* [MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems](arxiv/2025_mad_spear_a_conformity_driven_prompt_injection_attack_on_multi_agent_deb.md)  `set2_emerging`
-* [Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare](arxiv/2025_many_to_one_adversarial_consensus_exposing_multi_agent_collusion_risks_i.md)  `set2_emerging`
-* [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](arxiv/2025_lupinacci_dark_side.md)  `set2_emerging`
-* [When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR)](arxiv/2025_agarwal_when_persuasion_overrides_truth_in_multi_agent_l.md)  `set2_emerging`
-* [AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems](arxiv/2026_agentworm_self_propagating_attacks_across_llm_agent_ecosystems.md)  `set2_emerging`
-* [Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning](arxiv/2026_architecture_matters_comparing_rag_systems_under_knowledge_base_poisonin.md)  `set2_emerging`
-* [Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems](arxiv/2026_blind_spots_in_the_guard_how_domain_camouflaged_injection_attacks_evade.md)  `set2_emerging`
-* [Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games](arxiv/2026_byzantine_cheap_talk_adversarial_resilience_and_topology_effects_in_llm.md)  `set2_emerging`
 * [FlowSteer: Prompt-Only Workflow Steering Exposes Planning-Time Vulnerabilities in Multi-Agent LLM Systems](arxiv/2026_flowsteer_prompt_only_workflow_steering_exposes_planning_time_vulnerabil.md)  `set2_emerging`
 * [Insider Attacks in Multi-Agent LLM Consensus Systems](arxiv/2026_sun_insider_attacks.md)  `set2_emerging`
 * [Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers](arxiv/2026_kill_chain_canaries_stage_level_tracking_of_prompt_injection_across_atta.md)  `set2_emerging`
+* [MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems](arxiv/2025_mad_spear_a_conformity_driven_prompt_injection_attack_on_multi_agent_deb.md)  `set2_emerging`
+* [Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare](arxiv/2025_many_to_one_adversarial_consensus_exposing_multi_agent_collusion_risks_i.md)  `set2_emerging`
+* [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](arxiv/2025_lupinacci_dark_side.md)  `set2_emerging`
+* [The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration](arxiv/2025_patil_the_sum_leaks_more_than_its_parts_compositional.md)  `set1_core`
+* [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](arxiv/2024_tan_wolf_within.md)  `set1_core`
 * [WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference](arxiv/2026_webweaver_breaking_topology_confidentiality_in_llm_multi_agent_systems_w.md)  `set2_emerging`
 * [When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration](arxiv/2026_when_latent_agents_lie_kv_cache_integrity_in_multi_agent_llm_collaborati.md)  `set2_emerging`
+* [When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR)](arxiv/2025_agarwal_when_persuasion_overrides_truth_in_multi_agent_l.md)  `set2_emerging`
 
 ## colm
 
