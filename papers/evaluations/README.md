@@ -1,9 +1,10 @@
 # Evaluation papers
 
-Final 187-corpus dominant-contribution count: **44**.
+Final 189-corpus dominant-contribution count: **45**.
 
 ## aaai
 
+* [Whispering Agents: An Event-Driven Covert Communication Protocol for the Internet of Agents](aaai/2026_huang_whispering_agents.md)  `set1_core`
 * [LieCraft: A Multi-Agent Framework for Evaluating Deceptive Capabilities in Language Models](aaai/2026_olson_liecraft.md)  `set1_core`
 
 ## aamas

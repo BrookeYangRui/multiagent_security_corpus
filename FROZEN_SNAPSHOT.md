@@ -6,8 +6,8 @@ Final scope correction: `2026-08-23`
 
 | Partition | Count |
 | --- | ---: |
-| Set 1 | 91 |
-| Set 2 | 96 |
+| Set 1 | 92 |
+| Set 2 | 97 |
 | **Authoritative corpus** | **187** |
 
-The 187-work union is the sole manuscript-facing corpus.
+The 189-work union is the sole manuscript-facing corpus.

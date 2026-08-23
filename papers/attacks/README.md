@@ -1,6 +1,6 @@
 # Attack papers
 
-Final 187-corpus dominant-contribution count: **44**.
+Final 189-corpus dominant-contribution count: **45**.
 
 ## 2026_1st_international_conference_on_emerging_technologies_and_enginee
 
@@ -30,6 +30,7 @@ Final 187-corpus dominant-contribution count: **44**.
 
 ## arxiv
 
+* [Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems](arxiv/2026_tool_use_enables_undetectable_steganography.md)  `set2_emerging`
 * [AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems](arxiv/2026_agentworm_self_propagating_attacks_across_llm_agent_ecosystems.md)  `set2_emerging`
 * [Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate](arxiv/2025_amplified_vulnerabilities_structured_jailbreak_attacks_on_llm_based_mult.md)  `set2_emerging`
 * [Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning](arxiv/2026_architecture_matters_comparing_rag_systems_under_knowledge_base_poisonin.md)  `set2_emerging`
