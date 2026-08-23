@@ -1,5 +1,10 @@
 # SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems

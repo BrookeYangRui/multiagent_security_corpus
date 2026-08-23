@@ -1,5 +1,10 @@
 # When Embedding-Based Defenses Fail: Rethinking Safety in LLM-Based Multi-Agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `ICML` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: When Embedding-Based Defenses Fail: Rethinking Safety in LLM-Based Multi-Agent Systems
@@ -209,4 +214,3 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
-

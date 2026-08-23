@@ -1,5 +1,10 @@
 # To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems
 Authors: Pengfei He; Zhenwei Dai; Xianfeng Tang; Yue Xing; Hui Liu; Jingying Zeng; Qiankun Peng; Shrivats Agrawal; Samarth Varshney; Suhang Wang; Jiliang Tang; Qi He

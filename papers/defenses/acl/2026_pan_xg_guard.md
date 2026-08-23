@@ -1,5 +1,10 @@
 # Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `ACL` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection
 Authors: Junjun Pan; Yixin Liu; Rui Miao; Kaize Ding; Yu Zheng; Quoc Viet Hung Nguyen; Alan Wee-Chung Liew; Shirui Pan

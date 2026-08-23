@@ -1,5 +1,10 @@
 # When collaboration fails: persuasion driven adversarial influence in multi agent large language model debate
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `Scientific Reports` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: When collaboration fails: persuasion driven adversarial influence in multi agent large language model debate
@@ -208,4 +213,3 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
-

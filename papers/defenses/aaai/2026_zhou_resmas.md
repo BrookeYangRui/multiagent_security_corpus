@@ -1,5 +1,10 @@
 # ResMAS: Resilience Optimization in LLM-based Multi-agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `AAAI` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: ResMAS: Resilience Optimization in LLM-based Multi-agent Systems
 Authors: Zhilun Zhou; Zihan Liu; Jiahe Liu; Qingyu Shao; Yihan Wang; Kun Shao; Depeng Jin; Fengli Xu

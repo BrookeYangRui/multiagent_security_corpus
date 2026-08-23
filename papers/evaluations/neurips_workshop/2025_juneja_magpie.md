@@ -1,5 +1,10 @@
 # MAGPIE: A Benchmark for Multi-Agent Contextual Privacy Evaluation
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `evaluation` · venue `NeurIPS Responsible Foundation Models Workshop` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: MAGPIE: A Benchmark for Multi-Agent Contextual Privacy Evaluation

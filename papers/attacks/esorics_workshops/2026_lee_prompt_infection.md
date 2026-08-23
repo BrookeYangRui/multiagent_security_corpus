@@ -1,5 +1,10 @@
 # Prompt Infection: LLM-to-LLM Prompt Injection within Multi-agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `ESORICS 2025 International Workshops` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: Prompt Infection: LLM-to-LLM Prompt Injection within Multi-agent Systems
@@ -209,4 +214,3 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
-

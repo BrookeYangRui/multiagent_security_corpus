@@ -1,5 +1,10 @@
 # SentinelNet: Safeguarding Multi-Agent Collaboration Through Credit-Based Dynamic Threat Detection
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `The Web Conference` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: SentinelNet: Safeguarding Multi-Agent Collaboration Through Credit-Based Dynamic Threat Detection
 Authors: Yang Feng; Xudong Pan

@@ -1,5 +1,10 @@
 # CORBA: Contagious Recursive Blocking Attacks on Multi-Agent Systems Based on Large Language Models
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `Findings of ACL` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 > **Source-review correction:** The Source Review section at the end supersedes inconsistent automated coding in this note. It still requires author signoff.
 
 ## Citation

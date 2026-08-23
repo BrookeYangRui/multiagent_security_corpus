@@ -1,5 +1,10 @@
 # AgentSafe: Safeguarding Large Language Model-based Multi-agent Systems via Hierarchical Data Management
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: AgentSafe: Safeguarding Large Language Model-based Multi-agent Systems via Hierarchical Data Management
 Authors: Junyuan Mao; Fanci Meng; Yifan Duan; Miao Yu; Xiaojun Jia; Junfeng Fang; Yuxuan Liang; Kun Wang; Qingsong Wen

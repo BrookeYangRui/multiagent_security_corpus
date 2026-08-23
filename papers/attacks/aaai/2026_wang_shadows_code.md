@@ -1,5 +1,10 @@
 # Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `AAAI` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems
