@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd "$(git rev-parse --show-toplevel)"
-python3 scripts/validate_three_set_corpus.py
+python3 scripts/validate_corpus.py

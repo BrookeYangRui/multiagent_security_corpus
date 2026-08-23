@@ -1,25 +1,13 @@
-# Authoritative corpus views
+# Authoritative 201 work corpus
 
-| File | Count | Role in the SoK |
+Only Set 1 and Set 2 are active manuscript evidence sets.
+
+| File | Count | Meaning |
 | --- | ---: | --- |
-| `set1_core.csv` | 96 | In-scope mature corpus: peer reviewed or at least 10 frozen citations. |
-| `set2_emerging.csv` | 105 | In-scope emerging corpus that has not yet met the Set 1 maturity rule. |
-| `set3_context.csv` | 463 | Contextual citations; not part of the MAS-security corpus. |
-| `screened_out.csv` | 1,549 | Reviewed search records outside the active evidence sets. |
+| `set1_core.csv` | 96 | Mature in scope MAS security work |
+| `set2_emerging.csv` | 105 | Emerging in scope MAS security work |
+| **Union** | **201** | **Exact manuscript corpus** |
 
-Set 1 and Set 2 use the same MAS-security scope gate. Membership requires an
-LLM multi-agent system, a concrete security property, and a material inter-agent
-interaction path. Whether the paper isolates a causal interaction effect is an
-evidence-strength question, not a corpus inclusion rule.
+Set 1 and Set 2 share the same scope gate. Membership requires an LLM multi agent system, a concrete security property, and a material inter agent interaction path. Set 1 additionally satisfies the frozen maturity rule: peer reviewed or at least 10 frozen citations. Set 2 contains the remaining in scope emerging work.
 
-Set 1 then applies the maturity union rule: peer reviewed **or** frozen citation
-count >= 10. Full-text taxonomy readiness is tracked separately by the
-`taxonomy_ready` field and never removes an otherwise eligible paper from Set 1.
-Set 2 contains the remaining in-scope early work. Set 3 is contextual only.
-
-Reviewer `expiol` completed named scope and dominant-contribution classification
-for the 228-row manual cohort on 2026-08-21. A later secondary review rechecked
-ten membership decisions; those decisions agree with the complete classification
-and are authoritative for the rechecked records. The later review also merged one
-obsolete SSRN DOI into its canonical record. The active corpus remains 201 works.
-Source/evidence verification remains separate.
+Superseded corpus partitions, review universes, and migration tables are intentionally absent from the active repository.
