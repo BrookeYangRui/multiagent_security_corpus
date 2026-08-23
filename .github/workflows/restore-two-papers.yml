@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm scripts/restore_two_papers.py scripts/finish_restore.py .github/workflows/restore-two-papers.yml .restore-trigger
+          git rm -f scripts/restore_two_papers.py scripts/finish_restore.py .github/workflows/restore-two-papers.yml .restore-trigger
           git add -A
           git commit -m "[restored two papers] Restore Whispering Agents and Tool Use steganography"
           git push origin HEAD:restore-whispering-tool-steg
