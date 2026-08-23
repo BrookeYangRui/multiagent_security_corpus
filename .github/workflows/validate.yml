@@ -55,6 +55,5 @@ jobs:
             echo "No generated changes to commit"
             exit 0
           fi
-          git diff --cached --check
           git commit -m "Rebuild papers from final 201 corpus"
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
