@@ -1,8 +1,8 @@
 # Evaluation papers
 
-Final signed corpus count: **44**.
+Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **46**.
 
-Each retained work is placed under its publication venue folder. The status banner inside every note records the final signed set and contribution.
+Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
 
 ## aaai
 
@@ -18,8 +18,8 @@ Each retained work is placed under its publication venue folder. The status bann
 
 ## acl
 
-* [TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems](acl/2026_kavathekar_tamas.md)  `set1_core`
 * [ACIARena: Toward Unified Evaluation for Agent Cascading Injection](acl/2026_an_aciarena.md)  `set1_core`
+* [TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems](acl/2026_kavathekar_tamas.md)  `set1_core`
 
 ## acl_system_demonstrations
 
@@ -32,12 +32,6 @@ Each retained work is placed under its publication venue folder. The status bann
 ## arxiv
 
 * [Achilles Heel of Distributed Multi-Agent Systems](arxiv/2025_achilles_heel_of_distributed_multi_agent_systems.md)  `set2_emerging`
-* [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](arxiv/2025_hierarchical_pedagogical_oversight_a_multi_agent_adversarial_framework_f.md)  `set2_emerging`
-* [MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems](arxiv/2025_chen_medsentry.md)  `set2_emerging`
-* [RedDebate: Safer Responses through Multi-Agent Red Teaming Debates](arxiv/2025_reddebate_safer_responses_through_multi_agent_red_teaming_debates.md)  `set2_emerging`
-* [Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies](arxiv/2025_terrarium_revisiting_the_blackboard_for_multi_agent_safety_privacy_and_s.md)  `set2_emerging`
-* [WOLF: Werewolf-based Observations for LLM Deception and Falsehoods](arxiv/2025_agarwal_wolf_werewolf_based_observations_for_llm_decepti.md)  `set1_core`
-* [Who's the Mole? Modeling and Detecting Intention-Hiding Malicious Agents in LLM-Based Multi-Agent Systems](arxiv/2025_xie_whos_the_mole.md)  `set1_core`
 * [Auditing Agent Harness Safety](arxiv/2026_auditing_agent_harness_safety.md)  `set2_emerging`
 * [Beyond Goodhart's Law: A Dynamic Benchmark for Evaluating Compliance in Multi-Agent Systems](arxiv/2026_zhao_macbench.md)  `set2_emerging`
 * [CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs](arxiv/2026_zou_calbench.md)  `set2_emerging`
@@ -46,12 +40,19 @@ Each retained work is placed under its publication venue folder. The status bann
 * [GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives](arxiv/2026_le_mercier_gambit.md)  `set2_emerging`
 * [GAMMAF: A Common Framework for Graph-Based Anomaly Monitoring Benchmarking in LLM Multi-Agent Systems](arxiv/2026_mateo_torrejon_gammaf.md)  `set2_emerging`
 * [HARP: Measuring Harm Amplification in Multi-Agent LLM Systems](arxiv/2026_rahman_harp.md)  `set2_emerging`
-* [SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models](arxiv/2026_sneak_evaluating_strategic_communication_and_information_leakage_in_larg.md)  `set2_emerging`
+* [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](arxiv/2025_hierarchical_pedagogical_oversight_a_multi_agent_adversarial_framework_f.md)  `set2_emerging`
+* [MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems](arxiv/2025_chen_medsentry.md)  `set2_emerging`
+* [MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems](arxiv/2026_mesa_prioritizing_vulnerable_communication_channels_for_securing_multi_a.md)  `set2_emerging`
+* [RedDebate: Safer Responses through Multi-Agent Red Teaming Debates](arxiv/2025_reddebate_safer_responses_through_multi_agent_red_teaming_debates.md)  `set2_emerging`
 * [Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations](arxiv/2026_security_engineering_of_openclaw_analyzing_attack_surface_expansion_and.md)  `set2_emerging`
+* [SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models](arxiv/2026_sneak_evaluating_strategic_communication_and_information_leakage_in_larg.md)  `set2_emerging`
+* [Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies](arxiv/2025_terrarium_revisiting_the_blackboard_for_multi_agent_safety_privacy_and_s.md)  `set2_emerging`
 * [The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure](arxiv/2026_the_capability_paradox_how_smarter_auditors_make_multi_agent_systems_les.md)  `set2_emerging`
 * [Towards Security-Auditable LLM Agents: A Unified Graph Representation](arxiv/2026_towards_security_auditable_llm_agents_a_unified_graph_representation.md)  `set2_emerging`
 * [TrinityGuard: A Unified Framework for Safeguarding Multi-Agent Systems](arxiv/2026_trinityguard_a_unified_framework_for_safeguarding_multi_agent_systems.md)  `set2_emerging`
 * [When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks](arxiv/2026_when_child_inherits_modeling_and_exploiting_subagent_spawn_in_multi_agen.md)  `set2_emerging`
+* [Who's the Mole? Modeling and Detecting Intention-Hiding Malicious Agents in LLM-Based Multi-Agent Systems](arxiv/2025_xie_whos_the_mole.md)  `set1_core`
+* [WOLF: Werewolf-based Observations for LLM Deception and Falsehoods](arxiv/2025_agarwal_wolf_werewolf_based_observations_for_llm_decepti.md)  `set1_core`
 
 ## bigdata_congress
 
@@ -93,6 +94,10 @@ Each retained work is placed under its publication venue folder. The status bann
 ## journals_ieee_access
 
 * [AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems](journals_ieee_access/2026_el_yagoubi_agentleak.md)  `set1_core`
+
+## journals_ieee_transactions_on_computational_social_systems
+
+* [The Trust Paradox in LLM-Based Multi-Agent Systems: When Collaboration Becomes a Security Vulnerability](journals_ieee_transactions_on_computational_social_systems/2026_xu_trust_paradox.md)  `set1_core`
 
 ## neural_networks
 

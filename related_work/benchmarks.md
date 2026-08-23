@@ -1,6 +1,6 @@
 # Benchmarks and Evaluations
 
-This synthesis is anchored to the final signed **201 work** manuscript corpus. The active corpus contains **44 evaluation primary works**, all indexed in `papers/index.csv` and materialized under `papers/evaluations/`.
+This synthesis is anchored to the final signed **201 work** manuscript corpus. The active corpus contains **46 evaluation primary works**, all indexed in `papers/index.csv` and materialized under `papers/evaluations/`.
 
 ## Evaluation landscape
 
@@ -26,4 +26,4 @@ A paper may be valuable security evidence without satisfying all three. These di
 
 ## Use in the SoK
 
-Use `papers/evaluations/README.md` for the complete 44 work evaluation primary list. Use individual paper notes for benchmark units, baselines, metrics, and evidence locations. Do not use removed analysis tables or historical corpus denominators as active benchmark counts.
+Use `papers/evaluations/README.md` for the complete 46 work evaluation primary list. Use individual paper notes for benchmark units, baselines, metrics, and evidence locations. Do not use removed analysis tables or historical corpus denominators as active benchmark counts.

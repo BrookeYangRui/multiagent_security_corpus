@@ -1,7 +1,7 @@
 # The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set1_core` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `attack` · venue `arXiv` · defense re-audit `2026-08-23`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
@@ -208,3 +208,12 @@ agent_unverified
 ### Last Updated
 
 2026-08-07
+
+
+## Defense dominant-contribution re-audit (2026-08-23)
+
+**Decision:** reclassify `defense` → `attack`.
+
+**Reason:** The paper introduces and systematically studies compositional privacy leakage as a new multi-agent vulnerability class; ToM and CoDef are mitigation follow-ons to the risk contribution.
+
+**Evidence used for this re-audit:** https://vaidehi99.github.io/MultiAgentPrivacy.pdf

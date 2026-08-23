@@ -1,5 +1,7 @@
 # Defenses
 
+The final 201-work corpus contains **85 defense-primary works** after the 2026-08-23 dominant-contribution re-audit. Defense-primary now requires the security mechanism itself to be a main contribution; reliability or application papers with incidental security features are filed elsewhere.
+
 Cross-paper synthesis of defense mechanisms, intervention points, observability,
 trusted components, and limitations.
 

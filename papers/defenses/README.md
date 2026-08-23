@@ -1,27 +1,23 @@
 # Defense papers
 
-Final signed corpus count: **94**.
+Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **85**.
 
-Each retained work is placed under its publication venue folder. The status banner inside every note records the final signed set and contribution.
+Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
 
 ## 2026_5th_international_conference_on_communication_computing_and_elect
 
 * [CAPRI-DP: A Differentially Private Extension to Context-Aware Multi-Agent Privacy Frameworks](2026_5th_international_conference_on_communication_computing_and_elect/2026_capri_dp_a_differentially_private_extension_to_context_aware_multi_agent.md)  `set1_core`
 
-## 2026_joint_european_conference_on_networks_and_communications_6g_summi
-
-* [Cross-Domain Query Translation for Network Troubleshooting: A Multi-Agent LLM Framework with Privacy Preservation and Self-Reflection](2026_joint_european_conference_on_networks_and_communications_6g_summi/2026_cross_domain_query_translation_for_network_troubleshooting_a_multi_agent.md)  `set1_core`
-
 ## aaai
 
+* [ResMAS: Resilience Optimization in LLM-based Multi-agent Systems](aaai/2026_zhou_resmas.md)  `set1_core`
 * [Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance](aaai/2026_zheng_byzantine_reliability.md)  `set1_core`
 * [SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication](aaai/2026_zhang_safesieve_from_heuristics_to_experience_in_progr.md)  `set1_core`
-* [ResMAS: Resilience Optimization in LLM-based Multi-agent Systems](aaai/2026_zhou_resmas.md)  `set1_core`
 
 ## aamas
 
-* [IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems](aamas/2025_mao_ibgp.md)  `set2_emerging`
 * [ConvPayMAS: Conversational Payment Multi-Agent System with Agent-to-Agent Protocol and Three-Mandate Verification](aamas/2026_convpaymas_conversational_payment_multi_agent_system_with_agent_to_agent.md)  `set1_core`
+* [IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems](aamas/2025_mao_ibgp.md)  `set2_emerging`
 
 ## acl
 
@@ -43,56 +39,51 @@ Each retained work is placed under its publication venue folder. The status bann
 
 ## arxiv
 
-* [AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems](arxiv/2024_agentmonitor_a_plug_and_play_framework_for_predictive_and_secure_multi_a.md)  `set2_emerging`
 * [AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning](arxiv/2025_advevo_marl_shaping_internalized_safety_through_adversarial_co_evolution.md)  `set2_emerging`
+* [Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents](arxiv/2025_agentic_jwt_a_secure_delegation_protocol_for_autonomous_ai_agents.md)  `set2_emerging`
+* [AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems](arxiv/2024_agentmonitor_a_plug_and_play_framework_for_predictive_and_secure_multi_a.md)  `set2_emerging`
 * [AgentSafe: Safeguarding Large Language Model-based Multi-agent Systems via Hierarchical Data Management](arxiv/2025_mao_agentsafe.md)  `set2_emerging`
 * [AgentShield: Make MAS more secure and efficient](arxiv/2025_wang_agentshield_make_mas_more_secure_and_efficient.md)  `set2_emerging`
-* [Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents](arxiv/2025_agentic_jwt_a_secure_delegation_protocol_for_autonomous_ai_agents.md)  `set2_emerging`
+* [Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection](arxiv/2026_beyond_input_guardrails_reconstructing_cross_agent_semantic_flows_for_ex.md)  `set2_emerging`
+* [Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems](arxiv/2026_beyond_single_agent_alignment_preventing_context_fragmented_violations_i.md)  `set2_emerging`
 * [BlockA2A: Towards Secure and Verifiable Agent-to-Agent Interoperability](arxiv/2025_zou_blocka2a.md)  `set1_core`
 * [Byzantine Fault-Tolerant Multi-Agent System for Healthcare: A Gossip Protocol Approach to Secure Medical Message Propagation](arxiv/2025_byzantine_fault_tolerant_multi_agent_system_for_healthcare_a_gossip_prot.md)  `set2_emerging`
 * [Byzantine-Robust Decentralized Coordination of LLM Agents](arxiv/2025_jo_byzantine_robust.md)  `set2_emerging`
-* [DAO-Agent: Zero Knowledge-Verified Incentives for Decentralized Multi-Agent Coordination](arxiv/2025_dao_agent_zero_knowledge_verified_incentives_for_decentralized_multi_age.md)  `set2_emerging`
-* [EncGPT: A Multi-Agent Workflow for Dynamic Encryption Algorithms](arxiv/2025_encgpt_a_multi_agent_workflow_for_dynamic_encryption_algorithms.md)  `set2_emerging`
-* [Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies](arxiv/2025_ev_trust_an_evolutionarily_stable_trust_mechanism_for_decentralized_llm.md)  `set2_emerging`
-* [Goal-Aware Identification and Rectification of Misinformation in Multi-Agent Systems](arxiv/2025_li_argus.md)  `set2_emerging`
-* [Maris: A Formally Verifiable Privacy Policy Enforcement Paradigm for Multi-Agent Collaboration Systems](arxiv/2025_cui_maris.md)  `set2_emerging`
-* [QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems](arxiv/2025_quadsentinel_sequent_safety_for_machine_checkable_control_in_multi_agent.md)  `set2_emerging`
-* [SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems](arxiv/2025_li_safeflow_a_principled_protocol_for_trustworthy_a.md)  `set1_core`
-* [Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation](arxiv/2025_securing_multi_agent_systems_against_corruptions_via_node_contribution_b.md)  `set2_emerging`
-* [Sentinel Agents for Secure and Trustworthy Agentic AI in Multi-Agent Systems](arxiv/2025_sentinel_agents_for_secure_and_trustworthy_agentic_ai_in_multi_agent_sys.md)  `set1_core`
-* [SentinelAgent: Graph-based Anomaly Detection in Multi-Agent Systems](arxiv/2025_he_sentinelagent_graph_based_anomaly_detection_in_m.md)  `set1_core`
-* [The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration](arxiv/2025_patil_the_sum_leaks_more_than_its_parts_compositional.md)  `set1_core`
-* [To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems](arxiv/2025_he_a_trust.md)  `set2_emerging`
-* [Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks](arxiv/2025_toward_trustworthy_agentic_ai_a_multimodal_framework_for_preventing_prom.md)  `set2_emerging`
-* [Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense](arxiv/2026_autonomous_llm_agent_worms_cross_platform_propagation_automated_discover.md)  `set2_emerging`
-* [Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection](arxiv/2026_beyond_input_guardrails_reconstructing_cross_agent_semantic_flows_for_ex.md)  `set2_emerging`
-* [Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems](arxiv/2026_beyond_single_agent_alignment_preventing_context_fragmented_violations_i.md)  `set2_emerging`
 * [CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring](arxiv/2026_caspian_online_detection_and_attribution_of_cascade_attacks_in_llm_multi.md)  `set2_emerging`
 * [Collective Hallucination in Multi-Agent LLMs:Modeling and Defense](arxiv/2026_collective_hallucination_in_multi_agent_llms_modeling_and_defense.md)  `set2_emerging`
+* [DAO-Agent: Zero Knowledge-Verified Incentives for Decentralized Multi-Agent Coordination](arxiv/2025_dao_agent_zero_knowledge_verified_incentives_for_decentralized_multi_age.md)  `set2_emerging`
 * [Defending LLM-based Multi-Agent Systems Against Cooperative Attacks with Sentence-Level Rectification](arxiv/2026_luo_defending_llm_based_multi_agent_systems_against.md)  `set2_emerging`
 * [Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks](arxiv/2026_don_t_trust_stubborn_neighbors_a_security_framework_for_agentic_networks.md)  `set2_emerging`
 * [DynaTrust: Defending Multi-Agent Systems Against Sleeper Agents via Dynamic Trust Graphs](arxiv/2026_li_dynatrust_defending_multi_agent_systems_against.md)  `set2_emerging`
-* [Dynamic Attentional Context Scoping: Agent-Triggered Focus Sessions for Isolated Per-Agent Steering in Multi-Agent LLM Orchestration](arxiv/2026_dynamic_attentional_context_scoping_agent_triggered_focus_sessions_for_i.md)  `set2_emerging`
+* [EncGPT: A Multi-Agent Workflow for Dynamic Encryption Algorithms](arxiv/2025_encgpt_a_multi_agent_workflow_for_dynamic_encryption_algorithms.md)  `set2_emerging`
 * [EquiMem: Calibrating Shared Memory in Multi-Agent Debate via Game-Theoretic Equilibrium](arxiv/2026_equimem_calibrating_shared_memory_in_multi_agent_debate_via_game_theoret.md)  `set2_emerging`
+* [Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies](arxiv/2025_ev_trust_an_evolutionarily_stable_trust_mechanism_for_decentralized_llm.md)  `set2_emerging`
 * [From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation](arxiv/2026_from_debate_to_decision_conformal_social_choice_for_safe_multi_agent_del.md)  `set2_emerging`
 * [From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration](arxiv/2026_from_spark_to_fire_modeling_and_mitigating_error_cascades_in_llm_based_m.md)  `set2_emerging`
 * [Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs](arxiv/2026_game_theoretic_multi_agent_control_for_robust_contextual_reasoning_in_ll.md)  `set2_emerging`
+* [Goal-Aware Identification and Rectification of Misinformation in Multi-Agent Systems](arxiv/2025_li_argus.md)  `set2_emerging`
 * [Governed Shared Memory for Multi-Agent LLM Systems](arxiv/2026_governed_shared_memory_for_multi_agent_llm_systems.md)  `set2_emerging`
 * [INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems](arxiv/2026_infa_guard_mitigating_malicious_propagation_via_infection_aware_safeguar.md)  `set2_emerging`
 * [Institutional AI: Governing LLM Collusion in Multi-Agent Cournot Markets via Public Governance Graphs](arxiv/2026_syrnikov_institutional_ai_governing_llm_collusion_in_mult.md)  `set2_emerging`
 * [LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems](arxiv/2026_lcguard_latent_communication_guard_for_safe_kv_sharing_in_multi_agent_sy.md)  `set2_emerging`
 * [LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems](arxiv/2026_ldp_an_identity_aware_protocol_for_multi_agent_llm_systems.md)  `set2_emerging`
 * [Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing](arxiv/2026_linguistic_firewall_geometry_as_defense_in_multi_agent_systems_routing.md)  `set2_emerging`
-* [MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems](arxiv/2026_mesa_prioritizing_vulnerable_communication_channels_for_securing_multi_a.md)  `set2_emerging`
-* [No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents](arxiv/2026_no_action_without_a_nod_a_heterogeneous_multi_agent_architecture_for_rel.md)  `set2_emerging`
+* [Maris: A Formally Verifiable Privacy Policy Enforcement Paradigm for Multi-Agent Collaboration Systems](arxiv/2025_cui_maris.md)  `set2_emerging`
 * [PRISM: Generation-Time Detection and Mitigation of Secret Leakage in Multi-Agent LLM Pipelines](arxiv/2026_tapwal_prism.md)  `set2_emerging`
 * [Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching](arxiv/2026_prompt_injection_mitigation_with_agentic_ai_nested_learning_and_ai_susta.md)  `set2_emerging`
 * [PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation](arxiv/2026_propguard_safeguarding_llm_mas_via_propagation_aware_exploration_and_rem.md)  `set2_emerging`
+* [QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems](arxiv/2025_quadsentinel_sequent_safety_for_machine_checkable_control_in_multi_agent.md)  `set2_emerging`
 * [Robust Multi-Agent LLMs under Byzantine Faults](arxiv/2026_robust_multi_agent_llms_under_byzantine_faults.md)  `set2_emerging`
+* [SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems](arxiv/2025_li_safeflow_a_principled_protocol_for_trustworthy_a.md)  `set1_core`
 * [SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems](arxiv/2026_shi_saiguard.md)  `set2_emerging`
-* [SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems](arxiv/2026_sgto_mas_secure_gorilla_troops_optimization_for_multi_agent_llm_systems.md)  `set2_emerging`
+* [Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation](arxiv/2025_securing_multi_agent_systems_against_corruptions_via_node_contribution_b.md)  `set2_emerging`
+* [Sentinel Agents for Secure and Trustworthy Agentic AI in Multi-Agent Systems](arxiv/2025_sentinel_agents_for_secure_and_trustworthy_agentic_ai_in_multi_agent_sys.md)  `set1_core`
+* [SentinelAgent: Graph-based Anomaly Detection in Multi-Agent Systems](arxiv/2025_he_sentinelagent_graph_based_anomaly_detection_in_m.md)  `set1_core`
 * [SentinelAgent: Intent-Verified Delegation Chains for Securing Federal Multi-Agent AI Systems](arxiv/2026_sentinelagent_intent_verified_delegation_chains_for_securing_federal_mul.md)  `set2_emerging`
+* [SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems](arxiv/2026_sgto_mas_secure_gorilla_troops_optimization_for_multi_agent_llm_systems.md)  `set2_emerging`
 * [The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration](arxiv/2026_the_consensus_trap_rescuing_multi_agent_llms_from_adversarial_majorities.md)  `set2_emerging`
+* [To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems](arxiv/2025_he_a_trust.md)  `set2_emerging`
+* [Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks](arxiv/2025_toward_trustworthy_agentic_ai_a_multimodal_framework_for_preventing_prom.md)  `set2_emerging`
 
 ## electronics
 
@@ -147,10 +138,6 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomized Smoothing](journals_chinese_journal_of_aeronautics/2026_hu_enhancing_robustness_of_llm_driven_multi_agent_s.md)  `set1_core`
 
-## journals_ieee_transactions_on_computational_social_systems
-
-* [The Trust Paradox in LLM-Based Multi-Agent Systems: When Collaboration Becomes a Security Vulnerability](journals_ieee_transactions_on_computational_social_systems/2026_xu_trust_paradox.md)  `set1_core`
-
 ## journals_ieee_transactions_on_dependable_and_secure_computing
 
 * [AgentChain: Blockchain-Empowered Multi-Agent Coordination for Trustworthy LLM Question-Answering Systems](journals_ieee_transactions_on_dependable_and_secure_computing/2026_agentchain_blockchain_empowered_multi_agent_coordination_for_trustworthy.md)  `set1_core`
@@ -185,9 +172,7 @@ Each retained work is placed under its publication venue folder. The status bann
 
 ## ssrn
 
-* [MedAgentNet: Federated Multi-Agent AI for Privacy-Preserving Cross-Departmental Clinical Intelligence](ssrn/2026_medagentnet_federated_multi_agent_ai_for_privacy_preserving_cross_depart.md)  `set2_emerging`
 * [Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems](ssrn/2026_nexus_protocol_a_cryptographically_secure_zero_latency_semantic_routing.md)  `set2_emerging`
-* [Robotic Environment Manipulation Agents (REMA): A Proactive Multi-Agent Framework for Robust](ssrn/2026_robotic_environment_manipulation_agents_rema_a_proactive_multi_agent_fra.md)  `set2_emerging`
 
 ## www
 

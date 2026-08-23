@@ -1,7 +1,7 @@
 # The Trust Paradox in LLM-Based Multi-Agent Systems: When Collaboration Becomes a Security Vulnerability
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set1_core` · `defense` · venue `IEEE Transactions on Computational Social Systems` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `evaluation` · venue `IEEE Transactions on Computational Social Systems` · defense re-audit `2026-08-23`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
@@ -214,3 +214,12 @@ agent_unverified
 ### Last Updated
 
 2026-08-05
+
+
+## Defense dominant-contribution re-audit (2026-08-23)
+
+**Decision:** reclassify `defense` → `evaluation`.
+
+**Reason:** The main contribution is formalization and empirical measurement of the Trust-Vulnerability Paradox with OER and Authorization Drift; mitigation mechanisms are secondary evaluations.
+
+**Evidence used for this re-audit:** https://arxiv.org/abs/2510.18563
