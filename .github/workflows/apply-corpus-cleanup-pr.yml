@@ -27,6 +27,7 @@ jobs:
       - name: Remove branch-local one-shot machinery
         run: |
           rm -f scripts/apply_remove_six_noncorpus.py
+          rm -f scripts/.cleanup-trigger
           rm -f .github/workflows/apply-remove-six.yml
       - name: Validate final corpus
         run: scripts/validate_all.sh
