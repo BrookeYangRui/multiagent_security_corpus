@@ -2,163 +2,81 @@
 
 These rules apply to every contribution in this repository.
 
-## Repository Boundary
+## Single authoritative corpus
 
-- Maintain a literature corpus only.
-- Do not add manuscript drafts, experiments, benchmark implementations, or
-  downloaded paper PDFs.
-- Do not turn provisional corpus labels into a fixed security taxonomy.
+There is one active manuscript corpus: **201 works**.
 
-## Source Use
+* `corpus/set1_core.csv`: 96 mature in scope works
+* `corpus/set2_emerging.csv`: 105 emerging in scope works
+* `papers/index.csv`: one to one materialized view of the same 201 works
 
-- Read the primary paper before creating a paper note.
-- Do not rely on search snippets, blogs, citation metadata, or abstracts for
-  technical extraction when the full text is available.
-- Prefer the published version. If only a preprint is available, record its
-  exact version.
-- Do not fabricate missing metadata, page numbers, evidence locations, results,
-  limitations, or relationships to prior work.
-- Use `Not reported` when the source omits information and `Unclear` when the
-  source is ambiguous.
+Do not restore older corpus denominators, generated membership ledgers, Set 3 tables, screened out tables, review universes, migration outputs, or historical reconstruction scripts to the active tree. Git history already preserves those states.
 
-## Required Record Set
+## Scope and maturity
 
-For every included paper, update all three records in the same commit:
+A work belongs to the active corpus only when it satisfies the scope gate in `CORPUS_SET_POLICY.md`: at least two separately addressable LLM backed agents or principals, a material inter agent relation, a concrete security property or evaluation, and source evidence sufficient for the membership decision.
 
-1. `corpus/papers.csv`
-2. `corpus/references.bib`
-3. One note under the appropriate `papers/` category
+Set 1 uses the frozen maturity rule `peer_reviewed == yes OR frozen_citation_count >= 10`. Set 2 contains the remaining in scope emerging work. Interaction dependence is an evidence characterization, not a membership gate.
 
-For every excluded paper, add a row to
-`corpus/sets/01_search_catalog/structured_exclusions.csv`. Do not add
-an included-paper note or BibTeX entry unless the source is also retained for a
-documented supporting purpose.
+The signed 96 plus 105 partition is frozen for the current manuscript. Any future membership correction must be an explicit corpus revision. Never silently regenerate membership from superseded search or review artifacts.
 
-Survey and SoK works retained by the authoritative all-relevant screen are
-included in `corpus/papers.csv` and filed under `papers/surveys/`. The
-`sok_related/` view is a supporting synthesis list and may reference a canonical
-corpus work or an additional comparator; it is not an extra paper denominator.
+## Paper notes
 
-## Paper Notes
+Every active work must appear exactly once under `papers/` and exactly once in `papers/index.csv`.
 
-- Copy `templates/paper_note.md` without deleting required sections.
-- Name notes `YEAR_author_short_title.md`.
-- Preserve the source's title, author list, year, venue, DOI, and URLs.
-- Keep the main-contribution summary to no more than three sentences.
-- Attach a section, page, figure, table, or appendix location to every important
-  factual claim.
-- Mark whether each statement is an explicit author claim or an interpretation.
-- Never infer an evaluation from an abstract.
-- Never claim an attack, defense, guarantee, or limitation without direct
-  evidence from the paper.
+Paper notes are organized by dominant contribution and publication venue:
 
-## Provenance and Verification
+```text
+papers/
+  attacks/<venue>/
+  defenses/<venue>/
+  evaluations/<venue>/
+  general/<venue>/
+  surveys/<venue>/
+```
 
-- Record the exact discovery source and query when applicable.
-- Record the exact accessed version and access date.
-- Record how the note was prepared. Automated extraction must be marked
-  `agent_unverified` until a human checks it.
-- Do not upgrade a verification state without the corresponding human review.
-- Preserve adjudication history when a classification or claim changes.
-- Use `reviews/queues/load_bearing.csv` for full evidence review of headline
-  papers and `reviews/queues/standard_attack.csv` for standard attack review.
-- Use `reviews/queues/cross_category.csv` to screen every remaining defense,
-  evaluation, survey, and general paper for attack-bearing claims. The three
-  queues must remain disjoint and must jointly equal `papers.csv` through
-  `reviews/queues/universal.csv`.
-- Treat `primary_category` as canonical placement, not as evidence that a paper
-  does or does not contain attacks. Record attack evidence at claim level using
-  the roles and rules in `reviews/methodology/UNIVERSAL_REVIEW.md`.
-- Do not count a survey mention, related-work summary, or inherited attack as
-  primary attack evidence. Preserve the cited primary source instead.
-- A completed review row requires a named reviewer and adjudication note. Update
-  `papers.csv` verification status only to the level actually checked.
-- `source_reviewed_pending_author_signoff` records a non-human source review; it
-  must not be translated into `metadata_verified`, `evidence_verified`, or
-  `fully_reviewed` without named human signoff.
-- Preserve `blocked_pending_final_source` and
-  `blocked_pending_exact_full_text` until the missing canonical source evidence
-  is actually available. Never fill a blocker by inference.
+The signed contribution totals are 42 attacks, 94 defenses, 44 evaluations, 11 general works, and 10 surveys.
 
-## Version and Duplicate Handling
+When editing a note:
 
-- Use one canonical record for a preprint and its published version.
-- Prefer the published metadata and retain the preprint URL as an open-access
-  URL when useful.
-- Record superseded or duplicate structured records in
-  `corpus/sets/01_search_catalog/structured_exclusions.csv` and point to the
-  canonical `paper_id`. Record broad-screen version merges in
-  `corpus/sets/02_broad_included/deduplication_map.csv`.
-- Do not count workshop, preprint, and conference versions of the same work as
-  separate included papers.
+1. Read the primary paper when technical claims are changed.
+2. Preserve the canonical title, authors, publication status, DOI, arXiv identifier, and source URLs.
+3. Do not invent missing metadata, evidence locations, results, limitations, or relationships.
+4. Keep source claims distinct from cross paper interpretation.
+5. Preserve the final corpus status banner and the note path recorded in `papers/index.csv`.
 
-## Frozen Cutoff
+A work outside the final 201 must not have a paper note under `papers/`.
 
-- The search cutoff is `2026-07-01 00:00 UTC`.
-- Do not add a work first retrievable on or after the cutoff to `papers.csv`,
-  `references.bib`, or
-  `corpus/sets/05_analysis_specific/evaluation_artifacts.csv`.
-- Record such work in
-  `corpus/sets/01_search_catalog/post_cutoff_papers.csv`; place any retained
-  citation in `corpus/sets/01_search_catalog/post_cutoff_references.bib` and any
-  retained note under `papers/post_cutoff/`.
-- A post-cutoff publication of a work already available before the cutoff is a
-  canonical version update, not a new post-cutoff work.
+## Version and identity handling
 
-## CSV Rules
+Use one canonical record for a preprint and its published version. Prefer the published identity when one exists and retain the preprint URL only as supporting access information when useful.
 
-- Preserve the existing header and column order.
-- Use UTF-8 and RFC 4180-compatible CSV quoting.
-- Use semicolon-separated values inside multi-value fields.
-- Use ISO dates in `YYYY-MM-DD` format.
-- Use stable lowercase `paper_id` and `bibtex_key` values.
-- Leave a field empty only when it is not applicable; use `Not reported` or
-  `Unclear` for source-level missingness.
-- Set exactly one `primary_category` from `attack`, `defense`, `evaluation`,
-  `survey`, or `general`; secondary roles remain in `paper_type`.
-- Set `scope_relation` to `core_security` only for a direct security model,
-  violation, defense, or evaluation. Use `security_relevant` when the work is
-  directly informative but lacks a complete security framing, and `adjacent`
-  for background safety, reliability, or social-behavior evidence.
+Do not create separate active corpus rows for workshop, preprint, conference, journal, SSRN, or repository copies of the same work.
 
-## Related-Work Synthesis
+## Supporting material
 
-- Cite paper-note paths or BibTeX keys for every substantive synthesis claim.
-- Label statements as `Established finding`, `Author-claimed gap`,
-  `Cross-paper observation`, `Our interpretation`, or `Open question`.
-- Do not present a cross-paper inference as an individual paper's claim.
-- Keep uncertainty and publication status visible.
-- Preserve all rows and decision states in `corpus/sets/01_search_catalog/search_catalog.csv`; never
-  convert `unresolved` or `eligible_not_in_corpus` into an exclusion merely to
-  improve completion counts.
+`corpus/evidence/` contains non paper evidence such as CVEs, industry reports, and standards. These files never contribute to the 201 paper denominator.
 
-## Corpus Sets
+`sok_related/` is a supporting comparator view for related SoKs and surveys. It is not an additional corpus and its count must never be added to 201.
 
-- Treat the search catalog, broad included corpus, taxonomy candidates,
-  adjacent/contextual corpus, and analysis-specific sets as distinct
-  denominators.
-- Admit all peer-reviewed broad inclusions to full-text taxonomy review.
-- Admit non-peer work to full-text taxonomy review only when its citation count
-  is strictly greater than 10 at the recorded snapshot.
-- A citation threshold creates a review candidate, never automatic security
-  evidence.
-- A strict-core decision requires all five gates: multi-agent boundary,
-  explicit interaction, direct security relevance, interaction dependence, and
-  canonical full-text evidence.
-- Count papers by canonical work. Encode attacks, defenses, metrics, and audit
-  evidence at claim or instance level.
-- Never report a provisional, blocked, or pending row as taxonomy eligible.
-- Keep CVEs, industry reports, and standards in `corpus/evidence/`; never mix
-  them into a paper denominator.
-- Treat `sok_related/` as a supporting synthesis view. Do not add its count to
-  the canonical corpus count because the two sets may overlap.
+`related_work/` contains synthesis notes. Any numerical statement about the manuscript corpus must be derived from the final 201 view, not from historical corpus states.
 
-## Before Committing
+## Validation
 
-- Confirm every referenced note path exists.
-- Confirm every included `bibtex_key` exists exactly once in
-  `corpus/references.bib`.
-- Confirm every important note claim has an evidence location.
-- Confirm automatically prepared or modified records remain
-  `agent_unverified` unless human review is documented.
-- Keep commit messages short, imperative, and in English.
+Before committing, run:
+
+```bash
+scripts/validate_all.sh
+```
+
+Validation must enforce all of the following:
+
+1. Set 1 contains exactly 96 rows.
+2. Set 2 contains exactly 105 rows.
+3. The combined active corpus contains exactly 201 unique work keys.
+4. Contribution totals are exactly 42, 94, 44, 11, and 10.
+5. `papers/index.csv` contains exactly the same 201 work keys.
+6. `papers/` contains exactly 201 non README paper notes, grouped by contribution and venue.
+7. Superseded corpus artifacts are absent from the active `corpus/` tree.
+
+If a proposed change violates these invariants, stop and treat it as a deliberate corpus revision rather than a routine edit.
