@@ -1,60 +1,29 @@
-# Benchmarks
+# Benchmarks and Evaluations
 
-Cross-paper synthesis of evaluation settings, baselines, metrics, denominators,
-and verification methods.
+This synthesis is anchored to the final signed **201 work** manuscript corpus. The active corpus contains **44 evaluation primary works**, all indexed in `papers/index.csv` and materialized under `papers/evaluations/`.
 
-## Corpus Map
+## Evaluation landscape
 
-**Established finding.** The evaluation-primary corpus contains 21 canonical
-records: 12 formal conference, journal, or workshop versions and 9 arXiv-only
-versions. The formal records are organized under `papers/evaluations/`; the
-arXiv records are isolated under `papers/evaluations/arxiv/`.
+The final evaluation set spans attack benchmarks, security auditing frameworks, privacy measurements, topology studies, collusion and deception evaluations, and system level robustness studies. The complete list and publication venue placement are maintained in `papers/evaluations/README.md`.
 
-**Cross-paper observation.** Evaluation units vary across task, instance,
-agent, message, sensitive item, trace, game, and population. TAMAS and ACIARena
-use attack/task cases; AgentLeak uses channels and sensitive items; Colosseum
-separates conversation evidence from action regret; HARP uses paired traces;
-CalBench combines agent-level privacy with group-level utility. These measures
-must not share a denominator without an explicit conversion contract. See
-`corpus/sets/05_analysis_specific/evaluation_artifacts.csv` and the notes keyed by
-`kavathekar2026tamas`, `elyagoubi2026agentleak`, `nakamura2026colosseum`,
-`rahman2026harp`, and `zou2026calbench`.
+Representative benchmark oriented works include TAMAS, ACIARena, A2ASecBench, AgentLeak, MAGPIE, PEAR, GAMBIT, GAMMAF, HARP, CalBench, Colosseum, and MAC Bench.
 
-**Established finding.** Several evaluation-primary works require global
-observability: AgentLeak instruments internal channels, GAMMAF uses attributed
-communication graphs, HARP reads the full trace, and MAC-Bench audits procedural
-execution rather than only the final response. This supports the SoK's defense
-contract distinction between local output checks and system-level properties.
+## Measurement contracts
 
-**Author-claimed gap.** TAMAS and ACIARena argue that single-agent benchmarks
-miss interaction-dependent attacks. A2ASecBench makes the agent-to-agent
-protocol boundary executable, MedSentry compares insider attacks across four
-topologies, and PEAR isolates planner versus executor attack position. These
-are claims made by the respective papers, not a new prevalence estimate.
+Evaluation units differ substantially across the corpus. Depending on the work, the denominator may be a task, attack instance, agent, message, sensitive item, trace, graph, game, or population. Results should therefore not be compared as if they share a common success rate unless the underlying measurement contract is compatible.
 
-**Our interpretation.** The corpus is best read as three linked layers:
-benchmark construction, attack/defense evaluation, and measurement contract.
-Artifact rows for attack-primary papers remain in
-`corpus/sets/05_analysis_specific/evaluation_artifacts.csv`; their canonical notes are not duplicated in
-`papers/evaluations/`.
+Several evaluations also require system level observability. Examples include internal channel instrumentation, attributed communication graphs, full execution traces, topology observations, or procedural action histories. This distinction is important for both benchmark interpretation and defense design because a method that assumes global traces has a different observation model from a local output guardrail.
 
-## Canonical Evaluation Notes
+## Evidence strength
 
-| Venue | BibTeX keys |
-| --- | --- |
-| ACL / ACL Demo | `kavathekar2026tamas`, `an2026aciarena`, `gonzalez2026multimodalsafety`, `jiang2026risklab` |
-| AAAI / AAMAS / COLM | `olson2026liecraft`, `milkowski2026amongus`, `arora2026safeagents`, `nother2026badacts` |
-| ICLR / Findings EACL | `dong2026pear`, `li2026a2asecbench` |
-| IEEE Access / NeurIPS workshop | `elyagoubi2026agentleak`, `juneja2025magpie` |
-| arXiv | `chen2025medsentry`, `jia2026masfire`, `lemercier2026gambit`, `mateotorrejon2026gammaf`, `rahman2026harp`, `zou2026calbench`, `nakamura2026colosseum`, `zhao2026macbench` |
+The evaluation corpus should distinguish three questions:
 
-Defense-primary evaluation protocols, including `miao2026blindguard`, remain
-under `papers/defenses/` and are linked only through the artifact index.
+1. Does the study compare a multi agent system with a standalone or alternative system baseline?
+2. Does it demonstrate a concrete interaction mechanism through communication, shared state, delegation, aggregation, topology, or another relational path?
+3. Does it establish a structural multi agent property that cannot be represented as a property of one isolated agent?
 
-## Artifact Index Rule
+A paper may be valuable security evidence without satisfying all three. These distinctions should be recorded as evidence characterization rather than used to silently change membership in the final 201 corpus.
 
-`corpus/sets/05_analysis_specific/evaluation_artifacts.csv` is the single index for reusable datasets,
-harnesses, and metrics. Each row has one `canonical_paper_id`, one note path,
-the measurement unit, denominator, metrics, availability URL, and publication
-status. An attack- or defense-primary paper is never copied into the evaluation
-directory merely because it contains an evaluation artifact.
+## Use in the SoK
+
+Use `papers/evaluations/README.md` for the complete 44 work evaluation primary list. Use individual paper notes for benchmark units, baselines, metrics, and evidence locations. Do not use removed analysis tables or historical corpus denominators as active benchmark counts.
