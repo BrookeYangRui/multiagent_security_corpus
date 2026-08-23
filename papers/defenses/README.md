@@ -1,6 +1,6 @@
 # Defense papers
 
-Final 187-corpus dominant-contribution count: **80**.
+Final 189-corpus dominant-contribution count: **80**.
 
 ## 2026_5th_international_conference_on_communication_computing_and_elect
 
