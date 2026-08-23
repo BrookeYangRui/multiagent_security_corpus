@@ -1,5 +1,10 @@
 # GUARDIAN: Safeguarding LLM Multi-Agent Collaborations with Temporal Graph Modeling
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `NeurIPS` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: GUARDIAN: Safeguarding LLM Multi-Agent Collaborations with Temporal Graph Modeling
 Authors: Jialong Zhou; Lichao Wang; Xiao Yang

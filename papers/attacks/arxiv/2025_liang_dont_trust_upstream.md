@@ -1,5 +1,10 @@
 # Don't Trust Your Upstream: Exploiting LLM Multi-Agent System via Topology-Guided Adversarial Propagation
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `attack` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 - Authors: Ruichao Liang, Le Yin, Jing Chen, Yebo Feng, Cong Wu, Xiaoyu Zhang, Huangpeng Gu, Zijian Zhang, Yang Liu
@@ -123,4 +128,3 @@ payload optimization. It also evaluates T-Guard, a topology-trust mitigation.
 - Prepared by: automated extraction; model/version not recorded
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
-

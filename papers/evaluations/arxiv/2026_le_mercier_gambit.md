@@ -1,5 +1,10 @@
 # GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `evaluation` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives

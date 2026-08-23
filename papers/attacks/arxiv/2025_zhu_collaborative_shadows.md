@@ -1,5 +1,10 @@
 # Collaborative Shadows: Distributed Backdoor Attacks in LLM-Based Multi-Agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `attack` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 - Authors: Pengyu Zhu, Lijun Li, Yaxing Lyu, Li Sun, Sen Su, Jing Shao
@@ -119,4 +124,3 @@ a sandbox and a multi-role collaboration benchmark.
 - Prepared by: automated extraction; model/version not recorded
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
-

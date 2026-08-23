@@ -1,5 +1,10 @@
 # Among Us: Measuring and Mitigating Malicious Contributions in Model Collaboration Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `ACL` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 - Authors: Ziyuan Yang, Wenxuan Ding, Shangbin Feng, Yulia Tsvetkov
@@ -131,4 +136,3 @@ evaluates external-supervisor mitigations that disable or mask suspected models.
 - Prepared by: automated extraction; model/version not recorded
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
-

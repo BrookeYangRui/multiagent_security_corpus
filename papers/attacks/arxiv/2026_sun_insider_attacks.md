@@ -1,5 +1,10 @@
 # Insider Attacks in Multi-Agent LLM Consensus Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `attack` · venue `arXiv` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 - Authors: Xiaolin Sun, Zixuan Liu, Yibin Hu, Zizhan Zheng
@@ -117,4 +122,3 @@ attacker against that surrogate to prolong or prevent agreement.
 - Prepared by: automated extraction; model/version not recorded
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
-

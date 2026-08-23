@@ -1,5 +1,10 @@
 # Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomized Smoothing
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `Chinese Journal of Aeronautics` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomized Smoothing

@@ -1,5 +1,10 @@
 # IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set2_emerging` · `defense` · venue `AAMAS` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 Title: IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems
 Authors: Yihuan Mao; Yipeng Kang; Peilun Li; Lichao Sun; Wei Wang; Mingsong Chen; Yang Liu

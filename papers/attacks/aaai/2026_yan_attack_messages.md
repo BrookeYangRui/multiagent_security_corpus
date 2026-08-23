@@ -1,5 +1,10 @@
 # Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `AAAI` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS

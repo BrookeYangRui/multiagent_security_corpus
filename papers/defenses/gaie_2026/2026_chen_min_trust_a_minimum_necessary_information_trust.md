@@ -1,5 +1,10 @@
 # MIN-Trust: A Minimum Necessary Information Trust Orchestration Framework for Multi-Agent Collaboration
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `defense` · venue `GAIE 2026` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 Title: MIN-Trust: A Minimum Necessary Information Trust Orchestration Framework for Multi-Agent Collaboration

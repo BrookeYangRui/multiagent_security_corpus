@@ -1,5 +1,10 @@
 # Semantic Intent Fragmentation: A Single-Shot Compositional Attack on Multi-Agent AI Pipelines
 
+<!-- FINAL_CORPUS_STATUS_START -->
+> **Final signed corpus status:** `set1_core` · `attack` · venue `AAAI Symposium Series` · signoff `2026-08-21`.
+> This banner is authoritative if older review prose below records an earlier classification.
+<!-- FINAL_CORPUS_STATUS_END -->
+
 ## Citation
 
 - Authors: Tanzim Ahad, Ismail Hossain, Md Jahangir Alam, Sai Puppala, Yoonpyo Lee, Syed Bahauddin Alam, Sajedul Talukder
@@ -122,4 +127,3 @@ taint analysis.
 - Prepared by: automated extraction; model/version not recorded
 - Verification status: `agent_unverified`
 - Last updated: 2026-08-05
-
