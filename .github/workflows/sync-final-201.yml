@@ -3,8 +3,6 @@ name: Sync final 201 corpus
 on:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/sync-final-201.yml'
   pull_request:
     branches: [main]
 
