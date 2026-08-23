@@ -101,4 +101,54 @@ for contribution, dirname in CATEGORY_DIR.items():
     if count != EXPECTED_CONTRIB[contribution]:
         raise SystemExit(f"paper directory count mismatch for {contribution}: {count}")
 
-print("Final corpus valid: Set1=96 Set2=105 total=201; papers=201; category and venue placement indexed")
+# Supporting SoK comparators may overlap the 201 corpus, but they are never an
+# additional denominator. A comparator marked as part of the final corpus must
+# point to a real final paper note; contextual comparators must not carry stale
+# paper paths from older corpus layouts.
+comparator_path = R / "sok_related" / "papers.csv"
+if comparator_path.exists():
+    comparators = rows(comparator_path)
+    if len({r["sok_id"] for r in comparators}) != len(comparators):
+        raise SystemExit("duplicate sok comparator id")
+    for r in comparators:
+        flag = r.get("in_final_201", "").strip().lower()
+        paper_path = r.get("final_paper_path", "").strip()
+        if flag == "yes":
+            if not paper_path or not (R / paper_path).is_file():
+                raise SystemExit(f"final SoK comparator path missing: {r['sok_id']} -> {paper_path}")
+        elif flag == "no":
+            if paper_path:
+                raise SystemExit(f"context comparator carries final paper path: {r['sok_id']} -> {paper_path}")
+        else:
+            raise SystemExit(f"invalid in_final_201 flag for comparator: {r['sok_id']}")
+
+# Maintenance and synthesis docs must not point collaborators back to removed
+# corpus layouts or superseded manuscript denominators.
+docs = [
+    R / "README.md",
+    R / "AGENTS.md",
+    R / "CORPUS_SET_POLICY.md",
+    R / "FROZEN_SNAPSHOT.md",
+    R / "sok_related" / "README.md",
+]
+docs.extend((R / "related_work").glob("*.md"))
+legacy_tokens = [
+    "corpus/papers.csv",
+    "corpus/sets/",
+    "reviews/queues/",
+    "142-work corpus",
+    "142-work package",
+    "227-work",
+    "228-work",
+    "232-work",
+    "287-work",
+]
+for path in docs:
+    if not path.exists():
+        continue
+    text = path.read_text(encoding="utf-8", errors="replace")
+    for token in legacy_tokens:
+        if token in text:
+            raise SystemExit(f"legacy corpus reference remains in {path.relative_to(R)}: {token}")
+
+print("Final corpus valid: Set1=96 Set2=105 total=201; papers=201; category and venue placement indexed; legacy active views absent")
