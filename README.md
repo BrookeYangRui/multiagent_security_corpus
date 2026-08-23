@@ -4,7 +4,7 @@ Auditable literature corpus for security of interacting LLM agents. Literature c
 
 ## Authoritative manuscript corpus
 
-There is one active manuscript corpus: **187 works**.
+There is one active manuscript corpus: **189 works**.
 
 | Set | Count | Meaning |
 | --- | ---: | --- |
@@ -18,7 +18,7 @@ The 2026-08-23 scope correction removed 14 records from the previous 201-work vi
 
 ## Paper organization
 
-`papers/` contains exactly the active corpus notes, organized by dominant contribution and venue. Current totals are **44 attacks**, **80 defenses**, **44 evaluations**, **12 general works**, and **7 surveys**.
+`papers/` contains exactly the active corpus notes, organized by dominant contribution and venue. Current totals are **46 attacks**, **80 defenses**, **44 evaluations**, **12 general works**, and **7 surveys**.
 
 ## Validation
 

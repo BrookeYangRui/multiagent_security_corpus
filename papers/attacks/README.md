@@ -1,6 +1,6 @@
 # Attack papers
 
-Final 187-corpus dominant-contribution count: **44**.
+Final 189-corpus dominant-contribution count: **46**.
 
 ## 2026_1st_international_conference_on_emerging_technologies_and_enginee
 
@@ -10,6 +10,7 @@ Final 187-corpus dominant-contribution count: **44**.
 
 * [Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS](aaai/2026_yan_attack_messages.md)  `set1_core`
 * [Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](aaai/2026_wang_shadows_code.md)  `set1_core`
+* [Whispering Agents: A Event-Driven Covert Communication Protocol for the Internet of Agents](aaai/2026_huang_whispering_agents.md)  `set1_core`
 
 ## aaai_symposium
 
@@ -47,6 +48,7 @@ Final 187-corpus dominant-contribution count: **44**.
 * [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](arxiv/2025_lupinacci_dark_side.md)  `set2_emerging`
 * [The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration](arxiv/2025_patil_the_sum_leaks_more_than_its_parts_compositional.md)  `set1_core`
 * [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](arxiv/2024_tan_wolf_within.md)  `set1_core`
+* [Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems](arxiv/2026_rippin_tool_use_steganography.md)  `set2_emerging`
 * [WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference](arxiv/2026_webweaver_breaking_topology_confidentiality_in_llm_multi_agent_systems_w.md)  `set2_emerging`
 * [When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration](arxiv/2026_when_latent_agents_lie_kv_cache_integrity_in_multi_agent_llm_collaborati.md)  `set2_emerging`
 * [When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR)](arxiv/2025_agarwal_when_persuasion_overrides_truth_in_multi_agent_l.md)  `set2_emerging`

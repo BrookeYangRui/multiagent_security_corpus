@@ -1,6 +1,6 @@
 # Final 187 paper corpus
 
-This directory contains exactly **187 works**: **91 Set 1** and **96 Set 2**.
+This directory contains exactly **189 works**: **92 Set 1** and **97 Set 2**.
 
 | Contribution | Count | Directory |
 | --- | ---: | --- |
