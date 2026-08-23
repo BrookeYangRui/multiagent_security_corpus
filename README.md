@@ -8,13 +8,15 @@ There is one active manuscript corpus: **189 works**.
 
 | Set | Count | Meaning |
 | --- | ---: | --- |
-| Set 1 | 91 | In-scope mature MAS security work |
-| Set 2 | 96 | In-scope emerging MAS security work |
-| **Total** | **187** | **Authoritative MAS security corpus** |
+| Set 1 | 92 | In-scope mature MAS security work |
+| Set 2 | 97 | In-scope emerging MAS security work |
+| **Total** | **189** | **Authoritative MAS security corpus** |
 
 The authoritative row-level files are `corpus/set1_core.csv` and `corpus/set2_emerging.csv`.
 
 The 2026-08-23 scope correction removed 14 records from the previous 201-work view. Three were first public after the cutoff, two broad agent-security surveys remain only as related-work comparators, one source could not be independently recovered, and eight additional works were removed because MAS was primarily a tool or application architecture rather than the paper-level security object. CoMet, DACS, and NOD remain in scope.
+
+Two direct MAS-security works were subsequently restored after source-level review: *Whispering Agents* and *Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems*. Both study covert communication between interacting agents rather than using MAS merely as a generic security instrument.
 
 ## Paper organization
 
