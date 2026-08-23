@@ -3,12 +3,14 @@ from __future__ import annotations
 
 import csv
 import re
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS = ROOT / "papers"
 INDEX = PAPERS / "index.csv"
 OUT = ROOT / "corpus" / "REMAINING_187_SCOPE_AUDIT.csv"
+SUMMARY = ROOT / "corpus" / "REMAINING_187_SCOPE_AUDIT_SUMMARY.md"
 
 SECURITY_TERMS = (
     "attack", "adversar", "malicious", "security", "secure", "privacy", "leak",
@@ -97,4 +99,26 @@ for r in rows:
 with OUT.open("w", encoding="utf-8", newline="") as f:
     w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
     w.writeheader(); w.writerows(out)
-print(f"wrote {len(out)} rows to {OUT.relative_to(ROOT)}")
+
+counts = Counter(r["preliminary_tier"] for r in out)
+lines = [
+    "# Remaining 187 Scope Audit Triage",
+    "",
+    "This is a triage view only. Every row still requires a final manual verdict.",
+    "",
+    "## Tier counts",
+    "",
+]
+for tier, count in sorted(counts.items()):
+    lines.append(f"* `{tier}`: **{count}**")
+for tier in (
+    "weak_or_ambiguous_requires_manual_confirmation",
+    "metadata_only_requires_primary_source_check",
+    "plausible_requires_manual_confirmation",
+):
+    subset = [r for r in out if r["preliminary_tier"] == tier]
+    lines += ["", f"## {tier} ({len(subset)})", ""]
+    for r in subset:
+        lines.append(f"* `{r['work_key']}` | {r['title']} | {r['evidence_set']} | {r['dominant_contribution']} | {r['venue']}")
+SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
+print(f"wrote {len(out)} rows and summary")
