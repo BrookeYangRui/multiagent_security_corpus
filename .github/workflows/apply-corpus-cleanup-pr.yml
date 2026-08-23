@@ -21,7 +21,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Apply final corpus cleanup
-        run: python3 scripts/apply_remove_six_noncorpus.py
+        run: |
+          sed -i 's#relative_to(P / dirname)#relative_to(Path("papers") / dirname)#' scripts/apply_remove_six_noncorpus.py
+          python3 scripts/apply_remove_six_noncorpus.py
       - name: Remove branch-local one-shot machinery
         run: |
           rm -f scripts/apply_remove_six_noncorpus.py
