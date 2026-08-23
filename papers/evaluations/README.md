@@ -1,8 +1,6 @@
 # Evaluation papers
 
-Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **46**.
-
-Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
+Final 187-corpus dominant-contribution count: **44**.
 
 ## aaai
 
@@ -40,10 +38,8 @@ Each retained work is placed under its publication venue folder. The status bann
 * [GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives](arxiv/2026_le_mercier_gambit.md)  `set2_emerging`
 * [GAMMAF: A Common Framework for Graph-Based Anomaly Monitoring Benchmarking in LLM Multi-Agent Systems](arxiv/2026_mateo_torrejon_gammaf.md)  `set2_emerging`
 * [HARP: Measuring Harm Amplification in Multi-Agent LLM Systems](arxiv/2026_rahman_harp.md)  `set2_emerging`
-* [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](arxiv/2025_hierarchical_pedagogical_oversight_a_multi_agent_adversarial_framework_f.md)  `set2_emerging`
 * [MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems](arxiv/2025_chen_medsentry.md)  `set2_emerging`
 * [MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems](arxiv/2026_mesa_prioritizing_vulnerable_communication_channels_for_securing_multi_a.md)  `set2_emerging`
-* [RedDebate: Safer Responses through Multi-Agent Red Teaming Debates](arxiv/2025_reddebate_safer_responses_through_multi_agent_red_teaming_debates.md)  `set2_emerging`
 * [Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations](arxiv/2026_security_engineering_of_openclaw_analyzing_attack_surface_expansion_and.md)  `set2_emerging`
 * [SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models](arxiv/2026_sneak_evaluating_strategic_communication_and_information_leakage_in_larg.md)  `set2_emerging`
 * [Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies](arxiv/2025_terrarium_revisiting_the_blackboard_for_multi_agent_safety_privacy_and_s.md)  `set2_emerging`
@@ -115,3 +111,4 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [Algorithmic Cowardice: Cognitive Dissonance and Moral Conformity in Multi-Agent LLM Interactions](zenodo/2026_yankeloviz_algorithmic_cowardice.md)  `set2_emerging`
 * [LLM Drift Experiment: A Framework for Quantifying Behavioral Decay in Adversarial Multi-Agent Simulations](zenodo/2026_llm_drift_experiment_a_framework_for_quantifying_behavioral_decay_in_adv.md)  `set2_emerging`
+

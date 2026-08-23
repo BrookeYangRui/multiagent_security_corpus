@@ -8,8 +8,8 @@ R = Path(__file__).resolve().parents[1]
 C = R / "corpus"
 P = R / "papers"
 
-EXPECTED_COUNTS = {"set1_core": 96, "set2_emerging": 105, "total_corpus": 201}
-EXPECTED_CONTRIB = {"attack": 44, "defense": 85, "evaluation": 46, "general": 16, "survey": 10}
+EXPECTED_COUNTS = {"set1_core": 91, "set2_emerging": 96, "total_corpus": 187}
+EXPECTED_CONTRIB = {"attack": 44, "defense": 80, "evaluation": 44, "general": 12, "survey": 7}
 CATEGORY_DIR = {"attack": "attacks", "defense": "defenses", "evaluation": "evaluations", "general": "general", "survey": "surveys"}
 
 
@@ -20,11 +20,11 @@ def rows(path):
 
 s1 = rows(C / "set1_core.csv")
 s2 = rows(C / "set2_emerging.csv")
-if (len(s1), len(s2)) != (96, 105):
+if (len(s1), len(s2)) != (91, 96):
     raise SystemExit(f"authoritative counts changed: {len(s1)}/{len(s2)}")
 all_rows = s1 + s2
-if len(all_rows) != 201:
-    raise SystemExit("active corpus is not 201")
+if len(all_rows) != 187:
+    raise SystemExit("active corpus is not 187")
 keys = [r["work_key"] for r in all_rows]
 if len(keys) != len(set(keys)):
     raise SystemExit("duplicate work_key in active corpus")
@@ -49,15 +49,15 @@ manifest = json.loads((C / "manifest.json").read_text(encoding="utf-8"))
 if manifest["counts"] != EXPECTED_COUNTS:
     raise SystemExit("manifest mismatch")
 
-# papers/ must be an exact materialized view of the signed 201 corpus.
+# papers/ must be an exact materialized view of the active 187 corpus.
 if (P / "post_cutoff").exists():
     raise SystemExit("post_cutoff must not exist under papers/")
 if not (P / "index.csv").exists():
     raise SystemExit("papers/index.csv is missing")
 index = rows(P / "index.csv")
-if len(index) != 201:
-    raise SystemExit(f"papers/index.csv must have 201 rows, found {len(index)}")
-if len({r["work_key"] for r in index}) != 201:
+if len(index) != 187:
+    raise SystemExit(f"papers/index.csv must have 187 rows, found {len(index)}")
+if len({r["work_key"] for r in index}) != 187:
     raise SystemExit("duplicate work_key in papers/index.csv")
 if {r["work_key"] for r in index} != set(keys):
     missing = set(keys) - {r["work_key"] for r in index}
@@ -90,8 +90,8 @@ for item in index:
         raise SystemExit(f"paper note lacks final status banner: {rel}")
 
 notes = [path for path in P.rglob("*.md") if path.name.lower() != "readme.md"]
-if len(notes) != 201:
-    raise SystemExit(f"expected exactly 201 paper notes, found {len(notes)}")
+if len(notes) != 187:
+    raise SystemExit(f"expected exactly 187 paper notes, found {len(notes)}")
 if {str(path.relative_to(R)) for path in notes} != seen_paths:
     unindexed = {str(path.relative_to(R)) for path in notes} - seen_paths
     raise SystemExit(f"unindexed paper notes remain: {sorted(unindexed)}")
@@ -151,4 +151,4 @@ for path in docs:
         if token in text:
             raise SystemExit(f"legacy corpus reference remains in {path.relative_to(R)}: {token}")
 
-print("Final corpus valid: Set1=96 Set2=105 total=201; papers=201; category and venue placement indexed; legacy active views absent")
+print("Final corpus valid: Set1=91 Set2=96 total=187; papers=187; category and venue placement indexed; legacy active views absent")

@@ -1,8 +1,6 @@
 # Defense papers
 
-Final 201-corpus dominant-contribution count after the 2026-08-23 defense re-audit: **85**.
-
-Each retained work is placed under its publication venue folder. The status banner inside every note records the current corpus set and dominant contribution.
+Final 187-corpus dominant-contribution count: **80**.
 
 ## 2026_5th_international_conference_on_communication_computing_and_elect
 
@@ -33,10 +31,6 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [Security and Privacy in Multi-Agent LLM Networks](advances_in_computational_intelligence_and_robotics_book_series/2025_security_and_privacy_in_multi_agent_llm_networks.md)  `set1_core`
 
-## apsec
-
-* [MAJD: Intent-Aware Multi-Agent Framework for Jailbreak Defense](apsec/2025_majd_intent_aware_multi_agent_framework_for_jailbreak_defense.md)  `set1_core`
-
 ## arxiv
 
 * [AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning](arxiv/2025_advevo_marl_shaping_internalized_safety_through_adversarial_co_evolution.md)  `set2_emerging`
@@ -55,7 +49,6 @@ Each retained work is placed under its publication venue folder. The status bann
 * [Defending LLM-based Multi-Agent Systems Against Cooperative Attacks with Sentence-Level Rectification](arxiv/2026_luo_defending_llm_based_multi_agent_systems_against.md)  `set2_emerging`
 * [Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks](arxiv/2026_don_t_trust_stubborn_neighbors_a_security_framework_for_agentic_networks.md)  `set2_emerging`
 * [DynaTrust: Defending Multi-Agent Systems Against Sleeper Agents via Dynamic Trust Graphs](arxiv/2026_li_dynatrust_defending_multi_agent_systems_against.md)  `set2_emerging`
-* [EncGPT: A Multi-Agent Workflow for Dynamic Encryption Algorithms](arxiv/2025_encgpt_a_multi_agent_workflow_for_dynamic_encryption_algorithms.md)  `set2_emerging`
 * [EquiMem: Calibrating Shared Memory in Multi-Agent Debate via Game-Theoretic Equilibrium](arxiv/2026_equimem_calibrating_shared_memory_in_multi_agent_debate_via_game_theoret.md)  `set2_emerging`
 * [Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies](arxiv/2025_ev_trust_an_evolutionarily_stable_trust_mechanism_for_decentralized_llm.md)  `set2_emerging`
 * [From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation](arxiv/2026_from_debate_to_decision_conformal_social_choice_for_safe_multi_agent_del.md)  `set2_emerging`
@@ -97,17 +90,9 @@ Each retained work is placed under its publication venue folder. The status bann
 
 * [AI Agents with Decentralized Identifiers and Verifiable Credentials](icaart_2026/2026_garzon_ai_agents_with_decentralized_identifiers_and_ver.md)  `set1_core`
 
-## icassp
-
-* [Supervisor Alignment Framework: Enhancing LLM Alignment with Query-Ignoring Strategy and Multi-Agent Interaction](icassp/2025_supervisor_alignment_framework_enhancing_llm_alignment_with_query_ignori.md)  `set1_core`
-
 ## iclr
 
 * [Breaking and Fixing Defenses Against Control-Flow Hijacking in Multi-Agent Systems](iclr/2026_jha_control_flow_hijacking.md)  `set1_core`
-
-## ieee_international_wie_conference_on_electrical_and_computer_engineeri
-
-* [A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks](ieee_international_wie_conference_on_electrical_and_computer_engineeri/2025_a_multi_agent_llm_defense_pipeline_against_prompt_injection_attacks.md)  `set1_core`
 
 ## ieee_iri_2025
 
@@ -180,7 +165,7 @@ Each retained work is placed under its publication venue folder. The status bann
 
 ## zenodo
 
-* [Governance Effectiveness in Distributed Multi-Agent LLM Systems: Confound Isolation, Diversity Erosion, and the Accidental Governance Effect](zenodo/2026_governance_effectiveness_in_distributed_multi_agent_llm_systems_confound.md)  `set2_emerging`
 * [Memetic Cascade Detection and Symbolic Immunity in Multi-Agent LLM Systems](zenodo/2026_memetic_cascade_detection_and_symbolic_immunity_in_multi_agent_llm_syste.md)  `set2_emerging`
 * [Pratyahara: A Neural Tissue Defense Model for Detecting Compromised Agents in Multi-Agent Networks](zenodo/2026_pratyahara_a_neural_tissue_defense_model_for_detecting_compromised_agent.md)  `set2_emerging`
 * [Semantic Taint Propagation: Embedding-Based Semantic Flow Monitoring for Multi-Agent Large Language Model Systems](zenodo/2026_semantic_taint_propagation_embedding_based_semantic_flow_monitoring_for.md)  `set2_emerging`
+
