@@ -11,6 +11,7 @@ C = ROOT / "corpus"
 P = ROOT / "papers"
 OUT = C / "REMAINING_189_SCOPE_AUDIT.csv"
 SUMMARY = C / "REMAINING_189_SCOPE_AUDIT_SUMMARY.md"
+BATCH_DIR = C / "remaining_189_batches"
 
 SECURITY_TERMS = (
     "attack", "adversar", "malicious", "security", "secure", "privacy", "leak",
@@ -140,4 +141,19 @@ for tier in ("scope_boundary_check_other", "scope_boundary_check_safety_reliabil
     for r in subset:
         lines.append(f"* `{r['work_key']}` | {r['title']} | {r['evidence_set']} | {r['dominant_contribution']} | {r['venue']}")
 SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
-print(f"Built {len(out)}-row scope audit queue: {dict(counts)}")
+
+# Emit compact source-check batches so each metadata-heavy row can be reviewed
+# against its primary source without relying on the long generated CSV line.
+BATCH_DIR.mkdir(exist_ok=True)
+for old in BATCH_DIR.glob("batch_*.tsv"):
+    old.unlink()
+metadata = [r for r in out if r["triage"] == "source_check_metadata_security"]
+for i in range(0, len(metadata), 12):
+    chunk = metadata[i:i + 12]
+    path = BATCH_DIR / f"batch_{i // 12 + 1:02d}.tsv"
+    with path.open("w", encoding="utf-8", newline="") as f:
+        f.write("work_key\ttitle\tcategory\tset\tdoi\tarxiv_id\tprimary_url\n")
+        for r in chunk:
+            vals = [r["work_key"], r["title"], r["dominant_contribution"], r["evidence_set"], r["doi"], r["arxiv_id"], r["primary_url"]]
+            f.write("\t".join(v.replace("\t", " ").replace("\n", " ") for v in vals) + "\n")
+print(f"Built {len(out)}-row scope audit queue: {dict(counts)}; metadata batches={len(list(BATCH_DIR.glob('batch_*.tsv')))}")
