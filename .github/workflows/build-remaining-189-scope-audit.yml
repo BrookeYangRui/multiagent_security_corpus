@@ -20,13 +20,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build audit queue
+      - name: Build audit queue and decisions
         run: python3 scripts/build_remaining_189_scope_audit.py
-      - name: Commit audit queue
+      - name: Commit audit artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add corpus/REMAINING_189_SCOPE_AUDIT.csv corpus/REMAINING_189_SCOPE_AUDIT_SUMMARY.md corpus/remaining_189_batches/
+          git add corpus/REMAINING_189_SCOPE_AUDIT.csv corpus/REMAINING_189_SCOPE_AUDIT_SUMMARY.md corpus/REMAINING_189_SCOPE_DECISIONS.csv corpus/REMAINING_189_SCOPE_FINAL_REVIEW.md corpus/remaining_189_batches/
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Build remaining 189 scope audit queue"
+          git commit -m "Build final 189 scope review artifacts"
           git push origin HEAD:audit/remaining-189-scope
