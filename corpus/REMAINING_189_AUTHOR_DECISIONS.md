@@ -63,18 +63,26 @@ This file records explicit author adjudications and source-level corrections tha
 * Rationale: the full paper explicitly studies a five-agent LLM architecture and makes privacy-aware routing a first-class multi-agent design concern. Sensitive-query classification controls local-versus-cloud LLM selection and is described as mandatory access control at query level. Privacy therefore governs the multi-agent execution path rather than appearing as an incidental feature.
 * Source: `https://www.irjmets.com/upload_newfiles/irjmets80500183032/paper_file/irjmets80500183032.pdf`, May 2026.
 
-## Source corrections without final scope decision
-
 ### Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems
 
 * Work key: `doi:10.2139/ssrn.7127218`
-* Source status: **PRIMARY SOURCE EXISTS**. A primary SSRN PDF was supplied directly during adjudication, so the previous source-nonexistence objection is superseded.
-* Remaining question: confirm from the full PDF that the separately addressable principals are LLM-backed agents and that the cryptographic routing guarantee protects an inter-agent security property rather than a generic distributed-routing system.
+* Decision: **KEEP**
+* Rationale: the full paper explicitly models an LLM-enabled multi-agent swarm as a directed graph of autonomous agents and inter-agent communication channels. It uses an LLM compiler for agent intents and defines a Dolev-Yao adversary that can intercept, synthesize, and replay messages. HMAC-SHA256, TTL replay protection, payload-digest verification, and risk-calibrated semantic-cache thresholds protect inter-agent message integrity and state-changing actions. This is direct interaction-native MAS security rather than generic routing efficiency.
 
 ### Security of LLM Agents: A Case Study Approach
 
 * Work key: `doi:10.1109/trustcom66490.2025.00226`
-* Source status: **PUBLICATION EXISTS; FULL-TEXT MAS BOUNDARY STILL TO VERIFY**. The TrustCom 2025 publication and authorship are verified, and an IEEE stamp link was supplied. The remaining question is whether the case study contains multiple separately addressable LLM-backed agents with a material inter-agent security relation.
+* Decision: **KEEP**
+* Rationale: the full TrustCom paper implements six attacks on two real-world MASs. GPMS uses AutoGen Swarm agents with shared context and handoffs and is attacked through function-enumeration propagation and privilege escalation across the agent graph. The AI Hedge Fund uses communicating graph nodes and shared state and is tested against compromised-agent, intercepted-agent/MITM, compromised-tool, and resource-exhaustion attacks. The paper directly studies inter-agent security surfaces and defenses.
+
+### LLM Drift Experiment: A Framework for Quantifying Behavioral Decay in Adversarial Multi-Agent Simulations
+
+* Work key: `doi:10.5281/zenodo.20032071`
+* Decision: **KEEP**
+* Rationale: author adjudication retains this framework as MAS-security evaluation evidence. It subjects LLM agents to prolonged adversarial multi-agent interaction and quantifies interaction-driven behavioral decay across longitudinal trajectories. Its role in the corpus is evaluation evidence about adversarial social influence and trajectory drift, not a claim that behavioral drift alone defines every security violation.
+* Source status: Zenodo software release public 21 May 2026, before the literature cutoff.
+
+## Remaining unresolved item
 
 ### Collaborative-adversarial jailbreaking: A propagation-aware attack framework for multi-agent code generation systems
 
@@ -82,14 +90,6 @@ This file records explicit author adjudications and source-level corrections tha
 * Scope status: **DIRECT MAS SECURITY**.
 * Remaining question: cutoff only. Retain if a public version dated on or before 1 July 2026 can be established; otherwise exclude solely for cutoff compliance.
 
-### LLM Drift Experiment: A Framework for Quantifying Behavioral Decay in Adversarial Multi-Agent Simulations
-
-* Work key: `doi:10.5281/zenodo.20032071`
-* Source status: **SOURCE CONFIRMED**, software release public 21 May 2026.
-* Remaining question: scope. The framework measures behavioral/personality/affective/cognitive/social drift under adversarial multi-agent pressure. The current description does not yet state a concrete protected security/privacy property beyond behavioral decay, so under the manuscript's rule that behavioral drift alone is insufficient this remains a genuine boundary case rather than a source-gap case.
-
 ## Current audit status
 
-Nine formerly disputed works are now author/source-confirmed KEEP: From Debate to Decision, LieCraft, The Subtle Art of Defection, Multi-Agent Orchestration, Architectural Resilience, Memetic Cascade Detection, Pratyahara, Semantic Taint Propagation, and the Privacy-Preserving Multi-Agent RAG survey.
-
-Only four discussion items remain from the original 13-work queue: Nexus Protocol, Security of LLM Agents, Collaborative-adversarial jailbreaking (cutoff only), and LLM Drift Experiment.
+Twelve formerly disputed works are now confirmed KEEP. Only one item remains unresolved from the original 13-work discussion queue: `Collaborative-adversarial jailbreaking: A propagation-aware attack framework for multi-agent code generation systems`, and the only unresolved issue is whether a public version existed on or before the 1 July 2026 literature cutoff.
