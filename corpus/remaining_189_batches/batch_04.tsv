@@ -1,13 +1,13 @@
-work_key	title	category	set	doi	arxiv_id	primary_url
-arxiv:2601.14667	INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems	defense	set2_emerging		2601.14667	https://www.semanticscholar.org/paper/3056e518d044a9d651a0e45311a1a921f3cf26d8
-arxiv:2605.22786	LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems	defense	set2_emerging		2605.22786	https://www.semanticscholar.org/paper/8a01248caa80174984a6e123597143030286fef7
-arxiv:2603.08852	LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems	defense	set2_emerging	10.21203/rs.3.rs-9121599/v1	2603.08852	
-arxiv:2606.30555	Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing	defense	set2_emerging		2606.30555	https://www.semanticscholar.org/paper/a4bcae17ba83b1559d62720cf450fd65c1bc9597
-arxiv:2606.30602	MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems	evaluation	set2_emerging		2606.30602	https://www.semanticscholar.org/paper/c4d062571426768628580ab820b3de4772be413e
-arxiv:2605.12240	No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents	general	set2_emerging		2605.12240	https://www.semanticscholar.org/paper/36084cb024fea0e9848e6b8ecf499bc00e534493
-arxiv:2601.13186	Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching	defense	set2_emerging		2601.13186	https://www.semanticscholar.org/paper/f759d9e8f124b49d74005ed5d36c2202bddd0dd7
-arxiv:2605.16346	PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation	defense	set2_emerging		2605.16346	https://www.semanticscholar.org/paper/ffd5b662160cd415cd045b664872fe5b7812f0ce
-arxiv:2512.16279	QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems	defense	set2_emerging		2512.16279	https://www.semanticscholar.org/paper/6e9b992946fbc6c608fe7b45ddeab9ed83ae6e5d
-arxiv:2605.09076	Robust Multi-Agent LLMs under Byzantine Faults	defense	set2_emerging		2605.09076	https://www.semanticscholar.org/paper/a946db88de13b1a6e394973c3ecb191f1dca11d2
-arxiv:2606.07940	SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems	defense	set2_emerging		2606.07940	https://www.semanticscholar.org/paper/b3d377158d19906b9f88b33e037f00609b674840
-arxiv:2510.19420	Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation	defense	set2_emerging		2510.19420	https://www.semanticscholar.org/paper/19ed9b8d65821da821509212ad4aa878fa73b704
+work_key	title	category	set	doi	arxiv_id	primary_url	verdict
+arxiv:2601.14667	INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems	defense	set2_emerging		2601.14667	https://www.semanticscholar.org/paper/3056e518d044a9d651a0e45311a1a921f3cf26d8	KEEP
+arxiv:2605.22786	LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems	defense	set2_emerging		2605.22786	https://www.semanticscholar.org/paper/8a01248caa80174984a6e123597143030286fef7	KEEP
+arxiv:2603.08852	LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems	defense	set2_emerging	10.21203/rs.3.rs-9121599/v1	2603.08852		KEEP
+arxiv:2606.30555	Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing	defense	set2_emerging		2606.30555	https://www.semanticscholar.org/paper/a4bcae17ba83b1559d62720cf450fd65c1bc9597	KEEP
+arxiv:2606.30602	MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems	evaluation	set2_emerging		2606.30602	https://www.semanticscholar.org/paper/c4d062571426768628580ab820b3de4772be413e	KEEP
+arxiv:2605.12240	No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents	general	set2_emerging		2605.12240	https://www.semanticscholar.org/paper/36084cb024fea0e9848e6b8ecf499bc00e534493	KEEP
+arxiv:2601.13186	Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching	defense	set2_emerging		2601.13186	https://www.semanticscholar.org/paper/f759d9e8f124b49d74005ed5d36c2202bddd0dd7	KEEP
+arxiv:2605.16346	PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation	defense	set2_emerging		2605.16346	https://www.semanticscholar.org/paper/ffd5b662160cd415cd045b664872fe5b7812f0ce	KEEP
+arxiv:2512.16279	QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems	defense	set2_emerging		2512.16279	https://www.semanticscholar.org/paper/6e9b992946fbc6c608fe7b45ddeab9ed83ae6e5d	KEEP
+arxiv:2605.09076	Robust Multi-Agent LLMs under Byzantine Faults	defense	set2_emerging		2605.09076	https://www.semanticscholar.org/paper/a946db88de13b1a6e394973c3ecb191f1dca11d2	KEEP
+arxiv:2606.07940	SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems	defense	set2_emerging		2606.07940	https://www.semanticscholar.org/paper/b3d377158d19906b9f88b33e037f00609b674840	KEEP
+arxiv:2510.19420	Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation	defense	set2_emerging		2510.19420	https://www.semanticscholar.org/paper/19ed9b8d65821da821509212ad4aa878fa73b704	KEEP

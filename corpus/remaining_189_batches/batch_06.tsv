@@ -1,13 +1,13 @@
-work_key	title	category	set	doi	arxiv_id	primary_url
-doi:10.63412/8vgf0b98	Consensus-Driven Metacognition in Multi-Agent Systems: A Logic-Based Byzantine Fault-Tolerant Protocol	defense	set1_core	10.63412/8vgf0b98		https://www.semanticscholar.org/paper/ac0706db085a89ea13df7586e0248b0d76e147e6
-doi:10.63278/jicrcr.vi.3596	Privacy-Preserving LLM Infrastructure With Multi-Agent Orchestration And RAG-Driven Retrieval	defense	set1_core	10.63278/jicrcr.vi.3596		https://www.semanticscholar.org/paper/a474c87418109af091dd73f3e46c231fac107790
-doi:10.1145/3770854.3780202	Robust LLM-based Multi-Agent System with Action Negotiation and Sharing Redundancy Enhancement	defense	set1_core	10.1145/3770854.3780202		
-arxiv:5154.37952	SecureGov-Agent: A Governance-Centric Multi-Agent Framework for Privacy-Preserving and Attack-Resilient LLM Agents	defense	set1_core	10.1145/3795154.3795296	5154.37952	https://doi.org/10.1145/3795154.3795296
-doi:10.2139/ssrn.7127218	Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems	defense	set2_emerging	10.2139/ssrn.7127218		
-doi:10.5281/zenodo.19244877	Memetic Cascade Detection and Symbolic Immunity in Multi-Agent LLM Systems	defense	set2_emerging	10.5281/zenodo.19244877		
-doi:10.5281/zenodo.19628588	Pratyahara: A Neural Tissue Defense Model for Detecting Compromised Agents in Multi-Agent Networks	defense	set2_emerging	10.5281/zenodo.19628588		
-doi:10.5281/zenodo.20834834	Semantic Taint Propagation: Embedding-Based Semantic Flow Monitoring for Multi-Agent Large Language Model Systems	defense	set2_emerging	10.5281/zenodo.20834834		
-arxiv:2504.07461	Achilles Heel of Distributed Multi-Agent Systems	evaluation	set2_emerging		2504.07461	https://www.semanticscholar.org/paper/df948cf591ab14be205c1f43782b36aa35450a32
-arxiv:2605.14271	Auditing Agent Harness Safety	evaluation	set2_emerging		2605.14271	https://www.semanticscholar.org/paper/7d89c6d4c6b401f4d8e6e9759f25b3578e206e0f
-arxiv:2604.01151	Detecting Multi-Agent Collusion Through Multi-Agent Interpretability	evaluation	set2_emerging		2604.01151	https://www.semanticscholar.org/paper/ecb415dc6dd0b9220463ec79125db492f93cda81
-arxiv:2603.29846	SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models	evaluation	set2_emerging		2603.29846	https://www.semanticscholar.org/paper/795d225d056a74886b3b40c1b8596ee7dea8c3e4
+work_key	title	category	set	doi	arxiv_id	primary_url	verdict
+doi:10.63412/8vgf0b98	Consensus-Driven Metacognition in Multi-Agent Systems: A Logic-Based Byzantine Fault-Tolerant Protocol	defense	set1_core	10.63412/8vgf0b98		https://www.semanticscholar.org/paper/ac0706db085a89ea13df7586e0248b0d76e147e6	KEEP
+doi:10.63278/jicrcr.vi.3596	Privacy-Preserving LLM Infrastructure With Multi-Agent Orchestration And RAG-Driven Retrieval	defense	set1_core	10.63278/jicrcr.vi.3596		https://www.semanticscholar.org/paper/a474c87418109af091dd73f3e46c231fac107790	KEEP
+doi:10.1145/3770854.3780202	Robust LLM-based Multi-Agent System with Action Negotiation and Sharing Redundancy Enhancement	defense	set1_core	10.1145/3770854.3780202			KEEP
+arxiv:5154.37952	SecureGov-Agent: A Governance-Centric Multi-Agent Framework for Privacy-Preserving and Attack-Resilient LLM Agents	defense	set1_core	10.1145/3795154.3795296	5154.37952	https://doi.org/10.1145/3795154.3795296	KEEP
+doi:10.2139/ssrn.7127218	Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems	defense	set2_emerging	10.2139/ssrn.7127218			UNCERTAIN_DISCUSS
+doi:10.5281/zenodo.19244877	Memetic Cascade Detection and Symbolic Immunity in Multi-Agent LLM Systems	defense	set2_emerging	10.5281/zenodo.19244877			UNCERTAIN_DISCUSS
+doi:10.5281/zenodo.19628588	Pratyahara: A Neural Tissue Defense Model for Detecting Compromised Agents in Multi-Agent Networks	defense	set2_emerging	10.5281/zenodo.19628588			UNCERTAIN_DISCUSS
+doi:10.5281/zenodo.20834834	Semantic Taint Propagation: Embedding-Based Semantic Flow Monitoring for Multi-Agent Large Language Model Systems	defense	set2_emerging	10.5281/zenodo.20834834			UNCERTAIN_DISCUSS
+arxiv:2504.07461	Achilles Heel of Distributed Multi-Agent Systems	evaluation	set2_emerging		2504.07461	https://www.semanticscholar.org/paper/df948cf591ab14be205c1f43782b36aa35450a32	KEEP
+arxiv:2605.14271	Auditing Agent Harness Safety	evaluation	set2_emerging		2605.14271	https://www.semanticscholar.org/paper/7d89c6d4c6b401f4d8e6e9759f25b3578e206e0f	KEEP
+arxiv:2604.01151	Detecting Multi-Agent Collusion Through Multi-Agent Interpretability	evaluation	set2_emerging		2604.01151	https://www.semanticscholar.org/paper/ecb415dc6dd0b9220463ec79125db492f93cda81	KEEP
+arxiv:2603.29846	SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models	evaluation	set2_emerging		2603.29846	https://www.semanticscholar.org/paper/795d225d056a74886b3b40c1b8596ee7dea8c3e4	KEEP

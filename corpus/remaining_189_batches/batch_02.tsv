@@ -1,13 +1,13 @@
-work_key	title	category	set	doi	arxiv_id	primary_url
-doi:10.19139/soic-2310-5070-3574	Cascading Instruction Influence Indirect Prompt Injection in Hierarchical Multi-Agent Systems	attack	set1_core	10.19139/soic-2310-5070-3574		
-doi:10.5281/zenodo.17812179	LLM Hijacking: When Models Manipulate Their Routers	attack	set2_emerging	10.5281/zenodo.17812179		
-doi:10.1109/iccces62661.2026.11437027	CAPRI-DP: A Differentially Private Extension to Context-Aware Multi-Agent Privacy Frameworks	defense	set1_core	10.1109/iccces62661.2026.11437027		
-doi:10.65109/ydmy4904	ConvPayMAS: Conversational Payment Multi-Agent System with Agent-to-Agent Protocol and Three-Mandate Verification	defense	set1_core	10.65109/ydmy4904		
-doi:10.1145/3674399.3674445	BlockAgents: Towards Byzantine-Robust LLM-Based Multi-Agent Coordination via Blockchain	defense	set1_core	10.1145/3674399.3674445		
-doi:10.4018/979-8-3373-1419-8.ch009	Security and Privacy in Multi-Agent LLM Networks	defense	set1_core	10.4018/979-8-3373-1419-8.ch009		
-arxiv:2510.01586	AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning	defense	set2_emerging		2510.01586	https://www.semanticscholar.org/paper/7a44b3e5b5151aa1c9fd533e2374578a1ddbc4df
-arxiv:2408.14972	AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems	defense	set2_emerging		2408.14972	https://www.semanticscholar.org/paper/cc47d7d1e08f4a1adfd4c734b387040ad3b3ff0d
-arxiv:2509.13597	Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents	defense	set2_emerging		2509.13597	https://www.semanticscholar.org/paper/117cd1d71516457304f87903bac925e5d1222325
-arxiv:2605.02812	Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense	attack	set2_emerging		2605.02812	https://www.semanticscholar.org/paper/643d8d8cce043ad494db9b92aecf09ab5186e9de
-arxiv:2603.04469	Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection	defense	set2_emerging		2603.04469	
-arxiv:2604.22879	Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems	defense	set2_emerging		2604.22879	https://www.semanticscholar.org/paper/5d8182b26a2508ca1cc6d29f1ff0540c120f9400
+work_key	title	category	set	doi	arxiv_id	primary_url	verdict
+doi:10.19139/soic-2310-5070-3574	Cascading Instruction Influence Indirect Prompt Injection in Hierarchical Multi-Agent Systems	attack	set1_core	10.19139/soic-2310-5070-3574			KEEP
+doi:10.5281/zenodo.17812179	LLM Hijacking: When Models Manipulate Their Routers	attack	set2_emerging	10.5281/zenodo.17812179			KEEP
+doi:10.1109/iccces62661.2026.11437027	CAPRI-DP: A Differentially Private Extension to Context-Aware Multi-Agent Privacy Frameworks	defense	set1_core	10.1109/iccces62661.2026.11437027			KEEP
+doi:10.65109/ydmy4904	ConvPayMAS: Conversational Payment Multi-Agent System with Agent-to-Agent Protocol and Three-Mandate Verification	defense	set1_core	10.65109/ydmy4904			KEEP
+doi:10.1145/3674399.3674445	BlockAgents: Towards Byzantine-Robust LLM-Based Multi-Agent Coordination via Blockchain	defense	set1_core	10.1145/3674399.3674445			KEEP
+doi:10.4018/979-8-3373-1419-8.ch009	Security and Privacy in Multi-Agent LLM Networks	defense	set1_core	10.4018/979-8-3373-1419-8.ch009			KEEP
+arxiv:2510.01586	AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning	defense	set2_emerging		2510.01586	https://www.semanticscholar.org/paper/7a44b3e5b5151aa1c9fd533e2374578a1ddbc4df	KEEP
+arxiv:2408.14972	AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems	defense	set2_emerging		2408.14972	https://www.semanticscholar.org/paper/cc47d7d1e08f4a1adfd4c734b387040ad3b3ff0d	KEEP
+arxiv:2509.13597	Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents	defense	set2_emerging		2509.13597	https://www.semanticscholar.org/paper/117cd1d71516457304f87903bac925e5d1222325	KEEP
+arxiv:2605.02812	Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense	attack	set2_emerging		2605.02812	https://www.semanticscholar.org/paper/643d8d8cce043ad494db9b92aecf09ab5186e9de	KEEP
+arxiv:2603.04469	Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection	defense	set2_emerging		2603.04469		KEEP
+arxiv:2604.22879	Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems	defense	set2_emerging		2604.22879	https://www.semanticscholar.org/paper/5d8182b26a2508ca1cc6d29f1ff0540c120f9400	KEEP

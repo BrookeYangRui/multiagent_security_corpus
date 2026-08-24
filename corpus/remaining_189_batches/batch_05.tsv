@@ -1,13 +1,13 @@
-work_key	title	category	set	doi	arxiv_id	primary_url
-arxiv:2509.14956	Sentinel Agents for Secure and Trustworthy Agentic AI in Multi-Agent Systems	defense	set1_core		2509.14956	
-arxiv:2604.02767	SentinelAgent: Intent-Verified Delegation Chains for Securing Federal Multi-Agent AI Systems	defense	set2_emerging		2604.02767	
-arxiv:2604.17139	The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration	defense	set2_emerging		2604.17139	https://www.semanticscholar.org/paper/2322a9616b069e2d0f27e736ff688840194332dd
-arxiv:2512.23557	Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks	defense	set2_emerging		2512.23557	https://www.semanticscholar.org/paper/d775531bf0c45fa89cb41e521e77d920f33fcf82
-doi:10.3390/electronics15112278	Ethical Coordination of LLM Multi-Agent Systems	defense	set1_core	10.3390/electronics15112278		
-doi:10.1109/icaic67076.2026.11395749	Architectural Resilience in AI-Driven Decision Systems under Adversarial Conditions	defense	set1_core	10.1109/icaic67076.2026.11395749		
-doi:10.1109/cscwd68734.2026.11582680	RoMa: A Credibility-Aware Fault-Tolerance Framework for LLM Multi-Agent Systems	defense	set1_core	10.1109/cscwd68734.2026.11582680		
-doi:10.1109/icca66035.2025.11430791	Cross-Agent Multimodal Provenance-Aware Framework for Robust Prompt Injection Defense in Large Language and Vision-Language Models	defense	set1_core	10.1109/icca66035.2025.11430791		
-doi:10.1109/icca66035.2025.11431026	SPIFFE-Based Zero-Trust Authentication for AI Agent Ecosystems	defense	set1_core	10.1109/icca66035.2025.11431026		
-doi:10.71465/ajainn3659	Self-Healing Memory Architectures for Large Language Model-Based Multi-Agent Collaboration	defense	set1_core	10.71465/ajainn3659		
-doi:10.1109/tdsc.2026.3685256	AgentChain: Blockchain-Empowered Multi-Agent Coordination for Trustworthy LLM Question-Answering Systems	defense	set1_core	10.1109/tdsc.2026.3685256		
-doi:10.1109/tnse.2026.3680460	Topology Linearization for Multi-Agent Systems Security: Mitigating Malicious Propagation via Path Decomposition	defense	set1_core	10.1109/tnse.2026.3680460		
+work_key	title	category	set	doi	arxiv_id	primary_url	verdict
+arxiv:2509.14956	Sentinel Agents for Secure and Trustworthy Agentic AI in Multi-Agent Systems	defense	set1_core		2509.14956		KEEP
+arxiv:2604.02767	SentinelAgent: Intent-Verified Delegation Chains for Securing Federal Multi-Agent AI Systems	defense	set2_emerging		2604.02767		KEEP
+arxiv:2604.17139	The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration	defense	set2_emerging		2604.17139	https://www.semanticscholar.org/paper/2322a9616b069e2d0f27e736ff688840194332dd	KEEP
+arxiv:2512.23557	Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks	defense	set2_emerging		2512.23557	https://www.semanticscholar.org/paper/d775531bf0c45fa89cb41e521e77d920f33fcf82	KEEP
+doi:10.3390/electronics15112278	Ethical Coordination of LLM Multi-Agent Systems	defense	set1_core	10.3390/electronics15112278			KEEP
+doi:10.1109/icaic67076.2026.11395749	Architectural Resilience in AI-Driven Decision Systems under Adversarial Conditions	defense	set1_core	10.1109/icaic67076.2026.11395749			UNCERTAIN_DISCUSS
+doi:10.1109/cscwd68734.2026.11582680	RoMa: A Credibility-Aware Fault-Tolerance Framework for LLM Multi-Agent Systems	defense	set1_core	10.1109/cscwd68734.2026.11582680			KEEP
+doi:10.1109/icca66035.2025.11430791	Cross-Agent Multimodal Provenance-Aware Framework for Robust Prompt Injection Defense in Large Language and Vision-Language Models	defense	set1_core	10.1109/icca66035.2025.11430791			KEEP
+doi:10.1109/icca66035.2025.11431026	SPIFFE-Based Zero-Trust Authentication for AI Agent Ecosystems	defense	set1_core	10.1109/icca66035.2025.11431026			KEEP
+doi:10.71465/ajainn3659	Self-Healing Memory Architectures for Large Language Model-Based Multi-Agent Collaboration	defense	set1_core	10.71465/ajainn3659			KEEP
+doi:10.1109/tdsc.2026.3685256	AgentChain: Blockchain-Empowered Multi-Agent Coordination for Trustworthy LLM Question-Answering Systems	defense	set1_core	10.1109/tdsc.2026.3685256			KEEP
+doi:10.1109/tnse.2026.3680460	Topology Linearization for Multi-Agent Systems Security: Mitigating Malicious Propagation via Path Decomposition	defense	set1_core	10.1109/tnse.2026.3680460			KEEP
