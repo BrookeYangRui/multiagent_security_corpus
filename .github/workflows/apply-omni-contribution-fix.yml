@@ -1,0 +1,41 @@
+name: Apply OMNI-LEAK contribution correction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/correct_omni_leak_contribution.py
+
+permissions:
+  contents: write
+
+jobs:
+  correct:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply contribution correction
+        run: python scripts/correct_omni_leak_contribution.py
+
+      - name: Validate authoritative corpus
+        run: python scripts/validate_corpus.py
+
+      - name: Commit correction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'Correct OMNI-LEAK dominant contribution' || exit 0
+          git push origin HEAD:main
