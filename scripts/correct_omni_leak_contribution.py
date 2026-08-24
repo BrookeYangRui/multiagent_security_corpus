@@ -2,7 +2,7 @@
 """Correct OMNI-LEAK from survey-primary to attack-primary.
 
 The paper note already identifies the work as an attack/benchmark/evaluation and
-states ``Primary category: attack``.  This migration changes only dominant
+states ``Primary category: attack``. This migration changes only dominant
 contribution and derived materialized views; corpus membership and Set 2 status
 remain unchanged.
 """
@@ -135,10 +135,7 @@ replacements = {
     ROOT / "AGENTS.md": [
         ("46 attacks", "47 attacks"),
         ("7 surveys", "6 surveys"),
-    ],
-    ROOT / "CORPUS_SET_POLICY.md": [
-        ("46 attacks", "47 attacks"),
-        ("7 surveys", "6 surveys"),
+        ("46/80/44/12/7", "47/80/44/12/6"),
     ],
     ROOT / "papers/README.md": [
         ("| attack | 46 |", "| attack | 47 |"),
