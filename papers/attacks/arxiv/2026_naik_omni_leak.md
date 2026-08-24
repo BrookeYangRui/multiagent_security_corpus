@@ -1,7 +1,7 @@
 # OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `survey` · venue `arXiv` · signoff `2026-08-21`.
+> **Final corpus status:** `set2_emerging` · `attack` · venue `arXiv` · contribution correction `2026-08-24`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
@@ -93,6 +93,10 @@ composed authority chain; no complete defense is introduced.
 | The setup enforces access separation between downstream agents. | Explicit author claim | Paper | Sec. 4 | 3 | Fig. 2 | Each downstream agent has distinct prompts and tools. |
 | Success requires sensitive data to reach the specified attacker email. | Explicit author claim | Paper | Sec. 4.2 | 4 | Fig. 4 | Partial exfiltration or wrong-recipient delivery is marked unsuccessful. |
 | Five frontier models are evaluated. | Explicit author claim | Paper | Sec. 5 | 4-7 | Tables 1-5 | Experiments vary models, attacks, queries, and databases. |
+
+## Contribution correction
+
+The active corpus records this work as attack-primary. Its central contribution is the demonstrated cross-agent data-exfiltration attack and accompanying benchmark; it is not a survey. The correction does not change corpus membership or maturity.
 
 ## Provenance
 

@@ -1,6 +1,6 @@
 # Attack papers
 
-Final 189-corpus dominant-contribution count: **46**.
+Final 189-corpus dominant-contribution count: **47**.
 
 ## 2026_1st_international_conference_on_emerging_technologies_and_enginee
 
@@ -45,6 +45,7 @@ Final 189-corpus dominant-contribution count: **46**.
 * [Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers](arxiv/2026_kill_chain_canaries_stage_level_tracking_of_prompt_injection_across_atta.md)  `set2_emerging`
 * [MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems](arxiv/2025_mad_spear_a_conformity_driven_prompt_injection_attack_on_multi_agent_deb.md)  `set2_emerging`
 * [Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare](arxiv/2025_many_to_one_adversarial_consensus_exposing_multi_agent_collusion_risks_i.md)  `set2_emerging`
+* [OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage](arxiv/2026_naik_omni_leak.md)  `set2_emerging`
 * [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](arxiv/2025_lupinacci_dark_side.md)  `set2_emerging`
 * [The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration](arxiv/2025_patil_the_sum_leaks_more_than_its_parts_compositional.md)  `set1_core`
 * [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](arxiv/2024_tan_wolf_within.md)  `set1_core`

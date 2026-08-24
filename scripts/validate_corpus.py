@@ -9,7 +9,7 @@ C = R / "corpus"
 P = R / "papers"
 
 EXPECTED_COUNTS = {"set1_core": 92, "set2_emerging": 97, "total_corpus": 189}
-EXPECTED_CONTRIB = {"attack": 46, "defense": 80, "evaluation": 44, "general": 12, "survey": 7}
+EXPECTED_CONTRIB = {"attack": 47, "defense": 80, "evaluation": 44, "general": 12, "survey": 6}
 CATEGORY_DIR = {"attack": "attacks", "defense": "defenses", "evaluation": "evaluations", "general": "general", "survey": "surveys"}
 
 

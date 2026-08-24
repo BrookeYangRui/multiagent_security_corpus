@@ -20,7 +20,7 @@ Two direct MAS-security works were subsequently restored after source-level revi
 
 ## Paper organization
 
-`papers/` contains exactly the active corpus notes, organized by dominant contribution and venue. Current totals are **46 attacks**, **80 defenses**, **44 evaluations**, **12 general works**, and **7 surveys**.
+`papers/` contains exactly the active corpus notes, organized by dominant contribution and venue. Current totals are **47 attacks**, **80 defenses**, **44 evaluations**, **12 general works**, and **6 surveys**.
 
 ## Validation
 

@@ -1,10 +1,6 @@
 # Survey papers
 
-Final 189-corpus dominant-contribution count: **7**.
-
-## arxiv
-
-* [OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage](arxiv/2026_naik_omni_leak.md)  `set2_emerging`
+Final 189-corpus dominant-contribution count: **6**.
 
 ## journals_ai_open
 

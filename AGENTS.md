@@ -18,10 +18,10 @@ Set 1 uses `peer_reviewed == yes OR frozen_citation_count >= 10`; Set 2 contains
 
 ## Paper notes
 
-Every active work appears exactly once under `papers/` and in `papers/index.csv`. Current dominant-contribution totals are **46 attacks, 80 defenses, 44 evaluations, 12 general works, and 7 surveys**.
+Every active work appears exactly once under `papers/` and in `papers/index.csv`. Current dominant-contribution totals are **47 attacks, 80 defenses, 44 evaluations, 12 general works, and 6 surveys**.
 
 A work outside the active 189 must not have a paper note under `papers/`. `sok_related/` is a supporting comparator view and is never added to the corpus denominator.
 
 ## Validation
 
-Run `scripts/validate_all.sh`. Validation must enforce Set 1 = 92, Set 2 = 97, total = 189, the 46/80/44/12/7 contribution partition, exact paper-index membership, and exactly 189 non-README paper notes.
+Run `scripts/validate_all.sh`. Validation must enforce Set 1 = 92, Set 2 = 97, total = 189, the 47/80/44/12/6 contribution partition, exact paper-index membership, and exactly 189 non-README paper notes.
