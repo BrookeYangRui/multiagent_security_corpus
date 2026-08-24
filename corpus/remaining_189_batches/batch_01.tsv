@@ -1,0 +1,13 @@
+work_key	title	category	set	doi	arxiv_id	primary_url
+doi:10.1109/icetes68504.2026.11518808	RAG-Induced Failures in Multi-Agent Large Language Model Debate	attack	set1_core	10.1109/icetes68504.2026.11518808		
+arxiv:2603.15727	AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems	attack	set2_emerging		2603.15727	https://www.semanticscholar.org/paper/c37f61125f25b797723fde8f340a4262f7b99c49
+arxiv:2504.16489	Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate	attack	set2_emerging		2504.16489	https://www.semanticscholar.org/paper/523090aa81939c856e0e7f9a0f32eb705672a545
+arxiv:2605.05632	Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning	attack	set2_emerging		2605.05632	https://www.semanticscholar.org/paper/fcc53771b3427efb4aaac2d042ec855cf4fa1630
+arxiv:2605.22001	Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems	attack	set2_emerging		2605.22001	https://www.semanticscholar.org/paper/d623578c650d7d6442398dd7e2683caeaa91ac22
+arxiv:2606.07790	Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games	attack	set2_emerging		2606.07790	https://www.semanticscholar.org/paper/1993dd73996dafdb4d66396646936c9da6a47f99
+arxiv:2605.11514	FlowSteer: Prompt-Only Workflow Steering Exposes Planning-Time Vulnerabilities in Multi-Agent LLM Systems	attack	set2_emerging		2605.11514	https://www.semanticscholar.org/paper/c6099b49fe6cfff58a4688eedf107f3ed0490699
+arxiv:2603.28013	Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers	attack	set2_emerging		2603.28013	https://www.semanticscholar.org/paper/502cb13c300a8f1075e921b391528b5507e58259
+arxiv:2507.13038	MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems	attack	set2_emerging		2507.13038	https://www.semanticscholar.org/paper/1115a843e8f3d142180f807c97f71cde65d2ad12
+arxiv:2512.03097	Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare	attack	set2_emerging		2512.03097	https://www.semanticscholar.org/paper/bf43fd628552fac551b2d80f188c2c600926773a
+arxiv:2603.11132	WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference	attack	set2_emerging		2603.11132	https://www.semanticscholar.org/paper/e6b066c0c60cf443cf714a44291995a7f0bcf7e1
+arxiv:2606.28958	When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration	attack	set2_emerging		2606.28958	https://www.semanticscholar.org/paper/65f0ad12bf4e29ac881d2de523470caae77e6678

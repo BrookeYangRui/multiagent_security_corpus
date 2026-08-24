@@ -1,0 +1,13 @@
+work_key	title	category	set	doi	arxiv_id	primary_url
+arxiv:2606.15008	Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations	evaluation	set2_emerging		2606.15008	https://www.semanticscholar.org/paper/2aa4edab94935dd6a1bc2c0cb96923d1762fca88
+arxiv:2510.14312	Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies	evaluation	set2_emerging		2510.14312	https://www.semanticscholar.org/paper/450f3603e3a1f679e79f72a9f5b16214a0eb84ba
+arxiv:2605.17480	The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure	evaluation	set2_emerging		2605.17480	https://www.semanticscholar.org/paper/2e5a9e42518553589f1574f5c6c6e5d34f28627c
+arxiv:2605.06812	Towards Security-Auditable LLM Agents: A Unified Graph Representation	evaluation	set2_emerging		2605.06812	https://www.semanticscholar.org/paper/7919631a973f467b2b05757a61e7b3b9bc6bac54
+arxiv:2603.15408	TrinityGuard: A Unified Framework for Safeguarding Multi-Agent Systems	evaluation	set2_emerging		2603.15408	https://www.semanticscholar.org/paper/3c0851208d7c5b0cf6815806d3197aa7744fba30
+arxiv:2605.08460	When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks	evaluation	set2_emerging		2605.08460	https://www.semanticscholar.org/paper/b46e67e21542fdd9e0ce0cfa1be6fd5030df2c5b
+doi:10.1109/bigdata66926.2025.11401523	Quantifying Privacy Leakage in Multi-Agent LLMs: A Unified Theoretical and Empirical Analysis	evaluation	set1_core	10.1109/bigdata66926.2025.11401523		
+doi:10.1109/ijcnn60899.2024.10650172	CRDA: Content Risk Drift Assessment of Large Language Models through Adversarial Multi-Agent Interaction	evaluation	set1_core	10.1109/ijcnn60899.2024.10650172		
+doi:10.1109/trustcom66490.2025.00226	Security of LLM Agents: A Case Study Approach	evaluation	set1_core	10.1109/trustcom66490.2025.00226		
+doi:10.1016/j.neunet.2026.109280	Collaborative-adversarial jailbreaking: A propagation-aware attack framework for multi-agent code generation systems.	evaluation	set1_core	10.1016/j.neunet.2026.109280		
+doi:10.5281/zenodo.20032071	LLM Drift Experiment: A Framework for Quantifying Behavioral Decay in Adversarial Multi-Agent Simulations	evaluation	set2_emerging	10.5281/zenodo.20032071		
+arxiv:2511.08710	Convergence dynamics of Agent-to-Agent Interactions with Misaligned objectives	general	set2_emerging		2511.08710	https://www.semanticscholar.org/paper/0ff7e4b77af7cc7e8703b5fcd167124421b79199

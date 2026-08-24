@@ -1,0 +1,13 @@
+work_key	title	category	set	doi	arxiv_id	primary_url
+arxiv:2606.17368	Distributed General-Purpose Agent Networks: Architecture, Key Mechanisms, and Prototypes	general	set2_emerging		2606.17368	https://www.semanticscholar.org/paper/0d8fc4c0580db3a5e9c07dbaf35f6bec714073e7
+arxiv:2604.17774	Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents	general	set2_emerging		2604.17774	https://www.semanticscholar.org/paper/48e61a54c7087017b172d413ddd865a6e52bcd6f
+arxiv:2606.12709	Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows	general	set2_emerging		2606.12709	https://www.semanticscholar.org/paper/9efbf2acb974342145797cb766c63de8b7746591
+arxiv:2604.27132	TRUST: A Framework for Decentralized AI Service v.0.1	general	set2_emerging		2604.27132	https://www.semanticscholar.org/paper/8471f7c218f3d1231ca7e6725f0423ae5c46cf2f
+arxiv:2509.11035	Free-MAD: Consensus-Free Multi-Agent Debate	general	set1_core	10.18653/v1/2026.findings-acl.1600	2509.11035	https://doi.org/10.18653/v1/2026.findings-acl.1600
+arxiv:2410.02506	Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems	general	set1_core		2410.02506	https://dblp.org/rec/conf/iclr/ZhangYLYWWCY025
+arxiv:2410.11782	G-Designer: Architecting Multi-agent Communication Topologies via Graph Neural Networks	general	set1_core		2410.11782	
+doi:10.1609/aaai.v40i35.40231	MPAS: Breaking Sequential Constraints of Multi-Agent Communication Topologies via Individual-Epistemic Message Propagation	general	set1_core	10.1609/aaai.v40i35.40231		
+doi:10.59324/ejaset.2026.4(2).16	Orchestration and Verification of Agentic AI Systems: A Survey of Multi-Agent Collaboration and Safety	survey	set1_core	10.59324/ejaset.2026.4(2).16		
+doi:10.38124/ijisrt/26feb1090	Trustworthy Agentic AI: A Survey and Taxonomy of Secure Coordination and Hallucination Mitigation in Multi-Agent Large Language Model Systems	survey	set1_core	10.38124/ijisrt/26feb1090		
+doi:10.56726/irjmets98584	A Literature Survey on Privacy-Preserving Multi-Agent RAG Systems with an Intelligent Tag-Inference Routing System	survey	set1_core	10.56726/irjmets98584		
+doi:10.2139/ssrn.6734798	Multi-Agent Orchestration: Coordination, Trust, and Cascading Failures	survey	set2_emerging	10.2139/ssrn.6734798		
