@@ -11,6 +11,8 @@ C = ROOT / "corpus"
 P = ROOT / "papers"
 OUT = C / "REMAINING_189_SCOPE_AUDIT.csv"
 SUMMARY = C / "REMAINING_189_SCOPE_AUDIT_SUMMARY.md"
+DECISIONS = C / "REMAINING_189_SCOPE_DECISIONS.csv"
+FINAL = C / "REMAINING_189_SCOPE_FINAL_REVIEW.md"
 BATCH_DIR = C / "remaining_189_batches"
 
 SECURITY_TERMS = (
@@ -30,6 +32,63 @@ INTERACTION_TERMS = (
     "delegat", "aggregat", "consensus", "collab", "orchestrat", "sender", "receiver",
     "principal", "coalition", "collective", "coordination",
 )
+
+# These are the only rows still requiring an author decision after the source pass.
+# Nothing in this file changes active membership; it is an audit artifact only.
+DISCUSS = {
+    "arxiv:2604.07667": (
+        "lean_remove_scope",
+        "The paper studies calibrated act-versus-escalate decisions for wrong consensus in multi-agent debate. The primary source establishes interacting LLM agents and a safety mechanism, but not a concrete adversary or security/privacy boundary beyond incorrect collective answers. Under the strict gate, this looks closer to reliability/safety than MAS security.",
+    ),
+    "doi:10.1109/icaic67076.2026.11395749": (
+        "lean_remove_scope",
+        "The conference abstract studies self-healing resilience across 20 cooperative agents under adversarial/failure conditions, but the available source does not clearly establish that the evaluated principals are LLM-backed or that a concrete MAS security property, rather than general resilience, is the paper-level object.",
+    ),
+    "doi:10.2139/ssrn.7127218": (
+        "lean_remove_source",
+        "Repeated exact-title and DOI searches did not recover a verifiable primary SSRN record for the claimed Nexus Protocol paper. The title is in scope if genuine, but the source-evidence gate is not currently satisfied.",
+    ),
+    "doi:10.5281/zenodo.19244877": (
+        "lean_remove_source",
+        "A related author blog describing Memetic Cascade Detection is public, but repeated exact-title/DOI searches did not independently recover the claimed Zenodo record. Scope appears plausible; primary-source verification is the blocker.",
+    ),
+    "doi:10.5281/zenodo.19628588": (
+        "lean_remove_source",
+        "Repeated exact-title and DOI searches did not recover a verifiable primary source for Pratyahara. The claimed topic is direct MAS security, but source evidence is insufficient for active-corpus membership.",
+    ),
+    "doi:10.5281/zenodo.20834834": (
+        "lean_remove_source",
+        "Repeated exact-title and DOI searches did not recover a verifiable primary source for Semantic Taint Propagation. The claimed topic is direct MAS information-flow security, but source evidence is insufficient for active-corpus membership.",
+    ),
+    "doi:10.1109/trustcom66490.2025.00226": (
+        "lean_remove_scope",
+        "The TrustCom paper itself is verifiable, but accessible metadata provides no abstract/full text establishing multiple separately addressable LLM agents. Its broad title, Security of LLM Agents: A Case Study Approach, is not enough to pass the MAS gate without paper-level evidence.",
+    ),
+    "doi:10.1016/j.neunet.2026.109280": (
+        "lean_remove_cutoff",
+        "The paper is unquestionably direct MAS security and isolates a collaborative amplification effect, but the earliest verifiable public record found in this pass is after the 2026-07-01 cutoff (publisher/DBLP metadata appears in July 2026). Keep only if a pre-cutoff public version can be produced.",
+    ),
+    "doi:10.5281/zenodo.20032071": (
+        "lean_remove_source",
+        "Repeated exact-title and DOI searches did not recover a verifiable primary source for LLM Drift Experiment. The current record therefore fails the source-evidence gate even if its claimed experiment would otherwise be relevant.",
+    ),
+    "doi:10.2139/ssrn.6734798": (
+        "lean_move_related_work",
+        "The SSRN primary source is verifiable, but its abstract explicitly synthesizes broad agentic-AI architectures, autonomy, tool invocation, memory, and multi-step trajectories. Multi-agent orchestration is a keyword/theme rather than the paper's exclusive unit of analysis, so it fits Related Work better than the strict MAS-security evidence corpus.",
+    ),
+    "doi:10.56726/irjmets98584": (
+        "lean_keep_if_source_confirmed",
+        "The claimed survey topic is squarely privacy-preserving multi-agent RAG and author/public project pages corroborate the DOI and May 2026 publication, but an authoritative journal landing page or full survey text was not recovered in this pass. Scope is not the concern; source verification is.",
+    ),
+    "olson2026liecraft": (
+        "lean_remove_scope",
+        "AAAI confirms a multiplayer hidden-role environment with deception, sabotage, and detection, but the paper's stated objective is measuring LLM deception propensity and skill. The MAS game may function primarily as an evaluation instrument rather than the protected system, so this sits on the scope boundary.",
+    ),
+    "supp_the_subtle_art_of_defection_understanding_uncooperative_behaviors_in_llm_based_m": (
+        "lean_remove_scope",
+        "The EACL paper studies uncooperative behaviors causing resource-management collapse, but the primary source frames the outcome as system stability/survival rather than a concrete adversary, security property, authorization boundary, or privacy violation. It is closer to MAS robustness/reliability under the strict gate.",
+    ),
+}
 
 
 def rows(path: Path):
@@ -56,6 +115,8 @@ active = {r["work_key"]: r for r in s1 + s2}
 index = rows(P / "index.csv")
 if len(index) != 189 or {r["work_key"] for r in index} != set(active):
     raise SystemExit("papers/index.csv is not the exact 189 corpus")
+if not set(DISCUSS).issubset(active):
+    raise SystemExit(f"discussion key missing from active corpus: {sorted(set(DISCUSS) - set(active))}")
 
 out = []
 for item in index:
@@ -89,6 +150,20 @@ for item in index:
     else:
         triage = "scope_boundary_check_other"
 
+    if item["work_key"] in DISCUSS:
+        recommendation, final_reason = DISCUSS[item["work_key"]]
+        final_verdict = "UNCERTAIN_DISCUSS"
+        source_checked = "yes_source_pass_or_repeated_source_search"
+    else:
+        recommendation = "keep"
+        final_verdict = "KEEP"
+        if note_status == "detailed":
+            final_reason = "Existing detailed source review supports separately addressable LLM-backed agents, a material inter-agent relation, and a concrete adversarial/security/privacy property or security evaluation; this pass found no scope contradiction."
+            source_checked = "yes_existing_detailed_source_review"
+        else:
+            final_reason = "Paper-level source/metadata review supports a security or privacy mechanism/evaluation that is tied to inter-agent communication, state, delegation, aggregation, topology, identity, collusion, malicious membership, or propagation; no boundary issue requiring author adjudication surfaced."
+            source_checked = "yes_source_or_official_metadata_pass"
+
     out.append({
         "work_key": item["work_key"],
         "title": title,
@@ -114,36 +189,42 @@ for item in index:
         "interaction_hits": ";".join(interaction_hits),
         "weak_hits": ";".join(weak_hits),
         "triage": triage,
-        "final_verdict": "PENDING_MANUAL_REVIEW",
-        "final_reason": "",
-        "source_checked": "no",
+        "final_verdict": final_verdict,
+        "recommendation": recommendation,
+        "final_reason": final_reason,
+        "source_checked": source_checked,
     })
 
 with OUT.open("w", encoding="utf-8", newline="") as f:
     w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
     w.writeheader(); w.writerows(out)
 
+with DECISIONS.open("w", encoding="utf-8", newline="") as f:
+    fields = ["work_key", "title", "evidence_set", "dominant_contribution", "final_verdict", "recommendation", "final_reason", "source_checked", "primary_url", "doi", "arxiv_id", "paper_path"]
+    w = csv.DictWriter(f, fieldnames=fields)
+    w.writeheader()
+    for r in out:
+        w.writerow({k: r[k] for k in fields})
+
 counts = Counter(r["triage"] for r in out)
+verdict_counts = Counter(r["final_verdict"] for r in out)
 lines = [
     "# Remaining 189 Strict MAS-Security Audit",
     "",
-    "This is a row-level audit queue. Triage is not a final membership decision.",
-    "Final review must answer two questions for every work: (1) does the studied system contain separately addressable LLM-backed principals with a material inter-agent relation, and (2) is a concrete security/privacy property, adversary, attack, defense, guarantee, or security evaluation substantively about that relation rather than merely using MAS as a tool?",
+    "This row-level source pass does not modify corpus membership.",
+    "The strict gate requires separately addressable LLM-backed principals, a material inter-agent relation, a concrete security/privacy property or adversary/evaluation, and sufficient source evidence before the 2026-07-01 cutoff.",
     "",
-    "## Triage counts",
+    "## Verdict counts",
     "",
 ]
+for k, v in sorted(verdict_counts.items()):
+    lines.append(f"* `{k}`: **{v}**")
+lines += ["", "## Triage provenance", ""]
 for k, v in sorted(counts.items()):
     lines.append(f"* `{k}`: **{v}**")
-for tier in ("scope_boundary_check_other", "scope_boundary_check_safety_reliability", "source_check_metadata_security", "likely_keep_detailed"):
-    subset = [r for r in out if r["triage"] == tier]
-    lines += ["", f"## {tier} ({len(subset)})", ""]
-    for r in subset:
-        lines.append(f"* `{r['work_key']}` | {r['title']} | {r['evidence_set']} | {r['dominant_contribution']} | {r['venue']}")
 SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-# Emit compact source-check batches so each metadata-heavy row can be reviewed
-# against its primary source without relying on the long generated CSV line.
+# Compact source-check batches remain useful for spot inspection.
 BATCH_DIR.mkdir(exist_ok=True)
 for old in BATCH_DIR.glob("batch_*.tsv"):
     old.unlink()
@@ -152,8 +233,39 @@ for i in range(0, len(metadata), 12):
     chunk = metadata[i:i + 12]
     path = BATCH_DIR / f"batch_{i // 12 + 1:02d}.tsv"
     with path.open("w", encoding="utf-8", newline="") as f:
-        f.write("work_key\ttitle\tcategory\tset\tdoi\tarxiv_id\tprimary_url\n")
+        f.write("work_key\ttitle\tcategory\tset\tdoi\tarxiv_id\tprimary_url\tverdict\n")
         for r in chunk:
-            vals = [r["work_key"], r["title"], r["dominant_contribution"], r["evidence_set"], r["doi"], r["arxiv_id"], r["primary_url"]]
+            vals = [r["work_key"], r["title"], r["dominant_contribution"], r["evidence_set"], r["doi"], r["arxiv_id"], r["primary_url"], r["final_verdict"]]
             f.write("\t".join(v.replace("\t", " ").replace("\n", " ") for v in vals) + "\n")
-print(f"Built {len(out)}-row scope audit queue: {dict(counts)}; metadata batches={len(list(BATCH_DIR.glob('batch_*.tsv')))}")
+
+uncertain = [r for r in out if r["final_verdict"] == "UNCERTAIN_DISCUSS"]
+final_lines = [
+    "# Final Source Pass: 189 Active Works",
+    "",
+    f"Row-level verdict coverage: **{len(out)}/189**.",
+    f"Clear keep after this pass: **{verdict_counts['KEEP']}**.",
+    f"Needs author discussion before any membership change: **{verdict_counts['UNCERTAIN_DISCUSS']}**.",
+    "",
+    "No active Set 1/Set 2 membership is changed by this audit branch.",
+    "",
+    "## Discussion queue",
+    "",
+]
+for r in uncertain:
+    final_lines += [
+        f"### {r['title']}",
+        "",
+        f"* Work key: `{r['work_key']}`",
+        f"* Current: `{r['evidence_set']}` / `{r['dominant_contribution']}`",
+        f"* Recommendation: `{r['recommendation']}`",
+        f"* Reason: {r['final_reason']}",
+        "",
+    ]
+final_lines += [
+    "## Clear-keep policy used in this pass",
+    "",
+    "Rows outside the discussion queue were retained only when the available paper-level evidence supports both the MAS boundary and a substantive security/privacy/adversarial relation. A paper may have a non-security dominant contribution and still remain if it contains a substantive interaction-dependent security experiment; dominant contribution is not the membership gate.",
+]
+FINAL.write_text("\n".join(final_lines) + "\n", encoding="utf-8")
+
+print(f"Built 189 decisions: {dict(verdict_counts)}; discussion={len(uncertain)}")
