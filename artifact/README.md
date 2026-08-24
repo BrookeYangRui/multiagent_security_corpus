@@ -6,195 +6,195 @@ Active corpus: **92 Set 1 + 97 Set 2 = 189 works**.
 
 ## Set 1: mature MAS-security works (92)
 
-1. [Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation](https://doi.org/10.52202/079017-2658) — NeurIPS 2024 · 2023 · DOI: 10.52202/079017-2658
-2. [A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns](https://doi.org/10.18653/v1/2025.acl-long.859) — ACL · 2024 · DOI: 10.18653/v1/2025.acl-long.859
+1. [Cooperation, Competition, and Maliciousness: LLM-Stakeholders Interactive Negotiation](https://doi.org/10.52202/079017-2658) — NeurIPS · 2023 · DOI: 10.52202/079017-2658
+2. [A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns](https://doi.org/10.18653/v1/2025.acl-long.859) — ACL · 2025 · DOI: 10.18653/v1/2025.acl-long.859
 3. [Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast](https://arxiv.org/abs/2402.08567) — ICML · 2024 · arXiv: 2402.08567
 4. [BlockAgents: Towards Byzantine-Robust LLM-Based Multi-Agent Coordination via Blockchain](https://doi.org/10.1145/3674399.3674445) — ACM Turing Celebration Conference · 2024 · DOI: 10.1145/3674399.3674445
 5. [CRDA: Content Risk Drift Assessment of Large Language Models through Adversarial Multi-Agent Interaction](https://doi.org/10.1109/ijcnn60899.2024.10650172) — IEEE International Joint Conference on Neural Network · 2024 · DOI: 10.1109/ijcnn60899.2024.10650172
-6. [Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems](https://arxiv.org/abs/2410.02506) — International Conference on Learning Representations · 2024 · arXiv: 2410.02506
-7. [Flooding Spread of Manipulated Knowledge in LLM-Based Multi-Agent Communities](https://doi.org/10.1007/s11432-024-4663-2) — Science China Information Sciences · 2024 · DOI: 10.1007/s11432-024-4663-2
-8. [G-Designer: Architecting Multi-agent Communication Topologies via Graph Neural Networks](https://arxiv.org/abs/2410.11782) — International Conference on Machine Learning · 2024 · arXiv: 2410.11782
-9. [NetSafe: Exploring the Topological Safety of Multi-agent System](https://doi.org/10.18653/v1/2025.findings-acl.150) — Findings of ACL · 2024 · DOI: 10.18653/v1/2025.findings-acl.150
-10. [Prompt Infection: LLM-to-LLM Prompt Injection within Multi-agent Systems](https://doi.org/10.1007/978-3-032-16092-8_28) — ESORICS 2025 International Workshops · 2024 · DOI: 10.1007/978-3-032-16092-8_28
+6. [Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems](https://arxiv.org/abs/2410.02506) — International Conference on Learning Representations · 2025 · arXiv: 2410.02506
+7. [Flooding Spread of Manipulated Knowledge in LLM-Based Multi-Agent Communities](https://doi.org/10.1007/s11432-024-4663-2) — Science China Information Sciences · 2026 · DOI: 10.1007/s11432-024-4663-2
+8. [G-Designer: Architecting Multi-agent Communication Topologies via Graph Neural Networks](https://arxiv.org/abs/2410.11782) — International Conference on Machine Learning · 2025 · arXiv: 2410.11782
+9. [NetSafe: Exploring the Topological Safety of Multi-agent System](https://doi.org/10.18653/v1/2025.findings-acl.150) — Findings of ACL · 2025 · DOI: 10.18653/v1/2025.findings-acl.150
+10. [Prompt Infection: LLM-to-LLM Prompt Injection within Multi-agent Systems](https://doi.org/10.1007/978-3-032-16092-8_28) — ESORICS 2025 International Workshops · 2026 · DOI: 10.1007/978-3-032-16092-8_28
 11. [Secret Collusion among AI Agents: Multi-Agent Deception via Steganography](https://doi.org/10.52202/079017-2336) — NeurIPS · 2024 · DOI: 10.52202/079017-2336
-12. [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](https://arxiv.org/abs/2402.14859) — arXiv · 2024 · arXiv: 2402.14859
+12. [The Wolf Within: Covert Injection of Malice into MLLM Societies via an MLLM Operative](https://arxiv.org/abs/2402.14859) — CVPR Responsible Generative AI Workshop (ReGenAI) · 2024 · arXiv: 2402.14859
 13. [Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks](https://doi.org/10.18653/v1/2025.acl-long.476) — ACL · 2025 · DOI: 10.18653/v1/2025.acl-long.476
-14. [AI Agents with Decentralized Identifiers and Verifiable Credentials](https://doi.org/10.5220/0014234400004052) — ICAART 2026 · 2025 · DOI: 10.5220/0014234400004052
-15. [ATAG: AI-Agent Application Threat Assessment with Attack Graphs](https://doi.org/10.1145/3779208.3785380) — ACM AsiaCCS 2026 · 2025 · DOI: 10.1145/3779208.3785380
-16. [Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS](https://doi.org/10.1609/aaai.v40i35.40224) — AAAI · 2025 · DOI: 10.1609/aaai.v40i35.40224
-17. [Benchmarking the Robustness of Agentic Systems to Adversarially-Induced Harmful Behaviors](https://arxiv.org/abs/2508.16481) — COLM · 2025 · arXiv: 2508.16481
-18. [BlindGuard: Safeguarding LLM-based Multi-Agent Systems under Unknown Attacks](https://doi.org/10.18653/v1/2026.acl-long.1819) — ACL · 2025 · DOI: 10.18653/v1/2026.acl-long.1819
+14. [AI Agents with Decentralized Identifiers and Verifiable Credentials](https://doi.org/10.5220/0014234400004052) — ICAART · 2026 · DOI: 10.5220/0014234400004052
+15. [ATAG: AI-Agent Application Threat Assessment with Attack Graphs](https://doi.org/10.1145/3779208.3785380) — ACM AsiaCCS · 2026 · DOI: 10.1145/3779208.3785380
+16. [Attack the Messages, Not the Agents: A Multi-round Adaptive Stealthy Tampering Framework for LLM-MAS](https://doi.org/10.1609/aaai.v40i35.40224) — AAAI · 2026 · DOI: 10.1609/aaai.v40i35.40224
+17. [Benchmarking the Robustness of Agentic Systems to Adversarially-Induced Harmful Behaviors](https://arxiv.org/abs/2508.16481) — COLM · 2026 · arXiv: 2508.16481
+18. [BlindGuard: Safeguarding LLM-based Multi-Agent Systems under Unknown Attacks](https://doi.org/10.18653/v1/2026.acl-long.1819) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.1819
 19. [BlockA2A: Towards Secure and Verifiable Agent-to-Agent Interoperability](https://arxiv.org/abs/2508.01332) — arXiv · 2025 · arXiv: 2508.01332
-20. [Breaking and Fixing Defenses Against Control-Flow Hijacking in Multi-Agent Systems](https://arxiv.org/abs/2510.17276) — ICLR · 2025 · arXiv: 2510.17276
+20. [Breaking and Fixing Defenses Against Control-Flow Hijacking in Multi-Agent Systems](https://arxiv.org/abs/2510.17276) — ICLR · 2026 · arXiv: 2510.17276
 21. [Can an Individual Manipulate the Collective Decisions of Multi-Agents?](https://doi.org/10.18653/v1/2025.emnlp-main.611) — EMNLP · 2025 · DOI: 10.18653/v1/2025.emnlp-main.611
-22. [CoMet: Metaphor-Driven Covert Communication for Multi-Agent Language Games](https://doi.org/10.18653/v1/2025.acl-long.389) — ACL 2025 · 2025 · DOI: 10.18653/v1/2025.acl-long.389
-23. [CORBA: Contagious Recursive Blocking Attacks on Multi-Agent Systems Based on Large Language Models](https://doi.org/10.18653/v1/2026.findings-acl.342) — Findings of ACL · 2025 · DOI: 10.18653/v1/2026.findings-acl.342
+22. [CoMet: Metaphor-Driven Covert Communication for Multi-Agent Language Games](https://doi.org/10.18653/v1/2025.acl-long.389) — ACL · 2025 · DOI: 10.18653/v1/2025.acl-long.389
+23. [CORBA: Contagious Recursive Blocking Attacks on Multi-Agent Systems Based on Large Language Models](https://doi.org/10.18653/v1/2026.findings-acl.342) — Findings of ACL · 2026 · DOI: 10.18653/v1/2026.findings-acl.342
 24. [Cross-Agent Multimodal Provenance-Aware Framework for Robust Prompt Injection Defense in Large Language and Vision-Language Models](https://doi.org/10.1109/icca66035.2025.11430791) — International Conferences on Computing Advancements · 2025 · DOI: 10.1109/icca66035.2025.11430791
-25. [Decentralized Multi-Agent System with Trust-Aware Communication](https://doi.org/10.1109/ispa67752.2025.00198) — IEEE ISPA 2025 · 2025 · DOI: 10.1109/ispa67752.2025.00198
-26. [Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomized Smoothing](https://doi.org/10.1016/j.cja.2025.103779) — Chinese Journal of Aeronautics · 2025 · DOI: 10.1016/j.cja.2025.103779
-27. [Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection](https://doi.org/10.18653/v1/2026.acl-long.1407) — ACL · 2025 · DOI: 10.18653/v1/2026.acl-long.1407
-28. [Free-MAD: Consensus-Free Multi-Agent Debate](https://doi.org/10.18653/v1/2026.findings-acl.1600) — FINDINGS ACL · 2025 · DOI: 10.18653/v1/2026.findings-acl.1600
+25. [Decentralized Multi-Agent System with Trust-Aware Communication](https://doi.org/10.1109/ispa67752.2025.00198) — IEEE ISPA · 2025 · DOI: 10.1109/ispa67752.2025.00198
+26. [Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomized Smoothing](https://doi.org/10.1016/j.cja.2025.103779) — Chinese Journal of Aeronautics · 2026 · DOI: 10.1016/j.cja.2025.103779
+27. [Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection](https://doi.org/10.18653/v1/2026.acl-long.1407) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.1407
+28. [Free-MAD: Consensus-Free Multi-Agent Debate](https://doi.org/10.18653/v1/2026.findings-acl.1600) — Findings of ACL · 2026 · DOI: 10.18653/v1/2026.findings-acl.1600
 29. [G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems](https://doi.org/10.18653/v1/2025.acl-long.359) — ACL · 2025 · DOI: 10.18653/v1/2025.acl-long.359
 30. [GUARDIAN: Safeguarding LLM Multi-Agent Collaborations with Temporal Graph Modeling](https://arxiv.org/abs/2505.19234) — NeurIPS · 2025 · arXiv: 2505.19234
-31. [Hidden in Plain Text: Emergence and Mitigation of Steganographic Collusion in LLMs](https://doi.org/10.18653/v1/2025.ijcnlp-long.34) — IJCNLP-AACL · 2025 · DOI: 10.18653/v1/2025.ijcnlp-long.34
-32. [MAGPIE: A Benchmark for Multi-Agent Contextual Privacy Evaluation](https://arxiv.org/abs/2506.20737) — NeurIPS Responsible Foundation Models Workshop · 2025 · arXiv: 2506.20737
+31. [Hidden in Plain Text: Emergence and Mitigation of Steganographic Collusion in LLMs](https://doi.org/10.18653/v1/2025.ijcnlp-long.34) — AACL IJCNLP · 2025 · DOI: 10.18653/v1/2025.ijcnlp-long.34
+32. [MAGPIE: A Benchmark for Multi-Agent Contextual Privacy Evaluation](https://arxiv.org/abs/2506.20737) —  NeurIPS Workshop on Socially Responsible and Trustworthy Foundation Models · 2025 · arXiv: 2506.20737
 33. [Multi-Agent Systems Execute Arbitrary Malicious Code](https://arxiv.org/abs/2503.12188) — COLM · 2025 · arXiv: 2503.12188
-34. [PEAR: Planner-Executor Agent Robustness Benchmark](https://doi.org/10.18653/v1/2026.findings-eacl.237) — Findings of EACL · 2025 · DOI: 10.18653/v1/2026.findings-eacl.237
+34. [PEAR: Planner-Executor Agent Robustness Benchmark](https://doi.org/10.18653/v1/2026.findings-eacl.237) — Findings of ACL · 2026 · DOI: 10.18653/v1/2026.findings-eacl.237
 35. [PeerGuard: Defending Multi-Agent Systems Against Backdoor Attacks Through Mutual Reasoning](https://doi.org/10.1109/iri66576.2025.00051) — IEEE IRI 2025 · 2025 · DOI: 10.1109/iri66576.2025.00051
-36. [Quantifying Privacy Leakage in Multi-Agent LLMs: A Unified Theoretical and Empirical Analysis](https://doi.org/10.1109/bigdata66926.2025.11401523) — BigData Congress [Services Society] · 2025 · DOI: 10.1109/bigdata66926.2025.11401523
+36. [Quantifying Privacy Leakage in Multi-Agent LLMs: A Unified Theoretical and Empirical Analysis](https://doi.org/10.1109/bigdata66926.2025.11401523) — IEEE BigData · 2025 · DOI: 10.1109/bigdata66926.2025.11401523
 37. [Red-Teaming LLM Multi-Agent Systems via Communication Attacks](https://doi.org/10.18653/v1/2025.findings-acl.349) — Findings of ACL · 2025 · DOI: 10.18653/v1/2025.findings-acl.349
-38. [Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance](https://doi.org/10.1609/aaai.v40i41.40806) — AAAI · 2025 · DOI: 10.1609/aaai.v40i41.40806
+38. [Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance](https://doi.org/10.1609/aaai.v40i41.40806) — AAAI · 2026 · DOI: 10.1609/aaai.v40i41.40806
 39. [SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems](https://arxiv.org/abs/2506.07564) — arXiv · 2025 · arXiv: 2506.07564
-40. [SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication](https://doi.org/10.1609/aaai.v40i35.40236) — AAAI 2026 · 2025 · DOI: 10.1609/aaai.v40i35.40236
-41. [SecureGov-Agent: A Governance-Centric Multi-Agent Framework for Privacy-Preserving and Attack-Resilient LLM Agents](https://doi.org/10.1145/3795154.3795296) — Proceedings of the 2025 6th International Conference on Computer Science and Management Technology · 2025 · DOI: 10.1145/3795154.3795296
-42. [Security and Privacy in Multi-Agent LLM Networks](https://doi.org/10.4018/979-8-3373-1419-8.ch009) — Advances in computational intelligence and robotics book series · 2025 · DOI: 10.4018/979-8-3373-1419-8.ch009
-43. [Security of LLM Agents: A Case Study Approach](https://doi.org/10.1109/trustcom66490.2025.00226) — International Conference on Trust, Security and Privacy in Computing and Communications · 2025 · DOI: 10.1109/trustcom66490.2025.00226
+40. [SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication](https://doi.org/10.1609/aaai.v40i35.40236) — AAAI · 2026 · DOI: 10.1609/aaai.v40i35.40236
+41. [SecureGov-Agent: A Governance-Centric Multi-Agent Framework for Privacy-Preserving and Attack-Resilient LLM Agents](https://doi.org/10.1145/3795154.3795296) — ACM ICCSMT · 2026 · DOI: 10.1145/3795154.3795296
+42. [Security and Privacy in Multi-Agent LLM Networks: Addressing Vulnerabilities.](https://doi.org/10.4018/979-8-3373-1419-8.ch009) — Advancements in Multi-Agent Large Language Model Systems for Next-Generation AI · 2026 · DOI: 10.4018/979-8-3373-1419-8.ch009
+43. [Security of LLM Agents: A Case Study Approach](https://doi.org/10.1109/trustcom66490.2025.00226) — IEEE TrustCom · 2025 · DOI: 10.1109/trustcom66490.2025.00226
 44. [Sentinel Agents for Secure and Trustworthy Agentic AI in Multi-Agent Systems](https://arxiv.org/abs/2509.14956) — arXiv.org · 2025 · arXiv: 2509.14956
 45. [SentinelAgent: Graph-based Anomaly Detection in Multi-Agent Systems](https://arxiv.org/abs/2505.24201) — arXiv · 2025 · arXiv: 2505.24201
-46. [Seven Security Challenges in Cross-Domain Multi-Agent LLM Systems](https://doi.org/10.1038/s44387-026-00128-9) — npj Artificial Intelligence · 2025 · DOI: 10.1038/s44387-026-00128-9
-47. [Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](https://doi.org/10.1609/aaai.v40i44.41134) — AAAI · 2025 · DOI: 10.1609/aaai.v40i44.41134
-48. [SPIFFE-Based Zero-Trust Authentication for AI Agent Ecosystems](https://doi.org/10.1109/icca66035.2025.11431026) — International Conferences on Computing Advancements · 2025 · DOI: 10.1109/icca66035.2025.11431026
-49. [TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems](https://doi.org/10.18653/v1/2026.acl-long.1442) — ACL · 2025 · DOI: 10.18653/v1/2026.acl-long.1442
-50. [The Subtle Art of Defection: Understanding Uncooperative Behaviors in LLM based Multi-Agent Systems](https://doi.org/10.18653/v1/2026.eacl-industry.44) — EACL 2026 Industry Track · 2025 · DOI: 10.18653/v1/2026.eacl-industry.44
+46. [Seven Security Challenges in Cross-Domain Multi-Agent LLM Systems](https://doi.org/10.1038/s44387-026-00128-9) — npj Artif. Intell. · 2026 · DOI: 10.1038/s44387-026-00128-9
+47. [Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](https://doi.org/10.1609/aaai.v40i44.41134) — AAAI · 2026 · DOI: 10.1609/aaai.v40i44.41134
+48. [SPIFFE-Based Zero-Trust Authentication for AI Agent Ecosystems](https://doi.org/10.1109/icca66035.2025.11431026) — ICCA · 2025 · DOI: 10.1109/icca66035.2025.11431026
+49. [TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems](https://doi.org/10.18653/v1/2026.acl-long.1442) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.1442
+50. [The Subtle Art of Defection: Understanding Uncooperative Behaviors in LLM based Multi-Agent Systems](https://doi.org/10.18653/v1/2026.eacl-industry.44) —ACL EACL · 2026 · DOI: 10.18653/v1/2026.eacl-industry.44
 51. [The Sum Leaks More Than Its Parts: Compositional Privacy Risks and Mitigations in Multi-Agent Collaboration](https://arxiv.org/abs/2509.14284) — arXiv · 2025 · arXiv: 2509.14284
-52. [Topology Matters: Measuring Memory Leakage in Multi-Agent LLMs](https://doi.org/10.18653/v1/2026.findings-acl.1980) — Findings of ACL · 2025 · DOI: 10.18653/v1/2026.findings-acl.1980
-53. [TRiSM for Agentic AI: A Review of Trust Risk and Security Management in LLM-based Agentic Multi-Agent Systems](https://doi.org/10.1016/j.aiopen.2026.02.006) — AI Open · 2025 · DOI: 10.1016/j.aiopen.2026.02.006
+52. [Topology Matters: Measuring Memory Leakage in Multi-Agent LLMs](https://doi.org/10.18653/v1/2026.findings-acl.1980) — Findings of ACL · 2026 · DOI: 10.18653/v1/2026.findings-acl.1980
+53. [TRiSM for Agentic AI: A Review of Trust Risk and Security Management in LLM-based Agentic Multi-Agent Systems](https://doi.org/10.1016/j.aiopen.2026.02.006) — AI Open · 2026 · DOI: 10.1016/j.aiopen.2026.02.006
 54. [Who's the Mole? Modeling and Detecting Intention-Hiding Malicious Agents in LLM-Based Multi-Agent Systems](https://arxiv.org/abs/2507.04724) — arXiv · 2025 · arXiv: 2507.04724
-55. [WOLF: Werewolf-based Observations for LLM Deception and Falsehoods](https://arxiv.org/abs/2512.09187) — arXiv · 2025 · arXiv: 2512.09187
-56. [A Literature Survey on Privacy-Preserving Multi-Agent RAG Systems with an Intelligent Tag-Inference Routing System](https://doi.org/10.56726/irjmets98584) — International Research Journal of Modernization in Engineering Technology and Science · 2026 · DOI: 10.56726/irjmets98584
+55. [WOLF: Werewolf-based Observations for LLM Deception and Falsehoods](https://arxiv.org/abs/2512.09187) — NeurIPS Workshop on Multi-Turn Interactions in Large Language Models · 2025 · arXiv: 2512.09187
+56. [A Literature Survey on Privacy-Preserving Multi-Agent RAG Systems with an Intelligent Tag-Inference Routing System](https://doi.org/10.56726/irjmets98584) — IRJMETS · 2026 · DOI: 10.56726/irjmets98584
 57. [A2ASecBench: A Protocol-Aware Security Benchmark for Agent-to-Agent Multi-Agent Systems](https://iclr.cc/virtual/2026/poster/10010017) — ICLR · 2026 · Primary source
 58. [ACIARena: Toward Unified Evaluation for Agent Cascading Injection](https://doi.org/10.18653/v1/2026.acl-long.457) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.457
-59. [AgentChain: Blockchain-Empowered Multi-Agent Coordination for Trustworthy LLM Question-Answering Systems](https://doi.org/10.1109/tdsc.2026.3685256) — IEEE Transactions on Dependable and Secure Computing · 2026 · DOI: 10.1109/tdsc.2026.3685256
+59. [AgentChain: Blockchain-Empowered Multi-Agent Coordination for Trustworthy LLM Question-Answering Systems](https://doi.org/10.1109/tdsc.2026.3685256) — IEEE TDSC · 2026 · DOI: 10.1109/tdsc.2026.3685256
 60. [AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems](https://doi.org/10.1109/access.2026.3704541) — IEEE Access · 2026 · DOI: 10.1109/access.2026.3704541
 61. [Among Us: Measuring and Mitigating Malicious Contributions in Model Collaboration Systems](https://doi.org/10.18653/v1/2026.acl-long.725) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.725
-62. [Architectural Resilience in AI-Driven Decision Systems under Adversarial Conditions](https://doi.org/10.1109/icaic67076.2026.11395749) — International Conference on Applied Informatics and Communication · 2026 · DOI: 10.1109/icaic67076.2026.11395749
-63. [CAPRI-DP: A Differentially Private Extension to Context-Aware Multi-Agent Privacy Frameworks](https://doi.org/10.1109/iccces62661.2026.11437027) — 2026 5th International Conference on Communication, Computing and Electronics Systems (ICCCES) · 2026 · DOI: 10.1109/iccces62661.2026.11437027
+62. [Architectural Resilience in AI-Driven Decision Systems under Adversarial Conditions](https://doi.org/10.1109/icaic67076.2026.11395749) — IEEE ICAIC · 2026 · DOI: 10.1109/icaic67076.2026.11395749
+63. [CAPRI-DP: A Differentially Private Extension to Context-Aware Multi-Agent Privacy Frameworks](https://doi.org/10.1109/iccces62661.2026.11437027) — IEEE ICCCES · 2026 · DOI: 10.1109/iccces62661.2026.11437027
 64. [Cascading Instruction Influence Indirect Prompt Injection in Hierarchical Multi-Agent Systems](https://doi.org/10.19139/soic-2310-5070-3574) — Statistics, Optimization & Information Computing · 2026 · DOI: 10.19139/soic-2310-5070-3574
 65. [CIA: Inferring the Communication Topology from LLM-based Multi-Agent Systems](https://doi.org/10.18653/v1/2026.acl-long.815) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.815
-66. [Collaborative-adversarial jailbreaking: A propagation-aware attack framework for multi-agent code generation systems.](https://doi.org/10.1016/j.neunet.2026.109280) — Neural Networks · 2026 · DOI: 10.1016/j.neunet.2026.109280
+66. [Collaborative-adversarial jailbreaking: A propagation-aware attack framework for multi-agent code generation systems.](https://doi.org/10.1016/j.neunet.2026.109280) — Neural Networks · 2027 · DOI: 10.1016/j.neunet.2026.109280
 67. [Conjunctive Prompt Attacks in Multi-Agent LLM Systems](https://doi.org/10.18653/v1/2026.acl-long.1577) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.1577
-68. [Consensus-Driven Metacognition in Multi-Agent Systems: A Logic-Based Byzantine Fault-Tolerant Protocol](https://doi.org/10.63412/8vgf0b98) — International Journal of Global Innovations and Solutions · 2026 · DOI: 10.63412/8vgf0b98
-69. [ConvPayMAS: Conversational Payment Multi-Agent System with Agent-to-Agent Protocol and Three-Mandate Verification](https://doi.org/10.65109/ydmy4904) — Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems · 2026 · DOI: 10.65109/ydmy4904
+68. [Consensus-Driven Metacognition in Multi-Agent Systems: A Logic-Based Byzantine Fault-Tolerant Protocol](https://doi.org/10.63412/8vgf0b98) — IJGIS · 2026 · DOI: 10.63412/8vgf0b98
+69. [ConvPayMAS: Conversational Payment Multi-Agent System with Agent-to-Agent Protocol and Three-Mandate Verification](https://doi.org/10.65109/ydmy4904) — AAMAS · 2026 · DOI: 10.65109/ydmy4904
 70. [Deception and Communication in Autonomous Multi-Agent Systems: An Experimental Study with Among Us](https://doi.org/10.65109/frxl8789) — AAMAS · 2026 · DOI: 10.65109/frxl8789
 71. [Ethical Coordination of LLM Multi-Agent Systems](https://doi.org/10.3390/electronics15112278) — Electronics · 2026 · DOI: 10.3390/electronics15112278
 72. [LieCraft: A Multi-Agent Framework for Evaluating Deceptive Capabilities in Language Models](https://doi.org/10.1609/aaai.v40i44.41116) — AAAI · 2026 · DOI: 10.1609/aaai.v40i44.41116
 73. [Lying with Truths: Open-Channel Multi-Agent Collusion for Belief Manipulation via Generative Montage](https://doi.org/10.18653/v1/2026.acl-long.270) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-long.270
-74. [MASLeak: Investigating and Exposing Intellectual Property Leakage Vulnerabilities in Multi-Agent Systems](https://arxiv.org/abs/2505.12442) — USENIX Security 2026 · 2026 · arXiv: 2505.12442
-75. [MIN-Trust: A Minimum Necessary Information Trust Orchestration Framework for Multi-Agent Collaboration](https://doi.org/10.1145/3813808.3813811) — GAIE 2026 · 2026 · DOI: 10.1145/3813808.3813811
-76. [MPAS: Breaking Sequential Constraints of Multi-Agent Communication Topologies via Individual-Epistemic Message Propagation](https://doi.org/10.1609/aaai.v40i35.40231) — Open MIND · 2026 · DOI: 10.1609/aaai.v40i35.40231
-77. [Orchestration and Verification of Agentic AI Systems: A Survey of Multi-Agent Collaboration and Safety](https://doi.org/10.59324/ejaset.2026.4(2).16) — European Journal of Applied Science, Engineering and Technology · 2026 · DOI: 10.59324/ejaset.2026.4(2).16
+74. [MASLeak: Investigating and Exposing Intellectual Property Leakage Vulnerabilities in Multi-Agent Systems](https://arxiv.org/abs/2505.12442) — USENIX Security · 2026 · arXiv: 2505.12442
+75. [MIN-Trust: A Minimum Necessary Information Trust Orchestration Framework for Multi-Agent Collaboration](https://doi.org/10.1145/3813808.3813811) — ACM · 2026 · DOI: 10.1145/3813808.3813811
+76. [MPAS: Breaking Sequential Constraints of Multi-Agent Communication Topologies via Individual-Epistemic Message Propagation](https://doi.org/10.1609/aaai.v40i35.40231) — AAAI · 2026 · DOI: 10.1609/aaai.v40i35.40231
+77. [Orchestration and Verification of Agentic AI Systems: A Survey of Multi-Agent Collaboration and Safety](https://doi.org/10.59324/ejaset.2026.4(2).16) — EJASET · 2026 · DOI: 10.59324/ejaset.2026.4(2).16
 78. [Privacy-Preserving LLM Infrastructure With Multi-Agent Orchestration And RAG-Driven Retrieval](https://doi.org/10.63278/jicrcr.vi.3596) — Journal of International Crisis and Risk Communication Research · 2026 · DOI: 10.63278/jicrcr.vi.3596
-79. [RAG-Induced Failures in Multi-Agent Large Language Model Debate](https://doi.org/10.1109/icetes68504.2026.11518808) — 2026 1st International Conference on Emerging Technologies and Engineering Systems (ICETES) · 2026 · DOI: 10.1109/icetes68504.2026.11518808
+79. [RAG-Induced Failures in Multi-Agent Large Language Model Debate](https://doi.org/10.1109/icetes68504.2026.11518808) — IEEE ICETES · 2026 · DOI: 10.1109/icetes68504.2026.11518808
 80. [ResMAS: Resilience Optimization in LLM-based Multi-agent Systems](https://doi.org/10.1609/aaai.v40i41.40824) — AAAI · 2026 · DOI: 10.1609/aaai.v40i41.40824
-81. [RiskLab: A Controlled Toolkit for Probing Emergent Risks in LLM-Based Multi-Agent Systems](https://doi.org/10.18653/v1/2026.acl-demo.17) — ACL System Demonstrations · 2026 · DOI: 10.18653/v1/2026.acl-demo.17
-82. [Robust LLM-based Multi-Agent System with Action Negotiation and Sharing Redundancy Enhancement](https://doi.org/10.1145/3770854.3780202) — Knowledge Discovery and Data Mining · 2026 · DOI: 10.1145/3770854.3780202
-83. [RoMa: A Credibility-Aware Fault-Tolerance Framework for LLM Multi-Agent Systems](https://doi.org/10.1109/cscwd68734.2026.11582680) — International Conference on Computer Supported Cooperative Work in Design · 2026 · DOI: 10.1109/cscwd68734.2026.11582680
+81. [RiskLab: A Controlled Toolkit for Probing Emergent Risks in LLM-Based Multi-Agent Systems](https://doi.org/10.18653/v1/2026.acl-demo.17) — ACL · 2026 · DOI: 10.18653/v1/2026.acl-demo.17
+82. [Robust LLM-based Multi-Agent System with Action Negotiation and Sharing Redundancy Enhancement](https://doi.org/10.1145/3770854.3780202) — ACM · 2026 · DOI: 10.1145/3770854.3780202
+83. [RoMa: A Credibility-Aware Fault-Tolerance Framework for LLM Multi-Agent Systems](https://doi.org/10.1109/cscwd68734.2026.11582680) — IEEE CSCWD · 2026 · DOI: 10.1109/cscwd68734.2026.11582680
 84. [Self-Healing Memory Architectures for Large Language Model-Based Multi-Agent Collaboration](https://doi.org/10.71465/ajainn3659) — American journal of artificial intelligence and neural networks · 2026 · DOI: 10.71465/ajainn3659
 85. [Semantic Intent Fragmentation: A Single-Shot Compositional Attack on Multi-Agent AI Pipelines](https://doi.org/10.1609/aaaiss.v9i1.42936) — AAAI Symposium Series · 2026 · DOI: 10.1609/aaaiss.v9i1.42936
-86. [SentinelNet: Safeguarding Multi-Agent Collaboration Through Credit-Based Dynamic Threat Detection](https://doi.org/10.1145/3774904.3792462) — The Web Conference · 2026 · DOI: 10.1145/3774904.3792462
-87. [The Trust Paradox in LLM-Based Multi-Agent Systems: When Collaboration Becomes a Security Vulnerability](https://doi.org/10.1109/tcss.2026.3695070) — IEEE Transactions on Computational Social Systems · 2026 · DOI: 10.1109/tcss.2026.3695070
-88. [Topology Linearization for Multi-Agent Systems Security: Mitigating Malicious Propagation via Path Decomposition](https://doi.org/10.1109/tnse.2026.3680460) — IEEE Transactions on Network Science and Engineering · 2026 · DOI: 10.1109/tnse.2026.3680460
-89. [Trustworthy Agentic AI: A Survey and Taxonomy of Secure Coordination and Hallucination Mitigation in Multi-Agent Large Language Model Systems](https://doi.org/10.38124/ijisrt/26feb1090) — International Journal of Innovative Science and Research Technology · 2026 · DOI: 10.38124/ijisrt/26feb1090
-90. [When collaboration fails: persuasion driven adversarial influence in multi agent large language model debate](https://doi.org/10.1038/s41598-026-42705-7) — Scientific Reports · 2026 · DOI: 10.1038/s41598-026-42705-7
+86. [SentinelNet: Safeguarding Multi-Agent Collaboration Through Credit-Based Dynamic Threat Detection](https://doi.org/10.1145/3774904.3792462) — ACM · 2026 · DOI: 10.1145/3774904.3792462
+87. [The Trust Paradox in LLM-Based Multi-Agent Systems: When Collaboration Becomes a Security Vulnerability](https://doi.org/10.1109/tcss.2026.3695070) — IEEE TCSS · 2026 · DOI: 10.1109/tcss.2026.3695070
+88. [Topology Linearization for Multi-Agent Systems Security: Mitigating Malicious Propagation via Path Decomposition](https://doi.org/10.1109/tnse.2026.3680460) — IEEE TNSE · 2026 · DOI: 10.1109/tnse.2026.3680460
+89. [Trustworthy Agentic AI: A Survey and Taxonomy of Secure Coordination and Hallucination Mitigation in Multi-Agent Large Language Model Systems](https://doi.org/10.38124/ijisrt/26feb1090) — IJISRT · 2026 · DOI: 10.38124/ijisrt/26feb1090
+90. [When collaboration fails: persuasion driven adversarial influence in multi agent large language model debate](https://doi.org/10.1038/s41598-026-42705-7) — Sci Rep · 2026 · DOI: 10.1038/s41598-026-42705-7
 91. [When Embedding-Based Defenses Fail: Rethinking Safety in LLM-Based Multi-Agent Systems](https://arxiv.org/abs/2605.01133) — ICML · 2026 · arXiv: 2605.01133
 92. [Whispering Agents: A Event-Driven Covert Communication Protocol for the Internet of Agents](https://doi.org/10.1609/aaai.v40i37.40380) — AAAI · 2026 · DOI: 10.1609/aaai.v40i37.40380
 
 ## Set 2: emerging MAS-security works (97)
 
-93. [AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems](https://arxiv.org/abs/2408.14972) — arXiv.org · 2024 · arXiv: 2408.14972
-94. [IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems](https://arxiv.org/abs/2410.16237) — AAMAS · 2024 · arXiv: 2410.16237
-95. [1-2-3 Check: Enhancing Contextual Privacy in LLM via Multi-Agent Reasoning](https://arxiv.org/abs/2508.07667) — LLMSEC 2025 Workshop · 2025 · arXiv: 2508.07667
-96. [Achilles Heel of Distributed Multi-Agent Systems](https://arxiv.org/abs/2504.07461) — arXiv.org · 2025 · arXiv: 2504.07461
-97. [AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2510.01586) — arXiv.org · 2025 · arXiv: 2510.01586
-98. [Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents](https://arxiv.org/abs/2509.13597) — arXiv.org · 2025 · arXiv: 2509.13597
+93. [AgentMonitor: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems](https://arxiv.org/abs/2408.14972) — arXiv · 2024 · arXiv: 2408.14972
+94. [IBGP: Imperfect Byzantine Generals Problem for Zero-Shot Robustness in Communicative Multi-Agent Systems](https://arxiv.org/abs/2410.16237) — AAMAS · 2025 · arXiv: 2410.16237
+95. [1-2-3 Check: Enhancing Contextual Privacy in LLM via Multi-Agent Reasoning](https://arxiv.org/abs/2508.07667) — IASEAI · 2026 · arXiv: 2508.07667
+96. [Achilles Heel of Distributed Multi-Agent Systems](https://arxiv.org/abs/2504.07461) — arXiv · 2025 · arXiv: 2504.07461
+97. [AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2510.01586) — ICML · 2026 · arXiv: 2510.01586
+98. [Agentic JWT: A Secure Delegation Protocol for Autonomous AI Agents](https://arxiv.org/abs/2509.13597) — arXiv · 2025 · arXiv: 2509.13597
 99. [AgentSafe: Safeguarding Large Language Model-based Multi-agent Systems via Hierarchical Data Management](https://arxiv.org/abs/2503.04392) — arXiv · 2025 · arXiv: 2503.04392
-100. [AgentShield: Make MAS more secure and efficient](https://arxiv.org/abs/2511.22924) — arXiv · 2025 · arXiv: 2511.22924
-101. [Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate](https://arxiv.org/abs/2504.16489) — arXiv.org · 2025 · arXiv: 2504.16489
+100. [MAS-Shield: A Defense Framework for Secure and Efficient LLM MAS](https://arxiv.org/abs/2511.22924) — arXiv · 2025 · arXiv: 2511.22924
+101. [Amplified Vulnerabilities: Structured Jailbreak Attacks on LLM-based Multi-Agent Debate](https://arxiv.org/abs/2504.16489) — arXiv · 2025 · arXiv: 2504.16489
 102. [Byzantine Fault-Tolerant Multi-Agent System for Healthcare: A Gossip Protocol Approach to Secure Medical Message Propagation](https://arxiv.org/abs/2512.17913) — arXiv.org · 2025 · arXiv: 2512.17913
 103. [Byzantine-Robust Decentralized Coordination of LLM Agents](https://arxiv.org/abs/2507.14928) — arXiv · 2025 · arXiv: 2507.14928
 104. [Collaborative Shadows: Distributed Backdoor Attacks in LLM-Based Multi-Agent Systems](https://arxiv.org/abs/2510.11246) — arXiv · 2025 · arXiv: 2510.11246
-105. [Convergence dynamics of Agent-to-Agent Interactions with Misaligned objectives](https://arxiv.org/abs/2511.08710) — arXiv.org · 2025 · arXiv: 2511.08710
+105. [Convergence dynamics of Agent-to-Agent Interactions with Misaligned objectives](https://arxiv.org/abs/2511.08710) — arXiv · 2025 · arXiv: 2511.08710
 106. [DAO-Agent: Zero Knowledge-Verified Incentives for Decentralized Multi-Agent Coordination](https://arxiv.org/abs/2512.20973) — arXiv.org · 2025 · arXiv: 2512.20973
 107. [Demonstrations of Integrity Attacks in Multi-Agent Systems](https://arxiv.org/abs/2506.04572) — arXiv · 2025 · arXiv: 2506.04572
 108. [Don't Trust Your Upstream: Exploiting LLM Multi-Agent System via Topology-Guided Adversarial Propagation](https://arxiv.org/abs/2512.04129) — arXiv · 2025 · arXiv: 2512.04129
-109. [Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies](https://arxiv.org/abs/2512.16167) — Venue not recorded · 2025 · arXiv: 2512.16167
-110. [Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting](https://arxiv.org/abs/2511.10949) — AAMAS Strategic Engineering Workshop · 2025 · arXiv: 2511.10949
+109. [Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies](https://arxiv.org/abs/2512.16167) — arXiv · 2025 · arXiv: 2512.16167
+110. [Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting](https://arxiv.org/abs/2511.10949) — AAMAS · 2026 · arXiv: 2511.10949
 111. [Formalizing the Safety Security and Functional Properties of Agentic AI Systems](https://arxiv.org/abs/2510.14133) — arXiv · 2025 · arXiv: 2510.14133
-112. [Goal-Aware Identification and Rectification of Misinformation in Multi-Agent Systems](https://arxiv.org/abs/2506.00509) — arXiv · 2025 · arXiv: 2506.00509
+112. [Goal-Aware Identification and Rectification of Misinformation in Multi-Agent Systems](https://arxiv.org/abs/2506.00509) — ICLR · 2026 · arXiv: 2506.00509
 113. [LLM Hijacking: When Models Manipulate Their Routers](https://doi.org/10.5281/zenodo.17812179) — Zenodo (CERN European Organization for Nuclear Research) · 2025 · DOI: 10.5281/zenodo.17812179
-114. [MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems](https://arxiv.org/abs/2507.13038) — arXiv.org · 2025 · arXiv: 2507.13038
-115. [Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare](https://arxiv.org/abs/2512.03097) — arXiv.org · 2025 · arXiv: 2512.03097
+114. [MAD-Spear: A Conformity-Driven Prompt Injection Attack on Multi-Agent Debate Systems](https://arxiv.org/abs/2507.13038) — arXiv · 2025 · arXiv: 2507.13038
+115. [Many-to-One Adversarial Consensus: Exposing Multi-Agent Collusion Risks in AI-Based Healthcare](https://arxiv.org/abs/2512.03097) — arXiv · 2025 · arXiv: 2512.03097
 116. [Maris: A Formally Verifiable Privacy Policy Enforcement Paradigm for Multi-Agent Collaboration Systems](https://arxiv.org/abs/2505.04799) — arXiv · 2025 · arXiv: 2505.04799
 117. [MedSentry: Understanding and Mitigating Safety Risks in Medical LLM Multi-Agent Systems](https://arxiv.org/abs/2505.20824) — arXiv · 2025 · arXiv: 2505.20824
-118. [QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems](https://arxiv.org/abs/2512.16279) — arXiv.org · 2025 · arXiv: 2512.16279
-119. [Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation](https://arxiv.org/abs/2510.19420) — Venue not recorded · 2025 · arXiv: 2510.19420
-120. [Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies](https://arxiv.org/abs/2510.14312) — arXiv.org · 2025 · arXiv: 2510.14312
-121. [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](https://arxiv.org/abs/2507.06850) — arXiv · 2025 · arXiv: 2507.06850
-122. [To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems](https://arxiv.org/abs/2506.02546) — arXiv · 2025 · arXiv: 2506.02546
-123. [Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks](https://arxiv.org/abs/2512.23557) — arXiv.org · 2025 · arXiv: 2512.23557
+118. [QuadSentinel: Sequent Safety for Machine-Checkable Control in Multi-agent Systems](https://arxiv.org/abs/2512.16279) — arXiv · 2025 · arXiv: 2512.16279
+119. [Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation](https://arxiv.org/abs/2510.19420) — ICML · 2026 · arXiv: 2510.19420
+120. [Terrarium: Revisiting the Blackboard for Multi-Agent Safety, Privacy, and Security Studies](https://arxiv.org/abs/2510.14312) — arXiv · 2025 · arXiv: 2510.14312
+121. [The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise](https://arxiv.org/abs/2507.06850) — ARES Workshop (AI4TCI) · 2026 · arXiv: 2507.06850
+122. [To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems](https://arxiv.org/abs/2506.02546) — ACL · 2026 · arXiv: 2506.02546
+123. [Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks](https://arxiv.org/abs/2512.23557) — arXiv · 2025 · arXiv: 2512.23557
 124. [When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR)](https://arxiv.org/abs/2504.00374) — arXiv · 2025 · arXiv: 2504.00374
-125. [AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems](https://arxiv.org/abs/2603.15727) — Venue not recorded · 2026 · arXiv: 2603.15727
-126. [Algorithmic Cowardice: Cognitive Dissonance and Moral Conformity in Multi-Agent LLM Interactions](https://doi.org/10.5281/zenodo.18902320) — Zenodo · 2026 · DOI: 10.5281/zenodo.18902320
-127. [Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning](https://arxiv.org/abs/2605.05632) — arXiv.org · 2026 · arXiv: 2605.05632
-128. [Auditing Agent Harness Safety](https://arxiv.org/abs/2605.14271) — arXiv.org · 2026 · arXiv: 2605.14271
-129. [Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense](https://arxiv.org/abs/2605.02812) — arXiv.org · 2026 · arXiv: 2605.02812
+125. [AgentWorm: Self-Propagating Attacks Across LLM Agent Ecosystems](https://arxiv.org/abs/2603.15727) — arXiv · 2026 · arXiv: 2603.15727
+126. [Algorithmic Cowardice: Cognitive Dissonance and Moral Conformity in Multi-Agent LLM Interactions](https://doi.org/10.5281/zenodo.18902320) — Zenodo (CERN European Organization for Nuclear Research) · 2026 · DOI: 10.5281/zenodo.18902320
+127. [Architecture Matters: Comparing RAG Systems under Knowledge Base Poisoning](https://arxiv.org/abs/2605.05632) — arXiv · 2026 · arXiv: 2605.05632
+128. [Auditing Agent Harness Safety](https://arxiv.org/abs/2605.14271) — arXiv · 2026 · arXiv: 2605.14271
+129. [Autonomous LLM Agent Worms: Cross-Platform Propagation, Automated Discovery and Temporal Re-Entry Defense](https://arxiv.org/abs/2605.02812) — arXiv · 2026 · arXiv: 2605.02812
 130. [Beyond Goodhart's Law: A Dynamic Benchmark for Evaluating Compliance in Multi-Agent Systems](https://arxiv.org/abs/2606.07805) — arXiv · 2026 · arXiv: 2606.07805
-131. [Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection](https://arxiv.org/abs/2603.04469) — arXiv.org · 2026 · arXiv: 2603.04469
-132. [Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems](https://arxiv.org/abs/2604.22879) — arXiv.org · 2026 · arXiv: 2604.22879
-133. [Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems](https://arxiv.org/abs/2605.22001) — arXiv.org · 2026 · arXiv: 2605.22001
-134. [Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games](https://arxiv.org/abs/2606.07790) — arXiv (Cornell University) · 2026 · arXiv: 2606.07790
+131. [Beyond Input Guardrails: Reconstructing Cross-Agent Semantic Flows for Execution-Aware Attack Detection](https://arxiv.org/abs/2603.04469) — arXiv · 2026 · arXiv: 2603.04469
+132. [Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems](https://arxiv.org/abs/2604.22879) — arXiv · 2026 · arXiv: 2604.22879
+133. [Blind Spots in the Guard: How Domain-Camouflaged Injection Attacks Evade Detection in Multi-Agent LLM Systems](https://arxiv.org/abs/2605.22001) — arXiv · 2026 · arXiv: 2605.22001
+134. [Byzantine Cheap Talk: Adversarial Resilience and Topology Effects in LLM Coordination Games](https://arxiv.org/abs/2606.07790) — arXiv · 2026 · arXiv: 2606.07790
 135. [CalBench: Evaluating Coordination-Privacy Trade-offs in Multi-Agent LLMs](https://arxiv.org/abs/2605.09823) — arXiv · 2026 · arXiv: 2605.09823
-136. [CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring](https://arxiv.org/abs/2605.19240) — arXiv.org · 2026 · arXiv: 2605.19240
-137. [Collective Hallucination in Multi-Agent LLMs:Modeling and Defense](https://arxiv.org/abs/2606.07941) — Venue not recorded · 2026 · arXiv: 2606.07941
+136. [CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring](https://arxiv.org/abs/2605.19240) — arXiv · 2026 · arXiv: 2605.19240
+137. [Collective Hallucination in Multi-Agent LLMs:Modeling and Defense](https://arxiv.org/abs/2606.07941) — arXiv · 2026 · arXiv: 2606.07941
 138. [Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems](https://arxiv.org/abs/2602.15198) — arXiv · 2026 · arXiv: 2602.15198
 139. [Defending LLM-based Multi-Agent Systems Against Cooperative Attacks with Sentence-Level Rectification](https://arxiv.org/abs/2605.28104) — arXiv · 2026 · arXiv: 2605.28104
-140. [Detecting Multi-Agent Collusion Through Multi-Agent Interpretability](https://arxiv.org/abs/2604.01151) — arXiv.org · 2026 · arXiv: 2604.01151
-141. [Distributed General-Purpose Agent Networks: Architecture, Key Mechanisms, and Prototypes](https://arxiv.org/abs/2606.17368) — Venue not recorded · 2026 · arXiv: 2606.17368
-142. [Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks](https://arxiv.org/abs/2603.15809) — arXiv.org · 2026 · arXiv: 2603.15809
-143. [Dynamic Attentional Context Scoping: Agent-Triggered Focus Sessions for Isolated Per-Agent Steering in Multi-Agent LLM Orchestration](https://arxiv.org/abs/2604.07911) — arXiv.org · 2026 · arXiv: 2604.07911
+140. [Detecting Multi-Agent Collusion Through Multi-Agent Interpretability](https://arxiv.org/abs/2604.01151) — arXiv · 2026 · arXiv: 2604.01151
+141. [Distributed General-Purpose Agent Networks: Architecture, Key Mechanisms, and Prototypes](https://arxiv.org/abs/2606.17368) — arXiv · 2026 · arXiv: 2606.17368
+142. [Don't Trust Stubborn Neighbors: A Security Framework for Agentic Networks](https://arxiv.org/abs/2603.15809) — arXiv · 2026 · arXiv: 2603.15809
+143. [Dynamic Attentional Context Scoping: Agent-Triggered Focus Sessions for Isolated Per-Agent Steering in Multi-Agent LLM Orchestration](https://arxiv.org/abs/2604.07911) — arXiv · 2026 · arXiv: 2604.07911
 144. [DynaTrust: Defending Multi-Agent Systems Against Sleeper Agents via Dynamic Trust Graphs](https://arxiv.org/abs/2603.15661) — arXiv · 2026 · arXiv: 2603.15661
-145. [EquiMem: Calibrating Shared Memory in Multi-Agent Debate via Game-Theoretic Equilibrium](https://arxiv.org/abs/2605.09278) — arXiv.org · 2026 · arXiv: 2605.09278
-146. [FlowSteer: Prompt-Only Workflow Steering Exposes Planning-Time Vulnerabilities in Multi-Agent LLM Systems](https://arxiv.org/abs/2605.11514) — arXiv.org · 2026 · arXiv: 2605.11514
-147. [From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation](https://arxiv.org/abs/2604.07667) — arXiv.org · 2026 · arXiv: 2604.07667
-148. [From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration](https://arxiv.org/abs/2603.04474) — arXiv.org · 2026 · arXiv: 2603.04474
+145. [EquiMem: Calibrating Shared Memory in Multi-Agent Debate via Game-Theoretic Equilibrium](https://arxiv.org/abs/2605.09278) — arXiv · 2026 · arXiv: 2605.09278
+146. [FlowSteer: Prompt-Only Workflow Steering Exposes Planning-Time Vulnerabilities in Multi-Agent LLM Systems](https://arxiv.org/abs/2605.11514) — arXiv · 2026 · arXiv: 2605.11514
+147. [From Debate to Decision: Conformal Social Choice for Safe Multi-Agent Deliberation](https://arxiv.org/abs/2604.07667) — arXiv · 2026 · arXiv: 2604.07667
+148. [From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration](https://arxiv.org/abs/2603.04474) — arXiv · 2026 · arXiv: 2603.04474
 149. [GAMBIT: A Three-Mode Benchmark for Adversarial Robustness in Multi-Agent LLM Collectives](https://arxiv.org/abs/2605.09027) — arXiv · 2026 · arXiv: 2605.09027
-150. [Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs](https://arxiv.org/abs/2606.10322) — Venue not recorded · 2026 · arXiv: 2606.10322
+150. [Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs](https://arxiv.org/abs/2606.10322) — arXiv · 2026 · arXiv: 2606.10322
 151. [GAMMAF: A Common Framework for Graph-Based Anomaly Monitoring Benchmarking in LLM Multi-Agent Systems](https://arxiv.org/abs/2604.24477) — arXiv · 2026 · arXiv: 2604.24477
-152. [Governed Shared Memory for Multi-Agent LLM Systems](https://arxiv.org/abs/2606.24535) — Venue not recorded · 2026 · arXiv: 2606.24535
+152. [Governed Shared Memory for Multi-Agent LLM Systems](https://arxiv.org/abs/2606.24535) — arXiv · 2026 · arXiv: 2606.24535
 153. [HARP: Measuring Harm Amplification in Multi-Agent LLM Systems](https://arxiv.org/abs/2605.27489) — arXiv · 2026 · arXiv: 2605.27489
-154. [INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems](https://arxiv.org/abs/2601.14667) — arXiv.org · 2026 · arXiv: 2601.14667
+154. [INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems](https://arxiv.org/abs/2601.14667) — arXiv · 2026 · arXiv: 2601.14667
 155. [Insider Attacks in Multi-Agent LLM Consensus Systems](https://arxiv.org/abs/2605.08268) — arXiv · 2026 · arXiv: 2605.08268
 156. [Institutional AI: Governing LLM Collusion in Multi-Agent Cournot Markets via Public Governance Graphs](https://arxiv.org/abs/2601.11369) — arXiv · 2026 · arXiv: 2601.11369
-157. [Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers](https://arxiv.org/abs/2603.28013) — arXiv.org · 2026 · arXiv: 2603.28013
-158. [LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems](https://arxiv.org/abs/2605.22786) — arXiv.org · 2026 · arXiv: 2605.22786
-159. [LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems](https://doi.org/10.21203/rs.3.rs-9121599/v1) — arXiv.org · 2026 · DOI: 10.21203/rs.3.rs-9121599/v1
-160. [Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing](https://arxiv.org/abs/2606.30555) — arXiv (Cornell University) · 2026 · arXiv: 2606.30555
+157. [Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection Across Attack Surfaces and Model Safety Tiers](https://arxiv.org/abs/2603.28013) — arXiv · 2026 · arXiv: 2603.28013
+158. [LCGuard: Latent Communication Guard for Safe KV Sharing in Multi-Agent Systems](https://arxiv.org/abs/2605.22786) — arXiv · 2026 · arXiv: 2605.22786
+159. [LDP: An Identity-Aware Protocol for Multi-Agent LLM Systems](https://doi.org/10.21203/rs.3.rs-9121599/v1) — arXiv · 2026 · DOI: 10.21203/rs.3.rs-9121599/v1
+160. [Linguistic Firewall: Geometry as Defense in Multi-Agent Systems Routing](https://arxiv.org/abs/2606.30555) — arXiv · 2026 · arXiv: 2606.30555
 161. [LLM Drift Experiment: A Framework for Quantifying Behavioral Decay in Adversarial Multi-Agent Simulations](https://doi.org/10.5281/zenodo.20032071) — Zenodo (CERN European Organization for Nuclear Research) · 2026 · DOI: 10.5281/zenodo.20032071
 162. [Memetic Cascade Detection and Symbolic Immunity in Multi-Agent LLM Systems](https://doi.org/10.5281/zenodo.19244877) — Zenodo (CERN European Organization for Nuclear Research) · 2026 · DOI: 10.5281/zenodo.19244877
-163. [MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems](https://arxiv.org/abs/2606.30602) — Venue not recorded · 2026 · arXiv: 2606.30602
-164. [Multi-Agent Orchestration: Coordination, Trust, and Cascading Failures](https://doi.org/10.2139/ssrn.6734798) — SSRN Electronic Journal · 2026 · DOI: 10.2139/ssrn.6734798
-165. [Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems](https://doi.org/10.2139/ssrn.7127218) — SSRN Electronic Journal · 2026 · DOI: 10.2139/ssrn.7127218
-166. [No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents](https://arxiv.org/abs/2605.12240) — arXiv.org · 2026 · arXiv: 2605.12240
+163. [MESA: Prioritizing Vulnerable Communication Channels for Securing Multi-Agent Systems](https://arxiv.org/abs/2606.30602) — arXiv · 2026 · arXiv: 2606.30602
+164. [Multi-Agent Orchestration: Coordination, Trust, and Cascading Failures](https://doi.org/10.2139/ssrn.6734798) — SSRN · 2026 · DOI: 10.2139/ssrn.6734798
+165. [Nexus Protocol: A Cryptographically Secure, Zero-Latency Semantic Routing Engine for Multi-Agent Systems](https://doi.org/10.2139/ssrn.7127218) — SSRN · 2026 · DOI: 10.2139/ssrn.7127218
+166. [No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents](https://arxiv.org/abs/2605.12240) — arXiv · 2026 · arXiv: 2605.12240
 167. [OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage](https://arxiv.org/abs/2602.13477) — arXiv · 2026 · arXiv: 2602.13477
 168. [Pratyahara: A Neural Tissue Defense Model for Detecting Compromised Agents in Multi-Agent Networks](https://doi.org/10.5281/zenodo.19628588) — Zenodo (CERN European Organization for Nuclear Research) · 2026 · DOI: 10.5281/zenodo.19628588
 169. [PRISM: Generation-Time Detection and Mitigation of Secret Leakage in Multi-Agent LLM Pipelines](https://arxiv.org/abs/2605.10614) — arXiv · 2026 · arXiv: 2605.10614
-170. [Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching](https://arxiv.org/abs/2601.13186) — arXiv.org · 2026 · arXiv: 2601.13186
-171. [Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents](https://arxiv.org/abs/2604.17774) — arXiv.org · 2026 · arXiv: 2604.17774
-172. [PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation](https://arxiv.org/abs/2605.16346) — arXiv.org · 2026 · arXiv: 2605.16346
-173. [Robust Multi-Agent LLMs under Byzantine Faults](https://arxiv.org/abs/2605.09076) — arXiv.org · 2026 · arXiv: 2605.09076
-174. [SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems](https://arxiv.org/abs/2606.12474) — arXiv · 2026 · arXiv: 2606.12474
-175. [Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations](https://arxiv.org/abs/2606.15008) — Venue not recorded · 2026 · arXiv: 2606.15008
+170. [Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching](https://arxiv.org/abs/2601.13186) — arXiv · 2026 · arXiv: 2601.13186
+171. [Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents](https://arxiv.org/abs/2604.17774) — arXiv · 2026 · arXiv: 2604.17774
+172. [PropGuard: Safeguarding LLM-MAS via Propagation-Aware Exploration and Remediation](https://arxiv.org/abs/2605.16346) — arXiv · 2026 · arXiv: 2605.16346
+173. [Robust Multi-Agent LLMs under Byzantine Faults](https://arxiv.org/abs/2605.09076) — EMNLP · 2026 · arXiv: 2605.09076
+174. [SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems](https://arxiv.org/abs/2606.12474) — EMNLP Findings · 2026 · arXiv: 2606.12474
+175. [Security Engineering of OpenClaw: Analyzing Attack Surface Expansion and Trust-Boundary Violations](https://arxiv.org/abs/2606.15008) — arXiv · 2026 · arXiv: 2606.15008
 176. [Semantic Taint Propagation: Embedding-Based Semantic Flow Monitoring for Multi-Agent Large Language Model Systems](https://doi.org/10.5281/zenodo.20834834) — Zenodo (CERN European Organization for Nuclear Research) · 2026 · DOI: 10.5281/zenodo.20834834
-177. [SentinelAgent: Intent-Verified Delegation Chains for Securing Federal Multi-Agent AI Systems](https://arxiv.org/abs/2604.02767) — arXiv.org · 2026 · arXiv: 2604.02767
-178. [SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems](https://arxiv.org/abs/2606.07940) — Venue not recorded · 2026 · arXiv: 2606.07940
-179. [Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows](https://arxiv.org/abs/2606.12709) — Venue not recorded · 2026 · arXiv: 2606.12709
-180. [SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models](https://arxiv.org/abs/2603.29846) — arXiv.org · 2026 · arXiv: 2603.29846
-181. [The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure](https://arxiv.org/abs/2605.17480) — arXiv.org · 2026 · arXiv: 2605.17480
-182. [The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration](https://arxiv.org/abs/2604.17139) — arXiv.org · 2026 · arXiv: 2604.17139
-183. [Towards Security-Auditable LLM Agents: A Unified Graph Representation](https://arxiv.org/abs/2605.06812) — arXiv.org · 2026 · arXiv: 2605.06812
-184. [TrinityGuard: A Unified Framework for Safeguarding Multi-Agent Systems](https://arxiv.org/abs/2603.15408) — arXiv.org · 2026 · arXiv: 2603.15408
-185. [TRUST: A Framework for Decentralized AI Service v.0.1](https://arxiv.org/abs/2604.27132) — arXiv.org · 2026 · arXiv: 2604.27132
-186. [WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference](https://arxiv.org/abs/2603.11132) — arXiv.org · 2026 · arXiv: 2603.11132
-187. [When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks](https://arxiv.org/abs/2605.08460) — arXiv.org · 2026 · arXiv: 2605.08460
-188. [When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration](https://arxiv.org/abs/2606.28958) — Venue not recorded · 2026 · arXiv: 2606.28958
+177. [SentinelAgent: Intent-Verified Delegation Chains for Securing Federal Multi-Agent AI Systems](https://arxiv.org/abs/2604.02767) — arXiv · 2026 · arXiv: 2604.02767
+178. [SGTO-MAS: Secure Gorilla Troops Optimization for Multi-Agent LLM Systems](https://arxiv.org/abs/2606.07940) — arXiv · 2026 · arXiv: 2606.07940
+179. [Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows](https://arxiv.org/abs/2606.12709) — arXiv · 2026 · arXiv: 2606.12709
+180. [SNEAK: Evaluating Strategic Communication and Information Leakage in Large Language Models](https://arxiv.org/abs/2603.29846) — arXiv · 2026 · arXiv: 2603.29846
+181. [The Capability Paradox: How Smarter Auditors Make Multi-Agent Systems Less Secure](https://arxiv.org/abs/2605.17480) — arXiv · 2026 · arXiv: 2605.17480
+182. [The Consensus Trap: Rescuing Multi-Agent LLMs from Adversarial Majorities via Token-Level Collaboration](https://arxiv.org/abs/2604.17139) — arXiv · 2026 · arXiv: 2604.17139
+183. [Towards Security-Auditable LLM Agents: A Unified Graph Representation](https://arxiv.org/abs/2605.06812) — arXiv · 2026 · arXiv: 2605.06812
+184. [TrinityGuard: A Unified Framework for Safeguarding Multi-Agent Systems](https://arxiv.org/abs/2603.15408) — arXiv · 2026 · arXiv: 2603.15408
+185. [TRUST: A Framework for Decentralized AI Service v.0.1](https://arxiv.org/abs/2604.27132) — arXiv · 2026 · arXiv: 2604.27132
+186. [WebWeaver: Breaking Topology Confidentiality in LLM Multi-Agent Systems with Stealthy Context-Based Inference](https://arxiv.org/abs/2603.11132) — arXiv · 2026 · arXiv: 2603.11132
+187. [When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks](https://arxiv.org/abs/2605.08460) — arXiv · 2026 · arXiv: 2605.08460
+188. [When Latent Agents Lie: KV-Cache Integrity in Multi-Agent LLM Collaboration](https://arxiv.org/abs/2606.28958) — arXiv · 2026 · arXiv: 2606.28958
 189. [Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems](https://doi.org/10.48550/arXiv.2606.28425) — arXiv · 2026 · DOI: 10.48550/arXiv.2606.28425
