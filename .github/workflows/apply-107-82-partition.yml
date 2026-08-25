@@ -1,0 +1,38 @@
+name: Apply 107-82 corpus partition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/apply_107_82_partition.py
+      - .github/workflows/apply-107-82-partition.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply partition update
+        run: python scripts/apply_107_82_partition.py
+      - name: Validate corpus
+        run: bash scripts/validate_all.sh
+      - name: Commit generated corpus state
+        run: |
+          if git diff --quiet; then
+            echo "No corpus changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Apply human-reviewed 107/82 corpus partition"
+          git push origin HEAD:main
