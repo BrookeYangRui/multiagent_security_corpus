@@ -1,15 +1,15 @@
 # The Dark Side of LLMs: Agent-based Attack Vectors for System-level Compromise
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `attack` · venue `arXiv` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `attack` · venue `ARES Workshop (AI4TCI)` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation
 
 - Authors: Matteo Lupinacci, Francesco Aurelio Pironti, Francesco Blefari, Francesco Romeo, Luigi Arena, Angelo Furfaro
-- Year: 2025
-- Venue: arXiv
+- Year: 2026
+- Venue: ARES Workshop (AI4TCI)
 - DOI: 10.48550/arXiv.2507.06850
 - Primary URL: https://arxiv.org/abs/2507.06850
 - Open access URL: https://arxiv.org/pdf/2507.06850

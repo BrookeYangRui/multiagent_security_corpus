@@ -1,14 +1,14 @@
 # Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `general` · venue `arXiv.org` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `general` · venue `ICLR Workshop` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
 * Year: 2026
-* Venue: arXiv.org
+* Venue: ICLR Workshop
 * DOI: N/A
 * arXiv: 2604.17774
 * Primary URL: https://www.semanticscholar.org/paper/48e61a54c7087017b172d413ddd865a6e52bcd6f

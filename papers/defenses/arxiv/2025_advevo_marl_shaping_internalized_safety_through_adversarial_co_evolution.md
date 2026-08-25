@@ -1,14 +1,14 @@
 # AdvEvo-MARL: Shaping Internalized Safety through Adversarial Co-Evolution in Multi-Agent Reinforcement Learning
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv.org` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `ICML` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
-* Year: 2025
-* Venue: arXiv.org
+* Year: 2026
+* Venue: ICML
 * DOI: N/A
 * arXiv: 2510.01586
 * Primary URL: https://www.semanticscholar.org/paper/7a44b3e5b5151aa1c9fd533e2374578a1ddbc4df

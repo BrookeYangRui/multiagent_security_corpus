@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CORPUS = ROOT / "corpus"
 OUT = ROOT / "artifact" / "README.md"
 
-EXPECTED = {"set1_core": 92, "set2_emerging": 97}
+EXPECTED = {"set1_core": 107, "set2_emerging": 82}
 
 
 def read_rows(name: str) -> list[dict[str, str]]:
@@ -64,7 +64,7 @@ def main() -> None:
         "",
         "This page provides a stable source link and basic publication metadata for each active corpus work.",
         "",
-        "Active corpus: **92 Set 1 + 97 Set 2 = 189 works**.",
+        "Active corpus: **107 Set 1 + 82 Set 2 = 189 works**.",
         "",
     ]
 

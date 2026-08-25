@@ -1,14 +1,14 @@
 # Achilles Heel of Distributed Multi-Agent Systems
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `evaluation` · venue `arXiv.org` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `evaluation` · venue `ICCV MMRAgI Workshop` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
 * Year: 2025
-* Venue: arXiv.org
+* Venue: ICCV MMRAgI Workshop
 * DOI: N/A
 * arXiv: 2504.07461
 * Primary URL: https://www.semanticscholar.org/paper/df948cf591ab14be205c1f43782b36aa35450a32

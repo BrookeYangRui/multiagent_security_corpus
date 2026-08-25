@@ -17,4 +17,4 @@ Broad agent-security surveys may remain in `sok_related/` without entering the a
 
 ## Set 1 and Set 2
 
-Set 1 uses `peer_reviewed == yes OR frozen_citation_count >= 10`. Set 2 contains the remaining in-scope emerging work. The current corpus is **92 Set 1 + 97 Set 2 = 189 works**.
+Set 1 uses `peer_reviewed == yes OR frozen_citation_count >= 10`. Set 2 contains the remaining in-scope emerging work. The current corpus is **107 Set 1 + 82 Set 2 = 189 works**.

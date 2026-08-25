@@ -24,4 +24,4 @@ A work outside the active 189 must not have a paper note under `papers/`. `sok_r
 
 ## Validation
 
-Run `scripts/validate_all.sh`. Validation must enforce Set 1 = 92, Set 2 = 97, total = 189, the 47/80/44/12/6 contribution partition, exact paper-index membership, and exactly 189 non-README paper notes.
+Run `scripts/validate_all.sh`. Validation must enforce Set 1 = 107, Set 2 = 82, total = 189, the 47/80/44/12/6 contribution partition, exact paper-index membership, and exactly 189 non-README paper notes.

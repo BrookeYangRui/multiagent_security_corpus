@@ -1,14 +1,14 @@
 # Smarter Saboteurs, Better Fixers: Scaling&Security in Linear Multi-Agent Workflows
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `general` · venue `arXiv / preprint` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `general` · venue `AIWILD Workshop at ICML` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
 * Year: 2026
-* Venue: arXiv / preprint
+* Venue: AIWILD Workshop at ICML
 * DOI: N/A
 * arXiv: 2606.12709
 * Primary URL: https://www.semanticscholar.org/paper/9efbf2acb974342145797cb766c63de8b7746591

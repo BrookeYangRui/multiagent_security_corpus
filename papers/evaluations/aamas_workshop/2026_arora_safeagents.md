@@ -1,7 +1,7 @@
 # Exposing Weak Links in Multi-Agent Systems under Adversarial Prompting
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `evaluation` · venue `AAMAS Strategic Engineering Workshop` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `evaluation` · venue `AAMAS` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 

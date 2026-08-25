@@ -1,14 +1,14 @@
 # INFA-Guard: Mitigating Malicious Propagation via Infection-Aware Safeguarding in LLM-Based Multi-Agent Systems
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv.org` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `EMNLP` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
 * Year: 2026
-* Venue: arXiv.org
+* Venue: EMNLP
 * DOI: N/A
 * arXiv: 2601.14667
 * Primary URL: https://www.semanticscholar.org/paper/3056e518d044a9d651a0e45311a1a921f3cf26d8

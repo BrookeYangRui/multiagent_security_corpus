@@ -8,7 +8,7 @@ R = Path(__file__).resolve().parents[1]
 C = R / "corpus"
 P = R / "papers"
 
-EXPECTED_COUNTS = {"set1_core": 92, "set2_emerging": 97, "total_corpus": 189}
+EXPECTED_COUNTS = {"set1_core": 107, "set2_emerging": 82, "total_corpus": 189}
 EXPECTED_CONTRIB = {"attack": 47, "defense": 80, "evaluation": 44, "general": 12, "survey": 6}
 CATEGORY_DIR = {"attack": "attacks", "defense": "defenses", "evaluation": "evaluations", "general": "general", "survey": "surveys"}
 
@@ -20,7 +20,7 @@ def rows(path):
 
 s1 = rows(C / "set1_core.csv")
 s2 = rows(C / "set2_emerging.csv")
-if (len(s1), len(s2)) != (92, 97):
+if (len(s1), len(s2)) != (107, 82):
     raise SystemExit(f"authoritative counts changed: {len(s1)}/{len(s2)}")
 all_rows = s1 + s2
 if len(all_rows) != 189:
@@ -151,4 +151,4 @@ for path in docs:
         if token in text:
             raise SystemExit(f"legacy corpus reference remains in {path.relative_to(R)}: {token}")
 
-print("Final corpus valid: Set1=92 Set2=97 total=189; papers=189; category and venue placement indexed; legacy active views absent")
+print("Final corpus valid: Set1=107 Set2=82 total=189; papers=189; category and venue placement indexed; legacy active views absent")

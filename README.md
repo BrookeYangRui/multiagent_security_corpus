@@ -8,8 +8,8 @@ There is one active manuscript corpus: **189 works**.
 
 | Set | Count | Meaning |
 | --- | ---: | --- |
-| Set 1 | 92 | In-scope mature MAS security work |
-| Set 2 | 97 | In-scope emerging MAS security work |
+| Set 1 | 107 | In-scope mature MAS security work |
+| Set 2 | 82 | In-scope emerging MAS security work |
 | **Total** | **189** | **Authoritative MAS security corpus** |
 
 The authoritative row-level files are `corpus/set1_core.csv` and `corpus/set2_emerging.csv`.

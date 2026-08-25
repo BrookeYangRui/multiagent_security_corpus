@@ -1,7 +1,7 @@
 # SAIGuard: Communication-State Simulation for Proactive Defense of LLM Multi-Agent Systems
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `EMNLP Findings` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 

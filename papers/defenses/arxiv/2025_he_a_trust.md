@@ -1,7 +1,7 @@
 # To Trust or Not to Trust: Attention-based Trust Management for LLM Multi-Agent Systems
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `ACL` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 

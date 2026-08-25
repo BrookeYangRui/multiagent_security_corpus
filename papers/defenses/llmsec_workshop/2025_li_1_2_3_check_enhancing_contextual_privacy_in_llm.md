@@ -1,7 +1,7 @@
 # 1-2-3 Check: Enhancing Contextual Privacy in LLM via Multi-Agent Reasoning
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `LLMSEC 2025 Workshop` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `IASEAI` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 

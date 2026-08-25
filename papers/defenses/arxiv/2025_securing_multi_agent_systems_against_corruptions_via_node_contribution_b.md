@@ -1,14 +1,14 @@
 # Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv / preprint` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `ICML` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
-* Year: 2025
-* Venue: arXiv / preprint
+* Year: 2026
+* Venue: ICML
 * DOI: N/A
 * arXiv: 2510.19420
 * Primary URL: https://www.semanticscholar.org/paper/19ed9b8d65821da821509212ad4aa878fa73b704

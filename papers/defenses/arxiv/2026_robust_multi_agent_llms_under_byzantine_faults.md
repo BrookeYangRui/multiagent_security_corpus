@@ -1,14 +1,14 @@
 # Robust Multi-Agent LLMs under Byzantine Faults
 
 <!-- FINAL_CORPUS_STATUS_START -->
-> **Final signed corpus status:** `set2_emerging` · `defense` · venue `arXiv.org` · signoff `2026-08-21`.
+> **Final signed corpus status:** `set1_core` · `defense` · venue `EMNLP` · signoff `2026-08-25`.
 > This banner is authoritative if older review prose below records an earlier classification.
 <!-- FINAL_CORPUS_STATUS_END -->
 
 ## Citation metadata
 
 * Year: 2026
-* Venue: arXiv.org
+* Venue: EMNLP
 * DOI: N/A
 * arXiv: 2605.09076
 * Primary URL: https://www.semanticscholar.org/paper/a946db88de13b1a6e394973c3ecb191f1dca11d2

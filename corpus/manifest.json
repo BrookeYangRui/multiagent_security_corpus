@@ -1,17 +1,17 @@
 {
   "literature_cutoff": "2026-07-01",
-  "final_signoff_date": "2026-08-21",
+  "final_signoff_date": "2026-08-25",
   "counts": {
-    "set1_core": 92,
-    "set2_emerging": 97,
+    "set1_core": 107,
+    "set2_emerging": 82,
     "total_corpus": 189
   },
   "contributions": {
-    "attack": 46,
-    "defense": 80,
     "evaluation": 44,
+    "attack": 47,
+    "defense": 80,
     "general": 12,
-    "survey": 7
+    "survey": 6
   },
   "authoritative_files": [
     "set1_core.csv",
